@@ -1,0 +1,30 @@
+# User-agent: * applies to all search crawlers
+User-agent: *
+
+# Public Content: Index everything by default
+Allow: /
+
+# SECURITY & UX: Block sensitive or empty state routes
+Disallow: /admin/
+Disallow: /login/
+Disallow: /forgot-password/
+Disallow: /checkout/
+Disallow: /private/
+Disallow: /dashboard/
+
+# FUNCTIONAL NOISE: Block purely backend or helper routes
+Disallow: /api/
+Disallow: /_data/
+Disallow: /config/
+Disallow: /test/
+Disallow: /submission-received/
+Disallow: /thank-you/
+
+# CRAWL EFFICIENCY: Prevent "Infinite Crawl" traps
+# Block specific search/filter parameters without blocking UTM marketing links
+Disallow: /*?s=*
+Disallow: /*?filter=*
+Disallow: /*?sort=*
+
+# Sitemap location
+Sitemap: https://yhctanbinh.com/sitemap-index.xml

@@ -1,0 +1,107 @@
+---
+/**
+ * Elite "Infinite-Performance" SEO Component
+ * Optimized for: Core Web Vitals, Crawlability, and Social Presence.
+ */
+
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  robots?: string;
+}
+
+const {
+  title,
+  description = "Phòng khám YHCT An Bình - Chăm sóc sức khỏe bằng y học cổ truyền tinh hoa, châm cứu tại Đất Đỏ.",
+  image = "/Asset/Thuốc 1E.webp", // Default premium fallback image
+  robots = "index, follow",
+} = Astro.props;
+
+const siteName = "Phòng Khám YHCT An Bình";
+const formattedTitle = `${title} | ${siteName}`;
+
+// 1. URL Construction
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// 2. Bilingual Hreflang Logic
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const basePath = isEnglish
+  ? Astro.url.pathname.replace(/^\/en/, "")
+  : Astro.url.pathname;
+
+const viUrl = new URL(basePath, Astro.site).toString();
+const enUrl = new URL(`/en${basePath}`, Astro.site).toString();
+
+// 3. Absolute Image for Social Scrapers
+const socialImageURL = new URL(image, Astro.site);
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+/>
+<meta name="generator" content={Astro.generator} />
+<meta name="theme-color" content="#526B48" />
+<!-- Primary Green -->
+
+<!-- Favicons & Web Manifest -->
+<link
+  rel="icon"
+  type="image/png"
+  href="/favicon/favicon-96x96.png"
+  sizes="96x96"
+/>
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/favicon/apple-touch-icon.png"
+/>
+<meta name="apple-mobile-web-app-title" content="An Bình" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
+
+<!-- Primary Meta Tags -->
+<title>{formattedTitle}</title>
+<meta name="title" content={formattedTitle} />
+<meta name="description" content={description} />
+<meta name="robots" content={robots} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Bilingual SEO (hreflang) -->
+<link rel="alternate" hreflang="vi" href={viUrl} />
+<link rel="alternate" hreflang="en" href={enUrl} />
+<link rel="alternate" hreflang="x-default" href={viUrl} />
+
+<!-- Performance Hints -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+<!-- Typography (Optimized Loading) -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Merriweather:wght@300;400;700&family=Open+Sans:wght@400;600&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- Open Graph / Facebook / Zalo -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={formattedTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImageURL} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content={isEnglish ? "en_US" : "vi_VN"} />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={formattedTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImageURL} />
+
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap-index.xml" />

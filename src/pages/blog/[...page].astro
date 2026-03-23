@@ -1,0 +1,547 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import type { Page } from "astro";
+import type { CollectionEntry } from "astro:content";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import { Image } from "astro:assets";
+import { getImageByPath } from "../../utils/assets";
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const allPosts = await getCollection("blog");
+  const sortedPosts = allPosts.sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  );
+  return paginate(sortedPosts, { pageSize: 6 });
+}
+
+interface Props {
+  page: Page<CollectionEntry<"blog">>;
+}
+
+const { page } = Astro.props as Props;
+
+// Asset Loading
+const asset_About_us2_webp = getImageByPath("About-us2.webp");
+const asset_Chinese_Med_webp = getImageByPath("Chinese-Med.webp");
+const asset_Herb_Farm_webp = getImageByPath("Herb-Farm.webp");
+const location_1 = getImageByPath("Location/Location 1.png");
+const asset_Dad_Final_3_webp = getImageByPath("Dad Final 3.webp");
+const asset_Thu_c_1_webp = getImageByPath("Thuốc 1.webp");
+const asset_Thu_c_1E_webp = getImageByPath("Thuốc 1E.webp");
+const asset_Personal_Treatment_webp = getImageByPath("Personal Treatment.webp");
+const location_2 = getImageByPath("Location/Location 2.png");
+---
+
+<BlogLayout title={`Blog & Tin Tức - Trang ${page.currentPage}`}>
+  <h1 class="sr-only">Blog và Kiến Thức Y Học Cổ Truyền An Bình</h1>
+  {page.currentPage === 1 && (
+    <!-- ===================== HERO SLIDER (Restored from Old Design) ===================== -->
+    <section class="hs-section" data-header-theme="dark">
+      <div class="hs-viewport" id="hsViewport">
+        <div class="hs-track" id="hsTrack">
+          <div class="hs-slide" data-index="0">
+            <Image class="hs-bg" src={asset_Chinese_Med_webp} alt="Slide 1" />
+            <div class="hs-overlay">
+              <span class="hs-cat lang-text" data-en="Therapies" data-vn="Trị Liệu">Trị Liệu</span>
+              <h2 class="hs-title lang-text" data-en="The Future of Acupuncture in Modern Healing" data-vn="Tương Lai Của Châm Cứu Trong Phục Hồi Hiện Đại">Tương Lai Của Châm Cứu Trong Phục Hồi Hiện Đại</h2>
+              <div class="hs-meta">Dr. Minh Hieu &nbsp;•&nbsp; Mar 20, 2025 &nbsp;•&nbsp; 5 min read</div>
+            </div>
+          </div>
+          <div class="hs-slide" data-index="1">
+            <Image class="hs-bg" src={asset_Herb_Farm_webp} alt="Slide 2" />
+            <div class="hs-overlay">
+              <span class="hs-cat lang-text" data-en="Herbs" data-vn="Thảo Dược">Thảo Dược</span>
+              <h2 class="hs-title lang-text" data-en="5 Herbs to Naturally Boost Your Immunity" data-vn="5 Thảo Dược Tăng Cường Miễn Dịch Tự Nhiên">5 Thảo Dược Tăng Cường Miễn Dịch Tự Nhiên</h2>
+              <div class="hs-meta">Dr. An &nbsp;•&nbsp; Mar 18, 2025 &nbsp;•&nbsp; 4 min read</div>
+            </div>
+          </div>
+          <div class="hs-slide" data-index="2">
+            <Image class="hs-bg" src={location_1} alt="Slide 3" />
+            <div class="hs-overlay">
+              <span class="hs-cat lang-text" data-en="Care" data-vn="Chăm Sóc">Chăm Sóc</span>
+              <h2 class="hs-title lang-text" data-en="The Science Behind Cupping Therapy Explained" data-vn="Giải Thích Khoa Học Đằng Sau Sự Giác Hơi">Giải Thích Khoa Học Đằng Sau Sự Giác Hơi</h2>
+              <div class="hs-meta">Dr. Hieu &nbsp;•&nbsp; Mar 01, 2025 &nbsp;•&nbsp; 4 min read</div>
+            </div>
+          </div>
+          <div class="hs-slide" data-index="3">
+            <Image class="hs-bg" src={asset_Thu_c_1E_webp} alt="Slide 4" />
+            <div class="hs-overlay">
+              <span class="hs-cat lang-text" data-en="Traditional Medicine" data-vn="Y Học Cổ Truyền">Y Học Cổ Truyền</span>
+              <h2 class="hs-title lang-text" data-en="Balancing Your Yin and Yang with Daily Herbs" data-vn="Cân Bằng Âm Dương Bằng Thảo Dược Hàng Ngày">Cân Bằng Âm Dương Bằng Thảo Dược Hàng Ngày</h2>
+              <div class="hs-meta">Dr. Bao &nbsp;•&nbsp; Feb 22, 2025 &nbsp;•&nbsp; 6 min read</div>
+            </div>
+          </div>
+          <div class="hs-slide" data-index="4">
+            <Image class="hs-bg" src={asset_Personal_Treatment_webp} alt="Slide 5" />
+            <div class="hs-overlay">
+              <span class="hs-cat lang-text" data-en="Recovery" data-vn="Phục Hồi">Phục Hồi</span>
+              <h2 class="hs-title lang-text" data-en="Helping Women Navigate Postpartum Recovery" data-vn="Giúp Phụ Nữ Phục Hồi Sau Sinh">Giúp Phụ Nữ Phục Hồi Sau Sinh</h2>
+              <div class="hs-meta">Dr. Hanh &nbsp;•&nbsp; Feb 10, 2025 &nbsp;•&nbsp; 5 min read</div>
+            </div>
+          </div>
+          <div class="hs-slide" data-index="5">
+            <Image class="hs-bg" src={asset_About_us2_webp} alt="Slide 6" />
+            <div class="hs-overlay">
+              <span class="hs-cat lang-text" data-en="Journal" data-vn="Nhật Ký">Nhật Ký</span>
+              <h2 class="hs-title lang-text" data-en="Understanding Meridian Lines" data-vn="Hiểu về Hệ Thống Kinh Lạc">Hiểu về Hệ Thống Kinh Lạc</h2>
+              <div class="hs-meta">Dr. Minh &nbsp;•&nbsp; Jan 28, 2025 &nbsp;•&nbsp; 3 min read</div>
+            </div>
+          </div>
+        </div>
+        <button class="hs-arrow hs-prev" id="hsPrev" aria-label="Previous slide">&#8249;</button>
+        <button class="hs-arrow hs-next" id="hsNext" aria-label="Next slide">&#8250;</button>
+        <div class="hs-dots" id="hsDots">
+          <span class="hs-dot active"></span>
+          <span class="hs-dot"></span>
+          <span class="hs-dot"></span>
+          <span class="hs-dot"></span>
+          <span class="hs-dot"></span>
+          <span class="hs-dot"></span>
+        </div>
+      </div>
+      <div class="hs-thumb-wrapper">
+        <div class="hs-thumb-track" id="hsThumbTrack">
+          <div class="hs-thumb active" data-index="0">
+            <div class="hs-thumb-img-wrap"><Image src={asset_Chinese_Med_webp} alt="Thumb 1" /></div>
+            <p class="hs-thumb-title lang-text" data-en="The Future of Acupuncture" data-vn="Tương Lai Của Châm Cứu">Tương Lai Của Châm Cứu</p>
+          </div>
+          <div class="hs-thumb" data-index="1">
+            <div class="hs-thumb-img-wrap"><Image src={asset_Herb_Farm_webp} alt="Thumb 2" /></div>
+            <p class="hs-thumb-title lang-text" data-en="5 Herbs to Boost Immunity" data-vn="5 Thảo Dược Tăng Cường Miễn Dịch">5 Thảo Dược Tăng Cường Miễn Dịch</p>
+          </div>
+          <div class="hs-thumb" data-index="2">
+            <div class="hs-thumb-img-wrap"><Image src={location_1} alt="Thumb 3" /></div>
+            <p class="hs-thumb-title lang-text" data-en="The Science of Cupping Therapy" data-vn="Khoa Học Của Giác Hơi">Khoa Học Của Giác Hơi</p>
+          </div>
+          <div class="hs-thumb" data-index="3">
+            <div class="hs-thumb-img-wrap"><Image src={asset_Thu_c_1E_webp} alt="Thumb 4" /></div>
+            <p class="hs-thumb-title lang-text" data-en="Balancing Yin and Yang" data-vn="Cân Bằng Âm Dương">Cân Bằng Âm Dương</p>
+          </div>
+          <div class="hs-thumb" data-index="4">
+            <div class="hs-thumb-img-wrap"><Image src={asset_Personal_Treatment_webp} alt="Thumb 5" /></div>
+            <p class="hs-thumb-title lang-text" data-en="Postpartum Recovery" data-vn="Phục Hồi Sau Sinh">Phục Hồi Sau Sinh</p>
+          </div>
+          <div class="hs-thumb" data-index="5">
+            <div class="hs-thumb-img-wrap"><Image src={asset_About_us2_webp} alt="Thumb 6" /></div>
+            <p class="hs-thumb-title lang-text" data-en="Meridian Lines" data-vn="Hệ Thống Kinh Lạc">Hệ Thống Kinh Lạc</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <div class="blog-page">
+    {page.currentPage === 1 && (
+      <!-- Featured Section -->
+      <section id="featured" class="featured-section" data-header-theme="light">
+          <h2 class="section-heading lang-text" data-en="Featured Articles" data-vn="Bài Viết Nổi Bật">Bài Viết Nổi Bật</h2>
+          <div class="heading-underline"></div>
+          <div class="featured-grid">
+            <a href="/blog/future-of-acupuncture" class="post-link-wrapper" style="text-decoration: none; color: inherit; display: block;">
+              <article class="post-card main-feature">
+                <figure class="post-image concave-corner"><Image src={asset_Thu_c_1_webp} alt="Featured Post" /></figure>
+                <div class="post-content">
+                  <h3 class="post-title lang-text" data-en="The Future of Acupuncture in Modern Healing" data-vn="Tương Lai Của Châm Cứu Trong Phục Hồi Hiện Đại">Tương Lai Của Châm Cứu Trong Phục Hồi Hiện Đại</h3>
+                  <p class="post-excerpt lang-text" data-en="How ancient techniques are being validated by modern science to treat chronic pain." data-vn="Cách khoa học hiện đại đang chứng minh công dụng của các phương pháp cổ xưa trong điều trị đau mãn tính.">Cách khoa học hiện đại đang chứng minh công dụng của các phương pháp cổ xưa trong điều trị đau mãn tính.</p>
+                  <div class="post-meta"><span>Dr. Minh Hieu in Trị Liệu</span><span class="dot">•</span><span>Mar 20</span><span class="dot">•</span><span>5 min read ★</span></div>
+                </div>
+              </article>
+            </a>
+            <div class="featured-slider-col">
+              <div class="fs-header">
+                <div class="fs-nav">
+                  <button id="fsPrev" class="fs-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg></button>
+                  <button id="fsNext" class="fs-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"></path></svg></button>
+                </div>
+              </div>
+              <div class="fs-viewport">
+                <div class="fs-track" id="fsTrack">
+                  <div class="fs-slide-col">
+                    <article class="post-card medium">
+                      <figure class="post-image concave-corner"><Image src={asset_Dad_Final_3_webp} alt="Medium Post 1" /></figure>
+                      <div class="post-content">
+                        <h4 class="post-title lang-text" data-en="Balancing Your Yin and Yang with Daily Herbs" data-vn="Cân Bằng Âm Dương Bằng Thảo Dược Hàng Ngày">Cân Bằng Âm Dương Bằng Thảo Dược Hàng Ngày</h4>
+                        <div class="post-meta"><span>Dr. An in Thảo Dược</span><span class="dot">•</span><span>Mar 18</span></div>
+                      </div>
+                    </article>
+                    <article class="post-card medium">
+                      <figure class="post-image concave-corner"><Image src={location_1} alt="Medium Post 2" /></figure>
+                      <div class="post-content">
+                        <h4 class="post-title lang-text" data-en="Why Pulse Diagnosis tells a 1000 words" data-vn="Tại Sao Bắt Mạch Mang Thể Nói Lên 1000 Lời">Tại Sao Bắt Mạch Mang Thể Nói Lên 1000 Lời</h4>
+                        <div class="post-meta" style="margin-top: auto;"><span>Dr. Bao in Chẩn Đoán</span><span class="dot">•</span><span>Mar 15</span></div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="fs-slide-col">
+                    <article class="post-card medium">
+                      <figure class="post-image concave-corner"><Image src={location_2} alt="Medium Post 3" /></figure>
+                      <div class="post-content">
+                        <h4 class="post-title lang-text" data-en="Organizing Your Morning Routine" data-vn="Thiết Lập Thói Quen Buổi Sáng">Thiết Lập Thói Quen Buổi Sáng</h4>
+                        <div class="post-meta"><span>Admin in Sức Khỏe</span><span class="dot">•</span><span>Mar 12</span></div>
+                      </div>
+                    </article>
+                    <article class="post-card medium">
+                      <figure class="post-image concave-corner"><Image src={asset_Chinese_Med_webp} alt="Medium Post 4" /></figure>
+                      <div class="post-content">
+                        <h4 class="post-title lang-text" data-en="Helping Women Navigate Postpartum" data-vn="Giúp Phụ Nữ Phục Hồi Sau Sinh">Giúp Phụ Nữ Phục Hồi Sau Sinh</h4>
+                        <div class="post-meta"><span>Dr. Hanh in Chăm Sóc</span><span class="dot">•</span><span>Mar 10</span></div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    )}
+
+    <!-- Latest Posts Section -->
+    <div class="bottom-layout">
+      <section class="latest-section">
+        <h2 class="section-heading lang-text" data-en="Latest Posts" data-vn="Bài Viết Mới Nhất">Bài Viết Mới Nhất</h2>
+        <div class="heading-underline"></div>
+        <div class="latest-grid" id="latestGrid">
+          {page.data.map((post: CollectionEntry<"blog">) => (
+            <article class="post-card main-feature">
+              <a href={`/blog/${post.id}`} style="text-decoration: none; color: inherit; display: block;">
+                <figure class="post-image concave-corner">
+                  <Image src={post.data.image} alt={post.data.title} />
+                </figure>
+              </a>
+              <div class="post-content">
+                <a href={`/blog/${post.id}`} style="text-decoration: none; color: inherit;">
+                  <h3 class="post-title">{post.data.title}</h3>
+                </a>
+                <p class="post-excerpt">{post.data.excerpt}</p>
+                <div class="post-meta">
+                  <span>{post.data.author}</span>
+                  <span class="dot">•</span>
+                  <span>{new Intl.DateTimeFormat('vi-VN', { month: 'short', day: 'numeric' }).format(post.data.date)} • 4 min read</span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- Popular Posts -->
+      <aside class="popular-section">
+        <h2 class="section-heading lang-text" data-en="Popular" data-vn="Phổ Biến">Phổ Biến</h2>
+        <div class="heading-underline"></div>
+        <div class="popular-list">
+          <article class="popular-item">
+            <span class="popular-number">01</span>
+            <div class="post-content">
+              <h4 class="post-title lang-text" data-en="What to expect on your first session" data-vn="Lưu ý cho buổi trị liệu đầu tiên">Lưu ý cho buổi trị liệu đầu tiên</h4>
+              <div class="post-meta"><span>Admin in Hướng Dẫn</span><span>Feb 10</span></div>
+            </div>
+          </article>
+          <article class="popular-item">
+            <span class="popular-number">02</span>
+            <div class="post-content">
+              <h4 class="post-title lang-text" data-en="Dietary changes for better sleep" data-vn="Thay đổi chế độ ăn để ngủ ngon hơn">Thay đổi chế độ ăn để ngủ ngon hơn</h4>
+              <div class="post-meta"><span>Dr. Bao in Dinh Dưỡng</span><span>Feb 15</span></div>
+            </div>
+          </article>
+          <article class="popular-item">
+            <span class="popular-number">03</span>
+            <div class="post-content">
+              <h4 class="post-title lang-text" data-en="Understanding Meridian Lines" data-vn="Hiểu về Hệ Thống Kinh Lạc">Hiểu về Hệ Thống Kinh Lạc</h4>
+              <div class="post-meta"><span>Dr. Minh in Kiến Thức</span><span>Jan 28</span></div>
+            </div>
+          </article>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Pagination Navigation -->
+    <nav class="pagination-nav" aria-label="Blog Pagination">
+      <div class="pagination-info lang-text" data-en={`Page ${page.currentPage} of ${page.lastPage}`} data-vn={`Trang ${page.currentPage} / ${page.lastPage}`}>
+        Trang {page.currentPage} / {page.lastPage}
+      </div>
+      <div class="pagination-links">
+        {page.url.prev ? (
+          <a href={page.url.prev} class="pagination-btn">← Trang trước</a>
+        ) : (
+          <span class="pagination-btn disabled">← Trang trước</span>
+        )}
+        
+        <div class="page-numbers">
+          {[...Array(page.lastPage)].map((_, i) => (
+            <a 
+              href={i === 0 ? "/blog" : `/blog/${i + 1}`} 
+              class={`page-number ${page.currentPage === i + 1 ? 'active' : ''}`}
+            >
+              {i + 1}
+            </a>
+          ))}
+        </div>
+
+        {page.url.next ? (
+          <a href={page.url.next} class="pagination-btn">Trang sau →</a>
+        ) : (
+          <span class="pagination-btn disabled">Trang sau →</span>
+        )}
+      </div>
+    </nav>
+  </div>
+</BlogLayout>
+
+<style>
+  :root {
+    --blog-bg: #f9f5e3;
+    --blog-text: #241a0f;
+    --blog-green: #2b3a24;
+    --blog-subtext: #5c6755;
+    --blog-gold: #c8a97e;
+    --blog-border: #e2dac9;
+    --scoop-radius: 12px;
+  }
+
+  body { background-color: var(--blog-bg) !important; }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .blog-page {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+    font-family: "Open Sans", sans-serif;
+    color: var(--blog-text);
+    box-sizing: border-box;
+  }
+
+  /* Restored Hero Styles from dist/ */
+  .hs-section { width: 90vw !important; max-width: 90vw !important; margin: 24px auto 10px !important; position: relative; user-select: none; }
+  
+  /* Modified only the viewport height to meet "full screen" request while keeping other styles "old" */
+  .hs-viewport { 
+    position: relative; 
+    width: 100%; 
+    height: 70vh; 
+    overflow: hidden; 
+    background: #1a1208;
+    mask-image: radial-gradient(circle at top left, transparent 19px, black 20px), radial-gradient(circle at top right, transparent 19px, black 20px);
+    mask-size: 51% 100%; mask-repeat: no-repeat;
+    mask-position: top left, top right;
+    -webkit-mask-image: radial-gradient(circle at top left, transparent 19px, black 20px), radial-gradient(circle at top right, transparent 19px, black 20px);
+    -webkit-mask-size: 51% 100%; -webkit-mask-repeat: no-repeat; -webkit-mask-position: top left, top right;
+  }
+  
+  .hs-track { display: flex; width: 100%; height: 100%; transition: transform 0.65s cubic-bezier(0.77, 0, 0.18, 1); will-change: transform; }
+  .hs-slide { flex: 0 0 100%; width: 100%; height: 100%; position: relative; overflow: hidden; }
+  .hs-bg { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hs-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 60px 5% 36px; background: linear-gradient(to top, rgba(20, 12, 4, 0.88) 0%, rgba(20, 12, 4, 0.55) 50%, transparent 100%); color: #fff; }
+  
+  .hs-cat { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--blog-gold); background: rgba(200, 169, 126, 0.15); border: 1px solid rgba(200, 169, 126, 0.4); padding: 4px 12px; margin-bottom: 14px; }
+  .hs-title { font-family: "Merriweather", serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; margin: 0 0 12px; line-height: 1.2; text-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+  .hs-meta { font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); }
+
+  .hs-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.55); background: #f9f5e326; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; font-size: 1.8rem; backdrop-filter: blur(4px); transition: all 0.3s; }
+  .hs-arrow:hover { background: var(--blog-gold); border-color: var(--blog-gold); }
+  .hs-prev { left: 24px; }
+  .hs-next { right: 24px; }
+
+  .hs-dots { position: absolute; bottom: 18px; left: 50%; transform: translate(-50%); display: flex; gap: 8px; z-index: 10; }
+  .hs-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255, 255, 255, 0.4); cursor: pointer; transition: all 0.3s; border: none; }
+  .hs-dot.active { background: var(--blog-gold); transform: scale(1.35); }
+
+  .hs-thumb-wrapper { width: 100%; overflow: hidden; background: var(--blog-text); }
+  .hs-thumb-track { display: flex; transition: transform 0.45s ease; will-change: transform; }
+  .hs-thumb { flex: 0 0 25%; display: flex; align-items: center; gap: 14px; padding: 16px 18px; cursor: pointer; background: var(--blog-text); border-top: 3px solid transparent; transition: all 0.3s; box-sizing: border-box; }
+  .hs-thumb:hover { background: #3a2a19; }
+  .hs-thumb.active { border-top-color: var(--blog-gold); background: #2e2013; }
+  .hs-thumb-img-wrap { flex-shrink: 0; width: 72px; height: 52px; overflow: hidden; }
+  .hs-thumb-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .hs-thumb-title { font-size: 0.85rem; font-weight: 500; color: rgba(255, 255, 255, 0.7); line-height: 1.4; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .hs-thumb.active .hs-thumb-title { color: #fff; }
+
+  /* Standard Content Sections */
+  .section-heading { font-family: "Open Sans", sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--blog-text); text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px; }
+  .heading-underline { width: 100%; height: 1px; background-color: var(--blog-text); margin-bottom: 40px; opacity: 0.8; }
+
+  .post-card { display: flex; flex-direction: column; margin-bottom: 30px; }
+  .post-title { font-family: "Merriweather", serif; font-weight: 700; color: var(--blog-text); line-height: 1.3; margin-top: 15px; margin-bottom: 8px; cursor: pointer; transition: color 0.3s; }
+  .post-title:hover { color: var(--blog-gold); }
+  .post-excerpt { font-size: 0.95rem; color: var(--blog-subtext); line-height: 1.5; margin-bottom: 15px; }
+  .post-meta { font-size: 0.8rem; color: #777; display: flex; align-items: center; gap: 8px; }
+  .post-meta .dot { font-size: 0.5rem; }
+  .post-image { width: 100%; margin: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+  .post-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  .post-card:hover .post-image img { transform: scale(1.05); }
+
+  .post-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.6em;
+  }
+
+  .concave-corner { 
+    position: relative; overflow: hidden; 
+    mask-image: radial-gradient(circle at top left, transparent 11px, black 12px), radial-gradient(circle at top right, transparent 11px, black 12px), radial-gradient(circle at bottom right, transparent 11px, black 12px), radial-gradient(circle at bottom left, transparent 11px, black 12px);
+    mask-size: 51% 51%; mask-repeat: no-repeat;
+    mask-position: top left, top right, bottom right, bottom left;
+    -webkit-mask-image: radial-gradient(circle at top left, transparent 11px, black 12px), radial-gradient(circle at top right, transparent 11px, black 12px), radial-gradient(circle at bottom right, transparent 11px, black 12px), radial-gradient(circle at bottom left, transparent 11px, black 12px);
+    -webkit-mask-size: 51% 51%; -webkit-mask-repeat: no-repeat; -webkit-mask-position: top left, top right, bottom left, bottom right;
+  }
+
+  .featured-section { margin-bottom: 80px; }
+  .featured-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+  .main-feature .post-image { height: 350px; }
+  .main-feature .post-title { font-size: 1.6rem; }
+
+  .featured-slider-col { position: relative; width: 100%; display: flex; flex-direction: column; min-width: 0; }
+  .fs-header { display: flex; justify-content: flex-end; margin-bottom: 25px; }
+  .fs-nav { display: flex; gap: 12px; }
+  .fs-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--blog-gold); background: transparent; color: var(--blog-gold); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+  .fs-btn:hover { background: var(--blog-gold); color: #fff; }
+  .fs-viewport { width: 100%; overflow: hidden; }
+  .fs-track { display: flex; gap: 40px; transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1); }
+  .fs-slide-col { flex: 0 0 calc(50% - 20px); display: flex; flex-direction: column; gap: 40px; min-width: 0; }
+  .post-card.medium .post-image { height: 180px; }
+  .post-card.medium .post-title { font-size: 1.2rem; }
+
+  .bottom-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; align-items: start; }
+  .latest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .latest-grid .post-image { height: 250px; }
+  .latest-grid .post-title { font-size: 1.4rem; }
+
+  .pagination-nav { margin-top: 80px; padding: 40px 0; border-top: 1px solid var(--blog-border); display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; }
+  .pagination-info { font-size: 0.95rem; font-weight: 600; color: var(--blog-subtext); letter-spacing: 0.5px; }
+  .pagination-links { display: flex; align-items: center; gap: 20px; }
+  .pagination-btn { padding: 10px 28px; border: 1px solid var(--blog-gold); color: var(--blog-gold); background-color: #fff; text-decoration: none; font-family: "Playfair Display", serif; font-weight: 600; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .pagination-btn:hover:not(.disabled) { background: var(--blog-gold); color: #fff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(200, 169, 126, 0.2); }
+  .pagination-btn.disabled { opacity: 0.3; cursor: not-allowed; border-color: var(--blog-border); color: var(--blog-subtext); }
+  .page-numbers { display: flex; gap: 12px; }
+  .page-number { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--blog-border); background-color: #fff; text-decoration: none; color: var(--blog-text); font-weight: 600; transition: all 0.3s; }
+  .page-number:hover:not(.active) { border-color: var(--blog-gold); color: var(--blog-gold); }
+  .page-number.active { background: var(--blog-green); color: #fff; border-color: var(--blog-green); transform: scale(1.1); box-shadow: 0 4px 10px rgba(43, 58, 36, 0.2); }
+
+  .popular-section { position: sticky; top: 120px; height: fit-content; }
+  .popular-list { display: flex; flex-direction: column; gap: 35px; }
+  .popular-item { display: flex; gap: 20px; align-items: flex-start; }
+  .popular-number { font-size: 2.5rem; font-weight: 800; color: var(--blog-border); line-height: 1; padding-top: 5px; }
+
+  /* Mobile Styles (Full width already handled by removing max-width on containers if needed, but here we keep it outside) */
+  @media screen and (max-width: 1024px) {
+    .hs-thumb { flex: 0 0 33.333%; }
+    .featured-grid, .bottom-layout { grid-template-columns: 1fr; }
+    .fs-slide-col { flex: 0 0 100%; width: 100%; }
+    .popular-section { position: static; }
+  }
+  @media screen and (max-width: 768px) {
+    .hs-section { width: 100% !important; max-width: 100% !important; margin: 0 !important; }
+    .hs-viewport { height: 50vh; }
+    .hs-thumb { flex: 0 0 50% !important; padding: 12px 10px; border-right: 1px solid rgba(255,255,255,0.05); }
+    .latest-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    const TOTAL = 6;
+    let current = 0;
+    let thumbOffset = 0;
+
+    const track = document.getElementById("hsTrack");
+    const thumbTrack = document.getElementById("hsThumbTrack");
+    const dots = Array.from(document.querySelectorAll(".hs-dot"));
+    const thumbs = Array.from(document.querySelectorAll(".hs-thumb"));
+    const prevBtn = document.getElementById("hsPrev");
+    const nextBtn = document.getElementById("hsNext");
+
+    function getThumbsVisible() {
+      if (window.innerWidth <= 768) return 2;
+      if (window.innerWidth <= 1024) return 3;
+      return 4;
+    }
+
+    function goToSlide(rawIndex) {
+      let index = rawIndex;
+      if (index < 0) index = TOTAL - 1;
+      if (index >= TOTAL) index = 0;
+      current = index;
+
+      if(track) track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle("active", i === current));
+      thumbs.forEach((t, i) => t.classList.toggle("active", i === current));
+
+      // Centering/Shifting thumb track
+      const visible = getThumbsVisible();
+      const maxOffset = TOTAL - visible;
+      
+      // Fix: Reset thumbOffset when wrapping around
+      if (rawIndex >= TOTAL) thumbOffset = 0;
+      else if (rawIndex < 0) thumbOffset = maxOffset;
+      else {
+        if (current >= thumbOffset + visible - 1 && thumbOffset < maxOffset) {
+          thumbOffset = Math.min(thumbOffset + 1, maxOffset);
+        } else if (current <= thumbOffset && thumbOffset > 0) {
+          thumbOffset = Math.max(thumbOffset - 1, 0);
+        }
+      }
+
+      const thumbPct = (thumbOffset / visible) * 100;
+      if(thumbTrack) thumbTrack.style.transform = `translateX(-${thumbPct}%)`;
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", () => goToSlide(current - 1));
+    if (nextBtn) nextBtn.addEventListener("click", () => goToSlide(current + 1));
+    dots.forEach((d, i) => d.addEventListener("click", () => goToSlide(i)));
+    thumbs.forEach((t) => t.addEventListener("click", () => goToSlide(parseInt(t.getAttribute("data-index"), 10))));
+
+    let autoTimer = setInterval(() => goToSlide(current + 1), 7000);
+    const section = document.querySelector(".hs-section");
+    if (section) {
+      section.addEventListener("mouseenter", () => clearInterval(autoTimer));
+      section.addEventListener("mouseleave", () => {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(() => goToSlide(current + 1), 7000);
+      });
+    }
+    goToSlide(0);
+
+    // Featured Slider Logic
+    (function initFeaturedSlider() {
+      const fsTrack = document.getElementById("fsTrack");
+      const fsPrev = document.getElementById("fsPrev");
+      const fsNext = document.getElementById("fsNext");
+      if (!fsTrack || !fsPrev || !fsNext) return;
+      let fsOffset = 0;
+      function updateFs() {
+        const isMobile = window.innerWidth <= 1024;
+        const width = fsTrack.offsetWidth;
+        const step = isMobile ? (width + 40) : (width / 2 + 20);
+        fsTrack.style.transform = `translateX(calc(-1 * ${fsOffset} * ${step}px))`;
+      }
+      fsNext.addEventListener("click", (e) => {
+        e.preventDefault();
+        const maxOffset = Math.max(0, fsTrack.children.length - (window.innerWidth <= 1024 ? 1 : 2));
+        fsOffset = (fsOffset + 1) > maxOffset ? 0 : fsOffset + 1;
+        updateFs();
+      });
+      fsPrev.addEventListener("click", (e) => {
+        e.preventDefault();
+        const maxOffset = Math.max(0, fsTrack.children.length - (window.innerWidth <= 1024 ? 1 : 2));
+        fsOffset = (fsOffset - 1) < 0 ? maxOffset : fsOffset - 1;
+        updateFs();
+      });
+      window.addEventListener("resize", updateFs);
+      updateFs();
+    })();
+  })();
+</script>

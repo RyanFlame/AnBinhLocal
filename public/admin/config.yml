@@ -1,0 +1,43 @@
+backend:
+  name: git-gateway
+  branch: main 
+
+# This enables the "workflow" feature, allowing you to save drafts before publishing
+publish_mode: editorial_workflow
+
+# This allows the CMS to read your images from the src folder
+media_folder: "src/assets"
+public_folder: "../../assets"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{title}}" # How the markdown file is named automatically
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Excerpt",
+          name: "excerpt",
+          widget: "text",
+          hint: "A short summary of the post.",
+        }
+      - { label: "Author", name: "author", widget: "string", default: "Dr. An" }
+      - {
+          label: "Author Role",
+          name: "authorRole",
+          widget: "string",
+          default: "Thảo Dược",
+        }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options:
+            ["Dinh Dưỡng", "Thảo Dược", "Lối Sống", "Trị Liệu", "Tin Tức"],
+        }
+      - { label: "Body", name: "body", widget: "markdown" }

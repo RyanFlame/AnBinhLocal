@@ -1,0 +1,142 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+import { getImageByPath } from '../utils/assets';
+
+const bgAsset = getImageByPath('Asset/404-bg.png');
+---
+
+<Layout title="404 - Page Not Found | An Binh Clinic">
+  <main class="error-page" data-header-theme="light">
+    <div class="container error-container">
+      <div class="error-visual">
+          <div class="frame-scooped scoop-xl">
+             <Image src={bgAsset} alt="Serene Clinic Doorway" class="error-img" />
+          </div>
+          <div class="floating-404">404</div>
+      </div>
+      
+      <div class="error-content">
+        <span class="accent-label lang-text" data-en="Peaceful but Lost" data-vn="Bình Yên nhưng Lạc Lối">
+            Bình Yên nhưng Lạc Lối
+        </span>
+        <h1 class="heading-section lang-text" data-en="Oops! This path is closed." data-vn="Ối! Con đường này đã đóng.">
+           Ối! Con đường này đã đóng.
+        </h1>
+        <p class="body-large lang-text" data-en="The page you are looking for might have moved, or you might have taken a turn into a non-existent corner of our clinic." data-vn="Trang bạn đang tìm kiếm có thể đã được di chuyển, hoặc bạn có thể đã rẽ vào một góc không tồn tại trong phòng khám của chúng tôi.">
+          Trang bạn đang tìm kiếm có thể đã được di chuyển, hoặc bạn có thể đã rẽ vào một góc không tồn tại trong phòng khám của chúng tôi.
+        </p>
+        
+        <div class="error-actions">
+           <a href="/" class="btn-primary lang-text" data-en="Return to Balance" data-vn="Trở về Trang Chủ">
+              Trở về Trang Chủ
+           </a>
+           <a href="/therapies" class="btn-secondary lang-text" data-en="Explore Therapies" data-vn="Khám Phá Liệu Pháp">
+              Khám Phá Liệu Pháp
+           </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .error-page {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--warm-white);
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .error-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .error-visual {
+    position: relative;
+    padding: 20px;
+  }
+
+  .error-img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .floating-404 {
+    position: absolute;
+    top: -30px;
+    right: -20px;
+    font-family: var(--font-serif);
+    font-size: 10rem;
+    color: var(--indochine-teal);
+    opacity: 0.12;
+    z-index: 10;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .error-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .accent-label {
+    display: block;
+    margin-bottom: -15px;
+  }
+
+  .error-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  @media screen and (max-width: 992px) {
+    .error-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 50px;
+    }
+    
+    .error-visual {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .error-img {
+      height: 400px;
+    }
+    
+    .error-actions {
+      justify-content: center;
+    }
+
+    .floating-404 {
+        font-size: 7rem;
+        top: -10px;
+        right: 0;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .error-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+    .error-actions a {
+        width: 100%;
+        text-align: center;
+    }
+    .heading-section {
+        font-size: 2.2rem;
+    }
+  }
+</style>

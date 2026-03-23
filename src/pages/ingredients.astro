@@ -1,0 +1,1364 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+import { getImageByPath } from '../utils/assets';
+
+// Use the elite bulk loader to get images automatically
+// This is much cleaner than manually importing every single file.
+const asset_Med_webp = getImageByPath('Med.webp');
+const asset_Ingri_Ginseng_webp = getImageByPath('Ingri/Ginseng.webp');
+const asset_Med8_webp = getImageByPath('Med8.webp');
+const asset_Med3_webp = getImageByPath('Med3.webp');
+const asset_Thu_c_3_webp = getImageByPath('Thuốc 3.webp');
+const asset_Herbal_Medicine_webp = getImageByPath('Herbal-Medicine.webp');
+---
+
+<Layout title="Premium Ingredients - An Binh Traditional Medicine">
+  <!-- ================================================ -->
+  <!-- HERO SECTION                                       -->
+  <!-- ================================================ -->
+  <section class="ing-hero">
+    <div class="ing-hero-overlay"></div>
+    <div class="ing-hero-content">
+      <p
+        class="ing-hero-label lang-text"
+        data-en="Our Heritage"
+        data-vn="Di Sản Của Chúng Tôi"
+      >
+        Di Sản Của Chúng Tôi
+      </p>
+      <h1
+        class="ing-hero-title lang-text"
+        data-en="Nature's Finest,<br>Carefully Curated."
+        data-vn="Tinh Tuý Thiên Nhiên,<br>Tuyển Chọn Kỹ Lưỡng."
+      >
+        Tinh Tuý Thiên Nhiên,<br />Tuyển Chọn Kỹ Lưỡng.
+      </h1>
+      <p
+        class="ing-hero-desc lang-text"
+        data-en="Every herb, every root, every blossom — ethically sourced from pristine highland gardens and trusted traditional farms."
+        data-vn="Mỗi thảo dược, mỗi rễ cây, mỗi bông hoa — được thu hoạch có trách nhiệm từ những vườn cao nguyên trong lành và các trang trại truyền thống uy tín."
+      >
+        Mỗi thảo dược, mỗi rễ cây, mỗi bông hoa — được thu hoạch có trách nhiệm
+        từ những vườn cao nguyên trong lành và các trang trại truyền thống uy
+        tín.
+      </p>
+      <a
+        href="#categories"
+        class="btn-primary ing-hero-btn lang-text"
+        data-en="EXPLORE INGREDIENTS"
+        data-vn="KHÁM PHÁ THÀNH PHẦN"
+      >
+        KHÁM PHÁ THÀNH PHẦN
+      </a>
+    </div>
+    <!-- Scooped decorative corner card -->
+    <div class="ing-hero-corner">
+      <div class="ing-hero-corner-inner">
+        <span
+          class="ing-corner-label lang-text"
+          data-en="100% Natural Sources"
+          data-vn="100% Nguồn Thiên Nhiên">100% Nguồn Thiên Nhiên</span
+        >
+        <div class="ing-corner-stats">
+          <div class="ing-stat">
+            <strong>80+</strong>
+            <small
+              class="lang-text"
+              data-en="Herb Varieties"
+              data-vn="Loại Thảo Dược">Loại Thảo Dược</small
+            >
+          </div>
+          <div class="ing-stat-divider"></div>
+          <div class="ing-stat">
+            <strong>25+</strong>
+            <small
+              class="lang-text"
+              data-en="Exclusive Traditional Medicines"
+              data-vn="Bài Thuốc Độc Quyền">Bài Thuốc Độc Quyền</small
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- WHY CHOOSE OUR INGREDIENTS                        -->
+  <!-- ================================================ -->
+  <section class="ing-why" id="categories">
+    <div class="ing-why-container">
+      <div class="ing-why-header">
+        <p
+          class="sub-heading lang-text"
+          data-en="Our Promise"
+          data-vn="Cam Kết Của Chúng Tôi"
+        >
+          Cam Kết Của Chúng Tôi
+        </p>
+        <h2
+          class="heading-section lang-text"
+          data-en="Why Our Ingredients<br>Stand Apart"
+          data-vn="Vì Sao Thành Phần<br>Của Chúng Tôi Khác Biệt"
+        >
+          Vì Sao Thành Phần<br />Của Chúng Tôi Khác Biệt
+        </h2>
+        <p
+          class="body-regular ing-why-desc lang-text"
+          data-en="We work directly with highland farmers and traditional cultivators to bring you herbs harvested at peak potency, dried and processed using centuries-old methods."
+          data-vn="Chúng tôi làm việc trực tiếp với nông dân vùng cao và các nhà canh tác truyền thống để mang đến các loại thảo dược được thu hoạch đúng độ chín, sơ chế theo phương pháp có tuổi đời hàng thế kỷ."
+        >
+          Chúng tôi làm việc trực tiếp với nông dân vùng cao và các nhà canh tác
+          truyền thống để mang đến các loại thảo dược được thu hoạch đúng độ
+          chín, sơ chế theo phương pháp có tuổi đời hàng thế kỷ.
+        </p>
+      </div>
+
+      <!-- 3-column ingredient category cards -->
+      <div class="ing-cards-grid">
+        <!-- Card 1: Dried Herbs -->
+        <div class="ing-category-card">
+          <div class="ing-card-img-wrap">
+            <Image src={asset_Med_webp} alt="Dried Herbs" class="ing-card-img" />
+            <div class="ing-card-img-overlay"></div>
+          </div>
+          <div class="ing-card-body">
+            <h3
+              class="heading-subsection ing-card-title lang-text"
+              data-en="Dried Herbs"
+              data-vn="Thảo Dược Khô"
+            >
+              Thảo Dược Khô
+            </h3>
+            <p
+              class="body-small ing-card-desc lang-text"
+              data-en="Sun-dried at optimal harvest time to preserve active compounds and maximum therapeutic value for your healing formulas."
+              data-vn="Phơi sấy đúng thời điểm thu hoạch để bảo toàn hợp chất hoạt tính và giá trị trị liệu tối đa cho các bài thuốc của bạn."
+            >
+              Phơi sấy đúng thời điểm thu hoạch để bảo toàn hợp chất hoạt tính
+              và giá trị trị liệu tối đa.
+            </p>
+            <a
+              href="/about"
+              class="btn-secondary ing-card-btn lang-text"
+              data-en="Learn More"
+              data-vn="Tìm Hiểu Thêm"
+            >
+              Tìm Hiểu Thêm
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Medicinal Roots -->
+        <div class="ing-category-card ing-card-featured">
+          <div class="ing-card-img-wrap">
+            <Image
+              src={asset_Ingri_Ginseng_webp}
+              alt="Medicinal Roots"
+              class="ing-card-img"
+            />
+            <div class="ing-card-img-overlay"></div>
+          </div>
+          <div class="ing-card-body">
+            <h3
+              class="heading-subsection ing-card-title lang-text"
+              data-en="Medicinal Roots"
+              data-vn="Rễ Cây Dược Liệu"
+            >
+              Rễ Cây Dược Liệu
+            </h3>
+            <p
+              class="body-small ing-card-desc lang-text"
+              data-en="Ginseng, astragalus, and licorice root — cornerstone tonics of Eastern medicine, sourced with decades of trusted partnerships."
+              data-vn="Nhân sâm, hoàng kỳ và cam thảo — các vị thuốc bổ nền tảng của Đông y, được tuyển chọn qua nhiều thập kỷ tin cậy."
+            >
+              Nhân sâm, hoàng kỳ và cam thảo — các vị thuốc bổ nền tảng của Đông
+              y, được tuyển chọn qua nhiều thập kỷ tin cậy.
+            </p>
+            <a
+              href="/about"
+              class="btn-primary ing-card-btn lang-text"
+              data-en="Learn More"
+              data-vn="Tìm Hiểu Thêm"
+            >
+              Tìm Hiểu Thêm
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Herbal Blends -->
+        <div class="ing-category-card">
+          <div class="ing-card-img-wrap">
+            <Image
+              src={asset_Med8_webp}
+              alt="Herbal Blends"
+              class="ing-card-img"
+            />
+            <div class="ing-card-img-overlay"></div>
+          </div>
+          <div class="ing-card-body">
+            <h3
+              class="heading-subsection ing-card-title lang-text"
+              data-en="Herbal Blends"
+              data-vn="Hỗn Hợp Thảo Dược"
+            >
+              Hỗn Hợp Thảo Dược
+            </h3>
+            <p
+              class="body-small ing-card-desc lang-text"
+              data-en="Carefully balanced multi-herb formulas following classical prescriptions, refined by generations of traditional practitioners."
+              data-vn="Các bài thuốc đa vị được cân đối cẩn thận theo cổ phương, được tinh luyện qua nhiều thế hệ thầy thuốc truyền thống."
+            >
+              Các bài thuốc đa vị được cân đối cẩn thận theo cổ phương, tinh
+              luyện qua nhiều thế hệ.
+            </p>
+            <a
+              href="/about"
+              class="btn-secondary ing-card-btn lang-text"
+              data-en="Learn More"
+              data-vn="Tìm Hiểu Thêm"
+            >
+              Tìm Hiểu Thêm
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- EDITORIAL INFO SECTION (Row 1: 3-col text grid)  -->
+  <!-- ================================================ -->
+  <section class="ing-editorial">
+    <div class="ing-editorial-container">
+      <!-- Row 1: 3-column editorial grid -->
+      <div class="ing-editorial-row ing-row-top">
+        <!-- Col 1: label + big statement -->
+        <div class="ing-ed-col ing-ed-col-left">
+          <p
+            class="ing-ed-label lang-text"
+            data-en="What we do?"
+            data-vn="Chúng Tôi Làm Gì?"
+          >
+            Chúng Tôi Làm Gì?
+          </p>
+          <h2
+            class="ing-ed-statement lang-text"
+            data-en="We provide premium herbs with a personal touch."
+            data-vn="Chúng tôi cung cấp thảo dược thượng hạng với sự tận tâm đặc biệt."
+          >
+            Chúng tôi cung cấp thảo dược thượng hạng với sự tận tâm đặc biệt.
+          </h2>
+        </div>
+
+        <!-- Col 2: category label + description paragraphs -->
+        <div class="ing-ed-col ing-ed-col-mid">
+          <p
+            class="ing-ed-label lang-text"
+            data-en="Our Ingredients"
+            data-vn="Thành Phần Của Chúng Tôi"
+          >
+            Thành Phần Của Chúng Tôi
+          </p>
+          <p
+            class="ing-ed-body lang-text"
+            data-en="Our collection spans over 80 varieties of dried herbs, medicinal roots, and blended formulas — each chosen by our master herbalists from trusted highland farms across Vietnam."
+            data-vn="Bộ sưu tập của chúng tôi gồm hơn 80 loại thảo dược khô, rễ cây dược liệu và bài thuốc phối hợp — mỗi loại được lương y trưởng tuyển chọn từ các vườn dược liệu cao nguyên uy tín trên khắp Việt Nam."
+          >
+            Bộ sưu tập của chúng tôi gồm hơn 80 loại thảo dược khô, rễ cây dược
+            liệu và bài thuốc phối hợp — mỗi loại được lương y trưởng tuyển chọn
+            từ các vườn dược liệu cao nguyên uy tín trên khắp Việt Nam.
+          </p>
+          <p
+            class="ing-ed-body lang-text"
+            data-en="To ensure consistency and potency, all batches are tested before entering our dispensary. We process using sun-drying and traditional methods that preserve the full therapeutic profile of every herb."
+            data-vn="Để đảm bảo chất lượng và hiệu lực nhất quán, mọi lô hàng đều được kiểm tra trước khi nhập kho. Chúng tôi sơ chế theo phương pháp phơi sấy và kỹ thuật truyền thống, bảo toàn toàn bộ hoạt chất trị liệu của mỗi vị thuốc."
+          >
+            Để đảm bảo chất lượng và hiệu lực nhất quán, mọi lô hàng đều được
+            kiểm tra trước khi nhập kho. Chúng tôi sơ chế theo phương pháp phơi
+            sấy và kỹ thuật truyền thống.
+          </p>
+        </div>
+
+        <!-- Col 3: image — stretches to match col 2 height -->
+        <div class="ing-ed-col ing-ed-col-img">
+          <div class="ing-ed-img-box">
+            <Image src={asset_Med3_webp} alt="Herbal ingredients" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: same 3-col grid, col 1 is intentionally blank (indent effect) -->
+      <div class="ing-editorial-row ing-row-mid">
+        <!-- Col 1: intentional blank spacer -->
+        <div class="ing-ed-col ing-ed-col-spacer" aria-hidden="true"></div>
+
+        <!-- Col 2: large italic quote -->
+        <div class="ing-ed-col ing-ed-col-quote">
+          <p
+            class="ing-ed-label lang-text"
+            data-en="Our Values"
+            data-vn="Giá Trị Của Chúng Tôi"
+          >
+            Giá Trị Của Chúng Tôi
+          </p>
+          <blockquote
+            class="ing-ed-quote lang-text"
+            data-en="At An Binh, inclusivity of care is at the heart of what we do. We believe healing should be accessible and personalised for everyone."
+            data-vn="Tại An Bình, chăm sóc toàn diện là trọng tâm của chúng tôi. Chúng tôi tin rằng việc chữa lành phải dễ tiếp cận và được cá nhân hoá cho mỗi người."
+          >
+            "Tại An Bình, chăm sóc toàn diện là trọng tâm của chúng tôi. Chúng
+            tôi tin rằng việc chữa lành phải dễ tiếp cận và được cá nhân hoá cho
+            mỗi người."
+          </blockquote>
+        </div>
+
+        <!-- Col 3: supporting text + CTA link -->
+        <div class="ing-ed-col ing-ed-col-body">
+          <p
+            class="ing-ed-label lang-text"
+            data-en="Our Practitioners"
+            data-vn="Đội Ngũ Lương Y"
+          >
+            Đội Ngũ Lương Y
+          </p>
+          <p
+            class="ing-ed-body lang-text"
+            data-en="Our herbalists aren't just dispensers — they are traditional medicine specialists who prioritise your wellbeing and recovery. Beyond sourcing, they guide each patient toward the right formula for their specific needs."
+            data-vn="Các lương y của chúng tôi không chỉ là người cấp phát thuốc — họ là các chuyên gia y học cổ truyền đặt sức khỏe và sự phục hồi của bạn lên hàng đầu. Ngoài việc tuyển chọn dược liệu, họ hướng dẫn từng bệnh nhân đến bài thuốc phù hợp nhất với nhu cầu riêng."
+          >
+            Các lương y của chúng tôi không chỉ là người cấp phát thuốc — họ là
+            các chuyên gia y học cổ truyền đặt sức khỏe và phục hồi của bạn lên
+            hàng đầu. Họ hướng dẫn từng bệnh nhân đến bài thuốc phù hợp với nhu
+            cầu riêng.
+          </p>
+          <p
+            class="ing-ed-body lang-text"
+            data-en="Whether you are managing a chronic condition or seeking preventive care, our team crafts personalised herbal protocols grounded in classical Eastern medicine traditions."
+            data-vn="Dù bạn đang điều trị bệnh mãn tính hay tìm kiếm chăm sóc phòng ngừa, đội ngũ của chúng tôi xây dựng phác đồ thảo dược cá nhân hóa, dựa trên nền tảng y học cổ phương Đông."
+          >
+            Dù bạn đang điều trị bệnh mãn tính hay tìm kiếm chăm sóc phòng ngừa,
+            đội ngũ chúng tôi xây dựng phác đồ cá nhân hóa dựa trên y học cổ
+            phương Đông.
+          </p>
+          <a
+            href="/about"
+            class="ing-ed-link lang-text"
+            data-en="EXPLORE MORE →"
+            data-vn="KHÁM PHÁ THÊM →"
+          >
+            KHÁM PHÁ THÊM →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- STATS BENTO ROW                                   -->
+  <!-- ================================================ -->
+  <section class="ing-bento">
+    <div class="ing-bento-container">
+      <!-- Card 1: Image -->
+      <div class="ing-bento-card ing-bento-img">
+        <Image src={asset_Thu_c_3_webp} alt="Herbal preparation" />
+      </div>
+
+      <!-- Card 2: Stat — Years -->
+      <div class="ing-bento-card ing-bento-stat ing-stat-light">
+        <a href="/about" class="ing-stat-arrow" aria-label="Learn more">
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <path d="M7 17L17 7M17 7H7M17 7v10"></path>
+          </svg>
+        </a>
+        <div class="ing-bento-stat-number">25+</div>
+        <div
+          class="ing-bento-stat-title lang-text"
+          data-en="Exclusive Traditional Formulas"
+          data-vn="Bài Thuốc Độc Quyền"
+        >
+          Bài Thuốc Độc Quyền
+        </div>
+        <p
+          class="ing-bento-stat-desc lang-text"
+          data-en="Time-tested prescriptions refined across generations, targeting the root causes of chronic conditions."
+          data-vn="Các bài thuốc đã được kiểm chứng qua nhiều thế hệ, nhắm vào nguyên nhân gốc rễ của các bệnh mãn tính."
+        >
+          Các bài thuốc được kiểm chứng qua nhiều thế hệ, nhắm vào nguyên nhân
+          gốc rễ của bệnh mãn tính.
+        </p>
+      </div>
+
+      <!-- Card 3: Image -->
+      <div class="ing-bento-card ing-bento-img">
+        <Image
+          src={asset_Herbal_Medicine_webp}
+          alt="Herbal medicine collection"
+        / />
+      </div>
+
+      <!-- Card 4: Stat — Satisfaction (Brass accent) -->
+      <div class="ing-bento-card ing-bento-stat ing-stat-brass">
+        <a href="/about" class="ing-stat-arrow" aria-label="Learn more">
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <path d="M7 17L17 7M17 7H7M17 7v10"></path>
+          </svg>
+        </a>
+        <div class="ing-bento-stat-number">80+</div>
+        <div
+          class="ing-bento-stat-title lang-text"
+          data-en="Herb Varieties Sourced"
+          data-vn="Loại Thảo Dược Được Tuyển Chọn"
+        >
+          Loại Thảo Dược Được Tuyển Chọn
+        </div>
+        <p
+          class="ing-bento-stat-desc lang-text"
+          data-en="From highland ginseng roots to coastal sea herbs — our range covers the full spectrum of Eastern medicine philosophy."
+          data-vn="Từ nhân sâm núi cao đến dược thảo ven biển — bộ sưu tập của chúng tôi bao phủ toàn bộ phổ triết học y học phương Đông."
+        >
+          Từ nhân sâm núi cao đến dược thảo ven biển — bộ sưu tập bao phủ toàn
+          bộ phổ triết học y học phương Đông.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ -->
+  <!-- CTA — LARGE TEXT MINIMAL STYLE                    -->
+  <!-- ================================================ -->
+  <section class="ing-cta-minimal">
+    <div class="ing-cta-minimal-container">
+      <div class="ing-editorial-rule"></div>
+      <p
+        class="ing-cta-min-label lang-text"
+        data-en="✦ An Binh Traditional Medicine"
+        data-vn="✦ Phòng Khám Đông Y An Bình"
+      >
+        ✦ Phòng Khám Đông Y An Bình
+      </p>
+      <h2
+        class="ing-cta-min-title lang-text"
+        data-en="We make every remedy a harmonious blend of nature and wisdom. Start your healing journey with An Binh — book now!"
+        data-vn="Chúng tôi tạo nên mỗi thang thuốc như một sự hòa quyện hoàn hảo giữa thiên nhiên và trí tuệ truyền thống. Bắt đầu hành trình chữa lành — đặt lịch ngay!"
+      >
+        Chúng tôi tạo nên mỗi thang thuốc như một sự hòa quyện hoàn hảo giữa
+        thiên nhiên và trí tuệ truyền thống. Bắt đầu hành trình chữa lành — đặt
+        lịch ngay!
+      </h2>
+      <div class="ing-editorial-rule"></div>
+      <a
+        href="#booking"
+        class="ing-cta-min-link booking-feature lang-text"
+        data-en="ĐẶT LỊCH TƯ VẤN ↗"
+        data-vn="ĐẶT LỊCH TƯ VẤN ↗"
+      >
+        ĐẶT LỊCH TƯ VẤN ↗
+      </a>
+    </div>
+  </section>
+</Layout>
+<style>
+  /* ================================================
+   HERO SECTION
+   ================================================ */
+  .ing-hero {
+    position: relative;
+    min-height: 100vh;
+    background-image: url("/Asset/Thuốc 1E.webp");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .ing-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(36, 26, 15, 0.88) 0%,
+      rgba(36, 26, 15, 0.6) 50%,
+      rgba(36, 26, 15, 0.2) 100%
+    );
+    z-index: 1;
+  }
+
+  .ing-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    padding: 140px 80px 100px;
+  }
+
+  .ing-hero-label {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--brass-gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .ing-hero-title {
+    font-family: var(--font-serif);
+    font-size: 4.2rem;
+    color: var(--cream-rice);
+    line-height: 1.15;
+    margin-bottom: 25px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .ing-hero-desc {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: rgba(249, 245, 227, 0.85);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 520px;
+  }
+
+  .ing-hero-btn {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+
+  /* Corner stat card (bottom-right) */
+  .ing-hero-corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    background: var(--cream-rice);
+    padding: 35px 45px;
+    border-top-left-radius: 40px;
+
+    /* Outer scooped shadow trick */
+  }
+  .ing-hero-corner::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-bottom-right-radius: 50%;
+    box-shadow: 20px 20px 0 20px var(--cream-rice);
+    z-index: 5;
+  }
+  .ing-hero-corner::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -40px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-bottom-right-radius: 50%;
+    box-shadow: 20px 20px 0 20px var(--cream-rice);
+    z-index: 5;
+  }
+
+  .ing-hero-corner-inner {
+    position: relative;
+    z-index: 6;
+  }
+
+  .ing-corner-label {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    color: var(--indochine-teal);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .ing-corner-stats {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .ing-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ing-stat strong {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--mahogany-dark);
+    line-height: 1;
+  }
+
+  .ing-stat small {
+    font-size: 0.8rem;
+    color: var(--walnut-brown);
+    margin-top: 4px;
+    text-align: center;
+  }
+
+  .ing-stat-divider {
+    width: 1px;
+    height: 50px;
+    background: rgba(74, 59, 42, 0.2);
+  }
+
+  /* ================================================
+   WHY OUR INGREDIENTS SECTION
+   ================================================ */
+  .ing-why {
+    background-color: var(--beige-sand);
+    padding: 100px 0;
+  }
+
+  .ing-why-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .ing-why-header {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ing-why-desc {
+    margin-top: 20px;
+    color: var(--walnut-brown);
+  }
+
+  /* 3-col grid */
+  .ing-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: start;
+  }
+
+  .ing-category-card {
+    background: #fff;
+    overflow: hidden;
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+
+    /* Scooped corners */
+    --scoop-radius: 20px;
+    -webkit-mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      );
+    -webkit-mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+    -webkit-mask-size: 51% 51%;
+    -webkit-mask-repeat: no-repeat;
+    mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      );
+    mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+    mask-size: 51% 51%;
+    mask-repeat: no-repeat;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  .ing-category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(74, 59, 42, 0.18);
+  }
+
+  /* Featured middle card slightly taller */
+  .ing-card-featured {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 45px rgba(74, 59, 42, 0.18);
+  }
+  .ing-card-featured:hover {
+    transform: translateY(-18px);
+  }
+
+  .ing-card-img-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 240px;
+  }
+  .ing-card-featured .ing-card-img-wrap {
+    height: 280px;
+  }
+
+  .ing-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .ing-category-card:hover .ing-card-img {
+    transform: scale(1.06);
+  }
+
+  .ing-card-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(36, 26, 15, 0.4) 0%,
+      transparent 60%
+    );
+  }
+
+  .ing-card-body {
+    padding: 28px 28px 32px;
+  }
+
+  .ing-card-title {
+    margin-bottom: 10px;
+  }
+
+  .ing-card-desc {
+    margin-bottom: 22px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .ing-card-btn {
+    font-size: 0.85rem;
+    padding: 10px 28px;
+    letter-spacing: 1px;
+  }
+
+  /* ================================================
+   EDITORIAL INFO SECTION
+   ================================================ */
+  .ing-editorial {
+    background-color: var(--warm-white);
+    padding: 60px 0 80px;
+  }
+
+  .ing-editorial-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* Thin divider — used only in CTA section */
+  .ing-editorial-rule {
+    height: 1px;
+    background-color: rgba(74, 59, 42, 0.18);
+    margin: 0;
+  }
+
+  /* Both rows share the same 3-col grid */
+  .ing-editorial-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    padding: 0;
+  }
+
+  /* Row 1: image column stretches to match col 2 text height */
+  .ing-row-top {
+    align-items: stretch;
+    margin-bottom: 60px;
+  }
+
+  /* Row 2: col 1 is blank spacer, cols 2-3 hold content */
+  .ing-row-mid {
+    align-items: start;
+  }
+
+  /* Label above each column */
+  .ing-ed-label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--indochine-teal);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: block;
+
+    /* Underline marker */
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(74, 59, 42, 0.15);
+  }
+
+  /* Large bold statement (col 1, row 1) */
+  .ing-ed-statement {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--mahogany-dark);
+    line-height: 1.3;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  /* Body paragraphs */
+  .ing-ed-body {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--walnut-brown);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+  .ing-ed-body:last-of-type {
+    margin-bottom: 0;
+  }
+
+  /* Image column — fills the full row height alongside col 2 text */
+  .ing-ed-col-img {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ing-ed-img-box {
+    width: 100%;
+    /* No fixed height — let it stretch to match the sibling column */
+    flex: 1;
+    min-height: 220px;
+    overflow: hidden;
+
+    /* Scooped corners */
+    --scoop-radius: 18px;
+    -webkit-mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      );
+    -webkit-mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+    -webkit-mask-size: 51% 51%;
+    -webkit-mask-repeat: no-repeat;
+    mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      );
+    mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+    mask-size: 51% 51%;
+    mask-repeat: no-repeat;
+  }
+
+  .ing-ed-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .ing-ed-img-box:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Large quote (row 2, left col) */
+  .ing-ed-quote {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--mahogany-dark);
+    line-height: 1.45;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0;
+    quotes: none;
+  }
+
+  /* CTA link at bottom of col */
+  .ing-ed-link {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--mahogany-dark);
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    margin-top: 28px;
+    border-bottom: 1.5px solid var(--mahogany-dark);
+    padding-bottom: 2px;
+    transition:
+      color 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .ing-ed-link:hover {
+    color: var(--indochine-teal);
+    border-color: var(--indochine-teal);
+  }
+
+  /* ================================================
+   STATS BENTO ROW
+   ================================================ */
+  .ing-bento {
+    background-color: var(--beige-sand);
+    padding: 80px 0;
+  }
+
+  .ing-bento-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  /* Image bento card */
+  .ing-bento-img {
+    height: 320px;
+    overflow: hidden;
+
+    /* Scooped corners */
+    --scoop-radius: 20px;
+    -webkit-mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      );
+    -webkit-mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+    -webkit-mask-size: 51% 51%;
+    -webkit-mask-repeat: no-repeat;
+    mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      );
+    mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+    mask-size: 51% 51%;
+    mask-repeat: no-repeat;
+  }
+
+  .ing-bento-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .ing-bento-img:hover img {
+    transform: scale(1.06);
+  }
+
+  /* Text/stat bento card */
+  .ing-bento-stat {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    height: 320px;
+
+    /* Scooped corners */
+    --scoop-radius: 20px;
+    -webkit-mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      );
+    -webkit-mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+    -webkit-mask-size: 51% 51%;
+    -webkit-mask-repeat: no-repeat;
+    mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      );
+    mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+    mask-size: 51% 51%;
+    mask-repeat: no-repeat;
+  }
+
+  /* Light stat variant */
+  .ing-stat-light {
+    background-color: var(--cream-rice);
+    color: var(--mahogany-dark);
+  }
+
+  /* Brass/dark stat variant */
+  .ing-stat-brass {
+    background-color: var(--charcoal-wood);
+    color: var(--cream-rice);
+  }
+  .ing-stat-brass .ing-bento-stat-number,
+  .ing-stat-brass .ing-bento-stat-title {
+    color: var(--cream-rice);
+  }
+  .ing-stat-brass .ing-bento-stat-desc {
+    color: rgba(249, 245, 227, 0.7);
+  }
+  .ing-stat-brass .ing-stat-arrow {
+    background: var(--brass-gold);
+    color: var(--mahogany-dark);
+  }
+
+  /* Arrow to-corner button */
+  .ing-stat-arrow {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--mahogany-dark);
+    color: var(--cream-rice);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease;
+  }
+
+  .ing-stat-arrow:hover {
+    transform: translate(2px, -2px);
+  }
+
+  /* Large stat number */
+  .ing-bento-stat-number {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: var(--mahogany-dark);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .ing-bento-stat-title {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--mahogany-dark);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .ing-bento-stat-desc {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--walnut-brown);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ================================================
+   CTA — MINIMAL LARGE TEXT STYLE
+   ================================================ */
+  .ing-cta-minimal {
+    background-color: var(--warm-white);
+    padding: 80px 0 100px;
+  }
+
+  .ing-cta-minimal-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    text-align: center;
+  }
+
+  /* Tiny label above */
+  .ing-cta-min-label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--indochine-teal);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 25px 0 30px;
+    display: block;
+  }
+
+  /* Large display text — the hero statement */
+  .ing-cta-min-title {
+    font-family: var(--font-serif);
+    font-size: 2.6rem;
+    color: var(--mahogany-dark);
+    line-height: 1.3;
+    font-weight: 400;
+    max-width: 1000px;
+    margin: 0 auto 30px;
+  }
+
+  /* CTA underline link */
+  .ing-cta-min-link {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--mahogany-dark);
+    text-decoration: none;
+    border-bottom: 2px solid var(--mahogany-dark);
+    padding-bottom: 3px;
+    margin-top: 25px;
+    transition:
+      color 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .ing-cta-min-link:hover {
+    color: var(--indochine-teal);
+    border-color: var(--indochine-teal);
+  }
+
+  /* ================================================
+   MOBILE RESPONSIVE
+   ================================================ */
+  @media screen and (max-width: 900px) {
+    .ing-hero-content {
+      padding: 140px 30px 120px;
+    }
+    .ing-hero-title {
+      font-size: 2.8rem;
+    }
+    .ing-hero-corner {
+      display: none;
+    }
+
+    .ing-cards-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .ing-card-featured {
+      transform: none;
+    }
+
+    /* Editorial rows stack */
+    .ing-row-top {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      align-items: start; /* Don't stretch on mobile */
+    }
+    .ing-row-mid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    /* Hide the blank spacer col on mobile */
+    .ing-ed-col-spacer {
+      display: none;
+    }
+    /* Image takes natural height on mobile */
+    .ing-ed-img-box {
+      flex: none;
+      height: 240px;
+    }
+    .ing-ed-statement {
+      font-size: 1.6rem;
+    }
+    .ing-ed-quote {
+      font-size: 1.3rem;
+    }
+
+    /* Bento: 2-col on tablet */
+    .ing-bento-container {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .ing-cta-min-title {
+      font-size: 2.2rem;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .ing-why-container {
+      padding: 0 20px;
+    }
+    .ing-editorial-container,
+    .ing-bento-container,
+    .ing-cta-minimal-container {
+      padding: 0 20px;
+    }
+
+    /* Bento: single column */
+    .ing-bento-container {
+      grid-template-columns: 1fr;
+    }
+
+    .ing-cta-min-title {
+      font-size: 1.7rem;
+    }
+  }
+</style>

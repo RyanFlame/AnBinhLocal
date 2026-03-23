@@ -1,0 +1,284 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>An Binh - Traditional Chinese Medicine</title><!-- Indochine Design System --><link rel="stylesheet" href="/style.css"><!-- Typography --><link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"></head> <body> <!-- Booking Disabled (Remove class="booking-disabled" to enable) --> <nav id="navbar"> <a href="/" class="logo-link"> <img src="/Logo/Logo-NBG.png" alt="An Binh Traditional Meds" class="logo-image"> </a> <ul class="nav-links desktop-only"> <li> <a href="/" class="lang-text" data-en="Home" data-vn="Trang Chủ">Trang Chủ</a> </li> <li> <a href="/about" class="lang-text" data-en="About Us" data-vn="Về Chúng Tôi">Về Chúng Tôi</a> </li> <li class="booking-feature"> <a href="#booking" class="lang-text" data-en="Booking" data-vn="Đặt Lịch">Đặt Lịch</a> </li> <li> <a href="/blog" class="lang-text" data-en="Blog" data-vn="Blog">Blog</a> </li> </ul> <div class="lang-dropdown desktop-lang-nav desktop-only" id="desktopLangDropdown"> <div class="lang-dropdown-selected" id="desktopLangSelected"> <span class="current-lang-text">VN</span> <svg viewBox="0 0 24 24" width="20" height="20" class="dropdown-arrow" fill="currentColor"><path d="M7 10l5 5 5-5z"></path></svg> </div> <div class="lang-dropdown-options" id="desktopLangOptions"> <div class="lang-btn dropdown-opt active" data-lang="vn">VN</div> <div class="lang-btn dropdown-opt" data-lang="en">EN</div> </div> </div> <div class="mobile-nav-right mobile-only"> <div class="lang-dropdown mobile-lang-nav" id="mobileLangDropdown"> <div class="lang-dropdown-selected" id="mobileLangSelected"> <span class="current-lang-text">VN</span> <svg viewBox="0 0 24 24" width="20" height="20" class="dropdown-arrow" fill="currentColor"><path d="M7 10l5 5 5-5z"></path></svg> </div> <div class="lang-dropdown-options" id="mobileLangOptions"> <div class="lang-btn dropdown-opt active" data-lang="vn">VN</div> <div class="lang-btn dropdown-opt" data-lang="en">EN</div> </div> </div> <div class="hamburger-menu" id="hamburger-button"> <div class="bar bar1"></div> <div class="bar bar2"></div> <div class="bar bar3"></div> </div> </div> </nav> <div class="mobile-menu-overlay" id="mobile-overlay"> <ul class="mobile-nav-links"> <li class="mobile-link-item"> <a href="/" class="lang-text" data-en="Home" data-vn="Trang chủ">Trang chủ</a> </li> <li class="mobile-link-item"> <a href="/about" class="lang-text" data-en="About Us" data-vn="Về chúng tôi">Về chúng tôi</a> </li> <li class="mobile-link-item booking-feature"> <a href="#booking" class="lang-text" data-en="Booking" data-vn="Đặt lịch">Đặt lịch</a> </li> <li class="mobile-link-item"> <a href="/blog" class="lang-text" data-en="Blog" data-vn="Blog">Blog</a> </li> </ul> <div class="mobile-social-icons"> <a href="tel:+0908052968" class="social-icon"> <svg viewBox="0 0 24 24" fill="currentColor"> <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.27-.27.35-.66.24-1.01-.37-1.11-.56-2.3-.56-3.53 0-.55-.45-1-1-1H4.39c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"></path> </svg> </a> <a href="https://www.google.com/maps/place/Ph%C3%B2ng+Y+H%E1%BB%8Dc+C%E1%BB%95+Truy%E1%BB%81n+An+B%C3%ACnh/@10.5085571,107.327058,455m" class="social-icon"> <svg viewBox="0 0 24 24" fill="currentColor"> <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path> </svg> </a> <a href="https://zalo.me/0908052968" class="social-icon"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor"> <path d="M 9 4 C 6.2504839 4 4 6.2504839 4 9 L 4 41 C 4 43.749516 6.2504839 46 9 46 L 41 46 C 43.749516 46 46 43.749516 46 41 L 46 9 C 46 6.2504839 43.749516 4 41 4 L 9 4 z M 9 6 L 15.580078 6 C 12.00899 9.7156859 10 14.518083 10 19.5 C 10 24.66 12.110156 29.599844 15.910156 33.339844 C 16.030156 33.549844 16.129922 34.579531 15.669922 35.769531 C 15.379922 36.519531 14.799687 37.499141 13.679688 37.869141 C 13.249688 38.009141 12.97 38.430859 13 38.880859 C 13.03 39.330859 13.360781 39.710781 13.800781 39.800781 C 16.670781 40.370781 18.529297 39.510078 20.029297 38.830078 C 21.379297 38.210078 22.270625 37.789609 23.640625 38.349609 C 26.440625 39.439609 29.42 40 32.5 40 C 36.593685 40 40.531459 39.000731 44 37.113281 L 44 41 C 44 42.668484 42.668484 44 41 44 L 9 44 C 7.3315161 44 6 42.668484 6 41 L 6 9 C 6 7.3315161 7.3315161 6 9 6 z M 33 15 C 33.55 15 34 15.45 34 16 L 34 25 C 34 25.55 33.55 26 33 26 C 32.45 26 32 25.55 32 25 L 32 16 C 32 15.45 32.45 15 33 15 z M 18 16 L 23 16 C 23.36 16 23.700859 16.199531 23.880859 16.519531 C 24.050859 16.829531 24.039609 17.219297 23.849609 17.529297 L 19.800781 24 L 23 24 C 23.55 24 24 24.45 24 25 C 24 25.55 23.55 26 23 26 L 18 26 C 17.64 26 17.299141 25.800469 17.119141 25.480469 C 16.949141 25.170469 16.960391 24.780703 17.150391 24.470703 L 21.199219 18 L 18 18 C 17.45 18 17 17.55 17 17 C 17 16.45 17.45 16 18 16 z M 27.5 19 C 28.11 19 28.679453 19.169219 29.189453 19.449219 C 29.369453 19.189219 29.65 19 30 19 C 30.55 19 31 19.45 31 20 L 31 25 C 31 25.55 30.55 26 30 26 C 29.65 26 29.369453 25.810781 29.189453 25.550781 C 28.679453 25.830781 28.11 26 27.5 26 C 25.57 26 24 24.43 24 22.5 C 24 20.57 25.57 19 27.5 19 z M 38.5 19 C 40.43 19 42 20.57 42 22.5 C 42 24.43 40.43 26 38.5 26 C 36.57 26 35 24.43 35 22.5 C 35 20.57 36.57 19 38.5 19 z M 27.5 21 C 27.39625 21 27.29502 21.011309 27.197266 21.03125 C 27.001758 21.071133 26.819727 21.148164 26.660156 21.255859 C 26.500586 21.363555 26.363555 21.500586 26.255859 21.660156 C 26.148164 21.819727 26.071133 22.001758 26.03125 22.197266 C 26.011309 22.29502 26 22.39625 26 22.5 C 26 22.60375 26.011309 22.70498 26.03125 22.802734 C 26.051191 22.900488 26.079297 22.994219 26.117188 23.083984 C 26.155078 23.17375 26.202012 23.260059 26.255859 23.339844 C 26.309707 23.419629 26.371641 23.492734 26.439453 23.560547 C 26.507266 23.628359 26.580371 23.690293 26.660156 23.744141 C 26.819727 23.851836 27.001758 23.928867 27.197266 23.96875 C 27.29502 23.988691 27.39625 24 27.5 24 C 27.60375 24 27.70498 23.988691 27.802734 23.96875 C 28.487012 23.82916 29 23.22625 29 22.5 C 29 21.67 28.33 21 27.5 21 z M 38.5 21 C 38.39625 21 38.29502 21.011309 38.197266 21.03125 C 38.099512 21.051191 38.005781 21.079297 37.916016 21.117188 C 37.82625 21.155078 37.739941 21.202012 37.660156 21.255859 C 37.580371 21.309707 37.507266 21.371641 37.439453 21.439453 C 37.303828 21.575078 37.192969 21.736484 37.117188 21.916016 C 37.079297 22.005781 37.051191 22.099512 37.03125 22.197266 C 37.011309 22.29502 37 22.39625 37 22.5 C 37 22.60375 37.011309 22.70498 37.03125 22.802734 C 37.051191 22.900488 37.079297 22.994219 37.117188 23.083984 C 37.155078 23.17375 37.202012 23.260059 37.255859 23.339844 C 37.309707 23.419629 37.371641 23.492734 37.439453 23.560547 C 37.507266 23.628359 37.580371 23.690293 37.660156 23.744141 C 37.739941 23.797988 37.82625 23.844922 37.916016 23.882812 C 38.005781 23.920703 38.099512 23.948809 38.197266 23.96875 C 38.29502 23.988691 38.39625 24 38.5 24 C 38.60375 24 38.70498 23.988691 38.802734 23.96875 C 39.487012 23.82916 40 23.22625 40 22.5 C 40 21.67 39.33 21 38.5 21 z"></path> </svg> </a> </div> </div>  <header class="hero-section hero-redesign"> <div class="hero-layout-container"> <!-- Left Side: Text Content --> <div class="hero-left-col"> <h1 class="hero-title lang-text" data-en="Restoring<br>balance naturally." data-vn="Phục hồi<br>cân bằng tự nhiên.">
+Phục hồi<br>cân bằng tự nhiên.
+</h1> <p class="hero-desc lang-text" data-en="Discover the serenity of holistic healing in our traditional clinic nestled in the heart of the city." data-vn="Khám phá sức mạnh từ những bài thuốc thảo dược dân gian thân quen, giúp cơ thể bạn phục hồi sự cân bằng tự nhiên.">
+Khám phá sức mạnh từ những bài thuốc thảo dược dân gian thân quen,
+          giúp cơ thể bạn phục hồi sự cân bằng tự nhiên.
+</p> </div> </div> <!-- Bottom: Search/Booking Bar --> <div class="hero-bottom-bar"> <div class="hero-scroll-indicator"> <a href="#about" class="scroll-circle"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M12 8v8M16 12l-4 4-4-4"></path> </svg> </a> </div> <div class="hero-booking-bar glass-panel booking-feature"> <div class="booking-segment segment-treatment"> <span class="segment-label lang-text" data-en="Treatment" data-vn="Trị Liệu">Trị Liệu</span> <span class="segment-value lang-text" data-en="Select therapy" data-vn="Chọn liệu pháp">Chọn liệu pháp</span> </div> <div class="segment-divider div-1"></div> <div class="booking-segment segment-name"> <span class="segment-label lang-text" data-en="Name" data-vn="Họ Tên">Họ Tên</span> <span class="segment-value lang-text" data-en="Add details" data-vn="Thêm thông tin">Thêm thông tin</span> </div> <div class="segment-divider div-2"></div> <div class="booking-segment segment-date"> <span class="segment-label lang-text" data-en="Date" data-vn="Ngày">Ngày</span> <span class="segment-value lang-text" data-en="Add date" data-vn="Chọn ngày">Chọn ngày</span> </div> <div class="segment-divider div-3"></div> <div class="booking-segment segment-time"> <span class="segment-label lang-text" data-en="Time" data-vn="Giờ">Giờ</span> <span class="segment-value lang-text" data-en="Select slot" data-vn="Chọn khung giờ">Chọn khung giờ</span> </div> <button class="btn-booking-submit btn-hero-primary lang-text" data-en="Book Now" data-vn="Đặt Lịch"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="search-icon" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect> <line x1="16" y1="2" x2="16" y2="6"></line> <line x1="8" y1="2" x2="8" y2="6"></line> <line x1="3" y1="10" x2="21" y2="10"></line> </svg>
+Đặt Lịch
+</button> </div> <div class="hero-socials"> <a href="tel:+0908052968" class="social-link"> <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.27-.27.35-.66.24-1.01-.37-1.11-.56-2.3-.56-3.53 0-.55-.45-1-1-1H4.39c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"></path></svg> </a> <a href="https://www.google.com/maps/place/Ph%C3%B2ng+Y+H%E1%BB%8Dc+C%E1%BB%95+Truy%E1%BB%81n+An+B%C3%ACnh/@10.5085571,107.327058,455m/data=!3m1!1e3!4m6!3m5!1s0x3175a100125c7973:0x97569e0490503fa6!8m2!3d10.5082762!4d107.3262642!16s%2Fg%2F11mf93d8rf!5m1!1e1?authuser=0&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" class="social-link"> <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> </a> <a href="#" class="social-link"> <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor"><path d="M 9 4 C 6.2504839 4 4 6.2504839 4 9 L 4 41 C 4 43.749516 6.2504839 46 9 46 L 41 46 C 43.749516 46 46 43.749516 46 41 L 46 9 C 46 6.2504839 43.749516 4 41 4 L 9 4 z M 9 6 L 15.580078 6 C 12.00899 9.7156859 10 14.518083 10 19.5 C 10 24.66 12.110156 29.599844 15.910156 33.339844 C 16.030156 33.549844 16.129922 34.579531 15.669922 35.769531 C 15.379922 36.519531 14.799687 37.499141 13.679688 37.869141 C 13.249688 38.009141 12.97 38.430859 13 38.880859 C 13.03 39.330859 13.360781 39.710781 13.800781 39.800781 C 16.670781 40.370781 18.529297 39.510078 20.029297 38.830078 C 21.379297 38.210078 22.270625 37.789609 23.640625 38.349609 C 26.440625 39.439609 29.42 40 32.5 40 C 36.593685 40 40.531459 39.000731 44 37.113281 L 44 41 C 44 42.668484 42.668484 44 41 44 L 9 44 C 7.3315161 44 6 42.668484 6 41 L 6 9 C 6 7.3315161 7.3315161 6 9 6 z M 33 15 C 33.55 15 34 15.45 34 16 L 34 25 C 34 25.55 33.55 26 33 26 C 32.45 26 32 25.55 32 25 L 32 16 C 32 15.45 32.45 15 33 15 z M 18 16 L 23 16 C 23.36 16 23.700859 16.199531 23.880859 16.519531 C 24.050859 16.829531 24.039609 17.219297 23.849609 17.529297 L 19.800781 24 L 23 24 C 23.55 24 24 24.45 24 25 C 24 25.55 23.55 26 23 26 L 18 26 C 17.64 26 17.299141 25.800469 17.119141 25.480469 C 16.949141 25.170469 16.960391 24.780703 17.150391 24.470703 L 21.199219 18 L 18 18 C 17.45 18 17 17.55 17 17 C 17 16.45 17.45 16 18 16 z M 27.5 19 C 28.11 19 28.679453 19.169219 29.189453 19.449219 C 29.369453 19.189219 29.65 19 30 19 C 30.55 19 31 19.45 31 20 L 31 25 C 31 25.55 30.55 26 30 26 C 29.65 26 29.369453 25.810781 29.189453 25.550781 C 28.679453 25.830781 28.11 26 27.5 26 C 25.57 26 24 24.43 24 22.5 C 24 20.57 25.57 19 27.5 19 z M 38.5 19 C 40.43 19 42 20.57 42 22.5 C 42 24.43 40.43 26 38.5 26 C 36.57 26 35 24.43 35 22.5 C 35 20.57 36.57 19 38.5 19 z M 27.5 21 C 27.39625 21 27.29502 21.011309 27.197266 21.03125 C 27.001758 21.071133 26.819727 21.148164 26.660156 21.255859 C 26.500586 21.363555 26.363555 21.500586 26.255859 21.660156 C 26.148164 21.819727 26.071133 22.001758 26.03125 22.197266 C 26.011309 22.29502 26 22.39625 26 22.5 C 26 22.60375 26.011309 22.70498 26.03125 22.802734 C 26.051191 22.900488 26.079297 22.994219 26.117188 23.083984 C 26.155078 23.17375 26.202012 23.260059 26.255859 23.339844 C 26.309707 23.419629 26.371641 23.492734 26.439453 23.560547 C 26.507266 23.628359 26.580371 23.690293 26.660156 23.744141 C 26.819727 23.851836 27.001758 23.928867 27.197266 23.96875 C 27.29502 23.988691 27.39625 24 27.5 24 C 27.60375 24 27.70498 23.988691 27.802734 23.96875 C 28.487012 23.82916 29 23.22625 29 22.5 C 29 21.67 28.33 21 27.5 21 z M 38.5 21 C 38.39625 21 38.29502 21.011309 38.197266 21.03125 C 38.099512 21.051191 38.005781 21.079297 37.916016 21.117188 C 37.82625 21.155078 37.739941 21.202012 37.660156 21.255859 C 37.580371 21.309707 37.507266 21.371641 37.439453 21.439453 C 37.303828 21.575078 37.192969 21.736484 37.117188 21.916016 C 37.079297 22.005781 37.051191 22.099512 37.03125 22.197266 C 37.011309 22.29502 37 22.39625 37 22.5 C 37 22.60375 37.011309 22.70498 37.03125 22.802734 C 37.051191 22.900488 37.079297 22.994219 37.117188 23.083984 C 37.155078 23.17375 37.202012 23.260059 37.255859 23.339844 C 37.309707 23.419629 37.371641 23.492734 37.439453 23.560547 C 37.507266 23.628359 37.580371 23.690293 37.660156 23.744141 C 37.739941 23.797988 37.82625 23.844922 37.916016 23.882812 C 38.005781 23.920703 38.099512 23.948809 38.197266 23.96875 C 38.29502 23.988691 38.39625 24 38.5 24 C 38.60375 24 38.70498 23.988691 38.802734 23.96875 C 39.487012 23.82916 40 23.22625 40 22.5 C 40 21.67 39.33 21 38.5 21 z"></path></svg> </a> </div> </div> </header>  <section class="product-section" id="products"> <div class="product-container"> <div class="product-header"> <h2 class="heading-section lang-text" data-en="Our Natural Collections" data-vn="Bộ Sưu Tập Từ Thiên Nhiên">
+Bộ Sưu Tập Từ Thiên Nhiên
+</h2> <div class="carousel-nav"> <button id="prevBtn" class="nav-arrow" aria-label="Previous"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M15 18l-6-6 6-6"></path> </svg> </button> <button id="nextBtn" class="nav-arrow" aria-label="Next"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M9 18l6-6-6-6"></path> </svg> </button> </div> </div> <div class="carousel-viewport" id="carouselViewport"> <div class="carousel-track" id="track"> <div class="product-card"> <div class="card-inner"> <div class="icon-placeholder"> <img src="/Icon/Chuan Doan.png" alt="Icon" class="temp-icon"> </div> <h3 class="lang-text" data-en="Pulse Diagnosis" data-vn="Chẩn Đoán">
+Chẩn Đoán
+</h3> </div> </div> <div class="product-card"> <div class="card-inner"> <div class="icon-placeholder"> <img src="/Icon/Thuoc 1.png" alt="Icon" class="temp-icon"> </div> <h3 class="lang-text" data-en="Herbal Decoctions" data-vn="Bốc Thuốc Bắc">
+Bốc Thuốc Bắc
+</h3> </div> </div> <div class="product-card"> <div class="card-inner"> <div class="icon-placeholder"> <img src="/Icon/Cham Cuu.png" alt="Icon" class="temp-icon"> </div> <h3 class="lang-text" data-en="Acupuncture" data-vn="Châm Cứu">
+Châm Cứu
+</h3> </div> </div> <div class="product-card"> <div class="card-inner"> <div class="icon-placeholder"> <img src="/Icon/Bam Huyet.png" alt="Icon" class="temp-icon"> </div> <h3 class="lang-text" data-en="Acupressure" data-vn="Bấm Huyệt">
+Bấm Huyệt
+</h3> </div> </div> <div class="product-card"> <div class="card-inner"> <div class="icon-placeholder"> <img src="/Icon/Dinh Duong.png" alt="Icon" class="temp-icon"> </div> <h3 class="lang-text" data-en="Nutritional Supplements" data-vn="Dinh Dưỡng">
+Dinh Dưỡng
+</h3> </div> </div> <div class="product-card"> <div class="card-inner"> <div class="icon-placeholder"> <img src="/Icon/The Duc.png" alt="Icon" class="temp-icon"> </div> <h3 class="lang-text" data-en="Physical Therapy" data-vn="Vật Lý Trị Liệu">
+Vật Lý Trị Liệu
+</h3> </div> </div> <div class="product-card"> <div class="card-inner"> <div class="icon-placeholder"> <img src="/Icon/Thuoc 2.png" alt="Icon" class="temp-icon"> </div> <h3 class="lang-text" data-en="Tonic" data-vn="Thuốc Bổ">
+Thuốc Bổ
+</h3> </div> </div> </div> </div> </div> </section>    <section class="philosophy-section"> <div class="philosophy-container"> <div class="philosophy-text"> <h2 class="section-heading heading-section lang-text" data-en="Our Philosophy" data-vn="Triết Lý Của Chúng Tôi">
+Triết Lý Của Chúng Tôi
+</h2> <h3 class="sub-heading lang-text" data-en="Harmony of Body & Nature" data-vn="Hòa Hợp Giữa Cơ Thể & Thiên Nhiên">
+Hòa Hợp Giữa Cơ Thể & Thiên Nhiên
+</h3> <p class="body-regular lang-text" data-en="At An Binh, we believe that true wellness comes from the balance between the internal elements of the body and the external rhythms of nature.<br><br>Drawing from thousands of years of traditional wisdom, our approach combines time-honored herbal remedies with modern understanding to restore your body's natural capacity for healing." data-vn="Tại An Bình, chúng tôi tin rằng sự khỏe mạnh đích thực đến từ sự cân bằng giữa các yếu tố bên trong cơ thể và nhịp điệu bên ngoài của thiên nhiên.<br><br>
+          Với tâm niệm rằng mỗi người là một cá thể duy nhất với những nhu cầu chăm sóc khác nhau. 
+          Chúng tôi kết hợp những bài thuốc lành tính từ thiên nhiên,
+          được điều chỉnh theo từng thể trạng nhằm điều trị tận gốc bệnh lý và bồi
+          bổ cơ thể.">
+Tại An Bình, chúng tôi tin rằng sự khỏe mạnh đích thực đến từ sự cân
+          bằng giữa các yếu tố bên trong cơ thể và nhịp điệu bên ngoài của thiên
+          nhiên.
+<br><br>
+Chúng tôi hiểu rằng mỗi người là một cá thể duy nhất với những nhu cầu chăm
+          sóc khác nhau. Chúng tôi kết hợp những bài thuốc lành tính từ thiên nhiên,
+          được điều chỉnh theo từng thể trạng nhằm điều trị tận gốc bệnh lý và bồi
+          bổ cơ thể.
+</p> <a href="/about" class="btn-secondary lang-text" data-en="DISCOVER MORE" data-vn="KHÁM PHÁ THÊM">KHÁM PHÁ THÊM</a> </div> <div class="philosophy-image-wrapper"> <div class="philosophy-frame"> <img src="/Asset/Dad Final 3.png" alt="Traditional Medicine Philosophy" class="philosophy-img"> </div> </div> </div> </section>    <section class="philosophy-section"> <div class="philosophy-container reverse"> <div class="philosophy-text"> <h2 class="section-heading heading-section lang-text" data-en="Premium Herbal Selection" data-vn="Lựa Chọn Thảo Dược Chuẩn Mực">
+Lựa Chọn Thảo Dược Chuẩn Mực
+</h2> <h3 class="sub-heading lang-text" data-en="Curated for Potency" data-vn="Tuyển Chọn Vì Chất Lượng">
+Tuyển Chọn Vì Chất Lượng
+</h3> <p class="body-regular lang-text" data-en="Every formulation begins with the careful selection of premium herbs. We prioritize ingredients that are ethically sourced and harvested at peak maturity to ensure maximum therapeutic value.<br><br>Experience the difference that quality makes in your journey to wellness." data-vn="Mỗi vị thuốc đều đóng vai trò then chốt trong quá trình điều trị, 
+          quyết định hiệu quả phục hồi của cơ thể. Tại An Bình, 
+          chúng tôi khắt khe trong việc tuyển chọn nguồn dược liệu chất lượng cao, 
+          đảm bảo thu hoạch đúng độ tuổi để giữ trọn vẹn dược tính và phát huy tối đa tác dụng trị liệu.
+          <br><br>Chúng tôi luôn đồng hành cùng bạn trên hành trình phục hồi sức khỏe bằng những bài thuốc tinh túy và chất lượng tốt nhất.">
+Mỗi vị thuốc đều đóng vai trò then chốt trong quá trình điều trị,
+          quyết định hiệu quả phục hồi của cơ thể. Tại An Bình, chúng tôi khắt
+          khe trong việc tuyển chọn nguồn dược liệu chất lượng cao, đảm bảo thu
+          hoạch đúng độ tuổi để giữ trọn vẹn dược tính và phát huy tối đa tác
+          dụng trị liệu.
+<br><br>
+Chúng tôi luôn đồng hành cùng bạn trên hành trình phục hồi sức khỏe bằng
+          những bài thuốc tinh túy và chất lượng tốt nhất.
+</p> <a href="/ingredients" class="btn-secondary lang-text" data-en="VIEW INGREDIENTS" data-vn="XEM THÀNH PHẦN">XEM THÀNH PHẦN</a> </div> <div class="philosophy-image-wrapper"> <div class="philosophy-frame"> <img src="/Asset/Thuốc 1E.png" alt="Premium Herbs" class="philosophy-img"> </div> </div> </div> </section>    <section class="product-grid-section" id="services"> <div class="product-grid-container"> <!-- Header --> <div class="grid-header"> <h2 class="heading-section lang-text" data-en="Explore our key therapies<br>and traditional remedies" data-vn="Khám phá các phương pháp trị liệu<br>và y học truyền thống">
+Khám phá các phương pháp trị liệu<br>và y học truyền thống
+</h2> <a href="/therapies" class="btn-pill lang-text" data-en="Explore now" data-vn="Khám phá ngay">Khám phá ngay</a> </div> <!-- Bento Grid Layout --> <div class="bento-grid"> <!-- Card 1: Therapy (Top Left) --> <div class="bento-card card-therapy"> <img src="/Asset/Therapies/Cham Cuu.png" alt="Acupuncture" class="bento-bg"> <span class="bento-text lang-text" data-en="Acupuncture" data-vn="Châm Cứu">Châm Cứu</span> </div> <!-- Card 2: Central Large (Medicines) --> <div class="bento-card card-large"> <img src="/Asset/Therapies/Thuoc Bac.jpg" alt="Herbal Medicines" class="bento-bg"> <h3 class="heading-subsection bento-text lang-text" data-en="Specialized<br>Medicines" data-vn="Thuốc Đông Y<br>Đặc Trị">
+Thuốc Đông Y<br>Đặc Trị
+</h3> <div class="plus-btn bento-text">+</div> </div> <!-- Card 3: Diagnosis (Top Right) --> <div class="bento-card"> <img src="/Asset/Therapies/Diagnose.png" alt="Diagnosis" class="bento-bg"> <span class="bento-text lang-text" data-en="Diagnosis" data-vn="Bắt Mạch">Bắt Mạch</span> </div> <!-- Card 4: Nutrition (Bottom Left) --> <div class="bento-card"> <img src="/Asset/Therapies/Nutrition1.jpg" alt="Nutrition" class="bento-bg"> <span class="bento-text lang-text" data-en="Nutrition" data-vn="Dinh Dưỡng">Dinh Dưỡng</span> </div> <!-- Card 5: Description (Bottom Right) --> <div class="bento-card card-text"> <img src="/Asset/Therapies/Bam huyet.png" alt="Acupressure" class="bento-bg"> <p class="body-regular bento-text lang-text" data-en="Acupressure" data-vn="Bấm Huyệt">
+Bấm Huyệt
+</p> </div> <!-- Card 6: Tools (Bottom Far Right) --> <div class="bento-card"> <img src="/Asset/Therapies/Exercise.png" alt="Physical Therapy" class="bento-bg"> <span class="bento-text lang-text" data-en="Physical Therapy" data-vn="Vật Lý Trị Liệu">Vật Lý Trị Liệu</span> </div> </div> </div> </section>    <section class="location-section" id="location"> <div class="location-container"> <!-- Background Image --> <img src="/Location/Location 1.png" class="location-bg-img" id="locationBg" alt="Location Background"> <!-- Left Overlay Content --> <div class="location-content"> <div class="location-steps"> <div class="step-indicator" data-index="0"> <span class="step-circle active">1</span> </div> <div class="step-line"> <div class="step-progress" id="progress0"></div> </div> <div class="step-indicator" data-index="1"> <span class="step-circle">2</span> </div> <div class="step-line"> <div class="step-progress" id="progress1"></div> </div> <div class="step-indicator" data-index="2"> <span class="step-circle">3</span> </div> </div> <div class="location-text"> <p class="location-sub sub-heading lang-text" id="locationSub" data-en="VISIT OUR MAIN HERB APOTHECARY" data-vn="GHÉ THĂM TIỆM THUỐC CHÍNH CỦA CHÚNG TÔI">
+GHÉ THĂM TIỆM THUỐC CHÍNH CỦA CHÚNG TÔI
+</p> <h2 class="location-heading heading-hero lang-text" id="locationHeading" data-en="Outside the<br>Clinic" data-vn="Phòng Khám<br>phía ngoài">
+Phòng Khám<br>phía ngoài
+</h2> <a href="https://www.google.com/maps/place/Ph%C3%B2ng+Y+H%E1%BB%8Dc+C%E1%BB%95+Truy%E1%BB%81n+An+B%C3%ACnh/@10.5085571,107.327058,455m/data=!3m1!1e3!4m6!3m5!1s0x3175a100125c7973:0x97569e0490503fa6!8m2!3d10.5082762!4d107.3262642!16s%2Fg%2F11mf93d8rf!5m1!1e1?authuser=0&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" class="btn-primary location-btn lang-text" id="locationBtn" target="_blank" data-en="Get Directions" data-vn="Xem Đường Đi">Xem Đường Đi</a> <button class="play-btn"> <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg> </button> </div> </div> <!-- Bottom Right "Scooped" Card --> <div class="location-corner-card"> <div class="corner-content"> <span class="corner-label lang-text" data-en="Know More →" data-vn="Tìm Hiểu Thêm →">Tìm Hiểu Thêm &rarr;</span> <div class="corner-thumbnails"> <img src="/Asset/Thuốc 1.jpg" alt="Place 1"> <img src="/Asset/Thuốc 2.jpg" alt="Place 2"> <img src="/Asset/Thuốc.jpg" alt="Place 3"> <div class="corner-text"> <strong class="lang-text" data-en="Holistic Care" data-vn="Chăm Sóc Toàn Diện">Chăm Sóc Toàn Diện</strong> <small class="lang-text" data-en="Discover Ancient Wisdom" data-vn="Khám Phá Trí Tuệ Cổ Xưa">Khám Phá Trí Tuệ Cổ Xưa</small> </div> </div> </div> </div> </div> </section>    <section class="reviews-section"> <div class="reviews-container"> <!-- Left Text --> <div class="reviews-text"> <p class="sub-heading mb-md lang-text" data-en="Patient Stories" data-vn="Câu Chuyện Bệnh Nhân">
+Câu Chuyện Bệnh Nhân
+</p> <h2 class="heading-section mb-lg lang-text" data-en="Don't trust us,<br>Trust their voice" data-vn="Lắng nghe để thấu hiểu <br> Đồng hành để chữa lành">
+Lắng nghe để thấu hiểu <br>Đồng hành để chữa lành
+</h2> <p class="body-regular mb-xl lang-text" data-en="Real healing, real stories. Hear how traditional medicine has restored balance to our patients' lives through our holistic treatments." data-vn="Mỗi bệnh nhân đến với An Bình đều mang theo một hy vọng về sức khỏe.
+          Sự tin tưởng và những nụ cười sau mỗi liệu trình là động lực lớn nhất để chúng tôi 
+          tiếp tục gìn giữ, phát huy chất lượng trong từng vị thuốc, mang lại sự bình yên cho 
+          sức khỏe quê hương.">
+Mỗi bệnh nhân đến với An Bình đều mang theo một hy vọng về sức khỏe.
+          Sự tin tưởng và những nụ cười sau mỗi liệu trình là động lực lớn nhất
+          để chúng tôi tiếp tục gìn giữ, phát huy chất lượng trong từng vị
+          thuốc, mang lại sự bình yên cho sức khỏe quê hương.
+</p> </div> <!-- Right Wall --> <div class="reviews-wall"> <!-- Column 1 --> <div class="review-column col-1"> <div class="scroll-track"> <!-- Item 1 --> <div class="review-card"> <div class="reviewer-header"> <img src="/Asset/Thuốc.jpg" alt="Patient" class="reviewer-avatar"> <div class="reviewer-info"> <h4>Minh T.</h4> <span>Chronic Back Pain</span> </div> </div> <p class="review-body">
+"I was skeptical about traditional medicine, but the acupuncture
+                treatments here completely reset my sleep cycle. I feel years
+                younger."
+</p> </div> <!-- Item 2 --> <div class="review-card"> <div class="reviewer-header"> <img src="/Asset/Thuốc 1.jpg" alt="Patient" class="reviewer-avatar"> <div class="reviewer-info"> <h4>Sarah J.</h4> <span>Wellness Check</span> </div> </div> <p class="review-body">
+"The atmosphere is so calming. An Binh is a hidden gem in
+                Winnipeg for anyone looking for holistic care."
+</p> </div> <!-- Item 3 --> <div class="review-card"> <div class="reviewer-header"> <img src="/Asset/Thuốc 2.jpg" alt="Patient" class="reviewer-avatar"> <div class="reviewer-info"> <h4>David L.</h4> <span>Herbal Therapy</span> </div> </div> <p class="review-body">
+"The herbal tea blends are not only delicious but actually
+                effective. My digestion has never been better."
+</p> </div> <!-- DUPLICATES FOR LOOP --> <div class="review-card"> <div class="reviewer-header"> <img src="/Asset/Thuốc.jpg" alt="Patient" class="reviewer-avatar"> <div class="reviewer-info"> <h4>Minh T.</h4> <span>Chronic Back Pain</span> </div> </div> <p class="review-body">
+"I was skeptical about traditional medicine, but the acupuncture
+                treatments here completely reset my sleep cycle. I feel years
+                younger."
+</p> </div> <div class="review-card"> <div class="reviewer-header"> <img src="/Asset/Thuốc 1.jpg" alt="Patient" class="reviewer-avatar"> <div class="reviewer-info"> <h4>Sarah J.</h4> <span>Wellness Check</span> </div> </div> <p class="review-body">
+"The atmosphere is so calming. An Binh is a hidden gem in
+                Winnipeg for anyone looking for holistic care."
+</p> </div> <div class="review-card"> <div class="reviewer-header"> <img src="/Asset/Thuốc 2.jpg" alt="Patient" class="reviewer-avatar"> <div class="reviewer-info"> <h4>David L.</h4> <span>Herbal Therapy</span> </div> </div> <p class="review-body">
+"The herbal tea blends are not only delicious but actually
+                effective. My digestion has never been better."
+</p> </div> </div> </div> <!-- Column 2 --> <div class="review-column col-2"> <div class="scroll-track"> <!-- Item 4 --> <div class="review-card"> <div class="reviewer-header"> <img src="/Asset/Thuốc 1.jpg" alt="Patient" class="reviewer-avatar"> <div class="reviewer-info"> <h4>Emily R.</h4> <span>Acupuncture</span> </div> </div> <p class="review-body">
+"Finally found relief for my shoulder pain after months of
+                struggling. The staff is incredibly professional."
+</p> </div> <!-- Item 5 --> <div class="review-card"> <div class="reviewer-header"> <img src="/Asset/Thuốc.jpg" alt="Patient" class="reviewer-avatar"> <div class="reviewer-info"> <h4>James K.</h4> <span>Stress Relief</span> </div> </div> <p class="review-body">
+"A sanctuary of peace. The treatments helped me manage my work
+                stress significantly."
+</p> </div> <!-- Item 6 --> <div class="review-card"> <div class="reviewer-header"> <img src="/Asset/Thuốc 2.jpg" alt="Patient" class="reviewer-avatar"> <div class="reviewer-info"> <h4>Linh N.</h4> <span>General Health</span> </div> </div> <p class="review-body">
+"I love the personalized approach. They really take the time to
+                understand your body's needs."
+</p> </div> <!-- DUPLICATES FOR LOOP --> <div class="review-card"> <div class="reviewer-header"> <img src="/Asset/Thuốc 1.jpg" alt="Patient" class="reviewer-avatar"> <div class="reviewer-info"> <h4>Emily R.</h4> <span>Acupuncture</span> </div> </div> <p class="review-body">
+"Finally found relief for my shoulder pain after months of
+                struggling. The staff is incredibly professional."
+</p> </div> <div class="review-card"> <div class="reviewer-header"> <img src="/Asset/Thuốc.jpg" alt="Patient" class="reviewer-avatar"> <div class="reviewer-info"> <h4>James K.</h4> <span>Stress Relief</span> </div> </div> <p class="review-body">
+"A sanctuary of peace. The treatments helped me manage my work
+                stress significantly."
+</p> </div> <div class="review-card"> <div class="reviewer-header"> <img src="/Asset/Thuốc 2.jpg" alt="Patient" class="reviewer-avatar"> <div class="reviewer-info"> <h4>Linh N.</h4> <span>General Health</span> </div> </div> <p class="review-body">
+"I love the personalized approach. They really take the time to
+                understand your body's needs."
+</p> </div> </div> </div> </div> </div> </section>    <section class="faq-section"> <div class="faq-container"> <div class="faq-header"> <p class="sub-heading mb-md lang-text" data-en="Common Questions" data-vn="Câu Hỏi Thường Gặp">
+Câu Hỏi Thường Gặp
+</p> <h2 class="heading-section lang-text" data-en="Everything You Need To Know" data-vn="Tất Cả Những Gì Bạn Cần Biết">
+Tất Cả Những Gì Bạn Cần Biết
+</h2> </div> <div class="faq-list"> <!-- Question 1 --> <div class="faq-item"> <button class="faq-question"> <h3 class="lang-text" data-en="What types of conditions can Traditional Medicine treat?" data-vn="Đông y có thể điều trị những loại bệnh nào?">
+Đông y có thể điều trị những loại bệnh nào?
+</h3> <div class="faq-toggle-icon"></div> </button> <div class="faq-answer"> <p class="lang-text" data-en="Traditional Medicine is effective for a wide range of conditions, including chronic pain, digestive issues, stress-related disorders, insomnia, and hormonal imbalances. We take a holistic approach to address the root cause of your symptoms." data-vn="Y học cổ truyền mang lại hiệu quả cao đối với nhiều loại bệnh lý như đau mãn tính, các vấn đề về tiêu hóa, căng thẳng, rối loạn giấc ngủ và mất cân bằng nội tiết tố. Chúng tôi tiếp cận toàn diện để giải quyết nguyên nhân gốc rễ gây ra triệu chứng của bạn.">
+Y học cổ truyền mang lại hiệu quả cao đối với nhiều loại bệnh lý
+              như đau mãn tính, các vấn đề về tiêu hóa, căng thẳng, rối loạn
+              giấc ngủ và mất cân bằng nội tiết tố. Chúng tôi tiếp cận toàn diện
+              để giải quyết nguyên nhân gốc rễ gây ra triệu chứng của bạn.
+</p> </div> </div> <!-- Question 2 --> <div class="faq-item"> <button class="faq-question"> <h3 class="lang-text" data-en="Is acupuncture painful?" data-vn="Châm cứu có đau không?">
+Châm cứu có đau không?
+</h3> <div class="faq-toggle-icon"></div> </button> <div class="faq-answer"> <p class="lang-text" data-en="Most patients experience little to no pain. The needles are extremely thin—about the width of a hair. You may feel a slight prick or a dull ache, which is actually a good sign that the energy (Qi) is being activated." data-vn="Hầu hết bệnh nhân ít hoặc không cảm thấy đau. Kim châm vô cùng mỏng - chỉ cỡ bằng sợi tóc. Bạn có thể cảm thấy hơi nhói nhẹ hoặc mỏi, đây thực chất là một dấu hiệu tốt cho thấy luồng khí (Khí) đang được kích hoạt.">
+Hầu hết bệnh nhân ít hoặc không cảm thấy đau. Kim châm vô cùng
+              mỏng - chỉ cỡ bằng sợi tóc. Bạn có thể cảm thấy hơi nhói nhẹ hoặc
+              mỏi, đây thực chất là một dấu hiệu tốt cho thấy luồng khí (Khí)
+              đang được kích hoạt.
+</p> </div> </div> <!-- Question 3 --> <div class="faq-item"> <button class="faq-question"> <h3 class="lang-text" data-en="How long does a consultation usually take?" data-vn="Quá trình tư vấn thường mất bao lâu?">
+Quá trình tư vấn thường mất bao lâu?
+</h3> <div class="faq-toggle-icon"></div> </button> <div class="faq-answer"> <p class="lang-text" data-en="An initial consultation typically lasts 60-90 minutes. This allows our practitioners to conduct a thorough pulse diagnosis, understand your medical history, and create a personalized treatment plan." data-vn="Lần tư vấn đầu tiên thường kéo dài từ 60-90 phút. Điều này cho phép bác sĩ bắt mạch một cách cẩn thận, hiểu rõ tiền sử bệnh của bạn và lập ra một phác đồ điều trị cá nhân hóa.">
+Lần tư vấn đầu tiên thường kéo dài từ 60-90 phút. Điều này cho
+              phép bác sĩ bắt mạch một cách cẩn thận, hiểu rõ tiền sử bệnh của
+              bạn và lập ra một phác đồ điều trị cá nhân hóa.
+</p> </div> </div> <!-- Question 4 --> <div class="faq-item"> <button class="faq-question"> <h3 class="lang-text" data-en="Are the herbal remedies safe to take with my other medications?" data-vn="Thuốc thảo dược có an toàn khi dùng chung với các loại thuốc khác không?">
+Thuốc thảo dược có an toàn khi dùng chung với các loại thuốc khác
+              không?
+</h3> <div class="faq-toggle-icon"></div> </button> <div class="faq-answer"> <p class="lang-text" data-en="Your safety is our priority. During your consultation, we review all medications you are currently taking to ensure there are no interactions. Our herbal formulas are crafted from high-quality, ethically sourced ingredients." data-vn="Sự an toàn của bạn là ưu tiên hàng đầu. Trong quá trình khám bệnh, chúng tôi sẽ kiểm tra lại tất cả các loại thuốc bạn đang dùng để đảm bảo không có sự tương tác thuốc. Các công thức thuốc thảo dược của chúng tôi được thiết lập từ các thành phần có nguồn gốc rõ ràng và chất lượng cao.">
+Sự an toàn của bạn là ưu tiên hàng đầu. Trong quá trình khám bệnh,
+              chúng tôi sẽ kiểm tra lại tất cả các loại thuốc bạn đang dùng để
+              đảm bảo không có sự tương tác thuốc. Các công thức thuốc thảo dược
+              của chúng tôi được thiết lập từ các thành phần có nguồn gốc rõ
+              ràng và chất lượng cao.
+</p> </div> </div> <!-- Question 5 --> <div class="faq-item"> <button class="faq-question"> <h3 class="lang-text" data-en="Do you accept health insurance?" data-vn="Thuốc thảo dược sắc sẵn có đảm bảo chất lượng bằng thuốc tự sắc không?
+">
+Thuốc thảo dược sắc sẵn có đảm bảo chất lượng bằng thuốc tự sắc
+              không?
+</h3> <div class="faq-toggle-icon"></div> </button> <div class="faq-answer"> <p class="lang-text" data-en="Many extended health benefit plans cover Acupuncture and Naturopathic services. We recommend checking with your insurance provider to confirm your specific coverage details." data-vn="<strong>Có, thậm chí còn tốt hơn.</strong> Hệ thống máy sắc thuốc áp
+              suất kín tại An Bình giúp chiết xuất tối đa dược tính mà cách sắc ấm
+              đất thủ công dễ làm bay hơi. Thuốc được đóng túi tiệt trùng, giữ trọn
+              vẹn hương vị và chất lượng trong thời gian dài. Điều này cực kỳ tiện
+              lợi cho người bận rộn mà vẫn đảm bảo uống thuốc đúng giờ."> <strong>Có, thậm chí còn tốt hơn.</strong> Hệ thống máy sắc thuốc áp
+              suất kín tại An Bình giúp chiết xuất tối đa dược tính mà cách sắc ấm
+              đất thủ công dễ làm bay hơi. Thuốc được đóng túi tiệt trùng, giữ trọn
+              vẹn hương vị và chất lượng trong thời gian dài. Điều này cực kỳ tiện
+              lợi cho người bận rộn mà vẫn đảm bảo uống thuốc đúng giờ.
+</p> </div> </div> </div> </div> </section>  <footer class="site-footer border-brass-top"> <div class="footer-container"> <!-- Brand Column --> <div class="footer-col branding-col"> <img src="/Logo/Logo-NBG.png" alt="An Binh Logo" class="footer-logo"> <h3 class="heading-component">Phòng Khám Y Học Cổ Truyền An Bình</h3> <p class="body-regular lang-text" data-en="Peaceful nourishment, balanced vitality" data-vn="An nhiên dưỡng tạng – Bình ổn thân tâm">
+An nhiên dưỡng tạng – Bình ổn thân tâm
+</p> </div> <!-- Links Column --> <div class="footer-col links-col"> <h4 class="heading-component lang-text" data-en="Quick Links" data-vn="Liên Kết Nhanh">
+Liên Kết Nhanh
+</h4> <div class="footer-nav"> <a href="/about" class="lang-text" data-en="Philosophy" data-vn="Triết Lý">Triết Lý</a> <a href="/therapies" class="lang-text" data-en="Services" data-vn="Liệu Pháp">Liệu Pháp</a> <a href="/ingredients" class="lang-text" data-en="Remedies" data-vn="Bài Thuốc">Bài Thuốc</a> <a href="https://www.google.com/maps/place/Ph%C3%B2ng+Y+H%E1%BB%8Dc+C%E1%BB%95+Truy%E1%BB%81n+An+B%C3%ACnh/@10.5085571,107.327058,455m/data=!3m1!1e3!4m6!3m5!1s0x3175a100125c7973:0x97569e0490503fa6!8m2!3d10.5082762!4d107.3262642!16s%2Fg%2F11mf93d8rf!5m1!1e1?authuser=0&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" class="lang-text" data-en="Visit Us" data-vn="Địa Chỉ">Địa Chỉ</a> </div> </div> <!-- Contact Column --> <div class="footer-col contact-col"> <h4 class="heading-component lang-text" data-en="Contact Us" data-vn="Liên Hệ">
+Liên Hệ
+</h4> <p class="contact-item body-small"> <strong class="lang-text" data-en="Old Address:" data-vn="Địa Chỉ Cũ:">Địa Chỉ Cũ:</strong>
+Đường Tháp Nước, Xã Láng Dài, Huyện Đất Đỏ, Tỉnh BR-VT
+</p> <p class="contact-item body-small"> <strong class="lang-text" data-en="Phone:" data-vn="Điện thoại:">Điện thoại:</strong>
+0908 052 968
+</p> <p class="contact-item body-small"> <strong>Email:</strong>
+info@anbinhclinic.com
+</p> </div> <!-- Hours Column --> <div class="footer-col hours-col"> <h4 class="heading-component lang-text" data-en="Hours" data-vn="Giờ Mở Cửa">
+Giờ Mở Cửa
+</h4> <ul class="hours-list"> <li> <span class="lang-text" data-en="Mon-Fri:" data-vn="T2-T6:">T2-T6:</span> <span class="lang-text" data-en="9am - 6pm" data-vn="9h - 18h">9h - 18h</span> </li> <li> <span class="lang-text" data-en="Sat:" data-vn="T7:">T7:</span> <span class="lang-text" data-en="10am - 4pm" data-vn="10h - 16h">10h - 16h</span> </li> <li> <span class="lang-text" data-en="Sun:" data-vn="CN:">CN:</span> <span class="lang-text" data-en="Closed" data-vn="Đóng cửa">Đóng cửa</span> </li> </ul> </div> </div> <div class="footer-bottom"> <div class="copyright lang-text" data-en="© 2026 An Binh Traditional Clinic. <br class='mobile-only'>All Rights Reserved." data-vn="© 2026 An Bình. <br class='mobile-only'>Bản Quyền Đã Được Bảo Lưu.">
+&copy; 2026 An Bình. <br class="mobile-only">Bản Quyền Đã Được Bảo Lưu.
+</div> </div> </footer> <!-- BOOKING MODAL --> <div class="booking-modal-overlay booking-feature" id="bookingModal"> <div class="booking-modal-container"> <div class="booking-modal-image"> <img src="/Asset/Thuốc 1E.png" alt="Booking Clinic Image"> </div> <div class="booking-modal-content"> <button class="booking-modal-close" id="closeBookingModal"> <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> </button> <h2 class="heading-section lang-text modal-title" data-en="Book Appointment" data-vn="Đặt lịch hẹn">
+Đặt lịch hẹn
+</h2> <form class="booking-modal-form" id="bookingForm"> <input type="hidden" name="access_key" value="79741266-64e1-4c9e-9786-90cc9fed613b"> <input type="hidden" name="subject" value="New Appointment Booking - An Binh Clinic"> <input type="hidden" name="from_name" value="An Binh Clinic Booking System"> <div class="form-grid"> <div class="form-col"> <h3 class="form-subheading lang-text" data-en="Customer Information" data-vn="Thông tin khách hàng">
+Thông tin khách hàng
+</h3> <div class="form-group box-input"> <label for="b_fullname" class="lang-text" data-en="Full Name" data-vn="Họ và Tên">Họ và Tên</label> <input type="text" id="b_fullname" name="Full_Name" required> </div> <div class="form-group box-input"> <label for="b_email">Email</label> <input type="email" id="b_email" name="Email" required> </div> <div class="form-group box-input"> <label for="b_phone" class="lang-text" data-en="Phone Number" data-vn="Số điện thoại">Số điện thoại</label> <input type="tel" id="b_phone" name="Phone_Number" required> </div> <div class="form-group box-input"> <label for="b_address" class="lang-text" data-en="Address" data-vn="Địa chỉ">Địa chỉ</label> <input type="text" id="b_address" name="Address" required> </div> <div class="form-group box-input icon-input"> <label for="b_dob" class="lang-text" data-en="Date of birth" data-vn="Ngày sinh">Ngày sinh</label> <input type="text" id="b_dob" name="Date_Of_Birth" placeholder=" " onfocus="(this.type='date')" onblur="(this.type='text')"> <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> </div> <div class="form-group radio-group"> <label class="radio-label"> <input type="radio" name="b_gender" value="male" checked> <span class="custom-radio"></span> <span class="lang-text" data-en="Male" data-vn="Nam">Nam</span> </label> <label class="radio-label"> <input type="radio" name="b_gender" value="female"> <span class="custom-radio"></span> <span class="lang-text" data-en="Female" data-vn="Nữ">Nữ</span> </label> </div> </div> <div class="form-col"> <h3 class="form-subheading lang-text" data-en="Specialty" data-vn="Chuyên khoa">
+Chuyên khoa
+</h3> <div class="form-group box-input select-input"> <label for="b_clinic" class="lang-text" data-en="Hospital or Clinic" data-vn="Bệnh viện hay Phòng khám">Bệnh viện hay Phòng khám</label> <select id="b_clinic" name="Clinic" required> <option value="" disabled selected></option> <option value="District 1 Clinic">Phòng Khám Quận 1</option> <option value="District 2 Clinic">Phòng Khám Quận 2</option> </select> <svg class="select-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg> </div> <div class="form-group box-input select-input"> <label for="b_specialty" class="lang-text" data-en="Specialty" data-vn="Chuyên khoa">Chuyên khoa</label> <select id="b_specialty" name="Specialty" required> <option value="" disabled selected></option> <option value="Acupuncture">Châm Cứu</option> <option value="Herbal Medicine">Thuốc Đông Y</option> <option value="Physical Therapy">Vật Lý Trị Liệu</option> </select> <svg class="select-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg> </div> <div class="form-group box-input"> <label for="b_additional" class="lang-text" data-en="Additional Information" data-vn="Thông tin bổ sung">Thông tin bổ sung</label> <input type="text" id="b_additional" name="Additional_Information"> </div> <h3 class="form-subheading lang-text" data-en="Preferred Date & Time" data-vn="Ngày giờ ưu tiên" style="margin-top: 25px;">
+Ngày giờ ưu tiên
+</h3> <div class="form-group box-input icon-input"> <label for="b_datetime" class="lang-text" data-en="Choose Date and Time" data-vn="Chọn Ngày và Giờ">Chọn Ngày và Giờ</label> <input type="text" id="b_datetime" name="Preferred_Date_Time" placeholder=" " onfocus="(this.type='datetime-local')" onblur="(this.type='text')" required> <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> </div> <div class="recaptcha-box"> <label class="checkbox-label"> <input type="checkbox" id="b_robot"> <div class="recaptcha-inner"> <div class="recaptcha-check"></div> <span class="recaptcha-text">I'm not a robot</span> <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/RecaptchaLogo.svg" alt="reCAPTCHA" class="recaptcha-logo"> </div> </label> </div> <div class="terms-text"> <span class="lang-text" data-en="By clicking Submit, I acknowledge that I have read and agree to the " data-vn="Bằng cách nhấn Đăng ký, tôi xác nhận đã đọc và đồng ý với các ">Bằng cách nhấn Đăng ký, tôi xác nhận đã đọc và đồng ý với các
+</span> <a href="#" class="lang-text" data-en="Privacy Policy" data-vn="Chính Sách Quyền Riêng Tư">Chính Sách Quyền Riêng Tư</a>.
+</div> </div> </div> <div class="form-submit-row"> <div id="formResult" style="margin-right: 20px; align-self: center; font-weight: 600;"></div> <button type="submit" class="btn-primary btn-submit lang-text" id="submitBookingBtn" data-en="Submit" data-vn="Đăng Ký">Đăng Ký</button> </div> </form> </div> </div> </div> <!-- Zalo Floating Button --> <div class="zalo-container right"> <a id="zalo-btn" href="https://zalo.me/0908052968" target="_blank" rel="noopener nofollow"> <div class="animated_zalo infinite zoomIn_zalo cmoz-alo-circle"></div> <div class="animated_zalo infinite pulse_zalo cmoz-alo-circle-fill"></div> <span><img src="https://vutruso.com/wp-content/uploads/2024/05/zalo-2.png" alt="Contact Me on Zalo"></span> </a> </div> <!-- GSAP for Animations --> <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> <script src="/script.js"></script> <!-- Modal Form Handling --> <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('bookingModal');
+            const closeBtn = document.getElementById('closeBookingModal');
+            const bookingForm = document.getElementById('bookingForm');
+            const submitBtn = document.getElementById('submitBookingBtn');
+            const formResult = document.getElementById('formResult');
+            
+            // All Book Now buttons and links should open this
+            const bookButtons = document.querySelectorAll('.btn-booking-submit, .btn-primary[href="#booking"], .btn-secondary[href="#booking"], a.booking-feature');
+            
+            bookButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if(modal) {
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden'; // prevent scrolling
+                    }
+                });
+            });
+
+            if(closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            // Close when clicking outside
+            if(modal) {
+                modal.addEventListener('click', (e) => {
+                    if(e.target === modal) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            // Web3Forms AJAX Submission
+            if(bookingForm) {
+                bookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Change button text to indicate loading
+                    const originalText = submitBtn.innerText;
+                    submitBtn.innerText = "Sending...";
+                    submitBtn.disabled = true;
+                    
+                    const formData = new FormData(bookingForm);
+                    const object = Object.fromEntries(formData);
+                    const json = JSON.stringify(object);
+
+                    formResult.innerHTML = "Please wait...";
+                    formResult.style.color = "var(--text-brown, #523A20)";
+
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                    .then(async (response) => {
+                        let jsonResponse = await response.json();
+                        if (response.status == 200) {
+                            formResult.innerHTML = "Booking request sent successfully!";
+                            formResult.style.color = "var(--primary-green, #526B48)";
+                            bookingForm.reset();
+                            
+                            // Close modal after 3 seconds
+                            setTimeout(() => {
+                                modal.classList.remove('active');
+                                document.body.style.overflow = '';
+                                formResult.innerHTML = "";
+                            }, 3000);
+                        } else {
+                            console.log(response);
+                            formResult.innerHTML = jsonResponse.message || "An error occurred.";
+                            formResult.style.color = "red";
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        formResult.innerHTML = "Something went wrong!";
+                        formResult.style.color = "red";
+                    })
+                    .then(function() {
+                        submitBtn.innerText = originalText;
+                        submitBtn.disabled = false;
+                    });
+                });
+            }
+        });
+    </script> </body> </html>

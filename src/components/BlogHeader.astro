@@ -1,0 +1,376 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { getImageByPath } from "../utils/assets";
+
+const logoAsset = getImageByPath("Logo/Logo-Blog-New.png");
+
+const allPosts = await getCollection("blog");
+const categories = [
+  ...new Set(allPosts.map((p) => p.data.category)),
+] as string[];
+
+const today = new Date();
+const formattedDate = today.toLocaleDateString("vi-VN", {
+  weekday: "long",
+  day: "numeric",
+  month: "numeric",
+  year: "numeric",
+});
+---
+
+<header class="blog-header-minimal">
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress-container">
+    <div id="readingProgressBar" class="reading-progress-bar"></div>
+  </div>
+  <!-- Tier 1: Logo & Utilities -->
+  <div class="bh-top-tier">
+    <div class="bh-logo-minimal">
+      <a href="/">
+        <Image src={logoAsset} alt="An Bình Logo" />
+      </a>
+    </div>
+
+    <div class="bh-utility-cluster">
+      <div class="bh-date-weather">
+        <span class="bh-weather-item" id="bhWeather">
+          TP HCM, --°C
+          <span id="bhWeatherIcon">
+            <svg
+              viewBox="0 0 24 24"
+              width="14"
+              height="14"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+        </span>
+        <span class="bh-divider">|</span>
+        <span class="bh-date-item">{formattedDate}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tier 2: Category Navigation -->
+  <nav class="bh-bottom-tier">
+    <div class="bh-category-nav">
+      <a href="/blog" class={`cat-link ${Astro.url.pathname.startsWith('/blog') && !Astro.url.pathname.includes('/category/') ? 'active' : ''}`}>TẤT CẢ</a>
+      {
+        categories.map((cat) => {
+          const categoryPath = `/blog/category/${cat}`;
+          // Also mark active if we're on a single post page that belongs to this category
+          const isActive = Astro.url.pathname.includes(categoryPath);
+          return (
+            <a href={categoryPath} class={`cat-link ${isActive ? 'active' : ''}`}>
+              {cat.toUpperCase()}
+            </a>
+          );
+        })
+      }
+      <a href="/about" class="cat-link highlight">VỀ CHÚNG TÔI</a>
+    </div>
+  </nav>
+</header>
+<div id="stickySpacer" style="display: none;"></div>
+
+<style>
+  .blog-header-minimal {
+    background: #fff;
+    width: 100%;
+    z-index: 2000;
+    border-bottom: 1px solid #eaeaea;
+    font-family: "Open Sans", sans-serif;
+    display: block; /* Explicitly block */
+  }
+
+  .bh-top-tier {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 2%;
+    width: 100%;
+    max-width: 100%; /* Go full width to avoid "centered" look at large screens if desired, or just ensure spacing */
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .bh-logo-minimal {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .bh-logo-minimal img {
+    height: 65px;
+    padding: 10px 15px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+
+    filter: brightness(1.25);
+    background-image: url("/Logo/Seal-Blog.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* Reading Progress Tracker */
+  .reading-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #fafafa;
+    z-index: 3000;
+    pointer-events: none;
+  }
+
+  .reading-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #6a7e3f;
+    transition: width 0.1s ease-out;
+  }
+
+  .bh-utility-cluster {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex: 0 0 auto;
+  }
+
+  .bh-date-weather {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.8rem;
+    color: #444;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  .bh-weather-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+  }
+
+  .bh-divider {
+    color: #ddd;
+    font-weight: 300;
+  }
+
+  .bh-date-item {
+    font-weight: 400;
+  }
+
+  /* Bottom Tier - Categories */
+  .bh-bottom-tier {
+    border-top: 1px solid #f0f0f0;
+    padding: 12px 5%;
+    background: #fafafa;
+    position: static;
+    top: 0;
+    z-index: 2000;
+    transition: box-shadow 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  .bh-bottom-tier.is-sticky {
+    position: fixed;
+    top: 5px; /* Perfect alignment with progress bar height */
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #eaeaea;
+  }
+
+  .bh-category-nav {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+
+  .cat-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+  }
+
+  .cat-link:hover,
+  .cat-link.active {
+    color: var(--mahogany-dark, #3c2a21);
+    border-bottom-color: var(--mahogany-dark, #3c2a21);
+  }
+
+  .cat-link.highlight {
+    color: #9f224e;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .bh-top-tier {
+      flex-direction: column;
+      gap: 12px;
+      padding: calc(15px + env(safe-area-inset-top)) 15px 15px;
+    }
+
+    .bh-utility-cluster {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .bh-category-nav {
+      gap: 15px;
+      justify-content: flex-start;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 5px;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .bh-category-nav::-webkit-scrollbar {
+      display: none;
+    }
+    .cat-link {
+      font-size: 0.75rem;
+    }
+  }
+</style>
+
+<script is:inline>
+  function getWeatherIcon(code, isDay) {
+    // Icons based on Feather Icons set patterns
+    const icons = {
+      sun: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`,
+      moon: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`,
+      cloud: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>`,
+      rain: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 13a4 4 0 0 1-8 0"></path><path d="M8 19l2-2"></path><path d="M12 21l2-2"></path><path d="M20 16.58A5 5 0 0 0 18 10h-1.26A8 8 0 1 0 4 15.25"></path></svg>`,
+      lightning: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>`,
+    };
+
+    if (code === 0) return isDay ? icons.sun : icons.moon;
+    if ([1, 2, 3].includes(code)) return icons.cloud;
+    if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(code)) return icons.rain;
+    if ([95, 96, 99].includes(code)) return icons.lightning;
+    return icons.sun; // Fallback
+  }
+
+  async function initDynamicWeather() {
+    const weatherEl = document.getElementById("bhWeather");
+    const iconEl = document.getElementById("bhWeatherIcon");
+    if (!weatherEl || !iconEl) return;
+
+    // Default: Ho Chi Minh City
+    let city = "TP HCM";
+    let lat = 10.762622;
+    let lon = 106.660172;
+
+    try {
+      const geoRes = await fetch("https://freeipapi.com/api/json");
+      if (geoRes.ok) {
+        const geoData = await geoRes.json();
+        if (geoData.cityName && geoData.latitude) {
+          city = geoData.cityName;
+          lat = geoData.latitude;
+          lon = geoData.longitude;
+        }
+      }
+    } catch (e) {
+      console.warn("Location lookup failed.");
+    }
+
+    try {
+      const weatherRes = await fetch(
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`,
+      );
+      if (weatherRes.ok) {
+        const weatherData = await weatherRes.json();
+        if (weatherData.current_weather) {
+          const temp = Math.round(weatherData.current_weather.temperature);
+          const code = weatherData.current_weather.weathercode;
+          const isDay = weatherData.current_weather.is_day === 1;
+
+          const textNode = Array.from(weatherEl.childNodes).find(
+            (n) => n.nodeType === Node.TEXT_NODE,
+          );
+          if (textNode) {
+            textNode.textContent = `${city}, ${temp}°C `;
+          }
+          iconEl.innerHTML = getWeatherIcon(code, isDay);
+        }
+      }
+    } catch (e) {
+      console.warn("Weather fetch failed.");
+    }
+  }
+
+  function initReadingProgress() {
+    const progressBar = document.getElementById("readingProgressBar");
+    if (!progressBar) return;
+
+    window.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + "%";
+    });
+  }
+
+  function initStickyNav() {
+    const header = document.querySelector(".blog-header-minimal");
+    const bottomTier = document.querySelector(".bh-bottom-tier");
+    const spacer = document.getElementById("stickySpacer");
+    const topTier = document.querySelector(".bh-top-tier");
+
+    if (!header || !bottomTier || !spacer || !topTier) return;
+
+    const stickyPoint = topTier.offsetHeight;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > stickyPoint) {
+        if (!bottomTier.classList.contains("is-sticky")) {
+          bottomTier.classList.add("is-sticky");
+          spacer.style.height = bottomTier.offsetHeight + "px";
+          spacer.style.display = "block";
+        }
+      } else {
+        if (bottomTier.classList.contains("is-sticky")) {
+          bottomTier.classList.remove("is-sticky");
+          spacer.style.display = "none";
+        }
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initDynamicWeather();
+    initReadingProgress();
+    initStickyNav();
+  });
+</script>

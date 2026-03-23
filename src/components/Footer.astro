@@ -1,0 +1,393 @@
+---
+import { Image } from 'astro:assets';
+import { getImageByPath } from '../utils/assets';
+
+// Footer Component
+const logoAsset = getImageByPath('Logo/Logo-NBG.png');
+const bookingAsset = getImageByPath('Thuốc 1E.webp');
+---
+
+<footer class="site-footer border-brass-top">
+  <div class="footer-container">
+    <!-- Brand Column -->
+    <div class="footer-col branding-col">
+      <Image src={logoAsset} alt="An Binh Logo" class="footer-logo" />
+      <h3 class="heading-component">Phòng Khám Y Học Cổ Truyền An Bình</h3>
+      <p
+        class="body-regular lang-text"
+        data-en="Peaceful nourishment, balanced vitality"
+        data-vn="An nhiên dưỡng tạng – Bình ổn thân tâm"
+      >
+        An nhiên dưỡng tạng – Bình ổn thân tâm
+      </p>
+    </div>
+
+    <!-- Links Column -->
+    <div class="footer-col links-col">
+      <h4
+        class="heading-component lang-text"
+        data-en="Quick Links"
+        data-vn="Liên Kết Nhanh"
+      >
+        Liên Kết Nhanh
+      </h4>
+      <div class="footer-nav">
+        <a
+          href="/about"
+          class="lang-text"
+          data-en="Philosophy"
+          data-vn="Triết Lý">Triết Lý</a
+        >
+        <a
+          href="/therapies"
+          class="lang-text"
+          data-en="Services"
+          data-vn="Liệu Pháp">Liệu Pháp</a
+        >
+        <a
+          href="/ingredients"
+          class="lang-text"
+          data-en="Remedies"
+          data-vn="Bài Thuốc">Bài Thuốc</a
+        >
+        <a
+          href="https://www.google.com/maps/place/Ph%C3%B2ng+Y+H%E1%BB%8Dc+C%E1%BB%95+Truy%E1%BB%81n+An+B%C3%ACnh/@10.5085571,107.327058,455m/data=!3m1!1e3!4m6!3m5!1s0x3175a100125c7973:0x97569e0490503fa6!8m2!3d10.5082762!4d107.3262642!16s%2Fg%2F11mf93d8rf!5m1!1e1?authuser=0&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+          class="lang-text"
+          data-en="Visit Us"
+          data-vn="Địa Chỉ">Địa Chỉ</a
+        >
+      </div>
+    </div>
+
+    <!-- Contact Column -->
+    <div class="footer-col contact-col">
+      <h4
+        class="heading-component lang-text"
+        data-en="Contact Us"
+        data-vn="Liên Hệ"
+      >
+        Liên Hệ
+      </h4>
+      <p class="contact-item body-small">
+        <strong class="lang-text" data-en="Old Address:" data-vn="Địa Chỉ Cũ:"
+          >Địa Chỉ Cũ:</strong
+        >
+        Đường Tháp Nước, Xã Láng Dài, Huyện Đất Đỏ, Tỉnh BR-VT
+      </p>
+      <p class="contact-item body-small">
+        <strong class="lang-text" data-en="Phone:" data-vn="Điện thoại:"
+          >Điện thoại:</strong
+        >
+        0908 052 968
+      </p>
+      <p class="contact-item body-small">
+        <strong>Email:</strong>
+        info@yhctanbinh.com
+      </p>
+    </div>
+
+    <!-- Hours Column -->
+    <div class="footer-col hours-col">
+      <h4
+        class="heading-component lang-text"
+        data-en="Hours"
+        data-vn="Giờ Mở Cửa"
+      >
+        Giờ Mở Cửa
+      </h4>
+      <ul class="hours-list">
+        <li>
+          <span class="lang-text" data-en="Mon-Fri:" data-vn="T2-T6:"
+            >T2-T6:</span
+          >
+          <span class="lang-text" data-en="9am - 6pm" data-vn="9h - 18h"
+            >9h - 18h</span
+          >
+        </li>
+        <li>
+          <span class="lang-text" data-en="Sat:" data-vn="T7:">T7:</span>
+          <span class="lang-text" data-en="10am - 4pm" data-vn="10h - 16h"
+            >10h - 16h</span
+          >
+        </li>
+        <li>
+          <span class="lang-text" data-en="Sun:" data-vn="CN:">CN:</span>
+          <span class="lang-text" data-en="Closed" data-vn="Đóng cửa"
+            >Đóng cửa</span
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div
+      class="copyright lang-text"
+      data-en="© 2026 An Binh Traditional Clinic. <br class='mobile-only'>All Rights Reserved."
+      data-vn="© 2026 An Bình. <br class='mobile-only'>Bản Quyền Đã Được Bảo Lưu."
+    >
+      &copy; 2026 An Bình. <br class="mobile-only" />Bản Quyền Đã Được Bảo Lưu.
+    </div>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="booking-modal-overlay" id="bookingModal">
+  <div class="booking-modal-container">
+    <div class="booking-modal-image">
+      <Image src={bookingAsset} alt="Booking Clinic Image" />
+    </div>
+    <div class="booking-modal-content">
+      <button class="booking-modal-close" id="closeBookingModal">
+        <svg
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          stroke="currentColor"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><line x1="18" y1="6" x2="6" y2="18"></line><line
+            x1="6"
+            y1="6"
+            x2="18"
+            y2="18"></line></svg
+        >
+      </button>
+
+      <h2
+        class="heading-section lang-text modal-title"
+        data-en="Book Appointment"
+        data-vn="Đặt lịch hẹn"
+      >
+        Đặt lịch hẹn
+      </h2>
+
+      <form class="booking-modal-form" id="bookingForm">
+        <input
+          type="hidden"
+          name="access_key"
+          value="79741266-64e1-4c9e-9786-90cc9fed613b"
+        />
+        <input
+          type="hidden"
+          name="subject"
+          value="New Appointment Booking - An Binh Clinic"
+        />
+        <input
+          type="hidden"
+          name="from_name"
+          value="An Binh Clinic Booking System"
+        />
+        <div class="form-grid">
+          <!-- LEFT COLUMN: Required Fields -->
+          <div class="form-col">
+            <h3
+              class="form-subheading lang-text"
+              data-en="Required Information"
+              data-vn="Thông tin bắt buộc"
+            >
+              Thông tin bắt buộc
+            </h3>
+
+            <!-- REQUIRED: Full Name -->
+            <div class="form-group box-input">
+              <label
+                for="b_fullname"
+                class="lang-text"
+                data-en="Full Name <span class='required-star'>*</span>"
+                data-vn="Họ và Tên <span class='required-star'>*</span>"
+                >Họ và Tên <span class="required-star">*</span></label
+              >
+              <input type="text" id="b_fullname" name="Full_Name" required />
+            </div>
+
+            <!-- REQUIRED: Date of Birth (plain text input) -->
+            <div class="form-group box-input">
+              <label
+                for="b_dob"
+                class="lang-text"
+                data-en="Date of Birth <span class='required-star'>*</span>"
+                data-vn="Ngày sinh <span class='required-star'>*</span>"
+                >Ngày sinh <span class="required-star">*</span></label
+              >
+              <input
+                type="text"
+                id="b_dob"
+                name="Date_Of_Birth"
+                data-placeholder-en="mm/dd/yyyy"
+                data-placeholder-vn="dd/mm/yyyy"
+                placeholder="dd/mm/yyyy"
+                maxlength="10"
+                autocomplete="off"
+                required
+              />
+            </div>
+
+            <!-- REQUIRED: Phone Number -->
+            <div class="form-group box-input">
+              <label
+                for="b_phone"
+                class="lang-text"
+                data-en="Phone Number <span class='required-star'>*</span>"
+                data-vn="Số điện thoại <span class='required-star'>*</span>"
+                >Số điện thoại <span class="required-star">*</span></label
+              >
+              <input type="tel" id="b_phone" name="Phone_Number" required />
+            </div>
+
+            <!-- Preferred Date (date only, no time) -->
+            <h3
+              class="form-subheading lang-text"
+              data-en="Preferred Date"
+              data-vn="Ngày hẹn ưu tiên"
+              style="margin-top: 25px;"
+            >
+              Ngày hẹn ưu tiên
+            </h3>
+
+            <div class="form-group box-input">
+              <label
+                for="b_prefdate"
+                class="lang-text"
+                data-en="Choose Date"
+                data-vn="Chọn Ngày">Chọn Ngày</label
+              >
+              <input
+                type="text"
+                id="b_prefdate"
+                name="Preferred_Date"
+                data-placeholder-en="mm/dd/yyyy"
+                data-placeholder-vn="dd/mm/yyyy"
+                placeholder="dd/mm/yyyy"
+                maxlength="10"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Optional Fields -->
+          <div class="form-col">
+            <h3
+              class="form-subheading lang-text"
+              data-en="Optional Information"
+              data-vn="Thông tin thêm"
+            >
+              Thông tin thêm
+            </h3>
+
+            <!-- OPTIONAL: Email -->
+            <div class="form-group box-input">
+              <label for="b_email">Email</label>
+              <input type="email" id="b_email" name="Email" />
+            </div>
+
+            <!-- OPTIONAL: Address -->
+            <div class="form-group box-input">
+              <label
+                for="b_address"
+                class="lang-text"
+                data-en="Address"
+                data-vn="Địa chỉ">Địa chỉ</label
+              >
+              <input type="text" id="b_address" name="Address" />
+            </div>
+
+            <!-- OPTIONAL: Gender -->
+            <div class="form-group radio-group">
+              <label class="radio-label" for="b_gender_male">
+                <input
+                  type="radio"
+                  id="b_gender_male"
+                  name="Gender"
+                  value="male"
+                  checked
+                />
+                <span class="custom-radio"></span>
+                <span class="lang-text" data-en="Male" data-vn="Nam">Nam</span>
+              </label>
+              <label class="radio-label" for="b_gender_female">
+                <input
+                  type="radio"
+                  id="b_gender_female"
+                  name="Gender"
+                  value="female"
+                />
+                <span class="custom-radio"></span>
+                <span class="lang-text" data-en="Female" data-vn="Nữ">Nữ</span>
+              </label>
+            </div>
+
+            <div class="recaptcha-box">
+              <label class="checkbox-label">
+                <input type="checkbox" id="b_robot" />
+                <div class="recaptcha-inner">
+                  <div class="recaptcha-check"></div>
+                  <span class="recaptcha-text">I'm not a robot</span>
+                  <Image
+                    src="https://upload.wikimedia.org/wikipedia/commons/a/ad/RecaptchaLogo.svg"
+                    alt="reCAPTCHA"
+                    class="recaptcha-logo"
+                    width={20}
+                    height={20}
+                  />
+                </div>
+              </label>
+            </div>
+
+            <div class="terms-text">
+              <span
+                class="lang-text"
+                data-en="By clicking Submit, I acknowledge that I have read and agree to the "
+                data-vn="Bằng cách nhấn Đăng ký, tôi xác nhận đã đọc và đồng ý với các "
+                >Bằng cách nhấn Đăng ký, tôi xác nhận đã đọc và đồng ý với các
+              </span>
+              <a
+                href="#"
+                class="lang-text"
+                data-en="Privacy Policy"
+                data-vn="Chính Sách Quyền Riêng Tư">Chính Sách Quyền Riêng Tư</a
+              >.
+            </div>
+          </div>
+        </div>
+        <div class="form-submit-row">
+          <div
+            id="formResult"
+            style="margin-right: 20px; align-self: center; font-weight: 600;"
+          >
+          </div>
+          <button
+            type="submit"
+            class="btn-primary btn-submit lang-text"
+            id="submitBookingBtn"
+            data-en="Submit"
+            data-vn="Đăng Ký">Đăng Ký</button
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Zalo Floating Button -->
+<div class="zalo-container right">
+  <a
+    id="zalo-btn"
+    href="https://zalo.me/0908052968"
+    target="_blank"
+    rel="noopener nofollow"
+  >
+    <div class="animated_zalo infinite zoomIn_zalo cmoz-alo-circle"></div>
+    <div class="animated_zalo infinite pulse_zalo cmoz-alo-circle-fill"></div>
+    <span
+      ><Image
+        src="https://vutruso.com/wp-content/uploads/2024/05/zalo-2.png"
+        alt="Contact Me on Zalo"
+        width={35}
+        height={35}
+      /></span
+    >
+  </a>
+</div>

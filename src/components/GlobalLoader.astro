@@ -1,0 +1,154 @@
+---
+---
+<div id="globalLoader" class="global-loader">
+  <div class="loader-content">
+    <div class="yin-yang-loader"></div>
+    <p>Loading...</p>
+  </div>
+</div>
+
+<style is:global>
+  .global-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .global-loader.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .loader-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .loader-content p {
+    color: var(--mahogany-dark, #3c2a21);
+    font-family: "Merriweather", serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+
+  /* Elegant Indochine Spinner */
+  /* Yin-Yang Indochine Spinner */
+  /* Yin-Yang Indochine Spinner */
+  .yin-yang-loader {
+    width: 96px;
+    box-sizing: content-box;
+    height: 48px;
+    background: #fafafa;
+    border-color: #6a7e3f; /* Our theme green */
+    border-style: solid;
+    border-width: 2px 2px 50px 2px;
+    border-radius: 100%;
+    position: relative;
+    animation: indochine-yin-yang 3s linear infinite;
+  }
+
+  .yin-yang-loader:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #fafafa;
+    border: 18px solid #6a7e3f;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    box-sizing: content-box;
+  }
+
+  .yin-yang-loader:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #6a7e3f;
+    border: 18px solid #fafafa;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    box-sizing: content-box;
+  }
+
+  @keyframes indochine-yin-yang {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    let loaderTimeout;
+    const loader = document.getElementById("globalLoader");
+
+    function showLoader() {
+      if (!loader) return;
+      // "Only show when slow" - Wait 400ms before becoming visible
+      loaderTimeout = setTimeout(() => {
+        loader.classList.add("active");
+      }, 400);
+    }
+
+    function hideLoader() {
+      if (!loader) return;
+      clearTimeout(loaderTimeout);
+      loader.classList.remove("active");
+    }
+
+    // 1. Initial page load handling
+    // Many browsers don't fire DOMContentLoaded if it's already loaded or fast
+    if (document.readyState === 'loading') {
+      showLoader();
+      document.addEventListener('DOMContentLoaded', hideLoader);
+    } else {
+      hideLoader();
+    }
+
+    window.addEventListener('load', hideLoader);
+    window.addEventListener('pageshow', hideLoader); // Handle back/forward cache
+
+    // 2. Click-based navigation handling
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a');
+      if (
+        link && 
+        link.href && 
+        link.href.startsWith(window.location.origin) &&
+        !link.href.includes('#') &&
+        link.target !== '_blank'
+      ) {
+        showLoader();
+      }
+    });
+
+    // 3. Form submission handling
+    document.addEventListener('submit', () => {
+      showLoader();
+    });
+
+    // Fallback security: hide if page is taking too long to navigate (e.g. stalled)
+    window.addEventListener('beforeunload', () => {
+      // Keep showing, browser will replace it
+    });
+  })();
+</script>

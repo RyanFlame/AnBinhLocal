@@ -1,0 +1,265 @@
+
+    <section class="coffee-section">
+        <div class="tile-grid-left">
+            <img src="tile1.jpg" alt="Tile">
+            <img src="tile2.jpg" alt="Tile">
+            <img src="tile3.jpg" alt="Tile">
+            <img src="tile4.jpg" alt="Tile">
+            <img src="tile5.jpg" alt="Tile">
+            <img src="tile6.jpg" alt="Tile">
+            <img src="tile7.jpg" alt="Tile">
+            <img src="tile8.jpg" alt="Tile">
+            <img src="tile9.jpg" alt="Tile">
+            <img src="tile10.jpg" alt="Tile">
+            <img src="tile11.jpg" alt="Tile">
+            <img src="tile12.jpg" alt="Tile">
+            <img src="tile13.jpg" alt="Tile">
+            <img src="tile14.jpg" alt="Tile">
+            <img src="tile15.jpg" alt="Tile">
+            <img src="tile16.jpg" alt="Tile">
+        </div>
+
+        <div class="center-content">
+            <div class="top-headline">
+            <h2>МЫ ОТКРЫЛИ COFFEE & GO ДЛЯ ТЕХ, КТО ЦЕНИТ НЕ ТОЛЬКО КОФЕ, НО И АТМОСФЕРУ</h2>
+            </div>
+            <div class="bottom-headline">
+            <p><strong>НАША ЦЕЛЬ</strong> - ЧТОБЫ ВЫ ЗАХОТЕЛИ ВЕРНУТЬСЯ ЕЩЕ ДО ТОГО, КАК УЙДЕТЕ!</p>
+            </div>
+        </div>
+
+        <div class="scattered-section">
+            <div class="info-text top-right">
+            КАЖДОЕ ЗЕРНО ОТОБРАНО ВРУЧНУЮ. ЛУЧШИЕ БАРИСТА В ГОРОДЕ. ЗНАЮТ СВОЮ РАБОТУ
+            </div>
+            
+            <div class="scattered-tiles">
+            <img src="tile-a.jpg" class="tile-pos-1">
+            <div class="info-text mid-right">КОФЕ КАК ДОМА, ТОЛЬКО С КРАСИВЫМ ВИДОМ!</div>
+            <img src="tile-b.jpg" class="tile-pos-2">
+            <img src="tile-c.jpg" class="tile-pos-3">
+            <img src="tile-d.jpg" class="tile-pos-4">
+            <img src="tile-e.jpg" class="tile-pos-5">
+            <img src="tile-f.jpg" class="tile-pos-6">
+            <img src="tile-g.jpg" class="tile-pos-7">
+            </div>
+        </div>
+        </section>
+
+:root {
+  --bg-color: #e8e4df;
+  --navy-blue: #1a2b6d;
+  --text-dark: #333;
+}
+
+.coffee-section {
+  background-color: var(--bg-color);
+  display: flex;
+  padding: 60px;
+  gap: 40px;
+  font-family: 'Inter', sans-serif; /* A clean sans-serif font */
+  min-height: 100vh;
+}
+
+/* Left Grid (4x4) */
+.tile-grid-left {
+  display: grid;
+  grid-template-columns: repeat(4, 80px); /* Adjust size as needed */
+  grid-template-rows: repeat(4, 80px);
+  border: 2px solid var(--navy-blue); /* Outer border seen in image */
+}
+
+.tile-grid-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0.5px solid rgba(26, 43, 109, 0.2); /* Faint inner lines */
+}
+
+/* Center Content */
+.center-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.center-content h2 {
+  color: var(--navy-blue);
+  font-size: 1.4rem;
+  max-width: 350px;
+  line-height: 1.2;
+}
+
+.center-content .bottom-headline {
+  color: var(--navy-blue);
+  font-size: 1.1rem;
+}
+
+/* Right Section */
+.scattered-section {
+  flex: 1.5;
+  position: relative;
+}
+
+.info-text {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--text-dark);
+  max-width: 200px;
+}
+
+.scattered-tiles {
+  display: grid;
+  grid-template-columns: repeat(5, 80px);
+  grid-template-rows: repeat(4, 80px);
+  margin-top: 40px;
+}
+
+.scattered-tiles img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+/* Manual positioning for the "staircase" look on the right */
+.tile-pos-1 { grid-column: 2; grid-row: 1; }
+.mid-right  { grid-column: 3 / 5; grid-row: 2; align-self: center; padding-left: 10px;}
+.tile-pos-2 { grid-column: 3; grid-row: 3; }
+.tile-pos-3 { grid-column: 5; grid-row: 3; }
+.tile-pos-4 { grid-column: 1; grid-row: 4; }
+.tile-pos-5 { grid-column: 2; grid-row: 4; }
+.tile-pos-6 { grid-column: 3; grid-row: 4; }
+.tile-pos-7 { grid-column: 4; grid-row: 4; }
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .coffee-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+    <section class="timeline-section">
+    <svg class="winding-path" viewBox="0 0 100 1000" preserveAspectRatio="none">
+        <path d="M50,0 Q80,150 50,300 T50,600 T50,900" fill="none" stroke="#2b5a8e" stroke-width="2" stroke-dasharray="5,5"/>
+    </svg>
+
+    <div class="timeline-step">
+        <div class="step-label label-quality">品質</div>
+        <div class="step-content">
+        <p>從高難度的栽培技術與嚴謹的管理體制...</p>
+        </div>
+        <div class="step-image">
+        <img src="factory.jpg" alt="Facility">
+        </div>
+    </div>
+
+    <div class="timeline-step reverse">
+        <div class="step-label label-safety">安心安全</div>
+        <div class="step-content">
+        <p>栽培完全不使用農藥、添加物等...</p>
+        </div>
+        </div>
+
+    <div class="timeline-step">
+        <div class="step-label label-freshness">鮮度</div>
+        <div class="step-content">
+        <p>在台灣直接栽培生產，提供消費者最鮮美的菇類產品。</p>
+        </div>
+        <div class="step-image-group">
+        <img src="child.jpg" alt="Fresh">
+        <img src="mushrooms.jpg" alt="Mushrooms">
+        </div>
+    </div>
+    </section>
+
+    .timeline-section {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 100px 20px;
+  background-color: #f4f4f4;
+  overflow: hidden;
+}
+
+/* Background Path */
+.winding-path {
+  position: absolute;
+  top: 0;
+  left: 20%; /* Adjust to line up with labels */
+  width: 100px;
+  height: 100%;
+  z-index: 1;
+}
+
+.timeline-step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 120px;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-step.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Circular Vertical Labels */
+.step-label {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #2b5a8e;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl; /* Creates vertical text */
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2b5a8e;
+  flex-shrink: 0;
+  margin: 0 40px;
+}
+
+.step-content {
+  flex: 1;
+  max-width: 400px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #666;
+}
+
+/* Images with Rounded Corners */
+.step-image img, 
+.step-image-group img {
+  border-radius: 30px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.step-image-group {
+  display: flex;
+  gap: 15px;
+}
+
+.step-image-group img {
+  width: 180px; /* Two side-by-side */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline-step {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+  .winding-path {
+    display: none; /* Path gets messy on mobile */
+  }
+}

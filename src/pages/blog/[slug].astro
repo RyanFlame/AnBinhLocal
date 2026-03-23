@@ -1,0 +1,535 @@
+---
+import { getCollection, render } from "astro:content";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import Footer from "../../components/Footer.astro";
+import { Image } from "astro:assets";
+import { getImageByPath } from "../../utils/assets";
+
+// Assets
+const logoAsset = getImageByPath("Logo/Logo-NBG.png");
+const tocToggleAsset = getImageByPath("Icon/toc_toggle.png");
+
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+// 2. For your template, you can get the entry directly from the prop
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+
+// Filter headings for ToC
+const tocHeadings = headings.filter((h) => h.depth <= 3);
+
+// 3. Dynamic Read Time Calculation (250 words / minute)
+const wordsPerMinute = 250;
+const wordCount = entry.body ? entry.body.split(/\s+/).length : 0;
+const dynamicReadTime = `${Math.max(1, Math.ceil(wordCount / wordsPerMinute))} min read`;
+
+// 4. Fetch related posts by category
+const allPosts = await getCollection("blog");
+const relatedPosts = allPosts
+  .filter((p) => p.id !== entry.id && p.data.category === entry.data.category)
+  .slice(0, 3);
+
+// 5. Get unique categories for sidebar
+const categories = [...new Set(allPosts.map((p) => p.data.category))];
+
+// 6. Automated Internal Linking (CTA Map)
+const categoryCtaMap: Record<string, { text: string; link: string; icon: string }> = {
+  "Trị Liệu": { text: "Đặt lịch trị liệu chuyên sâu tại An Bình", link: "/booking", icon: "🗓️" },
+  "Thảo Dược": { text: "Khám phá các phương thuốc thảo dược tự nhiên", link: "/booking", icon: "🌿" },
+  "Chăm Sóc": { text: "Xem thêm dịch vụ chăm sóc sức khỏe", link: "/services", icon: "💆" },
+  "Y Học Cổ Truyền": { text: "Tính Âm Dương và các phương pháp phục hồi", link: "/services", icon: "☯️" },
+  "Phục Hồi": { text: "Hỗ trợ phục hồi nhanh chóng cùng chuyên gia", link: "/booking", icon: "💪" },
+  "Nhật Ký": { text: "Tìm hiểu thêm các kiến thức YHCT", link: "/blog", icon: "📖" }
+};
+const cta = categoryCtaMap[entry.data.category] || { text: "Liên hệ tư vấn cùng An Bình y quán", link: "/contact", icon: "📞" };
+
+// 7. Dynamic Article Schema (JSON-LD)
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": entry.data.title,
+  "description": entry.data.excerpt || "",
+  "author": {
+    "@type": "Person",
+    "name": entry.data.author
+  },
+  "datePublished": entry.data.date.toISOString(),
+  "image": new URL(entry.data.image instanceof Object ? entry.data.image.src : entry.data.image, Astro.site).toString(),
+  "publisher": {
+    "@type": "Organization",
+    "name": "Phòng Khám YHCT An Bình",
+    "logo": {
+      "@type": "ImageObject",
+      "url": new URL("/Asset/Logo/Logo-NBG.png", Astro.site).toString()
+    }
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": new URL("/", Astro.site).toString()
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": new URL("/blog", Astro.site).toString()
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": entry.data.category,
+      "item": new URL(`/blog/category/${entry.data.category}`, Astro.site).toString()
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": entry.data.title,
+      "item": new URL(`/blog/${entry.id}`, Astro.site).toString()
+    }
+  ]
+};
+---
+
+<BlogLayout title={`${entry.data.title} | An Bình`}>
+  <!-- Inject JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <main class="single-post-container" id="postContainer">
+    <aside class="post-sidebar-left" id="sidebarLeft">
+      <div class="sidebar-content-wrapper">
+        <!-- Sidebar Logo with Seal -->
+        <div class="sidebar-logo-minimal">
+          <Image src={logoAsset} alt="An Bình Logo" />
+        </div>
+
+        <!-- Mobile Close Button -->
+        <button
+          id="btnCloseSidebarMobile"
+          class="mobile-close-btn"
+          aria-label="Close Sidebar"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="ai-summary-block">
+          <button id="btnAiSummary" class="action-btn ai-summary-btn">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"
+              ></path>
+              <path d="M12 6v6l4 2"></path>
+            </svg>
+            <span
+              class="lang-text"
+              data-en="Quick Summarize"
+              data-vn="Tóm tắt nhanh">Quick Summarize</span
+            >
+          </button>
+          <div id="aiSummaryContent" class="ai-summary-content hidden">
+            <div class="summary-inner">
+              <h4
+                class="lang-text"
+                data-en="Key Highlights"
+                data-vn="Điểm chính"
+              >
+                Key Highlights
+              </h4>
+              <p>{entry.data.excerpt}</p>
+            </div>
+          </div>
+        </div>
+
+        <nav class="toc-nav">
+          <h3 class="lang-text" data-en="Table of Contents" data-vn="Mục lục">
+            Table of Contents
+          </h3>
+          <div class="toc-line"></div>
+          <ul>
+            {
+              tocHeadings && tocHeadings.length > 0 ? (
+                <>
+                  {tocHeadings.map((h) => (
+                    <li class={`toc-item depth-${h.depth}`}>
+                      <a href={`#${h.slug}`}>{h.text}</a>
+                    </li>
+                  ))}
+                </>
+              ) : (
+                <li class="toc-item">No sections available</li>
+              )
+            }
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- 2. CENTER CONTENT: Article -->
+    <article class="post-main-content">
+      <header class="post-header">
+        <div class="post-meta-top">
+          <span class="category-badge lang-text">{entry.data.category}</span>
+          <span class="read-stats">
+            {dynamicReadTime}
+          </span>
+        </div>
+
+        <h1 class="post-title lang-text">{entry.data.title}</h1>
+
+        <div class="post-meta-bottom">
+          <span class="byline"
+            >By <span class="author">{entry.data.author}</span></span
+          >
+          <time datetime={entry.data.date.toISOString()}>
+            {
+              entry.data.date.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })
+            }
+          </time>
+        </div>
+
+        <!-- Action Bar: Text Size, Share -->
+        <div class="post-actions">
+          <div class="text-size-controls">
+            <button
+              id="btnTextDec"
+              class="action-btn"
+              aria-label="Decrease text size">A-</button
+            >
+            <button
+              id="btnTextInc"
+              class="action-btn"
+              aria-label="Increase text size">A+</button
+            >
+          </div>
+          <button class="action-btn share-btn" aria-label="Share article">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+              <polyline points="16 6 12 2 8 6"></polyline>
+              <line x1="12" y1="2" x2="12" y2="15"></line>
+            </svg>
+            Share on media
+          </button>
+        </div>
+      </header>
+
+      <figure class="post-hero-image rounded-corner">
+        <Image src={entry.data.image} alt={entry.data.title} />
+      </figure>
+
+      <div class="markdown-content">
+        <!-- Renders the actual markdown content -->
+        <Content />
+      </div>
+
+      <!-- Automated Internal Linking (Dynamic CTA) -->
+      <div class="dynamic-cta-block">
+        <div class="cta-inner">
+          <span class="cta-icon">{cta.icon}</span>
+          <div class="cta-text-content">
+            <p class="cta-message">Quan tâm đến chuyên mục này?</p>
+            <a href={cta.link} class="cta-link lang-text" data-vn={cta.text} data-en="Learn More">
+              {cta.text} <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3. RIGHT SIDEBAR: Related News -->
+    <aside class="post-sidebar-right">
+      <div class="sidebar-header">
+        <h3>Related <span class="highlight">News</span></h3>
+        <a href={`/blog/category/${entry.data.category}`} class="see-all">See all</a>
+      </div>
+
+      <div class="related-list">
+        {
+          relatedPosts && relatedPosts.length > 0 ? (
+            <>
+              {relatedPosts.map((post) => (
+                <a
+                  href={`/blog/${post.id}`}
+                  style="text-decoration: none; color: inherit;"
+                >
+                  <article class="post-card minimal">
+                    <figure
+                      class="post-image concave-corner"
+                      style="height: 150px;"
+                    >
+                      <Image
+                        src={post.data.image}
+                        alt={post.data.title}
+                        style="width: 100%; height: 100%; object-fit: cover;"
+                      />
+                    </figure>
+                    <div class="post-content" style="padding: 10px 0 0 0;">
+                      <div class="post-meta" style="margin-bottom: 5px;">
+                        <span style="color: var(--accent); font-weight: 500; font-size: 0.8rem;">
+                          {post.data.category}
+                        </span>
+                      </div>
+                      <h4
+                        class="post-title"
+                        style="font-size: 1rem; line-height: 1.4; margin: 0;"
+                      >
+                        {post.data.title}
+                      </h4>
+                    </div>
+                  </article>
+                </a>
+              ))}
+            </>
+          ) : (
+            <p style="font-family: var(--font-body); color: rgba(60, 42, 33, 0.5);">
+              No related articles found.
+            </p>
+          )
+        }
+      </div>
+    </aside>
+  </main>
+
+  <style>
+    /* --- Dynamic CTA Block --- */
+    .dynamic-cta-block {
+      margin-top: 60px;
+      padding: 30px;
+      background: #f9f5e3;
+      border: 1px solid var(--blog-border);
+      border-radius: var(--scoop-radius, 12px);
+      text-align: center;
+    }
+    .cta-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .cta-icon {
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+    .cta-message {
+      font-size: 0.95rem;
+      color: var(--blog-subtext);
+      margin: 0;
+    }
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading, "Merriweather", serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--blog-gold);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .cta-link:hover {
+      color: var(--blog-green);
+    }
+    .cta-link .arrow {
+      transition: transform 0.3s;
+    }
+    .cta-link:hover .arrow {
+      transform: translateX(4px);
+    }
+  </style>
+
+  <!-- Fixed Controls: Sidebar Toggle & Back to Top -->
+  <div class="fixed-post-controls">
+    <div id="backToTop" class="back-to-top" title="Back to Top">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </div>
+
+    <button
+      id="btnCollapseSidebar"
+      class="collapse-sidebar-btn"
+      aria-label="Toggle Sidebar"
+      title="Toggle Navigation"
+    >
+      <Image src={tocToggleAsset} alt="Toggle Sidebar" width={24} height={24} />
+    </button>
+  </div>
+</BlogLayout>
+
+<script>
+  declare const gsap: any;
+  document.addEventListener("DOMContentLoaded", () => {
+    const postContainer = document.getElementById("postContainer");
+    const btnInc = document.getElementById("btnTextInc");
+    const btnDec = document.getElementById("btnTextDec");
+    const backToTop = document.getElementById("backToTop");
+    const btnAiSummary = document.getElementById("btnAiSummary");
+    const aiSummaryContent = document.getElementById("aiSummaryContent");
+    const btnCollapseSidebar = document.getElementById("btnCollapseSidebar");
+    const sidebarLeft = document.getElementById("sidebarLeft");
+    const btnCloseSidebarMobile = document.getElementById(
+      "btnCloseSidebarMobile",
+    );
+
+    const toggleSidebar = () => {
+      const currentlyCollapsed =
+        postContainer?.classList.toggle("sidebar-collapsed");
+      sidebarLeft?.classList.toggle("collapsed");
+      localStorage.setItem(
+        "blogSidebarCollapsed",
+        currentlyCollapsed ? "true" : "false",
+      );
+    };
+
+    // Sidebar Collapse Logic
+    // Default is collapsed ('true') if not set
+    const savedCollapsed = localStorage.getItem("blogSidebarCollapsed");
+    const isCollapsed =
+      savedCollapsed === null ? false : savedCollapsed === "true";
+
+    if (isCollapsed) {
+      postContainer?.classList.add("sidebar-collapsed");
+      sidebarLeft?.classList.add("collapsed");
+    } else {
+      postContainer?.classList.remove("sidebar-collapsed");
+      sidebarLeft?.classList.remove("collapsed");
+    }
+
+    btnCollapseSidebar?.addEventListener("click", toggleSidebar);
+    btnCloseSidebarMobile?.addEventListener("click", toggleSidebar);
+
+    // Close sidebar when ToC item is clicked (mobile)
+    const tocLinks = sidebarLeft?.querySelectorAll(".toc-nav a");
+    tocLinks?.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+          toggleSidebar();
+        }
+      });
+    });
+
+    // Close when clicking overlay (mobile)
+    document.addEventListener("click", (e) => {
+      const isMobile = window.innerWidth <= 768;
+      const isExpanded = !sidebarLeft?.classList.contains("collapsed");
+      if (isMobile && isExpanded) {
+        // If click is outside sidebar and NOT the toggle button
+        if (
+          !sidebarLeft?.contains(e.target as Node) &&
+          !btnCollapseSidebar?.contains(e.target as Node)
+        ) {
+          toggleSidebar();
+        }
+      }
+    });
+
+    // AI Summary Toggle
+    btnAiSummary?.addEventListener("click", () => {
+      aiSummaryContent?.classList.toggle("hidden");
+      btnAiSummary.classList.toggle("active");
+    });
+
+    // Text Size Logic
+    const savedSize = localStorage.getItem("blogTextSize");
+    if (savedSize === "large") {
+      postContainer?.classList.add("text-large");
+    }
+
+    btnInc?.addEventListener("click", () => {
+      postContainer?.classList.add("text-large");
+      localStorage.setItem("blogTextSize", "large");
+    });
+
+    btnDec?.addEventListener("click", () => {
+      postContainer?.classList.remove("text-large");
+      localStorage.setItem("blogTextSize", "normal");
+    });
+
+    // Share Functionality
+    const shareBtn = document.querySelector(".share-btn");
+    shareBtn?.addEventListener("click", async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: document.title,
+            url: window.location.href,
+          });
+        } catch (err) {
+          console.log("Share failed:", err);
+        }
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert("Link copied to clipboard!");
+      }
+    });
+
+    // Back to Top functionality
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        backToTop?.classList.add("visible");
+      } else {
+        backToTop?.classList.remove("visible");
+      }
+    });
+
+    backToTop?.addEventListener("click", () => {
+      if (gsap) {
+        gsap.to(window, {
+          duration: 1.2,
+          scrollTo: { y: 0 },
+          ease: "power4.inOut",
+        });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+  });
+</script>
