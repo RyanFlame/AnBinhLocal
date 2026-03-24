@@ -1,16 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from 'astro:assets';
-import { getImageByPath } from '../utils/assets';
+import { Image } from "astro:assets";
+import { getImageByPath } from "../utils/assets";
 
 // Use the elite bulk loader to get images automatically
 // This is much cleaner than manually importing every single file.
-const asset_Med_webp = getImageByPath('Med.webp');
-const asset_Ingri_Ginseng_webp = getImageByPath('Ingri/Ginseng.webp');
-const asset_Med8_webp = getImageByPath('Med8.webp');
-const asset_Med3_webp = getImageByPath('Med3.webp');
-const asset_Thu_c_3_webp = getImageByPath('Thuốc 3.webp');
-const asset_Herbal_Medicine_webp = getImageByPath('Herbal-Medicine.webp');
+const asset_Med_webp = getImageByPath("Med.webp");
+const asset_Ingri_Ginseng_webp = getImageByPath("Ingri/Ginseng.webp");
+const asset_Med8_webp = getImageByPath("Med8.webp");
+const asset_Med3_webp = getImageByPath("Med3.webp");
+const asset_Thu_c_3_webp = getImageByPath("Thuốc 3.webp");
+const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
 ---
 
 <Layout title="Premium Ingredients - An Binh Traditional Medicine">
@@ -119,7 +119,11 @@ const asset_Herbal_Medicine_webp = getImageByPath('Herbal-Medicine.webp');
         <!-- Card 1: Dried Herbs -->
         <div class="ing-category-card">
           <div class="ing-card-img-wrap">
-            <Image src={asset_Med_webp} alt="Dried Herbs" class="ing-card-img" />
+            <Image
+              src={asset_Med_webp}
+              alt="Dried Herbs"
+              class="ing-card-img"
+            />
             <div class="ing-card-img-overlay"></div>
           </div>
           <div class="ing-card-body">
@@ -401,7 +405,7 @@ const asset_Herbal_Medicine_webp = getImageByPath('Herbal-Medicine.webp');
         <Image
           src={asset_Herbal_Medicine_webp}
           alt="Herbal medicine collection"
-        / />
+        />
       </div>
 
       <!-- Card 4: Stat — Satisfaction (Brass accent) -->
@@ -479,7 +483,7 @@ const asset_Herbal_Medicine_webp = getImageByPath('Herbal-Medicine.webp');
   .ing-hero {
     position: relative;
     min-height: 100vh;
-    background-image: url("/Asset/Thuốc 1E.webp");
+    background-image: url("/Asset/Thuoc-1E.webp");
     background-size: cover;
     background-position: center;
     display: flex;

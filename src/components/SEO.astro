@@ -4,19 +4,29 @@
  * Optimized for: Core Web Vitals, Crawlability, and Social Presence.
  */
 
-export interface Props {
+import { Image } from "astro:assets";
+import defaultImage from "../assets/Thuốc 1E.webp";
+
+type Props = {
   title: string;
   description?: string;
-  image?: string;
+  image?: string | ImageMetadata;
   robots?: string;
-}
+};
 
 const {
   title,
   description = "Phòng khám YHCT An Bình - Chăm sóc sức khỏe bằng y học cổ truyền tinh hoa, châm cứu tại Đất Đỏ.",
-  image = "/Asset/Thuốc 1E.webp", // Default premium fallback image
+  image,
   robots = "index, follow",
 } = Astro.props;
+
+// Handle both string paths and ImageMetadata
+const resolvedImage = image
+  ? typeof image === "string"
+    ? image
+    : image.src
+  : defaultImage.src;
 
 const siteName = "Phòng Khám YHCT An Bình";
 const formattedTitle = `${title} | ${siteName}`;
@@ -34,7 +44,7 @@ const viUrl = new URL(basePath, Astro.site).toString();
 const enUrl = new URL(`/en${basePath}`, Astro.site).toString();
 
 // 3. Absolute Image for Social Scrapers
-const socialImageURL = new URL(image, Astro.site);
+const socialImageURL = new URL(resolvedImage, Astro.site);
 ---
 
 <!-- Global Metadata -->

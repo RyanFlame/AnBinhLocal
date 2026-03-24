@@ -206,7 +206,7 @@ const location_2 = getImageByPath("Location/Location 2.png");
             <article class="post-card main-feature">
               <a href={`/blog/${post.id}`} style="text-decoration: none; color: inherit; display: block;">
                 <figure class="post-image concave-corner">
-                  <Image src={post.data.image} alt={post.data.title} />
+                  <Image src={post.data.image as any} alt={post.data.title} />
                 </figure>
               </a>
               <div class="post-content">
@@ -415,7 +415,7 @@ const location_2 = getImageByPath("Location/Location 2.png");
   .post-card.medium .post-image { height: 180px; }
   .post-card.medium .post-title { font-size: 1.2rem; }
 
-  .bottom-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; align-items: start; }
+  .bottom-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; align-items: stretch; }
   .latest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
   .latest-grid .post-image { height: 250px; }
   .latest-grid .post-title { font-size: 1.4rem; }
@@ -431,7 +431,7 @@ const location_2 = getImageByPath("Location/Location 2.png");
   .page-number:hover:not(.active) { border-color: var(--blog-gold); color: var(--blog-gold); }
   .page-number.active { background: var(--blog-green); color: #fff; border-color: var(--blog-green); transform: scale(1.1); box-shadow: 0 4px 10px rgba(43, 58, 36, 0.2); }
 
-  .popular-section { position: sticky; top: 120px; height: fit-content; }
+  .popular-section { position: sticky; top: 90px; align-self: start; height: max-content; }
   .popular-list { display: flex; flex-direction: column; gap: 35px; }
   .popular-item { display: flex; gap: 20px; align-items: flex-start; }
   .popular-number { font-size: 2.5rem; font-weight: 800; color: var(--blog-border); line-height: 1; padding-top: 5px; }

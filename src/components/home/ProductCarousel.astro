@@ -1,0 +1,381 @@
+---
+import { Image } from "astro:assets";
+import { getImageByPath } from "../../utils/assets";
+
+const icon_Chuan_Doan = getImageByPath('Icon/Chuan Doan.png');
+const icon_Thuoc_1 = getImageByPath('Icon/Thuoc 1.png');
+const icon_Cham_Cuu = getImageByPath('Icon/Cham Cuu.png');
+const icon_Bam_Huyet = getImageByPath('Icon/Bam Huyet.png');
+const icon_Dinh_Duong = getImageByPath('Icon/Dinh Duong.png');
+const icon_The_Duc = getImageByPath('Icon/The Duc.png');
+const icon_Thuoc_2 = getImageByPath('Icon/Thuoc 2.png');
+---
+  <section class="product-section" id="products" data-header-theme="light">
+    <div class="product-container">
+      <div class="product-header">
+        <h2
+          class="heading-section lang-text"
+          data-en="Our Natural Collections"
+          data-vn="Bộ Sưu Tập Từ Thiên Nhiên"
+        >
+          Bộ Sưu Tập Từ Thiên Nhiên
+        </h2>
+        <div class="carousel-nav">
+          <button id="prevBtn" class="nav-arrow" aria-label="Previous">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M15 18l-6-6 6-6"></path>
+            </svg>
+          </button>
+          <button id="nextBtn" class="nav-arrow" aria-label="Next">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M9 18l6-6-6-6"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="carousel-viewport" id="carouselViewport">
+        <div class="carousel-track" id="track">
+          <div class="product-card">
+            <a
+              href="/about#svc-private"
+              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+            >
+              <div class="card-inner">
+                <div class="icon-placeholder">
+                  <Image
+                    src={icon_Chuan_Doan}
+                    alt="Icon"
+                    class="temp-icon"
+                  />
+                </div>
+                <h3
+                  class="lang-text"
+                  data-en="Pulse Diagnosis"
+                  data-vn="Chẩn Đoán"
+                >
+                  Chẩn Đoán
+                </h3>
+              </div>
+            </a>
+          </div>
+
+          <div class="product-card">
+            <a
+              href="/about#svc-herbal"
+              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+            >
+              <div class="card-inner">
+                <div class="icon-placeholder">
+                  <Image src={icon_Thuoc_1} alt="Icon" class="temp-icon" />
+                </div>
+                <h3
+                  class="lang-text"
+                  data-en="Herbal Decoctions"
+                  data-vn="Bốc Thuốc Bắc"
+                >
+                  Bốc Thuốc Bắc
+                </h3>
+              </div>
+            </a>
+          </div>
+
+          <div class="product-card">
+            <a
+              href="/about#svc-acupuncture"
+              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+            >
+              <div class="card-inner">
+                <div class="icon-placeholder">
+                  <Image src={icon_Cham_Cuu} alt="Icon" class="temp-icon" />
+                </div>
+                <h3 class="lang-text" data-en="Acupuncture" data-vn="Châm Cứu">
+                  Châm Cứu
+                </h3>
+              </div>
+            </a>
+          </div>
+
+          <div class="product-card">
+            <a
+              href="/about#svc-acupuncture"
+              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+            >
+              <div class="card-inner">
+                <div class="icon-placeholder">
+                  <Image src={icon_Bam_Huyet} alt="Icon" class="temp-icon" />
+                </div>
+                <h3 class="lang-text" data-en="Acupressure" data-vn="Bấm Huyệt">
+                  Bấm Huyệt
+                </h3>
+              </div>
+            </a>
+          </div>
+
+          <div class="product-card">
+            <a
+              href="/about#svc-nutrition"
+              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+            >
+              <div class="card-inner">
+                <div class="icon-placeholder">
+                  <Image
+                    src={icon_Dinh_Duong}
+                    alt="Icon"
+                    class="temp-icon"
+                  />
+                </div>
+                <h3
+                  class="lang-text"
+                  data-en="Nutritional Supplements"
+                  data-vn="Dinh Dưỡng"
+                >
+                  Dinh Dưỡng
+                </h3>
+              </div>
+            </a>
+          </div>
+
+          <div class="product-card">
+            <a
+              href="/about#svc-nutrition"
+              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+            >
+              <div class="card-inner">
+                <div class="icon-placeholder">
+                  <Image src={icon_The_Duc} alt="Icon" class="temp-icon" />
+                </div>
+                <h3
+                  class="lang-text"
+                  data-en="Physical Therapy"
+                  data-vn="Vật Lý Trị Liệu"
+                >
+                  Vật Lý Trị Liệu
+                </h3>
+              </div>
+            </a>
+          </div>
+
+          <div class="product-card">
+            <a
+              href="/about#svc-herbal"
+              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+            >
+              <div class="card-inner">
+                <div class="icon-placeholder">
+                  <Image src={icon_Thuoc_2} alt="Icon" class="temp-icon" />
+                </div>
+                <h3 class="lang-text" data-en="Tonic" data-vn="Thuốc Bổ">
+                  Thuốc Bổ
+                </h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<style>
+/* =========================================
+   OUR PRODUCTS CAROUSEL STYLES
+========================================= */
+
+/* --- Product Carousel Section --- */
+.product-section {
+    padding: 80px 0;
+    background-color: var(--warm-white); /* Match overall light sections */
+    border: none;
+}
+
+.product-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Header Area */
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.product-header h2 {
+    font-family: var(--font-serif);
+    color: var(--text-brown);
+    font-size: 2.5rem; /* Match other section headers */
+}
+
+/* Navigation Buttons */
+.carousel-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-arrow {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid var(--text-brown);
+    background: transparent;
+    color: var(--text-brown);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background: var(--text-brown);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Carousel Viewport (The masking window) */
+.carousel-viewport {
+    width: 100%;
+    overflow-x: auto; /* Allows swipe on mobile */
+    overflow-y: hidden;
+    /* Native smooth scroll removed to fix JS animation conflicts */
+    -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
+    scrollbar-width: none;  /* Hide scrollbar Firefox */
+    padding: 10px 0; /* Space for shadows */
+}
+
+/* Hide scrollbar for Chrome/Safari */
+.carousel-viewport::-webkit-scrollbar {
+    display: none;
+}
+
+/* The Track (Holds items) */
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content; /* Ensures track is wide enough */
+}
+
+/* --- The Cards (Chinese Style Box) --- */
+.product-card {
+    /* Fixed width for square look (Adjust as needed) */
+    width: 220px; 
+    height: 220px;
+    flex-shrink: 0; /* Prevents squishing */
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 0;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    position: relative; /* Needed for z-index to work */
+    z-index: 1; /* Bring the content and border forward */
+    
+    /* --- NEW BORDER IMAGE STYLES --- */
+    /* Define the width of the border area */
+    border-width: 18px; 
+    border-style: solid;
+    /* Path to your border image */
+    border-image-source: url('/Logo/Chinese-Box.png');
+    /* Slice the image: defines the corner regions. 
+       Adjust '28' if the corners look cut off or too large. */
+    border-image-slice: 35 fill; 
+    /* How to fill the space between corners. 'stretch' works well here. */
+    border-image-repeat: stretch;
+    
+    /* Adjust padding so content doesn't overlap the thicker border */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.card-inner::before {
+    content: '';
+    position: absolute;
+    /* Inset the background slightly so it doesn't bleed past the outer edge */
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    z-index: -1; /* Place it behind the border and content */
+    border-radius: 4px; /* Optional: slight rounding for the background corner */
+}
+
+/* Hover Effect */
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card:hover .card-inner {
+    box-shadow: 0 10px 20px rgba(157, 175, 115, 0.2);
+}
+
+/* Icon Area (Top Left) */
+.icon-placeholder {
+    width: 60px;
+    height: 40px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.temp-icon {
+    width: 65px;
+    height: 65px;
+    opacity: 0.5; /* Fade placeholder */
+}
+
+/* Text Area (Bottom) */
+.card-inner h3 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--text-brown);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* --- Mobile Responsiveness --- */
+@media screen and (max-width: 768px) {
+    .product-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* On mobile, usually users swipe, but arrows are still helpful */
+    .nav-arrow {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .product-card {
+        width: 160px;
+        height: 160px;
+    }
+
+    .card-inner h3 {
+        font-size: 0.95rem;
+    }
+}
+</style>
+

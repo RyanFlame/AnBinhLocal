@@ -1,1 +1,111 @@
 @import "tailwindcss";
+@import './indochine-design-system.css';
+@import './navbar.css';
+
+/* 
+ * -----------------------------------------------------
+ * GLOBAL BASE LAYER
+ * -----------------------------------------------------
+ * Only essential resets, scrollbars, and body defaults.
+ * Everything else is handled by Tailwind or Scoped CSS.
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: clip;
+}
+
+/* The mobile media query in navbar.css handles visibility. */
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--warm-white);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--warm-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--tarnished-brass);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brass-gold);
+}
+
+/* Typography Resets */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: var(--space-sm);
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  border-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* =========================================
+   GLOBAL MOBILE RESPONSIVE OVERRIDES (< 768px)
+   ========================================= */
+@media screen and (max-width: 768px) {
+  /* General Vertical & Horizontal Spacing Reductions */
+  .philosophy-section, .ingredient-section, .reviews-section, .faq-section, .product-grid-section {
+    padding: 60px 0;
+  }
+  .location-section {
+    padding: 40px 15px;
+  }
+  .philosophy-container, .ingredient-container, .reviews-container, .product-grid-container, .faq-container, .hero-layout-container, .hero-bottom-bar {
+    padding: 0 20px;
+  }
+
+  /* Primary Headings */
+  .section-heading, .grid-header h2 {
+    font-size: 2rem;
+  }
+  .sub-heading {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section-heading, .grid-header h2 {
+    font-size: 1.8rem;
+  }
+}

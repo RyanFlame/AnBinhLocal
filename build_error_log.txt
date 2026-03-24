@@ -1,0 +1,16 @@
+﻿
+> temp-astro@0.0.1 build
+> astro build
+
+[2m22:14:17[22m [34m[vite][39m Re-optimizing dependencies because vite config has changed
+[2m22:14:18[22m [34m[content][39m Syncing content
+[2m22:14:18[22m [34m[content][39m Synced content
+[2m22:14:18[22m [34m[types][39m Generated [2m604ms[22m
+[2m22:14:18[22m [34m[build][39m output: [34m"static"[39m
+[2m22:14:18[22m [34m[build][39m mode: [34m"static"[39m
+[2m22:14:18[22m [34m[build][39m directory: [34mC:\Users\ryang\Downloads\PK Dad Final\dist\[39m
+[2m22:14:18[22m [34m[build][39m Collecting build info...
+[2m22:14:18[22m [34m[build][39m [32mΓ£ô Completed in 633ms.[39m
+[2m22:14:18[22m [34m[build][39m Building static entrypoints...
+[33m[1m22:14:19[22m [WARN] [vite][39m 
+/Asset/Thuß╗æc 1E.webp referenced in /Asset/Thuß╗æc 1E.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime

@@ -1,10 +1,12 @@
-import eslintPluginAstro from 'eslint-plugin-astro';
+import eslintPluginAstro from "eslint-plugin-astro";
+import tseslint from "typescript-eslint";
 
 export default [
   ...eslintPluginAstro.configs.recommended,
+  ...tseslint.configs.recommended,
   {
     rules: {
-      "astro/no-set-html-directive": "warn"
-    }
-  }
+      "astro/no-set-html-directive": "warn",
+    },
+  },
 ];

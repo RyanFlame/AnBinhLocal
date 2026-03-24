@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-import { getImageByPath } from '../utils/assets';
+import { Image } from "astro:assets";
+import { getImageByPath } from "../utils/assets";
 
 // Footer Component
-const logoAsset = getImageByPath('Logo/Logo-NBG.png');
-const bookingAsset = getImageByPath('Thuốc 1E.webp');
+const logoAsset = getImageByPath("Logo/Logo-NBG.png");
+const bookingAsset = getImageByPath("Thuốc 1E.webp");
 ---
 
 <footer class="site-footer border-brass-top">
@@ -39,16 +39,16 @@ const bookingAsset = getImageByPath('Thuốc 1E.webp');
           data-vn="Triết Lý">Triết Lý</a
         >
         <a
-          href="/therapies"
-          class="lang-text"
-          data-en="Services"
-          data-vn="Liệu Pháp">Liệu Pháp</a
-        >
-        <a
           href="/ingredients"
           class="lang-text"
           data-en="Remedies"
           data-vn="Bài Thuốc">Bài Thuốc</a
+        >
+        <a
+          href="/therapies"
+          class="lang-text"
+          data-en="Services"
+          data-vn="Liệu Pháp">Liệu Pháp</a
         >
         <a
           href="https://www.google.com/maps/place/Ph%C3%B2ng+Y+H%E1%BB%8Dc+C%E1%BB%95+Truy%E1%BB%81n+An+B%C3%ACnh/@10.5085571,107.327058,455m/data=!3m1!1e3!4m6!3m5!1s0x3175a100125c7973:0x97569e0490503fa6!8m2!3d10.5082762!4d107.3262642!16s%2Fg%2F11mf93d8rf!5m1!1e1?authuser=0&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
@@ -71,19 +71,22 @@ const bookingAsset = getImageByPath('Thuốc 1E.webp');
       <p class="contact-item body-small">
         <strong class="lang-text" data-en="Old Address:" data-vn="Địa Chỉ Cũ:"
           >Địa Chỉ Cũ:</strong
-        >
+          >
         Đường Tháp Nước, Xã Láng Dài, Huyện Đất Đỏ, Tỉnh BR-VT
       </p>
-      <p class="contact-item body-small">
-        <strong class="lang-text" data-en="Phone:" data-vn="Điện thoại:"
-          >Điện thoại:</strong
-        >
-        0908 052 968
-      </p>
-      <p class="contact-item body-small">
-        <strong>Email:</strong>
-        info@yhctanbinh.com
-      </p>
+      
+      <div class="footer-contacts-row">
+        <p class="contact-item body-small">
+          <strong class="lang-text" data-en="Phone:" data-vn="Điện thoại:"
+            >Điện thoại:</strong
+            >
+          0908 052 968
+        </p>
+        <p class="contact-item body-small">
+          <strong>Email:</strong>
+          info@yhctanbinh.com
+        </p>
+      </div>
     </div>
 
     <!-- Hours Column -->
@@ -391,3 +394,682 @@ const bookingAsset = getImageByPath('Thuốc 1E.webp');
     >
   </a>
 </div>
+
+<style>
+  /* =========================================
+     SITE FOOTER (Indochine Theme)
+     ========================================= */
+  .site-footer {
+      background-color: #1f1c1a;
+      color: #F9F5E3;
+      padding: 80px 0 0 0;
+      font-family: var(--font-sans);
+      position: relative;
+      border-top: 5px solid #C8A97E;
+  }
+
+  .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px 60px 40px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+  }
+
+  .branding-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .footer-logo {
+      height: 80px;
+      width: auto;
+      margin-bottom: 20px;
+      filter: brightness(1.35);
+      padding: 9px;
+      background-image: url('/Logo/Seal-NBG.png'); 
+      background-size: 110px 110px;
+      background-position: center; 
+      background-repeat: no-repeat; 
+  }
+
+  .branding-col h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: #C8A97E;
+      margin-bottom: 15px;
+  }
+
+  .branding-col p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #ccc;
+      max-width: 280px;
+  }
+
+  .footer-col h4 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 15px;
+  }
+
+  .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--primary-green);
+  }
+
+  .footer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .footer-nav a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+  }
+
+  .footer-nav a:hover {
+      color: #C8A97E;
+      padding-left: 5px;
+  }
+
+  .contact-item {
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      color: #ccc;
+      line-height: 1.6;
+  }
+
+  .contact-item strong {
+      color: #fff;
+      display: inline-block; /* Changed from block to inline-block for side-by-side row flow */
+      margin-right: 5px;
+  }
+
+  .hours-list {
+      list-style: none;
+      padding: 0;
+  }
+
+  .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      color: #ccc;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 8px;
+  }
+
+  .hours-list li span {
+      color: #fff;
+      font-weight: 600;
+  }
+
+  .footer-bottom {
+      background-color: #141110;
+      padding: 20px 40px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      max-width: none;
+  }
+
+  .copyright {
+      font-size: 0.85rem;
+      color: #888;
+  }
+
+  @media screen and (max-width: 900px) {
+      .site-footer {
+          padding: 60px 0 0 0;
+      }
+      .site-footer .footer-container {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          text-align: left;
+          padding: 0 25px 40px 25px;
+      }
+      
+      .site-footer .branding-col {
+          grid-column: 1;
+          align-items: flex-start;
+          text-align: left;
+      }
+
+      .site-footer .branding-col p {
+          max-width: 100%;
+      }
+
+      .site-footer .footer-col h4 {
+          margin-bottom: 20px;
+      }
+
+      .site-footer .footer-nav {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+      }
+
+      .site-footer .footer-contacts-row {
+          display: flex;
+          flex-direction: row; /* Force horizontal row */
+          justify-content: flex-start;
+          align-items: baseline;
+          gap: 30px;
+          flex-wrap: wrap;
+          margin-top: 10px;
+      }
+      
+      .site-footer .footer-contacts-row .contact-item {
+          margin-bottom: 0px; /* Reset original margin */
+          min-width: 0; 
+      }
+
+      .site-footer .footer-contacts-row .contact-item strong {
+          display: block; /* Stack label above text within the row items */
+      }
+  }
+
+  /* =========================================
+     BOOKING MODAL
+     ========================================= */
+  .booking-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .booking-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .booking-modal-container {
+    width: 90%;
+    max-width: 1100px;
+    height: 85vh;
+    max-height: 750px;
+    display: flex;
+    background: var(--cream-rice, #f9f5e3);
+    position: relative;
+    transform: translateY(30px) scale(0.98);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Concave/Scooped Corners Mask */
+    --modal-scoop: 35px;
+    mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      );
+    -webkit-mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      );
+    mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+    -webkit-mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+    mask-size: 51% 51%;
+    -webkit-mask-size: 51% 51%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+  }
+
+  .booking-modal-overlay.active .booking-modal-container {
+    transform: translateY(0) scale(1);
+  }
+
+  .booking-modal-image {
+    flex: 0 0 42%;
+    position: relative;
+    background: var(--mahogany-dark, #241a0f);
+  }
+  .booking-modal-image :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.95;
+  }
+
+  .booking-modal-content {
+    flex: 1;
+    padding: 50px 60px;
+    position: relative;
+    overflow-y: auto;
+    background: var(--cream-rice, #f9f5e3);
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .booking-modal-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .booking-modal-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: transparent;
+    border: 1px solid var(--text-brown, #523a20);
+    color: var(--text-brown, #523a20);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+  }
+  .booking-modal-close:hover {
+    opacity: 1;
+    border-color: var(--mahogany-dark, #241a0f);
+    color: var(--mahogany-dark, #241a0f);
+    background: rgba(36, 26, 15, 0.05);
+  }
+
+  .modal-title {
+    color: var(--mahogany-dark, #241a0f);
+    margin-bottom: 35px;
+    font-size: 2.5rem;
+  }
+
+  .booking-modal-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .required-star {
+    color: #e53935;
+    font-weight: 700;
+    margin-left: 2px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    flex: 1;
+  }
+
+  .form-subheading {
+    font-family: var(--font-serif, serif);
+    color: var(--mahogany-dark, #241a0f);
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 25px;
+    border-bottom: 1px dashed rgba(82, 58, 32, 0.3);
+    padding-bottom: 8px;
+  }
+
+  .form-group {
+    margin-bottom: 25px;
+    position: relative;
+  }
+
+  .box-input {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .box-input label {
+    font-size: 0.85rem;
+    color: var(--text-brown, #523a20);
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .box-input input,
+  .box-input select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(82, 58, 32, 0.3);
+    padding: 8px 0;
+    font-size: 1.05rem;
+    color: var(--text-brown, #523a20);
+    font-family: var(--font-sans, sans-serif);
+    transition: border-color 0.3s ease;
+    outline: none;
+    width: 100%;
+  }
+
+  .box-input input:focus {
+    border-bottom-color: var(--mahogany-dark, #241a0f);
+  }
+
+  .radio-group {
+    display: flex;
+    gap: 40px;
+    margin-top: 15px;
+  }
+  .radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-brown, #523a20);
+    position: relative;
+  }
+  .radio-label input[type="radio"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .custom-radio {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(82, 58, 32, 0.5);
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .radio-label input[type="radio"]:checked + .custom-radio {
+    border-color: var(--mahogany-dark, #241a0f);
+  }
+  .radio-label input[type="radio"]:checked + .custom-radio::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: var(--mahogany-dark, #241a0f);
+    border-radius: 50%;
+  }
+
+  .recaptcha-box {
+    margin-top: 15px;
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    padding: 10px 15px;
+    display: inline-block;
+    width: 100%;
+    max-width: 280px;
+  }
+  .recaptcha-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  .checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+  }
+  .recaptcha-text {
+    font-size: 0.9rem;
+    color: #333;
+    flex: 1;
+  }
+  .recaptcha-logo {
+    width: 30px;
+  }
+
+  .terms-text {
+    font-size: 0.75rem;
+    color: rgba(82, 58, 32, 0.7);
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+  .terms-text a {
+    color: var(--primary-green, #526b48);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .form-submit-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+  }
+  .btn-submit {
+    padding: 14px 45px;
+    font-size: 1.1rem;
+    background-color: var(--mahogany-dark, #241a0f);
+    color: var(--mustard-gold, #f2c94c);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .btn-submit:hover {
+    background-color: var(--primary-green, #526b48);
+    color: #fff;
+  }
+
+  /* Modal Mobile Adjustments */
+  @media screen and (max-width: 900px) {
+    .booking-modal-container {
+      flex-direction: column;
+      height: 90vh;
+      max-height: none;
+      overflow-y: hidden;
+      border-radius: 0;
+      --modal-scoop: 20px;
+    }
+    .booking-modal-image {
+      flex: none;
+      height: 200px;
+    }
+    .booking-modal-content {
+      padding: 30px 25px;
+      overflow-y: auto;
+    }
+    .form-grid {
+      grid-template-columns: 1fr;
+      gap: 0px;
+    }
+    .modal-title {
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+  }
+
+  /* =========================================
+     FLOATING ZALO BUTTON
+     ========================================= */
+  .zalo-container {
+    position: fixed;
+    bottom: 25px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+  }
+  .zalo-container.right {
+    right: 35px;
+  }
+  #zalo-btn {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+  }
+
+  #zalo-btn .cmoz-alo-circle {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    background-color: transparent;
+    border-radius: 100%;
+    border: 2px solid #0068ff;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease-in-out;
+  }
+  #zalo-btn .cmoz-alo-circle-fill {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    background-color: #0068ff;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    opacity: 0.7;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease-in-out;
+  }
+  #zalo-btn span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    background-color: #0068ff;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+  }
+  #zalo-btn span :global(img) {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+  }
+
+  .animated_zalo.zoomIn_zalo {
+    animation-name: zoomIn_zalo;
+  }
+  .animated_zalo.pulse_zalo {
+    animation-name: pulse_zalo;
+  }
+  .animated_zalo.infinite {
+    animation-iteration-count: infinite;
+  }
+  .animated_zalo {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes zoomIn_zalo {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale3d(0.3, 0.3, 0.3);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes pulse_zalo {
+    0% {
+      transform: translate(-50%, -50%) scale3d(1, 1, 1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale3d(1.3, 1.3, 1.3);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale3d(1, 1, 1);
+      opacity: 0;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .zalo-container {
+      bottom: 20px;
+    }
+    .zalo-container.right {
+      right: 25px;
+    }
+  }
+</style>
+
+<style is:global>
+  body.booking-disabled .booking-feature {
+    display: none !important;
+  }
+</style>

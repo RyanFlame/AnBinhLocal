@@ -1,0 +1,268 @@
+---
+import { Image } from "astro:assets";
+import { getImageByPath } from "../../utils/assets";
+
+const asset_Dad_Final_3_webp = getImageByPath("Dad Final 3.webp");
+const asset_Thu_c_1E_webp = getImageByPath("Thuốc 1E.webp");
+---
+  <!-- PHILOSOPHY SECTION  -->
+  <section class="philosophy-section">
+    <div class="philosophy-container">
+      <div class="philosophy-text">
+        <h2
+          class="section-heading heading-section lang-text"
+          data-en="Our Philosophy"
+          data-vn="Triết Lý Của Chúng Tôi"
+        >
+          Triết Lý Của Chúng Tôi
+        </h2>
+        <h3
+          class="sub-heading lang-text"
+          data-en="Harmony of Body & Nature"
+          data-vn="Hòa Hợp Giữa Cơ Thể & Thiên Nhiên"
+        >
+          Hòa Hợp Giữa Cơ Thể & Thiên Nhiên
+        </h3>
+        <p
+          class="body-regular lang-text"
+          data-en="At An Binh, we believe that true wellness comes from the balance between the internal elements of the body and the external rhythms of nature.<br><br>Drawing from thousands of years of traditional wisdom, our approach combines time-honored herbal remedies with modern understanding to restore your body's natural capacity for healing."
+          data-vn="Tại An Bình, chúng tôi tin rằng sự khỏe mạnh đích thực đến từ sự cân bằng giữa các yếu tố bên trong cơ thể và nhịp điệu bên ngoài của thiên nhiên.<br><br>
+          Với tâm niệm rằng mỗi người là một cá thể duy nhất với những nhu cầu chăm sóc khác nhau. 
+          Chúng tôi kết hợp những bài thuốc lành tính từ thiên nhiên,
+          được điều chỉnh theo từng thể trạng nhằm điều trị tận gốc bệnh lý và bồi
+          bổ cơ thể."
+        >
+          Tại An Bình, chúng tôi tin rằng sự khỏe mạnh đích thực đến từ sự cân
+          bằng giữa các yếu tố bên trong cơ thể và nhịp điệu bên ngoài của thiên
+          nhiên.
+          <br /><br />
+          Chúng tôi hiểu rằng mỗi người là một cá thể duy nhất với những nhu cầu chăm
+          sóc khác nhau. Chúng tôi kết hợp những bài thuốc lành tính từ thiên nhiên,
+          được điều chỉnh theo từng thể trạng nhằm điều trị tận gốc bệnh lý và bồi
+          bổ cơ thể.
+        </p>
+        <a
+          href="/about"
+          class="btn-secondary lang-text"
+          data-en="DISCOVER MORE"
+          data-vn="KHÁM PHÁ THÊM">KHÁM PHÁ THÊM</a
+        >
+      </div>
+
+      <div class="philosophy-image-wrapper">
+        <div class="philosophy-frame">
+          <Image
+            src={asset_Dad_Final_3_webp}
+            alt="Traditional Medicine Philosophy"
+            class="philosophy-img"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INGREDIENT DETAIL SECTION -->
+  <section class="philosophy-section">
+    <div class="philosophy-container reverse">
+      <div class="philosophy-text">
+        <h2
+          class="section-heading heading-section lang-text"
+          data-en="Premium Herbal Selection"
+          data-vn="Lựa Chọn Thảo Dược Chuẩn Mực"
+        >
+          Lựa Chọn Thảo Dược Chuẩn Mực
+        </h2>
+        <h3
+          class="sub-heading lang-text"
+          data-en="Curated for Potency"
+          data-vn="Tuyển Chọn Vì Chất Lượng"
+        >
+          Tuyển Chọn Vì Chất Lượng
+        </h3>
+        <p
+          class="body-regular lang-text"
+          data-en="Every formulation begins with the careful selection of premium herbs. We prioritize ingredients that are ethically sourced and harvested at peak maturity to ensure maximum therapeutic value.<br><br>Experience the difference that quality makes in your journey to wellness."
+          data-vn="Mỗi vị thuốc đều đóng vai trò then chốt trong quá trình điều trị, 
+          quyết định hiệu quả phục hồi của cơ thể. Tại An Bình, 
+          chúng tôi khắt khe trong việc tuyển chọn nguồn dược liệu chất lượng cao, 
+          đảm bảo thu hoạch đúng độ tuổi để giữ trọn vẹn dược tính và phát huy tối đa tác dụng trị liệu.
+          <br><br>Chúng tôi luôn đồng hành cùng bạn trên hành trình phục hồi sức khỏe bằng những bài thuốc tinh túy và chất lượng tốt nhất."
+        >
+          Mỗi vị thuốc đều đóng vai trò then chốt trong quá trình điều trị,
+          quyết định hiệu quả phục hồi của cơ thể. Tại An Bình, chúng tôi khắt
+          khe trong việc tuyển chọn nguồn dược liệu chất lượng cao, đảm bảo thu
+          hoạch đúng độ tuổi để giữ trọn vẹn dược tính và phát huy tối đa tác
+          dụng trị liệu.
+          <br /><br />
+          Chúng tôi luôn đồng hành cùng bạn trên hành trình phục hồi sức khỏe bằng
+          những bài thuốc tinh túy và chất lượng tốt nhất.
+        </p>
+        <a
+          href="/ingredients"
+          class="btn-secondary lang-text"
+          data-en="VIEW INGREDIENTS"
+          data-vn="XEM THÀNH PHẦN">XEM THÀNH PHẦN</a
+        >
+      </div>
+
+      <div class="philosophy-image-wrapper">
+        <div class="philosophy-frame">
+          <Image
+            src={asset_Thu_c_1E_webp}
+            alt="Premium Herbs"
+            class="philosophy-img"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+<style>
+/* =========================================
+   PHILOSOPHY SECTION ("Our Philosophy")
+   ========================================= */
+.philosophy-section {
+    background-color: var(--beige-sand); /* Replaced var(--section-bg) */
+    padding: 80px 0;
+    font-family: var(--font-sans);
+}
+
+.philosophy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* Modifiers */
+.philosophy-container.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Text Side */
+.philosophy-text {
+    flex: 1;
+    max-width: 550px;
+}
+
+.section-heading {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--text-brown);
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.sub-heading {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--primary-green);
+    margin-bottom: 25px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.philosophy-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-main);
+    margin-bottom: 40px;
+}
+
+/* Button with existing theme style */
+.btn-more, .btn-secondary {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 2px solid var(--text-brown);
+    text-decoration: none;
+    color: var(--text-brown);
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.btn-more:hover, .btn-secondary:hover {
+    background: var(--text-brown);
+    color: var(--accent-cream);
+}
+
+/* Image Side with Scooped Corners */
+.philosophy-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.philosophy-frame {
+    width: 400px;
+    height: 500px;
+    position: relative;
+    
+    /* Decoration Border (Double line illusion via padding + border) */
+    padding: 8px;
+    border: 1px solid var(--text-brown);
+    
+    /* The Scooped Mask */
+    --p-scoop: 30px;
+    -webkit-mask-image: 
+        radial-gradient(circle at top left, transparent var(--p-scoop), black calc(var(--p-scoop) + 0.5px)),
+        radial-gradient(circle at top right, transparent var(--p-scoop), black calc(var(--p-scoop) + 0.5px)),
+        radial-gradient(circle at bottom left, transparent var(--p-scoop), black calc(var(--p-scoop) + 0.5px)),
+        radial-gradient(circle at bottom right, transparent var(--p-scoop), black calc(var(--p-scoop) + 0.5px));
+    -webkit-mask-position: top left, top right, bottom left, bottom right;
+    -webkit-mask-size: 51% 51%;
+    -webkit-mask-repeat: no-repeat;
+    
+    mask-image: 
+        radial-gradient(circle at top left, transparent var(--p-scoop), black calc(var(--p-scoop) + 0.5px)),
+        radial-gradient(circle at top right, transparent var(--p-scoop), black calc(var(--p-scoop) + 0.5px)),
+        radial-gradient(circle at bottom left, transparent var(--p-scoop), black calc(var(--p-scoop) + 0.5px)),
+        radial-gradient(circle at bottom right, transparent var(--p-scoop), black calc(var(--p-scoop) + 0.5px));
+    mask-position: top left, top right, bottom left, bottom right;
+    mask-size: 51% 51%;
+    mask-repeat: no-repeat;
+    
+    transition: transform 0.4s ease;
+}
+
+.philosophy-frame:hover {
+    transform: scale(1.02);
+}
+
+.philosophy-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Apply inner mask or just let it fill the masked container */
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .philosophy-container, .philosophy-container.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .philosophy-frame {
+        width: 100%;
+        max-width: 320px;
+        height: 380px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .philosophy-frame {
+        height: 320px;
+        max-width: 290px;
+    }
+}
+</style>
+

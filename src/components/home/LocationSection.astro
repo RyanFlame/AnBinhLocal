@@ -1,0 +1,396 @@
+---
+import { Image } from "astro:assets";
+import { getImageByPath } from "../../utils/assets";
+
+const location_1 = getImageByPath('Location/Location 1.png');
+const asset_Thu_c_1_webp = getImageByPath("Thuốc 1.webp");
+const asset_Thu_c_2_webp = getImageByPath("Thuốc 2.webp");
+const asset_Thu_c_webp = getImageByPath("Thuốc.webp");
+---
+  <section class="location-section" id="location" data-header-theme="dark">
+    <div class="location-container">
+      <!-- Background Image -->
+      <Image
+        src={location_1}
+        class="location-bg-img"
+        id="locationBg"
+        alt="Location Background"
+      />
+
+      <!-- Left Overlay Content -->
+      <div class="location-content">
+        <div class="location-steps">
+          <div class="step-indicator" data-index="0">
+            <span class="step-circle active">1</span>
+          </div>
+          <div class="step-line">
+            <div class="step-progress" id="progress0"></div>
+          </div>
+
+          <div class="step-indicator" data-index="1">
+            <span class="step-circle">2</span>
+          </div>
+          <div class="step-line">
+            <div class="step-progress" id="progress1"></div>
+          </div>
+
+          <div class="step-indicator" data-index="2">
+            <span class="step-circle">3</span>
+          </div>
+        </div>
+
+        <div class="location-text">
+          <p
+            class="location-sub sub-heading lang-text"
+            id="locationSub"
+            data-en="VISIT OUR MAIN HERB APOTHECARY"
+            data-vn="GHÉ THĂM TIỆM THUỐC CHÍNH CỦA CHÚNG TÔI"
+          >
+            GHÉ THĂM TIỆM THUỐC CHÍNH CỦA CHÚNG TÔI
+          </p>
+          <h2
+            class="location-heading heading-hero lang-text"
+            id="locationHeading"
+            data-en="Outside the<br>Clinic"
+            data-vn="Phòng Khám<br>phía ngoài"
+          >
+            Phòng Khám<br />phía ngoài
+          </h2>
+          <a
+            href="https://www.google.com/maps/place/Ph%C3%B2ng+Y+H%E1%BB%8Dc+C%E1%BB%95+Truy%E1%BB%81n+An+B%C3%ACnh/@10.5085571,107.327058,455m/data=!3m1!1e3!4m6!3m5!1s0x3175a100125c7973:0x97569e0490503fa6!8m2!3d10.5082762!4d107.3262642!16s%2Fg%2F11mf93d8rf!5m1!1e1?authuser=0&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+            class="btn-primary location-btn lang-text"
+            id="locationBtn"
+            target="_blank"
+            data-en="Get Directions"
+            data-vn="Xem Đường Đi">Xem Đường Đi</a
+          >
+          <button class="play-btn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"
+              ><path d="M8 5v14l11-7z"></path></svg
+            >
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom Right "Scooped" Card -->
+      <div class="location-corner-card">
+        <div class="corner-content">
+          <span
+            class="corner-label lang-text"
+            data-en="Know More →"
+            data-vn="Tìm Hiểu Thêm →">Tìm Hiểu Thêm &rarr;</span
+          >
+          <div class="corner-thumbnails">
+            <Image src={asset_Thu_c_1_webp} alt="Place 1" />
+            <Image src={asset_Thu_c_2_webp} alt="Place 2" />
+            <Image src={asset_Thu_c_webp} alt="Place 3" />
+            <div class="corner-text">
+              <strong
+                class="lang-text"
+                data-en="Holistic Care"
+                data-vn="Chăm Sóc Toàn Diện">Chăm Sóc Toàn Diện</strong
+              >
+              <small
+                class="lang-text"
+                data-en="Discover Ancient Wisdom"
+                data-vn="Khám Phá Trí Tuệ Cổ Xưa">Khám Phá Trí Tuệ Cổ Xưa</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<style>
+/* =========================================
+   LOCATION SECTION (Carousel)
+   ========================================= */
+.location-section {
+    padding: 80px 20px;
+    background-color: var(--bg-main);
+    display: flex;
+    justify-content: center;
+}
+
+.location-container {
+    width: 100%;
+    max-width: 1400px;
+    height: 550px;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden; /* Clips the background image */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    background-color: #DBEAF9; /* Fallback blue */
+}
+
+/* Background Image */
+.location-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 1;
+}
+
+/* Left Content */
+.location-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px;
+    height: 100%;
+    display: flex;
+    gap: 30px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%); /* Fade for readability */
+}
+
+.location-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-top: 10px;
+}
+
+.step-indicator {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.step-indicator:hover {
+    transform: scale(1.1);
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--text-brown);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.step-circle.active {
+    background: var(--mustard-gold);
+    color: white;
+    box-shadow: 0 0 15px rgba(200, 169, 126, 0.6);
+}
+
+.step-line {
+    width: 2px;
+    height: 60px;
+    background: rgba(255,255,255,0.4);
+    margin: 5px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.step-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: var(--mustard-gold);
+}
+
+/* On mobile, step-line width is 40px, height is 2px. progress should fill width instead of height. */
+@media screen and (max-width: 768px) {
+    .step-progress {
+        width: 0%;
+        height: 100%;
+    }
+}
+
+.location-text {
+    padding-top: 10px;
+}
+
+.location-sub {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-brown);
+    margin-bottom: 10px;
+    font-weight: 600;
+
+}
+
+.location-heading {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+}
+
+.location-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #2D8CFF;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(45, 140, 255, 0.3);
+    transition: transform 0.2s;
+}
+
+.location-btn:hover {
+    transform: translateY(-2px);
+}
+
+.play-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    margin-left: 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    color: #2D8CFF;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* 
+   ---------------------------------
+   THE MAGIC "SCOOPED" CORNER CARD 
+   ---------------------------------
+*/
+.location-corner-card {
+    position: absolute;
+    bottom: 0px; 
+    right: 0px;
+    z-index: 10;
+    background-color: #fff;
+    padding: 30px 40px;
+    
+    border-top-left-radius: 40px; 
+    min-width: 300px;
+}
+
+.location-corner-card::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-bottom-right-radius: 50%;
+    box-shadow: 20px 20px 0 20px #fff;
+    z-index: 5;
+}
+
+.location-corner-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -40px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-bottom-right-radius: 50%;
+    box-shadow: 20px 20px 0 20px #fff;
+    z-index: 5;
+}
+
+/* Corner Content Styling */
+.corner-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.corner-label {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+}
+
+.corner-thumbnails {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.corner-thumbnails img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    margin-left: -5px; /* Overlap */
+}
+.corner-thumbnails img:first-child { margin-left: 0; }
+
+.corner-text {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.corner-text strong { font-size: 0.9rem; color: #333; }
+.corner-text small { font-size: 0.75rem; color: #888; }
+
+@media screen and (max-width: 768px) {
+    .location-container {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        padding-bottom: 0px; 
+    }
+    .location-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 460px 20px 40px; 
+        text-align: center;
+        background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.95) 80%, rgba(255,255,255,1) 100%);
+        min-height: 100%;
+    }
+    
+    .location-steps {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 30px;
+        padding: 0;
+        position: absolute;
+        top: 30px; 
+    }
+    .step-line {
+        width: 45px;
+        height: 3px;
+        margin: 15px 15px;
+    }
+    .location-heading {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+    .location-sub {
+        display: none;
+    }
+    .play-btn {
+        display: none;
+    }
+    .location-corner-card {
+        display: none;
+    }
+}
+</style>
+

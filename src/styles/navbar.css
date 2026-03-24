@@ -1,0 +1,475 @@
+/* =========================================
+   NAVIGATION BAR STYLES
+   ========================================= */
+
+/* --- Utility Classes --- */
+.mobile-only { display: none; }
+.desktop-only { display: flex; }
+
+@media screen and (max-width: 768px) {
+    .desktop-only { display: none; }
+    .mobile-only { display: block; }
+}
+
+/* =========================================
+   DESKTOP Navigation Styles (min-width: 769px)
+   ========================================= */
+@media screen and (min-width: 769px) {
+    #navbar {
+        position: fixed;
+        top: 0; 
+        left: 50%; /* Center anchor */
+        transform: translateX(-50%); /* Center alignment */
+        width: 100%;
+        display: flex; justify-content: flex-end; align-items: center;
+        gap: 50px;
+        padding: 25px 60px; /* Initial large padding for transparent state */
+        z-index: 1000;
+        transition: top 0.4s ease, width 0.4s ease, padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;
+        background: transparent;
+        will-change: top, width, padding, background-color, box-shadow; /* Hardware acceleration hint */
+    }
+    
+    .logo-link {
+        margin-right: auto;
+        transition: margin 0.4s ease;
+    }
+
+    .logo-image { 
+        height: 100px; 
+        width: auto; 
+        padding: 15px;
+        filter: brightness(1.25);
+        background-image: url('/Logo/Seal-NBG.png'); 
+        background-size: 130px 130px; 
+        background-repeat: no-repeat; 
+        background-position: center;
+        transition: height 0.4s ease, background-size 0.4s ease, padding 0.4s ease; 
+    }
+
+    /* Language Dropdown Base Components (Desktop) */
+    .lang-dropdown.desktop-lang-nav {
+        position: relative;
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #fff;
+        cursor: pointer;
+        transition: margin 0.4s ease, color 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .lang-dropdown.desktop-lang-nav .lang-dropdown-selected {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        transition: color 0.3s ease;
+    }
+    
+    .lang-dropdown.desktop-lang-nav .dropdown-arrow {
+        transition: transform 0.3s ease;
+    }
+    
+    .lang-dropdown.desktop-lang-nav.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    .lang-dropdown.desktop-lang-nav .lang-dropdown-options {
+        position: absolute;
+        top: calc(100% + 20px);
+        right: 0; 
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        min-width: 80px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        z-index: 1000;
+        padding: 5px 0;
+    }
+    
+    .lang-dropdown.desktop-lang-nav .lang-dropdown-options.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .lang-dropdown.desktop-lang-nav .lang-btn {
+        padding: 10px 15px;
+        color: var(--text-brown);
+        opacity: 0.7;
+        text-align: center;
+        transition: background-color 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+    }
+    
+    .lang-dropdown.desktop-lang-nav .lang-btn:hover {
+        background: #f5f5f5;
+        opacity: 1;
+    }
+    
+    .lang-dropdown.desktop-lang-nav .lang-btn.active {
+        color: var(--primary-green);
+        background: rgba(82, 107, 72, 0.05); 
+        opacity: 1;
+    }
+    
+    #navbar.scrolled-desktop .lang-dropdown.desktop-lang-nav {
+        color: var(--text-brown);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .nav-links { list-style: none; gap: 40px; display: flex; }
+    
+    .nav-links li a {
+        text-decoration: none; color: var(--text-brown);
+        font-weight: 600; font-size: 1.15em; transition: color 0.3s ease;
+    }
+    
+    .nav-links li a:hover { color: var(--primary-green); }
+
+    /* The Floating Card State (Triggered by JS scroll on desktop) */
+    #navbar.scrolled-desktop {
+        top: 20px; 
+        width: 95%; 
+        padding: 5px 40px;
+        justify-content: center;
+        gap: 0;
+        
+        /* --- SCOOPED CORNER FRAME (Mask Method) --- */
+        background: 
+            linear-gradient(rgba(82, 58, 32, 0.9), rgba(36, 26, 15, 0.9)) padding-box,
+            linear-gradient(to right, var(--brass-gold, #C8A97E), var(--brass-gold, #C8A97E)) border-box;
+            
+        border: 1.5px solid transparent; 
+        
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+        
+        /* The Scoop Mask */
+        --scoop-radius: 20px;
+        -webkit-mask-image: 
+            radial-gradient(circle at top left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+            radial-gradient(circle at top right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+            radial-gradient(circle at bottom left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+            radial-gradient(circle at bottom right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px));
+        -webkit-mask-position: top left, top right, bottom left, bottom right;
+        -webkit-mask-size: 51% 51%;
+        -webkit-mask-repeat: no-repeat;
+        
+        mask-image: 
+            radial-gradient(circle at top left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+            radial-gradient(circle at top right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+            radial-gradient(circle at bottom left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+            radial-gradient(circle at bottom right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px));
+        mask-position: top left, top right, bottom left, bottom right;
+        mask-size: 51% 51%;
+        mask-repeat: no-repeat;
+    }
+
+    #navbar.scrolled-desktop .nav-links li a {
+        color: var(--cream-rice, #F9F5E3); 
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+
+    #navbar.scrolled-desktop .nav-links li a:hover {
+        color: var(--brass-gold, #C8A97E);
+    }
+
+    #navbar.scrolled-desktop .logo-image { height: 60px; background-image: none; padding: 0px; }
+    #navbar.scrolled-desktop .lang-dropdown.desktop-lang-nav { margin-left: auto; }
+
+    /* Smart Header Themes (Desktop) */
+    #navbar:not(.scrolled-desktop).on-light-bg .nav-links li a {
+        color: var(--text-primary, #1f2815);
+    }
+    #navbar:not(.scrolled-desktop).on-light-bg .lang-dropdown.desktop-lang-nav {
+        color: var(--text-primary, #1f2815);
+    }
+    #navbar:not(.scrolled-desktop).on-dark-bg .nav-links li a {
+        color: #fff;
+    }
+    #navbar:not(.scrolled-desktop).on-dark-bg .lang-dropdown.desktop-lang-nav {
+        color: #fff;
+    }
+
+    /* Prevent mobile overlay from rendering in document flow on desktop */
+    .mobile-menu-overlay {
+        display: none !important;
+    }
+}
+
+
+/* =========================================
+   MOBILE Navigation Styles (max-width: 768px)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    /* Mobile Navbar (Header) */
+    #navbar {
+        position: fixed; top: 0; left: 0; width: 100%;
+        height: 70px;
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 0 25px;
+        z-index: 2000;
+        background: transparent !important; 
+        box-shadow: none;
+        transform: none !important; left: 0 !important; border-radius: 0 !important;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Scrolled State */
+    #navbar.scrolled-mobile {
+        background: #ffffff !important; 
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .logo-image { 
+        height: 60px; 
+        width: auto;
+        filter: brightness(1.3);
+        background-image: url('/Logo/Seal-NBG.png');
+        background-size: 82px 82px;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: all 0.4s ease; 
+        padding: 7.5px;
+    }
+
+    /* Mobile Navbar Right Section */
+    .mobile-nav-right {
+        display: flex;
+        align-items: center;
+        gap: 15px; 
+    }
+    
+    /* Mobile Language Dropdown */
+    .lang-dropdown.mobile-lang-nav {
+        position: relative;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--cream-rice);
+        cursor: pointer;
+    }
+    
+    .lang-dropdown-selected {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        transition: color 0.3s ease;
+    }
+    
+    .dropdown-arrow {
+        transition: transform 0.3s ease;
+    }
+    
+    .lang-dropdown.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    .lang-dropdown-options {
+        position: absolute;
+        top: calc(100% + 15px);
+        right: -10px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        min-width: 80px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 100;
+        padding: 5px 0;
+    }
+    
+    .lang-dropdown-options.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .lang-dropdown-options .lang-btn {
+        padding: 10px 15px;
+        color: var(--text-brown);
+        opacity: 0.7;
+        text-align: center;
+        transition: background 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .lang-dropdown-options .lang-btn:hover {
+        background: #f5f5f5;
+        opacity: 1;
+    }
+    
+    .lang-dropdown-options .lang-btn.active {
+        color: var(--primary-green);
+        background: rgba(82, 107, 72, 0.05); 
+        opacity: 1;
+    }
+    
+    #navbar.scrolled-mobile .lang-dropdown.mobile-lang-nav {
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    #navbar.scrolled-mobile .logo-image {
+        height: 45px;
+        padding: 0;
+        background-size: 0px 0px; 
+    }
+    
+    /* Hamburger Menu */
+    .hamburger-menu {
+        cursor: pointer; padding: 10px; z-index: 2001;
+    }
+    .bar {
+        width: 30px; height: 3px; background-color: var(--cream-rice);
+        margin: 6px 0; transition: background-color 0.3s ease, transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.4s ease;
+    }
+
+    #navbar.scrolled-mobile .bar {
+        background-color: var(--mahogany-dark); 
+    }
+
+    .hamburger-menu.is-active .bar1 { transform: rotate(-45deg) translate(-7px, 6px); }
+    .hamburger-menu.is-active .bar2 { opacity: 0; }
+    .hamburger-menu.is-active .bar3 { transform: rotate(45deg) translate(-7px, -6px); }
+
+    /* Smart Header Themes (Mobile) */
+    #navbar:not(.scrolled-mobile).on-light-bg .bar {
+        background-color: var(--text-primary, #1f2815);
+    }
+    #navbar:not(.scrolled-mobile).on-light-bg .lang-dropdown.mobile-lang-nav {
+        color: var(--text-primary, #1f2815);
+    }
+    #navbar:not(.scrolled-mobile).on-dark-bg .bar {
+        background-color: var(--cream-rice, #F9F5E3);
+    }
+    #navbar:not(.scrolled-mobile).on-dark-bg .lang-dropdown.mobile-lang-nav {
+        color: var(--cream-rice, #F9F5E3);
+    }
+
+    /* --- MOBILE OVERLAY (Updated Design) --- */
+    .mobile-menu-overlay {
+        display: flex;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(20, 15, 10, 0.92); 
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 1999;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;    
+        padding: 30px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.6s ease-in-out;
+    }
+
+    .mobile-menu-overlay::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url('/Backgrounds/Menu-Mobile.png');
+        background-size: cover;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        opacity: 0.3; 
+        z-index: -1;
+    }
+
+    .mobile-menu-overlay.is-open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Links Style - The Indochine Frame (Mobile) */
+    .mobile-nav-links { 
+        list-style: none; 
+        text-align: center; 
+        background: 
+            linear-gradient(rgba(36, 26, 15, 0.95), rgba(36, 26, 15, 0.95)) padding-box,
+            linear-gradient(to right, var(--brass-gold, #C8A97E), var(--brass-gold, #C8A97E)) border-box;
+        border: 1.5px solid transparent;
+        padding: 60px 30px;
+        box-shadow: 0 15px 45px rgba(0,0,0,0.6);
+        
+        --m-scoop: 20px;
+        -webkit-mask-image: 
+            radial-gradient(circle at top left, transparent var(--m-scoop), black calc(var(--m-scoop) + 0.5px)),
+            radial-gradient(circle at top right, transparent var(--m-scoop), black calc(var(--m-scoop) + 0.5px)),
+            radial-gradient(circle at bottom left, transparent var(--m-scoop), black calc(var(--m-scoop) + 0.5px)),
+            radial-gradient(circle at bottom right, transparent var(--m-scoop), black calc(var(--m-scoop) + 0.5px));
+        -webkit-mask-position: top left, top right, bottom left, bottom right;
+        -webkit-mask-size: 51% 51%;
+        -webkit-mask-repeat: no-repeat;
+        
+        mask-image: 
+            radial-gradient(circle at top left, transparent var(--m-scoop), black calc(var(--m-scoop) + 0.5px)),
+            radial-gradient(circle at top right, transparent var(--m-scoop), black calc(var(--m-scoop) + 0.5px)),
+            radial-gradient(circle at bottom left, transparent var(--m-scoop), black calc(var(--m-scoop) + 0.5px)),
+            radial-gradient(circle at bottom right, transparent var(--m-scoop), black calc(var(--m-scoop) + 0.5px));
+        mask-position: top left, top right, bottom left, bottom right;
+        mask-size: 51% 51%;
+        mask-repeat: no-repeat;
+        
+        width: 90%;
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .mobile-nav-links a {
+        text-decoration: none; 
+        color: var(--cream-rice, #F9F5E3); 
+        font-family: var(--font-serif); 
+        font-size: 1.6rem; 
+        font-weight: 600;
+        display: block;
+        transition: color 0.3s ease;
+    }
+    
+    .mobile-nav-links a:hover {
+        color: var(--brass-gold, #C8A97E);
+    }
+
+    /* --- BOTTOM RIGHT ICONS --- */
+    .mobile-social-icons {
+        position: absolute;
+        bottom: 37px;
+        right: 17px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 2002;
+    }
+
+    .mobile-social-icons a {
+        color: var(--cream-rice);
+        font-size: 1.4rem;
+        transition: transform 0.3s ease, color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-social-icons a:hover {
+        transform: scale(1.1);
+        color: var(--mustard-gold, #d4af37);
+    }
+}

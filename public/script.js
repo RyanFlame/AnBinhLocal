@@ -354,7 +354,12 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentLocIndex = 0;
     let autoPlayTimer;
     let progressTween;
+    let isPaused = false;
+    let remainingTime = 8000;
+    let autoPlayStartTime = 0;
     const CAROUSEL_INTERVAL = 8000; // 8 seconds
+    const playBtnSvgPause = `<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
+    const playBtnSvgPlay = `<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>`;
 
     // Exposed function to forcefully refresh active language attributes for Carousel items seamlessly
     window.forceCarouselLanguageUpdate = function(lang) {
@@ -424,41 +429,61 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Reset tracking variables
         currentLocIndex = newIndex;
-        startAutoPlay();
+        if (!isPaused) {
+            startAutoPlay();
+        } else {
+            // Just update bars statically
+            const isMobile = window.innerWidth <= 768;
+            progressBars.forEach(bar => {
+                if (typeof gsap !== 'undefined') {
+                    gsap.set(bar, { width: isMobile ? "0%" : "100%", height: isMobile ? "100%" : "0%" });
+                }
+            });
+            const activeProgressBar = document.getElementById(`progress${currentLocIndex}`);
+            if (activeProgressBar && typeof gsap !== 'undefined') {
+                gsap.set(activeProgressBar, { width: "100%", height: "100%" });
+            }
+        }
     }
 
-    function startAutoPlay() {
+    function startAutoPlay(durationObj = CAROUSEL_INTERVAL) {
         if (autoPlayTimer) clearTimeout(autoPlayTimer);
         if (progressTween) progressTween.kill();
         
+        const duration = (typeof durationObj === 'number') ? durationObj : CAROUSEL_INTERVAL;
         const isMobile = window.innerWidth <= 768;
 
-        // Reset ALL progress bars to 0
-        progressBars.forEach(bar => {
-            if (typeof gsap !== 'undefined') {
-                gsap.set(bar, { 
-                    width: isMobile ? "0%" : "100%", 
-                    height: isMobile ? "100%" : "0%" 
-                });
-            }
-        });
+        // Reset ALL progress bars to 0 only if starting fresh
+        if (duration === CAROUSEL_INTERVAL) {
+            progressBars.forEach(bar => {
+                if (typeof gsap !== 'undefined') {
+                    gsap.set(bar, { 
+                        width: isMobile ? "0%" : "100%", 
+                        height: isMobile ? "100%" : "0%" 
+                    });
+                }
+            });
+        }
 
         const activeProgressBar = document.getElementById(`progress${currentLocIndex}`);
         
         if (activeProgressBar && typeof gsap !== 'undefined') {
-            // Animate filling up the bar corresponding to current location over 8 seconds
+            // Animate filling up the bar corresponding to current location
             progressTween = gsap.to(activeProgressBar, {
                 width: isMobile ? "100%" : "100%",
                 height: isMobile ? "100%" : "100%",
-                duration: CAROUSEL_INTERVAL / 1000,
+                duration: duration / 1000,
                 ease: "linear"
             });
         }
 
+        autoPlayStartTime = Date.now();
+        remainingTime = duration;
+
         autoPlayTimer = setTimeout(() => {
             let nextIndex = (currentLocIndex + 1) % locationData.length;
             updateCarousel(nextIndex);
-        }, CAROUSEL_INTERVAL);
+        }, duration);
     }
 
     // Initialize Event Listeners for dots
@@ -472,6 +497,35 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Setup initial states
         gsap.set([locSub, locHeading, locBtn, locBg], { opacity: 1, y: 0 });
+        
+        const playBtnEl = document.querySelector('.play-btn');
+        if (playBtnEl) {
+            playBtnEl.innerHTML = playBtnSvgPause; // Default is playing
+            playBtnEl.addEventListener('click', () => {
+                isPaused = !isPaused;
+                if (isPaused) {
+                    playBtnEl.innerHTML = playBtnSvgPlay;
+                    playBtnEl.style.color = '#fff';
+                    playBtnEl.style.backgroundColor = '#2D8CFF';
+                    if (autoPlayTimer) clearTimeout(autoPlayTimer);
+                    if (progressTween) progressTween.pause();
+                    const elapsed = Date.now() - autoPlayStartTime;
+                    remainingTime = Math.max(0, remainingTime - elapsed);
+                } else {
+                    playBtnEl.innerHTML = playBtnSvgPause;
+                    playBtnEl.style.color = '#2D8CFF';
+                    playBtnEl.style.backgroundColor = 'white';
+                    
+                    if (progressTween) progressTween.resume();
+                    autoPlayStartTime = Date.now();
+                    if (autoPlayTimer) clearTimeout(autoPlayTimer);
+                    autoPlayTimer = setTimeout(() => {
+                        let nextIndex = (currentLocIndex + 1) % locationData.length;
+                        updateCarousel(nextIndex);
+                    }, remainingTime);
+                }
+            });
+        }
         
         // Start the automated carousel ONLY when visible
         const locationSection = document.getElementById('location');

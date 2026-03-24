@@ -1,127 +1,142 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import GlobalLoader from '../components/GlobalLoader.astro';
-import SEO from '../components/SEO.astro';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import GlobalLoader from "../components/GlobalLoader.astro";
+import SEO from "../components/SEO.astro";
+import "../styles/global.css";
 
-export interface Props {
-	title: string;
-    description?: string;
-    image?: string;
-}
+type Props = {
+  title: string;
+  description?: string;
+  image?: string;
+};
 
 const { title, description, image } = Astro.props;
-const isEnglish = Astro.url.pathname.startsWith('/en');
-const lang = isEnglish ? 'en' : 'vi';
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const lang = isEnglish ? "en" : "vi";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={lang}>
-<head>
+  <head>
     <SEO title={title} description={description} image={image} />
-    
+
     <!-- Google Tag Manager -->
-    <script type="text/partytown">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M93VGLK5');</script>
+    <script type="text/partytown">
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-M93VGLK5");
+    </script>
     <!-- End Google Tag Manager -->
-    
+
     <!-- Google Analytics (GA4) -->
-    <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-BRLVYQF4KP"></script>
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-BRLVYQF4KP"></script>
     <script type="text/partytown">
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BRLVYQF4KP');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-BRLVYQF4KP");
     </script>
     <!-- End GA4 -->
-    
-    <!-- Indochine Design System -->
-    <link rel="stylesheet" href="/style.css">
 
     <!-- Schema.org JSON-LD for An Binh Clinic -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MedicalClinic",
-      "name": "Phòng Khám YHCT An Bình",
-      "alternateName": "An Binh Traditional Medicine",
-      "slogan": "An nhiên dưỡng tạng – Bình ổn thân tâm",
-      "description": "Phòng khám YHCT An Bình mang đến không gian chữa lành yên bình tại Đất Đỏ. Chuyên châm cứu, xoa bóp bấm huyệt và bốc thuốc Đông y truyền thống.",
-      "image": "https://yhctanbinh.com/Asset/Thuốc 1E.webp",
-      "logo": "https://yhctanbinh.com/Logo/Logo-NBG.png",
-      "@id": "https://yhctanbinh.com/#clinic",
-      "url": "https://yhctanbinh.com",
-      "telephone": "+84-908-052-968",
-      "priceRange": "VND",
-      "inLanguage": ["vi", "en"],
-      "paymentAccepted": "Cash, Bank Transfer",
-      "isAcceptingNewPatients": true,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Đường Tháp Nước, Xã Láng Dài",
-        "addressLocality": "Huyện Đất Đỏ",
-        "addressRegion": "Bà Rịa - Vũng Tàu",
-        "postalCode": "790000",
-        "addressCountry": "VN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "10.5082762",
-        "longitude": "107.3262642"
-      },
-      "hasMap": "https://www.google.com/maps/place/Ph%C3%B2ng+Y+H%E1%BB%8Dc+C%E1%BB%95+Truy%E1%BB%81n+An+B%C3%ACnh/@10.5082762,107.3262642",
-      "areaServed": [
-        {"@type": "AdministrativeArea", "name": "Bà Rịa - Vũng Tàu"},
-        {"@type": "AdministrativeArea", "name": "Hồ Chí Minh City"},
-        {"@type": "AdministrativeArea", "name": "Đồng Nai"}
-      ],
-      "medicalSpecialty": [
-        "https://schema.org/PrimaryCare",
-        "AlternativeMedicine",
-        "TraditionalChineseMedicine"
-      ],
-      "availableService": [
-        {
-          "@type": "MedicalTherapy",
-          "name": "Châm cứu (Acupuncture)"
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalClinic",
+        "name": "Phòng Khám YHCT An Bình",
+        "alternateName": "An Binh Traditional Medicine",
+        "slogan": "An nhiên dưỡng tạng – Bình ổn thân tâm",
+        "description": "Phòng khám YHCT An Bình mang đến không gian chữa lành yên bình tại Đất Đỏ. Chuyên châm cứu, xoa bóp bấm huyệt và bốc thuốc Đông y truyền thống.",
+        "image": "https://yhctanbinh.com/_astro/Thuoc-1E.webp",
+        "logo": "https://yhctanbinh.com/Logo/Logo-NBG.png",
+        "@id": "https://yhctanbinh.com/#clinic",
+        "url": "https://yhctanbinh.com",
+        "telephone": "+84-908-052-968",
+        "priceRange": "VND",
+        "inLanguage": ["vi", "en"],
+        "paymentAccepted": "Cash, Bank Transfer",
+        "isAcceptingNewPatients": true,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Đường Tháp Nước, Xã Láng Dài",
+          "addressLocality": "Huyện Đất Đỏ",
+          "addressRegion": "Bà Rịa - Vũng Tàu",
+          "postalCode": "790000",
+          "addressCountry": "VN"
         },
-        {
-          "@type": "MedicalTherapy",
-          "name": "Xoa bóp bấm huyệt (Acupressure)"
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "10.5082762",
+          "longitude": "107.3262642"
         },
-        {
-          "@type": "MedicalTherapy",
-          "name": "Bắt mạch kê đơn (Traditional Diagnosis)"
-        }
-      ],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "09:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "10:00",
-          "closes": "16:00"
-        }
-      ],
-      "sameAs": [
-        "https://www.facebook.com/AnBinhYHCT"
-      ]
-    }
+        "hasMap": "https://www.google.com/maps/place/Ph%C3%B2%C3%A0ng+Y+H%C3%A1%C2%BB%C2%8Dc+C%C3%A1%C2%BB%C2%95+Truy%C3%A1%C2%BB%C2%81n+An+B%C3%ACnh/@10.5082762,107.3262642",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Bà Rịa - Vũng Tàu" },
+          { "@type": "AdministrativeArea", "name": "Hồ Chí Minh City" },
+          { "@type": "AdministrativeArea", "name": "Đồng Nai" }
+        ],
+        "medicalSpecialty": [
+          "https://schema.org/PrimaryCare",
+          "AlternativeMedicine",
+          "TraditionalChineseMedicine"
+        ],
+        "availableService": [
+          {
+            "@type": "MedicalTherapy",
+            "name": "Châm cứu (Acupuncture)"
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "Xoa bóp bấm huyệt (Acupressure)"
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "Bắt mạch kê đơn (Traditional Diagnosis)"
+          }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "10:00",
+            "closes": "16:00"
+          }
+        ],
+        "sameAs": ["https://www.facebook.com/AnBinhYHCT"]
+      }
     </script>
 
     <!-- Netlify Identity Widget (Required for CMS Login) -->
-    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script
+      is:inline
+      src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script is:inline>
       if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
+        window.netlifyIdentity.on("init", (user) => {
           if (!user) {
             window.netlifyIdentity.on("login", () => {
               document.location.href = "/admin/";
@@ -130,11 +145,17 @@ const lang = isEnglish ? 'en' : 'vi';
         });
       }
     </script>
-</head>
-<body >     <!-- Booking Disabled (Remove class="booking-disabled" to enable) -->
+  </head>
+  <body>
+    <!-- Booking Disabled (Remove class="booking-disabled" to enable) -->
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M93VGLK5"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-M93VGLK5"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
     <!-- End Google Tag Manager (noscript) -->
     <GlobalLoader />
 
@@ -145,236 +166,250 @@ const lang = isEnglish ? 'en' : 'vi';
     <Footer />
 
     <!-- GSAP for Animations -->
-    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    ></script>
     <script is:inline src="/script.js"></script>
 
     <!-- Modal Form Handling -->
     <script is:inline>
-        document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('bookingModal');
-            const closeBtn = document.getElementById('closeBookingModal');
-            const bookingForm = document.getElementById('bookingForm');
-            const submitBtn = document.getElementById('submitBookingBtn');
-            const formResult = document.getElementById('formResult');
-            
-            // All Book Now buttons and links should open this
-            const bookButtons = document.querySelectorAll('.btn-booking-submit, .btn-primary[href="#booking"], .btn-secondary[href="#booking"], .booking-feature');
-            
-            bookButtons.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if(modal) {
-                        modal.classList.add('active');
-                        document.body.style.overflow = 'hidden'; // prevent scrolling
-                    }
-                });
-            });
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.getElementById("bookingModal");
+        const closeBtn = document.getElementById("closeBookingModal");
+        const bookingForm = document.getElementById("bookingForm");
+        const submitBtn = document.getElementById("submitBookingBtn");
+        const formResult = document.getElementById("formResult");
 
-            if(closeBtn) {
-                closeBtn.addEventListener('click', () => {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
+        // All Book Now buttons and links should open this
+        const bookButtons = document.querySelectorAll(
+          '.btn-booking-submit, .btn-primary[href="#booking"], .btn-secondary[href="#booking"], .booking-feature',
+        );
+
+        bookButtons.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (modal) {
+              modal.classList.add("active");
+              document.body.style.overflow = "hidden"; // prevent scrolling
             }
-
-            // Close when clicking outside
-            if(modal) {
-                modal.addEventListener('click', (e) => {
-                    if(e.target === modal) {
-                        modal.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
-
-            // Web3Forms AJAX Submission
-            if(bookingForm) {
-                bookingForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Change button text to indicate loading
-                    const originalText = submitBtn.innerText;
-                    submitBtn.innerText = "Sending...";
-                    submitBtn.disabled = true;
-                    
-                    const formData = new FormData(bookingForm);
-                    const object = Object.fromEntries(formData);
-                    const json = JSON.stringify(object);
-
-                    formResult.innerHTML = "Please wait...";
-                    formResult.style.color = "var(--text-brown, #523A20)";
-
-                    fetch('https://api.web3forms.com/submit', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: json
-                    })
-                    .then(async (response) => {
-                        let jsonResponse = await response.json();
-                        if (response.status == 200) {
-                            formResult.innerHTML = "Booking request sent successfully!";
-                            formResult.style.color = "var(--primary-green, #526B48)";
-                            bookingForm.reset();
-                            
-                            // Close modal after 3 seconds
-                            setTimeout(() => {
-                                modal.classList.remove('active');
-                                document.body.style.overflow = '';
-                                formResult.innerHTML = "";
-                            }, 3000);
-                        } else {
-                            console.log(response);
-                            formResult.innerHTML = jsonResponse.message || "An error occurred.";
-                            formResult.style.color = "red";
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error);
-                        formResult.innerHTML = "Something went wrong!";
-                        formResult.style.color = "red";
-                    })
-                    .then(function() {
-                        submitBtn.innerText = originalText;
-                        submitBtn.disabled = false;
-                    });
-                });
-            }
-
-            // =========================================
-            // Smart Date Input Handler
-            // =========================================
-            function getLang() {
-                return localStorage.getItem('site_lang') || 'vn';
-            }
-
-            // Get max days for a given month (1-12) and year
-            function getMaxDay(month, year) {
-                if (!month) return 31;
-                const m = parseInt(month);
-                if ([4, 6, 9, 11].includes(m)) return 30;
-                if (m === 2) {
-                    const y = parseInt(year) || 2000;
-                    return (y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0)) ? 29 : 28;
-                }
-                return 31;
-            }
-
-            // Clamp a numeric string to a max value, preserving leading zero
-            function clampField(val, max) {
-                let n = parseInt(val);
-                if (isNaN(n)) return val;
-                if (n > max) n = max;
-                if (n < 0) n = 0;
-                return String(n).padStart(val.length, '0');
-            }
-
-            // Format handler for date text inputs
-            function setupDateInput(inputId) {
-                const input = document.getElementById(inputId);
-                if (!input) return;
-
-                input.addEventListener('input', function(e) {
-                    const lang = getLang();
-                    let raw = this.value.replace(/[^\d]/g, '');
-                    if (raw.length > 8) raw = raw.substring(0, 8);
-
-                    // Determine format: VN = dd/mm/yyyy, EN = mm/dd/yyyy
-                    const isDMY = (lang === 'vn');
-                    let part1 = '', part2 = '', part3 = '';
-
-                    // Part 1: first 2 digits (day for VN, month for EN)
-                    if (raw.length >= 1) {
-                        part1 = raw.substring(0, Math.min(raw.length, 2));
-                        if (raw.length >= 2) {
-                            const max1 = isDMY ? 31 : 12;
-                            part1 = clampField(part1, max1);
-                            if (parseInt(part1) === 0 && raw.length >= 2) part1 = '01';
-                        }
-                    }
-
-                    // Part 2: digits 3-4 (month for VN, day for EN)
-                    if (raw.length >= 3) {
-                        part2 = raw.substring(2, Math.min(raw.length, 4));
-                        if (raw.length >= 4) {
-                            if (isDMY) {
-                                // part2 = month, clamp 1-12
-                                part2 = clampField(part2, 12);
-                                if (parseInt(part2) === 0) part2 = '01';
-                                // Also re-clamp part1 (day) based on this month
-                                const maxD = getMaxDay(part2, raw.length >= 5 ? raw.substring(4) : null);
-                                part1 = clampField(part1, maxD);
-                                if (parseInt(part1) === 0) part1 = '01';
-                            } else {
-                                // part2 = day, clamp based on month (part1)
-                                const maxD = getMaxDay(part1, raw.length >= 5 ? raw.substring(4) : null);
-                                part2 = clampField(part2, maxD);
-                                if (parseInt(part2) === 0) part2 = '01';
-                            }
-                        }
-                    }
-
-                    // Part 3: digits 5-8 (year)
-                    if (raw.length >= 5) {
-                        part3 = raw.substring(4, Math.min(raw.length, 8));
-                        // Full year entered - re-validate day for leap year
-                        if (part3.length === 4) {
-                            const yr = parseInt(part3);
-                            if (yr < 1900) part3 = '1900';
-                            if (yr > 2100) part3 = '2100';
-                            // Re-clamp day based on final month and year
-                            const month = isDMY ? part2 : part1;
-                            const maxD = getMaxDay(month, part3);
-                            if (isDMY) {
-                                part1 = clampField(part1, maxD);
-                            } else {
-                                part2 = clampField(part2, maxD);
-                            }
-                        }
-                    }
-
-                    // Reconstruct value with slashes
-                    if (raw.length >= 5) {
-                        this.value = part1 + '/' + part2 + '/' + part3;
-                    } else if (raw.length >= 3) {
-                        this.value = part1 + '/' + part2;
-                    } else {
-                        this.value = part1;
-                    }
-                });
-            }
-
-            // Setup both date inputs
-            setupDateInput('b_dob');
-            setupDateInput('b_prefdate');
-
-            // Auto-fill Preferred Date with today's date in current language format
-            function fillTodayDate() {
-                const input = document.getElementById('b_prefdate');
-                if (!input) return;
-                const lang = getLang();
-                const today = new Date();
-                const dd = String(today.getDate()).padStart(2, '0');
-                const mm = String(today.getMonth() + 1).padStart(2, '0');
-                const yyyy = today.getFullYear();
-                if (lang === 'vn') {
-                    input.value = dd + '/' + mm + '/' + yyyy;
-                } else {
-                    input.value = mm + '/' + dd + '/' + yyyy;
-                }
-            }
-            fillTodayDate();
-
-            // Re-fill preferred date when language changes
-            const origApplyLang = window._applyLanguageHook;
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    setTimeout(fillTodayDate, 100);
-                });
-            });
+          });
         });
+
+        if (closeBtn) {
+          closeBtn.addEventListener("click", () => {
+            modal.classList.remove("active");
+            document.body.style.overflow = "";
+          });
+        }
+
+        // Close when clicking outside
+        if (modal) {
+          modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+              modal.classList.remove("active");
+              document.body.style.overflow = "";
+            }
+          });
+        }
+
+        // Web3Forms AJAX Submission
+        if (bookingForm) {
+          bookingForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Change button text to indicate loading
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = "Sending...";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(bookingForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            formResult.innerHTML = "Please wait...";
+            formResult.style.color = "var(--text-brown, #523A20)";
+
+            fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: json,
+            })
+              .then(async (response) => {
+                let jsonResponse = await response.json();
+                if (response.status == 200) {
+                  formResult.innerHTML = "Booking request sent successfully!";
+                  formResult.style.color = "var(--primary-green, #526B48)";
+                  bookingForm.reset();
+
+                  // Close modal after 3 seconds
+                  setTimeout(() => {
+                    modal.classList.remove("active");
+                    document.body.style.overflow = "";
+                    formResult.innerHTML = "";
+                  }, 3000);
+                } else {
+                  console.log(response);
+                  formResult.innerHTML =
+                    jsonResponse.message || "An error occurred.";
+                  formResult.style.color = "red";
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+                formResult.innerHTML = "Something went wrong!";
+                formResult.style.color = "red";
+              })
+              .then(function () {
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+              });
+          });
+        }
+
+        // =========================================
+        // Smart Date Input Handler
+        // =========================================
+        function getLang() {
+          return localStorage.getItem("site_lang") || "vn";
+        }
+
+        // Get max days for a given month (1-12) and year
+        function getMaxDay(month, year) {
+          if (!month) return 31;
+          const m = parseInt(month);
+          if ([4, 6, 9, 11].includes(m)) return 30;
+          if (m === 2) {
+            const y = parseInt(year) || 2000;
+            return y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0) ? 29 : 28;
+          }
+          return 31;
+        }
+
+        // Clamp a numeric string to a max value, preserving leading zero
+        function clampField(val, max) {
+          let n = parseInt(val);
+          if (isNaN(n)) return val;
+          if (n > max) n = max;
+          if (n < 0) n = 0;
+          return String(n).padStart(val.length, "0");
+        }
+
+        // Format handler for date text inputs
+        function setupDateInput(inputId) {
+          const input = document.getElementById(inputId);
+          if (!input) return;
+
+          input.addEventListener("input", function (e) {
+            const lang = getLang();
+            let raw = this.value.replace(/[^\d]/g, "");
+            if (raw.length > 8) raw = raw.substring(0, 8);
+
+            // Determine format: VN = dd/mm/yyyy, EN = mm/dd/yyyy
+            const isDMY = lang === "vn";
+            let part1 = "",
+              part2 = "",
+              part3 = "";
+
+            // Part 1: first 2 digits (day for VN, month for EN)
+            if (raw.length >= 1) {
+              part1 = raw.substring(0, Math.min(raw.length, 2));
+              if (raw.length >= 2) {
+                const max1 = isDMY ? 31 : 12;
+                part1 = clampField(part1, max1);
+                if (parseInt(part1) === 0 && raw.length >= 2) part1 = "01";
+              }
+            }
+
+            // Part 2: digits 3-4 (month for VN, day for EN)
+            if (raw.length >= 3) {
+              part2 = raw.substring(2, Math.min(raw.length, 4));
+              if (raw.length >= 4) {
+                if (isDMY) {
+                  // part2 = month, clamp 1-12
+                  part2 = clampField(part2, 12);
+                  if (parseInt(part2) === 0) part2 = "01";
+                  // Also re-clamp part1 (day) based on this month
+                  const maxD = getMaxDay(
+                    part2,
+                    raw.length >= 5 ? raw.substring(4) : null,
+                  );
+                  part1 = clampField(part1, maxD);
+                  if (parseInt(part1) === 0) part1 = "01";
+                } else {
+                  // part2 = day, clamp based on month (part1)
+                  const maxD = getMaxDay(
+                    part1,
+                    raw.length >= 5 ? raw.substring(4) : null,
+                  );
+                  part2 = clampField(part2, maxD);
+                  if (parseInt(part2) === 0) part2 = "01";
+                }
+              }
+            }
+
+            // Part 3: digits 5-8 (year)
+            if (raw.length >= 5) {
+              part3 = raw.substring(4, Math.min(raw.length, 8));
+              // Full year entered - re-validate day for leap year
+              if (part3.length === 4) {
+                const yr = parseInt(part3);
+                if (yr < 1900) part3 = "1900";
+                if (yr > 2100) part3 = "2100";
+                // Re-clamp day based on final month and year
+                const month = isDMY ? part2 : part1;
+                const maxD = getMaxDay(month, part3);
+                if (isDMY) {
+                  part1 = clampField(part1, maxD);
+                } else {
+                  part2 = clampField(part2, maxD);
+                }
+              }
+            }
+
+            // Reconstruct value with slashes
+            if (raw.length >= 5) {
+              this.value = part1 + "/" + part2 + "/" + part3;
+            } else if (raw.length >= 3) {
+              this.value = part1 + "/" + part2;
+            } else {
+              this.value = part1;
+            }
+          });
+        }
+
+        // Setup both date inputs
+        setupDateInput("b_dob");
+        setupDateInput("b_prefdate");
+
+        // Auto-fill Preferred Date with today's date in current language format
+        function fillTodayDate() {
+          const input = document.getElementById("b_prefdate");
+          if (!input) return;
+          const lang = getLang();
+          const today = new Date();
+          const dd = String(today.getDate()).padStart(2, "0");
+          const mm = String(today.getMonth() + 1).padStart(2, "0");
+          const yyyy = today.getFullYear();
+          if (lang === "vn") {
+            input.value = dd + "/" + mm + "/" + yyyy;
+          } else {
+            input.value = mm + "/" + dd + "/" + yyyy;
+          }
+        }
+        fillTodayDate();
+
+        // Re-fill preferred date when language changes
+        const origApplyLang = window._applyLanguageHook;
+        document.querySelectorAll(".lang-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            setTimeout(fillTodayDate, 100);
+          });
+        });
+      });
     </script>
-</body>
+  </body>
 </html>

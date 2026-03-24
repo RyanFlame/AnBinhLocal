@@ -1,0 +1,409 @@
+---
+import { Image } from "astro:assets";
+import { getImageByPath } from "../../utils/assets";
+
+const asset_Therapies_Bam_huyet_webp = getImageByPath("Therapies/Bam huyet.webp");
+const asset_Therapies_Cham_Cuu_webp = getImageByPath("Therapies/Cham Cuu.webp");
+const asset_Therapies_Diagnose_webp = getImageByPath("Therapies/Diagnose.webp");
+const asset_Therapies_Exercise_webp = getImageByPath("Therapies/Exercise.webp");
+const asset_Therapies_Nutrition1_webp = getImageByPath("Therapies/Nutrition1.webp");
+const asset_Therapies_Thuoc_Bac_webp = getImageByPath("Therapies/Thuoc Bac.webp");
+---
+  <section class="product-grid-section" id="services" data-header-theme="light">
+    <div class="product-grid-container">
+      <!-- Header -->
+      <div class="grid-header">
+        <h2
+          class="heading-section lang-text"
+          data-en="Explore our key therapies<br>and traditional remedies"
+          data-vn="Khám phá các phương pháp trị liệu<br>và y học truyền thống"
+        >
+          Khám phá các phương pháp trị liệu<br />và y học truyền thống
+        </h2>
+        <a
+          href="/therapies"
+          class="btn-pill lang-text"
+          data-en="Explore now"
+          data-vn="Khám phá ngay">Khám phá ngay</a
+        >
+      </div>
+
+      <!-- Bento Grid Layout -->
+      <div class="bento-grid">
+        <!-- Card 1: Therapy (Top Left) -->
+        <div class="bento-card card-therapy">
+          <Image
+            src={asset_Therapies_Cham_Cuu_webp}
+            alt="Acupuncture"
+            class="bento-bg"
+          />
+          <span
+            class="bento-text lang-text"
+            data-en="Acupuncture"
+            data-vn="Châm Cứu">Châm Cứu</span
+          >
+        </div>
+
+        <!-- Card 2: Central Large (Medicines) -->
+        <div class="bento-card card-large">
+          <Image
+            src={asset_Therapies_Thuoc_Bac_webp}
+            alt="Herbal Medicines"
+            class="bento-bg"
+          />
+          <h3
+            class="heading-subsection bento-text lang-text"
+            data-en="Specialized<br>Medicines"
+            data-vn="Thuốc Đông Y<br>Đặc Trị"
+          >
+            Thuốc Đông Y<br />Đặc Trị
+          </h3>
+          <div class="plus-btn bento-text">+</div>
+        </div>
+
+        <!-- Card 3: Diagnosis (Top Right) -->
+        <div class="bento-card">
+          <Image
+            src={asset_Therapies_Diagnose_webp}
+            alt="Diagnosis"
+            class="bento-bg"
+          />
+          <span
+            class="bento-text lang-text"
+            data-en="Diagnosis"
+            data-vn="Bắt Mạch">Bắt Mạch</span
+          >
+        </div>
+
+        <!-- Card 4: Nutrition (Bottom Left) -->
+        <div class="bento-card">
+          <Image
+            src={asset_Therapies_Nutrition1_webp}
+            alt="Nutrition"
+            class="bento-bg"
+          />
+          <span
+            class="bento-text lang-text"
+            data-en="Nutrition"
+            data-vn="Dinh Dưỡng">Dinh Dưỡng</span
+          >
+        </div>
+
+        <!-- Card 5: Description (Bottom Right) -->
+        <div class="bento-card card-text">
+          <Image
+            src={asset_Therapies_Bam_huyet_webp}
+            alt="Acupressure"
+            class="bento-bg"
+          />
+          <p
+            class="body-regular bento-text lang-text"
+            data-en="Acupressure"
+            data-vn="Bấm Huyệt"
+          >
+            Bấm Huyệt
+          </p>
+        </div>
+
+        <!-- Card 6: Tools (Bottom Far Right) -->
+        <div class="bento-card">
+          <Image
+            src={asset_Therapies_Exercise_webp}
+            alt="Physical Therapy"
+            class="bento-bg"
+          />
+          <span
+            class="bento-text lang-text"
+            data-en="Physical Therapy"
+            data-vn="Vật Lý Trị Liệu">Vật Lý Trị Liệu</span
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+<style>
+/* =========================================
+   PRODUCT GRID SECTION (Bento Box)
+   ========================================= */
+.product-grid-section {
+    padding: 100px 20px;
+    background-color: #FAFAF8; /* Very light off-white background */
+    text-align: center;
+    font-family: var(--font-sans);
+}
+
+.product-grid-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Header */
+.grid-header {
+    margin-bottom: 60px;
+}
+
+.grid-header h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--text-brown);
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+.btn-pill {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--text-brown);
+    font-weight: 600;
+    transition: all 0.3s;
+    background: transparent;
+}
+
+.btn-pill:hover {
+    background: var(--text-brown);
+    color: #fff;
+    border-color: var(--text-brown);
+}
+
+/* Bento Grid - Randomized Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1fr;
+    grid-template-rows: repeat(5, 100px);
+    gap: 20px;
+}
+
+/* 1. Acupuncture (Col 1, Row 1-3) */
+.bento-grid > div:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+}
+
+/* 2. Medicines (Center - LARGE) */
+.card-large {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    z-index: 2;
+    background-color: var(--indochine-teal); /* Restore Indochine Teal color */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1); /* Pop out more */
+}
+
+/* 3. Diagnosis (Top Right - Medium) */
+.bento-grid > div:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    margin-top: 0;
+}
+
+/* 4. Nutrition (Bottom Left - Small) */
+.bento-grid > div:nth-child(4) {
+    grid-column: 1;
+    grid-row: 4 / span 2;
+    align-self: stretch; 
+}
+
+/* 5. Text (Bottom Center - Small/Wide) */
+.card-text {
+    grid-column: 2;
+    grid-row: 5 / span 1;
+    padding: 15px;
+    font-size: 0.8rem;
+    box-shadow: none;
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* 6. Physical Therapy (Bottom Right - Medium) */
+.bento-grid > div:nth-child(6) {
+    grid-column: 3;
+    grid-row: 3 / span 3;
+}
+
+/* Base Card Style Updates */
+.bento-card {
+    background: #fff;
+    border-radius: 24px; /* Softer */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+    }
+    .bento-grid > div:nth-child(n) {
+        grid-column: auto;
+        grid-row: auto;
+        margin: 0;
+    }
+    .card-large {
+        grid-column: 1 / span 2;
+        height: 300px;
+        order: -1; /* Move to top in mobile/tablet grid */
+    }
+    .card-text {
+        grid-column: 1 / span 2;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .bento-grid > div:nth-child(n) {
+        grid-column: 1 !important;
+    }
+    .card-large {
+        padding: 40px 20px;
+        height: auto;
+        order: -1;
+    }
+}
+
+/* Corner Content Styling */
+.corner-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.corner-label {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* =========================================
+   BENTO GRID STYLING (Scooped Corners)
+   ========================================= */
+.bento-card {
+    position: relative;
+    border: 1px solid var(--mahogany-dark);
+    padding: 20px;
+    background-color: var(--warm-white);
+    transition: transform 0.3s ease;
+    
+    /* Scooped Corners Mask */
+    --scoop-radius: 20px;
+    -webkit-mask-image: 
+        radial-gradient(circle at top left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at top right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at bottom left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at bottom right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px));
+    -webkit-mask-position: top left, top right, bottom left, bottom right;
+    -webkit-mask-size: 51% 51%;
+    -webkit-mask-repeat: no-repeat;
+    
+    mask-image: 
+        radial-gradient(circle at top left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at top right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at bottom left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at bottom right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px));
+    mask-position: top left, top right, bottom left, bottom right;
+    mask-size: 51% 51%;
+    mask-repeat: no-repeat;
+}
+
+.bento-card:hover {
+    transform: scale(1.02);
+    /* Use drop-shadow filter because box-shadow gets clipped by mask */
+    filter: drop-shadow(0 5px 15px rgba(200, 169, 126, 0.4));
+}
+
+/* Ensure images inside respect the layout */
+.bento-card img {
+    border-radius: 0; /* No rounded corners inside scooped frame */
+}
+
+/* Image styling for 85% coverage inside the bento card */
+.bento-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 85%;
+    height: 85%;
+    transform: translate(-50%, -50%); /* Centering */
+    object-fit: cover;
+    z-index: 1;
+    border-radius: 0; /* Remove standard corners favoring scoops */
+    
+    /* Scooped Corners Mask for the Inner Image */
+    --scoop-radius: 14px;
+    -webkit-mask-image: 
+        radial-gradient(circle at top left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at top right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at bottom left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at bottom right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px));
+    -webkit-mask-position: top left, top right, bottom left, bottom right;
+    -webkit-mask-size: 51% 51%;
+    -webkit-mask-repeat: no-repeat;
+    
+    mask-image: 
+        radial-gradient(circle at top left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at top right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at bottom left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at bottom right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px));
+    mask-position: top left, top right, bottom left, bottom right;
+    mask-size: 51% 51%;
+    mask-repeat: no-repeat;
+    
+    /* Darken image slightly so white text is always readable */
+    filter: brightness(0.7) contrast(1.1);
+    transition: filter 0.3s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bento-card:hover .bento-bg {
+    filter: brightness(0.8) contrast(1.15); /* Brighten slightly on hover */
+    transform: translate(-50%, -50%) scale(1.08); /* zoom while securely centered */
+}
+
+/* Text styling sitting ON TOP of the image */
+.bento-text {
+    position: relative;
+    z-index: 2; /* Sit above the inner image */
+    color: var(--cream-rice, #F9F5E3) !important;
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9); /* Critical for readability */
+}
+
+/* Specific overrides for certain cards */
+.heading-subsection.bento-text {
+    font-size: 1.8rem;
+}
+
+.card-text .bento-text {
+    font-family: var(--font-sans);
+    font-weight: 400;
+}
+
+.plus-btn.bento-text {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+/* Ensure the large card always uses the Indochine Teal theme */
+.card-large {
+    background-color: var(--indochine-teal) !important;
+    border-color: var(--brass-gold) !important;
+}
+</style>
+

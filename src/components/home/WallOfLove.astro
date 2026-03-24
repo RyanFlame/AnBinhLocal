@@ -1,0 +1,244 @@
+---
+import { Image } from "astro:assets";
+import { getImageByPath } from "../../utils/assets";
+
+const asset_Thu_c_1_webp = getImageByPath("Thuốc 1.webp");
+const asset_Thu_c_2_webp = getImageByPath("Thuốc 2.webp");
+const asset_Thu_c_webp = getImageByPath("Thuốc.webp");
+
+const column1Reviews = [
+  { name: 'Minh T.', condition: 'Chronic Back Pain', text: 'I was skeptical about traditional medicine, but the acupuncture treatments here completely reset my sleep cycle. I feel years younger.', avatar: asset_Thu_c_webp },
+  { name: 'Sarah J.', condition: 'Wellness Check', text: 'The atmosphere is so calming. An Binh is a hidden gem in Winnipeg for anyone looking for holistic care.', avatar: asset_Thu_c_1_webp },
+  { name: 'David L.', condition: 'Herbal Therapy', text: 'The herbal tea blends are not only delicious but actually effective. My digestion has never been better.', avatar: asset_Thu_c_2_webp }
+];
+
+const column2Reviews = [
+  { name: 'Emily R.', condition: 'Acupuncture', text: 'Finally found relief for my shoulder pain after months of struggling. The staff is incredibly professional.', avatar: asset_Thu_c_1_webp },
+  { name: 'James K.', condition: 'Stress Relief', text: 'A sanctuary of peace. The treatments helped me manage my work stress significantly.', avatar: asset_Thu_c_webp },
+  { name: 'Linh N.', condition: 'General Health', text: 'I love the personalized approach. They really take the time to understand your body\'s needs.', avatar: asset_Thu_c_2_webp }
+];
+
+// Duplicate logic to guarantee a seamless CSS scroll
+const duplicatedCol1 = [...column1Reviews, ...column1Reviews, ...column1Reviews];
+const duplicatedCol2 = [...column2Reviews, ...column2Reviews, ...column2Reviews];
+---
+  <section class="reviews-section" data-header-theme="light">
+    <div class="reviews-container">
+      <!-- Left Text -->
+      <div class="reviews-text">
+        <p
+          class="sub-heading mb-md lang-text"
+          data-en="Patient Stories"
+          data-vn="Câu Chuyện Bệnh Nhân"
+        >
+          Câu Chuyện Bệnh Nhân
+        </p>
+        <h2
+          class="heading-section mb-lg lang-text"
+          data-en="Don't trust us,<br>Trust their voice"
+          data-vn="Lắng nghe để thấu hiểu <br> Đồng hành để chữa lành"
+        >
+          Lắng nghe để thấu hiểu <br />Đồng hành để chữa lành
+        </h2>
+        <p
+          class="body-regular mb-xl lang-text"
+          data-en="Real healing, real stories. Hear how traditional medicine has restored balance to our patients' lives through our holistic treatments."
+          data-vn="Mỗi bệnh nhân đến với An Bình đều mang theo một hy vọng về sức khỏe.
+          Sự tin tưởng và những nụ cười sau mỗi liệu trình là động lực lớn nhất để chúng tôi 
+          tiếp tục gìn giữ, phát huy chất lượng trong từng vị thuốc, mang lại sự bình yên cho 
+          sức khỏe quê hương."
+        >
+          Mỗi bệnh nhân đến với An Bình đều mang theo một hy vọng về sức khỏe.
+          Sự tin tưởng và những nụ cười sau mỗi liệu trình là động lực lớn nhất
+          để chúng tôi tiếp tục gìn giữ, phát huy chất lượng trong từng vị
+          thuốc, mang lại sự bình yên cho sức khỏe quê hương.
+        </p>
+      </div>
+
+      <!-- Right Wall -->
+      <div class="reviews-wall">
+        <div class="review-column col-1">
+          <div class="scroll-track">
+            {duplicatedCol1.map(review => (
+              <div class="review-card">
+                <div class="reviewer-header">
+                  <Image src={review.avatar} alt="Patient" class="reviewer-avatar" />
+                  <div class="reviewer-info">
+                    <h4>{review.name}</h4>
+                    <span>{review.condition}</span>
+                  </div>
+                </div>
+                <p class="review-body">"{review.text}"</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="review-column col-2">
+          <div class="scroll-track">
+            {duplicatedCol2.map(review => (
+              <div class="review-card">
+                <div class="reviewer-header">
+                  <Image src={review.avatar} alt="Patient" class="reviewer-avatar" />
+                  <div class="reviewer-info">
+                    <h4>{review.name}</h4>
+                    <span>{review.condition}</span>
+                  </div>
+                </div>
+                <p class="review-body">"{review.text}"</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<style>
+/* =========================================
+   SCROLLING REVIEWS SECTION (Wall of Love)
+   ========================================= */
+.reviews-section {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--warm-white);
+    padding: 80px 0;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    max-height: 800px;
+}
+
+.reviews-text {
+    padding-right: 20px;
+    z-index: 2;
+}
+
+.reviews-wall {
+    display: flex;
+    gap: 25px;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.review-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.scroll-track {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    animation: scroll-vertical 40s linear infinite;
+}
+
+.col-2 .scroll-track {
+    animation-duration: 50s;
+    transform: translateY(-20%);
+}
+
+@keyframes scroll-vertical {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0%); }
+}
+
+.review-card {
+    background-color: var(--charcoal-wood);
+    border: 1px solid rgba(200, 169, 126, 0.3);
+    border-radius: 0; 
+    padding: 25px;
+    color: var(--cream-rice);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    
+    --scoop-radius: 20px;
+    -webkit-mask-image: 
+        radial-gradient(circle at top left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at top right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at bottom left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at bottom right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px));
+    -webkit-mask-position: top left, top right, bottom left, bottom right;
+    -webkit-mask-size: 51% 51%;
+    -webkit-mask-repeat: no-repeat;
+    
+    mask-image: 
+        radial-gradient(circle at top left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at top right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at bottom left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+        radial-gradient(circle at bottom right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px));
+    mask-position: top left, top right, bottom left, bottom right;
+    mask-size: 51% 51%;
+    mask-repeat: no-repeat;
+}
+
+.review-card:hover {
+    transform: scale(1.02);
+    border-color: var(--brass-gold);
+}
+
+.reviewer-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.reviewer-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--brass-gold);
+}
+
+.reviewer-info h4 {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--brass-gold);
+    margin-bottom: 2px;
+}
+
+.reviewer-info span {
+    font-size: 0.8rem;
+    color: var(--subtle-grey);
+    display: block;
+}
+
+.review-body {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    font-style: italic;
+}
+
+@media screen and (max-width: 900px) {
+    .reviews-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .reviews-text {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .reviews-wall {
+        height: 500px;
+    }
+}
+</style>
+

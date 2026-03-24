@@ -181,20 +181,18 @@ const formattedDate = today.toLocaleDateString("vi-VN", {
   /* Bottom Tier - Categories */
   .bh-bottom-tier {
     border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid transparent;
     padding: 12px 5%;
     background: #fafafa;
-    position: static;
-    top: 0;
+    position: sticky;
+    top: 5px; /* Perfect alignment with progress bar height */
     z-index: 2000;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, border-bottom 0.3s ease;
     box-sizing: border-box;
+    will-change: box-shadow;
   }
 
   .bh-bottom-tier.is-sticky {
-    position: fixed;
-    top: 5px; /* Perfect alignment with progress bar height */
-    left: 0;
-    width: 100%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid #eaeaea;
   }
@@ -214,7 +212,7 @@ const formattedDate = today.toLocaleDateString("vi-VN", {
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
     padding-bottom: 2px;
     border-bottom: 2px solid transparent;
   }
@@ -331,41 +329,50 @@ const formattedDate = today.toLocaleDateString("vi-VN", {
     const progressBar = document.getElementById("readingProgressBar");
     if (!progressBar) return;
 
+    let isScrolling = false;
+
     window.addEventListener("scroll", () => {
-      const winScroll =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      const height =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      progressBar.style.width = scrolled + "%";
-    });
+      if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+          const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+          const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          if (height > 0) {
+            progressBar.style.width = ((winScroll / height) * 100) + "%";
+          }
+          isScrolling = false;
+        });
+        isScrolling = true;
+      }
+    }, { passive: true });
   }
 
   function initStickyNav() {
-    const header = document.querySelector(".blog-header-minimal");
     const bottomTier = document.querySelector(".bh-bottom-tier");
-    const spacer = document.getElementById("stickySpacer");
     const topTier = document.querySelector(".bh-top-tier");
 
-    if (!header || !bottomTier || !spacer || !topTier) return;
+    if (!bottomTier || !topTier) return;
 
-    const stickyPoint = topTier.offsetHeight;
+    let isChecking = false;
 
     window.addEventListener("scroll", () => {
-      if (window.scrollY > stickyPoint) {
-        if (!bottomTier.classList.contains("is-sticky")) {
-          bottomTier.classList.add("is-sticky");
-          spacer.style.height = bottomTier.offsetHeight + "px";
-          spacer.style.display = "block";
-        }
-      } else {
-        if (bottomTier.classList.contains("is-sticky")) {
-          bottomTier.classList.remove("is-sticky");
-          spacer.style.display = "none";
-        }
+      if (!isChecking) {
+        window.requestAnimationFrame(() => {
+          // Native position: sticky handles the layout
+          // We just toggle the shadow class for styling when actually scrolled past the top tier
+          if (window.scrollY > topTier.offsetHeight) {
+            if (!bottomTier.classList.contains("is-sticky")) {
+              bottomTier.classList.add("is-sticky");
+            }
+          } else {
+            if (bottomTier.classList.contains("is-sticky")) {
+              bottomTier.classList.remove("is-sticky");
+            }
+          }
+          isChecking = false;
+        });
+        isChecking = true;
       }
-    });
+    }, { passive: true });
   }
 
   document.addEventListener("DOMContentLoaded", () => {

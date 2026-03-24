@@ -1,0 +1,153 @@
+﻿[2m22:11:39[22m [34m[vite][39m Re-optimizing dependencies because vite config has changed
+[2m22:11:40[22m [34m[content][39m Syncing content
+[2m22:11:40[22m [34m[content][39m Synced content
+[2m22:11:40[22m [34m[types][39m Generated [2m728ms[22m
+[2m22:11:40[22m [34m[check][39m Getting diagnostics for Astro files in C:\Users\ryang\Downloads\PK Dad Final...
+[96mscripts/convert-assets.mjs[0m:[93m75[0m:[93m28[0m - [93mwarning[0m[90m ts(6133): [0m'nw' is declared but its value is never read.
+
+[7m75[0m     for (const { old, new: nw } of report) {
+[7m  [0m [93m                           ~~[0m
+
+[96mscripts/refactor-to-image.mjs[0m:[93m84[0m:[93m58[0m - [93mwarning[0m[90m ts(6133): [0m'match' is declared but its value is never read.
+
+[7m84[0m             content = content.replace(frontmatterRegex, (match, p1) => {
+[7m  [0m [93m                                                         ~~~~~[0m
+[96mscripts/refactor-to-image.mjs[0m:[93m9[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'imageExtensions' is declared but its value is never read.
+
+[7m9[0m const imageExtensions = ['.webp', '.png', '.jpg', '.jpeg'];
+[7m [0m [93m      ~~~~~~~~~~~~~~~[0m
+
+[96msrc/content.config.ts[0m:[93m13[0m:[93m15[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m13[0m     category: z.string(),
+[7m  [0m [93m              ~[0m
+[96msrc/content.config.ts[0m:[93m11[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m11[0m     date: z.date(),
+[7m  [0m [93m          ~[0m
+[96msrc/content.config.ts[0m:[93m10[0m:[93m17[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m10[0m     authorRole: z.string().default('Ch─âm S├│c'), // e.g. "Trß╗ï Liß╗çu", "Thß║úo D╞░ß╗úc"
+[7m  [0m [93m                ~[0m
+[96msrc/content.config.ts[0m:[93m9[0m:[93m13[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m9[0m     author: z.string().default('Admin'),
+[7m [0m [93m            ~[0m
+[96msrc/content.config.ts[0m:[93m8[0m:[93m14[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m8[0m     excerpt: z.string(),
+[7m [0m [93m             ~[0m
+[96msrc/content.config.ts[0m:[93m7[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m7[0m     title: z.string(),
+[7m [0m [93m           ~[0m
+[96msrc/content.config.ts[0m:[93m6[0m:[93m26[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m6[0m   schema: ({ image }) => z.object({
+[7m [0m [93m                         ~[0m
+[96msrc/content.config.ts[0m:[93m1[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m1[0m import { z, defineCollection } from 'astro:content';
+[7m [0m [93m         ~[0m
+
+[96msrc/components/home/HeroSection.astro[0m:[93m5[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'asset_Therapies_Thuoc_Bac_webp' is declared but its value is never read.
+
+[7m5[0m const asset_Therapies_Thuoc_Bac_webp = getImageByPath("Therapies/Thuoc Bac.webp");
+[7m [0m [93m      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/layouts/BlogLayout.astro[0m:[93m40[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m40[0m     <script type="text/partytown">
+[7m  [0m [93m            ~~~~[0m
+[96msrc/layouts/BlogLayout.astro[0m:[93m38[0m:[93m7[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m38[0m       type="text/partytown"
+[7m  [0m [93m      ~~~~[0m
+[96msrc/layouts/BlogLayout.astro[0m:[93m22[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m22[0m     <script type="text/partytown">
+[7m  [0m [93m            ~~~~[0m
+
+[96msrc/layouts/Layout.astro[0m:[93m371[0m:[93m19[0m - [93mwarning[0m[90m ts(6133): [0m'origApplyLang' is declared but its value is never read.
+
+[7m371[0m             const origApplyLang = window._applyLanguageHook;
+[7m   [0m [93m                  ~~~~~~~~~~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m279[0m:[93m58[0m - [93mwarning[0m[90m ts(6133): [0m'e' is declared but its value is never read.
+
+[7m279[0m                 input.addEventListener('input', function(e) {
+[7m   [0m [93m                                                         ~[0m
+[96msrc/layouts/Layout.astro[0m:[93m45[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m45[0m     <script type="application/ld+json">
+[7m  [0m [93m            ~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m33[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m33[0m     <script type="text/partytown">
+[7m  [0m [93m            ~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m32[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m32[0m     <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-BRLVYQF4KP"></script>
+[7m  [0m [93m            ~~~~[0m
+[96msrc/layouts/Layout.astro[0m:[93m24[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m24[0m     <script type="text/partytown">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+[7m  [0m [93m            ~~~~[0m
+
+[96msrc/pages/blog/[slug].astro[0m:[93m40[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'categories' is declared but its value is never read.
+
+[7m40[0m const categories = [...new Set(allPosts.map((p) => p.data.category))];
+[7m  [0m [93m      ~~~~~~~~~~[0m
+[96msrc/pages/blog/[slug].astro[0m:[93m4[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'Footer' is declared but its value is never read.
+
+[7m4[0m import Footer from "../../components/Footer.astro";
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/blog/[slug].astro[0m:[93m114[0m:[93m11[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m114[0m   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+[7m   [0m [93m          ~~~~[0m
+[96msrc/pages/blog/[slug].astro[0m:[93m113[0m:[93m11[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m113[0m   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+[7m   [0m [93m          ~~~~[0m
+
+Result (32 files): 
+- 0 errors
+- 0 warnings
+- 25 hints
+
