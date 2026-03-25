@@ -2,176 +2,179 @@
 import { getImageByPath } from "../../utils/assets";
 
 // Hero assets
-const asset_Therapies_Thuoc_Bac_webp = getImageByPath("Therapies/Thuoc Bac.webp");
+const asset_Therapies_Thuoc_Bac_webp = getImageByPath(
+  "Therapies/Thuoc Bac.webp",
+);
 ---
-  <header class="hero-section hero-redesign" data-header-theme="dark">
-    <div class="hero-layout-container">
-      <!-- Left Side: Text Content -->
-      <div class="hero-left-col">
-        <h1
-          class="hero-title lang-text"
-          data-en="Restoring<br>balance naturally."
-          data-vn="Phục hồi<br>cân bằng tự nhiên."
+
+<header class="hero-section hero-redesign" data-header-theme="dark">
+  <div class="hero-layout-container">
+    <!-- Left Side: Text Content -->
+    <div class="hero-left-col">
+      <h1
+        class="hero-title lang-text"
+        data-en="Restoring<br>balance naturally."
+        data-vn="Phục hồi<br>cân bằng tự nhiên."
+      >
+        Phục hồi<br />cân bằng tự nhiên.
+      </h1>
+      <p
+        class="hero-desc lang-text"
+        data-en="Discover the serenity of holistic healing in our traditional clinic nestled in the heart of the city."
+        data-vn="Khám phá sức mạnh từ những bài thuốc thảo dược dân gian thân quen, giúp cơ thể bạn phục hồi sự cân bằng tự nhiên."
+      >
+        Khám phá sức mạnh từ những bài thuốc thảo dược dân gian thân quen, giúp
+        cơ thể bạn phục hồi sự cân bằng tự nhiên.
+      </p>
+    </div>
+  </div>
+
+  <!-- Bottom: Search/Booking Bar -->
+  <div class="hero-bottom-bar">
+    <div class="hero-scroll-indicator">
+      <a href="#about" class="scroll-circle">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
         >
-          Phục hồi<br />cân bằng tự nhiên.
-        </h1>
-        <p
-          class="hero-desc lang-text"
-          data-en="Discover the serenity of holistic healing in our traditional clinic nestled in the heart of the city."
-          data-vn="Khám phá sức mạnh từ những bài thuốc thảo dược dân gian thân quen, giúp cơ thể bạn phục hồi sự cân bằng tự nhiên."
-        >
-          Khám phá sức mạnh từ những bài thuốc thảo dược dân gian thân quen,
-          giúp cơ thể bạn phục hồi sự cân bằng tự nhiên.
-        </p>
-      </div>
+          <path d="M12 8v8M16 12l-4 4-4-4"></path>
+        </svg>
+      </a>
     </div>
 
-    <!-- Bottom: Search/Booking Bar -->
-    <div class="hero-bottom-bar">
-      <div class="hero-scroll-indicator">
-        <a href="#about" class="scroll-circle">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M12 8v8M16 12l-4 4-4-4"></path>
-          </svg>
-        </a>
+    <div class="hero-booking-bar glass-panel booking-feature">
+      <div
+        class="booking-segment segment-treatment booking-feature"
+        style="cursor: pointer;"
+      >
+        <span
+          class="segment-label lang-text"
+          data-en="Treatment"
+          data-vn="Trị Liệu">Trị Liệu</span
+        >
+        <span
+          class="segment-value lang-text"
+          data-en="Select therapy"
+          data-vn="Chọn liệu pháp">Chọn liệu pháp</span
+        >
       </div>
-
-      <div class="hero-booking-bar glass-panel booking-feature">
-        <div
-          class="booking-segment segment-treatment booking-feature"
-          style="cursor: pointer;"
+      <div class="segment-divider div-1"></div>
+      <div
+        class="booking-segment segment-name booking-feature"
+        style="cursor: pointer;"
+      >
+        <span class="segment-label lang-text" data-en="Name" data-vn="Họ Tên"
+          >Họ Tên</span
         >
-          <span
-            class="segment-label lang-text"
-            data-en="Treatment"
-            data-vn="Trị Liệu">Trị Liệu</span
-          >
-          <span
-            class="segment-value lang-text"
-            data-en="Select therapy"
-            data-vn="Chọn liệu pháp">Chọn liệu pháp</span
-          >
-        </div>
-        <div class="segment-divider div-1"></div>
-        <div
-          class="booking-segment segment-name booking-feature"
-          style="cursor: pointer;"
+        <span
+          class="segment-value lang-text"
+          data-en="Add details"
+          data-vn="Thêm thông tin">Thêm thông tin</span
         >
-          <span class="segment-label lang-text" data-en="Name" data-vn="Họ Tên"
-            >Họ Tên</span
-          >
-          <span
-            class="segment-value lang-text"
-            data-en="Add details"
-            data-vn="Thêm thông tin">Thêm thông tin</span
-          >
-        </div>
-        <div class="segment-divider div-2"></div>
-        <div
-          class="booking-segment segment-date booking-feature"
-          style="cursor: pointer;"
-        >
-          <span class="segment-label lang-text" data-en="Date" data-vn="Ngày"
-            >Ngày</span
-          >
-          <span
-            class="segment-value lang-text"
-            data-en="Add date"
-            data-vn="Chọn ngày">Chọn ngày</span
-          >
-        </div>
-        <div class="segment-divider div-3"></div>
-        <div
-          class="booking-segment segment-time booking-feature"
-          style="cursor: pointer;"
-        >
-          <span class="segment-label lang-text" data-en="Time" data-vn="Giờ"
-            >Giờ</span
-          >
-          <span
-            class="segment-value lang-text"
-            data-en="Select slot"
-            data-vn="Chọn khung giờ">Chọn khung giờ</span
-          >
-        </div>
-        <button
-          class="btn-booking-submit btn-hero-primary lang-text"
-          data-en="Book Now"
-          data-vn="Đặt Lịch"
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            class="search-icon"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="16" y1="2" x2="16" y2="6"></line>
-            <line x1="8" y1="2" x2="8" y2="6"></line>
-            <line x1="3" y1="10" x2="21" y2="10"></line>
-          </svg>
-          Đặt Lịch
-        </button>
       </div>
-
-      <div class="hero-socials">
-        <a href="tel:+0908052968" class="social-link">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
-            ><path
-              d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.27-.27.35-.66.24-1.01-.37-1.11-.56-2.3-.56-3.53 0-.55-.45-1-1-1H4.39c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"
-            ></path></svg
-          >
-        </a>
-        <a
-          href="https://www.google.com/maps/place/Ph%C3%B2ng+Y+H%E1%BB%8Dc+C%E1%BB%95+Truy%E1%BB%81n+An+B%C3%ACnh/@10.5085571,107.327058,455m/data=!3m1!1e3!4m6!3m5!1s0x3175a100125c7973:0x97569e0490503fa6!8m2!3d10.5082762!4d107.3262642!16s%2Fg%2F11mf93d8rf!5m1!1e1?authuser=0&entry=ttu"
-          class="social-link"
+      <div class="segment-divider div-2"></div>
+      <div
+        class="booking-segment segment-date booking-feature"
+        style="cursor: pointer;"
+      >
+        <span class="segment-label lang-text" data-en="Date" data-vn="Ngày"
+          >Ngày</span
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
-            ><path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-            ></path></svg
-          >
-        </a>
-        <a href="#" class="social-link">
-          <svg
-            width="20"
-            height="20"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 50 50"
-            fill="currentColor"
-            ><path
-              d="M 9 4 C 6.2504839 4 4 6.2504839 4 9 L 4 41 C 4 43.749516 6.2504839 46 9 46 L 41 46 C 43.749516 46 46 43.749516 46 41 L 46 9 C 46 6.2504839 43.749516 4 41 4 L 9 4 z M 9 6 L 15.580078 6 C 12.00899 9.7156859 10 14.518083 10 19.5 C 10 24.66 12.110156 29.599844 15.910156 33.339844 C 16.030156 33.549844 16.129922 34.579531 15.669922 35.769531 C 15.379922 36.519531 14.799687 37.499141 13.679688 37.869141 C 13.249688 38.009141 12.97 38.430859 13 38.880859 C 13.03 39.330859 13.360781 39.710781 13.800781 39.800781 C 16.670781 40.370781 18.529297 39.510078 20.029297 38.830078 C 21.379297 38.210078 22.270625 37.789609 23.640625 38.349609 C 26.440625 39.439609 29.42 40 32.5 40 C 36.593685 40 40.531459 39.000731 44 37.113281 L 44 41 C 44 42.668484 42.668484 44 41 44 L 9 44 C 7.3315161 44 6 42.668484 6 41 L 6 9 C 6 7.3315161 7.3315161 6 9 6 z M 33 15 C 33.55 15 34 15.45 34 16 L 34 25 C 34 25.55 33.55 26 33 26 C 32.45 26 32 25.55 32 25 L 32 16 C 32 15.45 32.45 15 33 15 z M 18 16 L 23 16 C 23.36 16 23.700859 16.199531 23.880859 16.519531 C 24.050859 16.829531 24.039609 17.219297 23.849609 17.529297 L 19.800781 24 L 23 24 C 23.55 24 24 24.45 24 25 C 24 25.55 23.55 26 23 26 L 18 26 C 17.64 26 17.299141 25.800469 17.119141 25.480469 C 16.949141 25.170469 16.960391 24.780703 17.150391 24.470703 L 21.199219 18 L 18 18 C 17.45 18 17 17.55 17 17 C 17 16.45 17.45 16 18 16 z M 27.5 19 C 28.11 19 28.679453 19.169219 29.189453 19.449219 C 29.369453 19.189219 29.65 19 30 19 C 30.55 19 31 19.45 31 20 L 31 25 C 31 25.55 30.55 26 30 26 C 29.65 26 29.369453 25.810781 29.189453 25.550781 C 28.679453 25.830781 28.11 26 27.5 26 C 25.57 26 24 24.43 24 22.5 C 24 20.57 25.57 19 27.5 19 z M 38.5 19 C 40.43 19 42 20.57 42 22.5 C 42 24.43 40.43 26 38.5 26 C 36.57 26 35 24.43 35 22.5 C 35 20.57 36.57 19 38.5 19 z M 27.5 21 C 27.39625 21 27.29502 21.011309 27.197266 21.03125 C 27.001758 21.071133 26.819727 21.148164 26.660156 21.255859 C 26.500586 21.363555 26.363555 21.500586 26.255859 21.660156 C 26.148164 21.819727 26.071133 22.001758 26.03125 22.197266 C 26.011309 22.29502 26 22.39625 26 22.5 C 26 22.60375 26.011309 22.70498 26.03125 22.802734 C 26.051191 22.900488 26.079297 22.994219 26.117188 23.083984 C 26.155078 23.17375 26.202012 23.260059 26.255859 23.339844 C 26.309707 23.419629 26.371641 23.492734 26.439453 23.560547 C 26.507266 23.628359 26.580371 23.690293 26.660156 23.744141 C 26.819727 23.851836 27.001758 23.928867 27.197266 23.96875 C 27.29502 23.988691 27.39625 24 27.5 24 C 27.60375 24 27.70498 23.988691 27.802734 23.96875 C 28.487012 23.82916 29 23.22625 29 22.5 C 29 21.67 28.33 21 27.5 21 z M 38.5 21 C 38.39625 21 38.29502 21.011309 38.197266 21.03125 C 38.099512 21.051191 38.005781 21.079297 37.916016 21.117188 C 37.82625 21.155078 37.739941 21.202012 37.660156 21.255859 C 37.580371 21.309707 37.507266 21.371641 37.439453 21.439453 C 37.303828 21.575078 37.192969 21.736484 37.117188 21.916016 C 37.079297 22.005781 37.051191 22.099512 37.03125 22.197266 C 37.011309 22.29502 37 22.39625 37 22.5 C 37 22.60375 37.011309 22.70498 37.03125 22.802734 C 37.051191 22.900488 37.079297 22.994219 37.117188 23.083984 C 37.155078 23.17375 37.202012 23.260059 37.255859 23.339844 C 37.309707 23.419629 37.371641 23.492734 37.439453 23.560547 C 37.507266 23.628359 37.580371 23.690293 37.660156 23.744141 C 37.739941 23.797988 37.82625 23.844922 37.916016 23.882812 C 38.005781 23.920703 38.099512 23.948809 38.197266 23.96875 C 38.29502 23.988691 38.39625 24 38.5 24 C 38.60375 24 38.70498 23.988691 38.802734 23.96875 C 39.487012 23.82916 40 23.22625 40 22.5 C 40 21.67 39.33 21 38.5 21 z"
-            ></path></svg
-          >
-        </a>
+        <span
+          class="segment-value lang-text"
+          data-en="Add date"
+          data-vn="Chọn ngày">Chọn ngày</span
+        >
       </div>
+      <div class="segment-divider div-3"></div>
+      <div
+        class="booking-segment segment-time booking-feature"
+        style="cursor: pointer;"
+      >
+        <span class="segment-label lang-text" data-en="Time" data-vn="Giờ"
+          >Giờ</span
+        >
+        <span
+          class="segment-value lang-text"
+          data-en="Select slot"
+          data-vn="Chọn khung giờ">Chọn khung giờ</span
+        >
+      </div>
+      <button
+        class="btn-booking-submit btn-hero-primary lang-text"
+        data-en="Book Now"
+        data-vn="Đặt Lịch"
+      >
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          class="search-icon"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        Đặt Lịch
+      </button>
     </div>
-  </header>
+
+    <div class="hero-socials">
+      <a href="tel:+0908052968" class="social-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+          ><path
+            d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.27-.27.35-.66.24-1.01-.37-1.11-.56-2.3-.56-3.53 0-.55-.45-1-1-1H4.39c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"
+          ></path></svg
+        >
+      </a>
+      <a
+        href="https://www.google.com/maps/place/Ph%C3%B2ng+Y+H%E1%BB%8Dc+C%E1%BB%95+Truy%E1%BB%81n+An+B%C3%ACnh/@10.5085571,107.327058,455m/data=!3m1!1e3!4m6!3m5!1s0x3175a100125c7973:0x97569e0490503fa6!8m2!3d10.5082762!4d107.3262642!16s%2Fg%2F11mf93d8rf!5m1!1e1?authuser=0&entry=ttu"
+        class="social-link"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+          ><path
+            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+          ></path></svg
+        >
+      </a>
+      <a href="#" class="social-link">
+        <svg
+          width="20"
+          height="20"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 50 50"
+          fill="currentColor"
+          ><path
+            d="M 9 4 C 6.2504839 4 4 6.2504839 4 9 L 4 41 C 4 43.749516 6.2504839 46 9 46 L 41 46 C 43.749516 46 46 43.749516 46 41 L 46 9 C 46 6.2504839 43.749516 4 41 4 L 9 4 z M 9 6 L 15.580078 6 C 12.00899 9.7156859 10 14.518083 10 19.5 C 10 24.66 12.110156 29.599844 15.910156 33.339844 C 16.030156 33.549844 16.129922 34.579531 15.669922 35.769531 C 15.379922 36.519531 14.799687 37.499141 13.679688 37.869141 C 13.249688 38.009141 12.97 38.430859 13 38.880859 C 13.03 39.330859 13.360781 39.710781 13.800781 39.800781 C 16.670781 40.370781 18.529297 39.510078 20.029297 38.830078 C 21.379297 38.210078 22.270625 37.789609 23.640625 38.349609 C 26.440625 39.439609 29.42 40 32.5 40 C 36.593685 40 40.531459 39.000731 44 37.113281 L 44 41 C 44 42.668484 42.668484 44 41 44 L 9 44 C 7.3315161 44 6 42.668484 6 41 L 6 9 C 6 7.3315161 7.3315161 6 9 6 z M 33 15 C 33.55 15 34 15.45 34 16 L 34 25 C 34 25.55 33.55 26 33 26 C 32.45 26 32 25.55 32 25 L 32 16 C 32 15.45 32.45 15 33 15 z M 18 16 L 23 16 C 23.36 16 23.700859 16.199531 23.880859 16.519531 C 24.050859 16.829531 24.039609 17.219297 23.849609 17.529297 L 19.800781 24 L 23 24 C 23.55 24 24 24.45 24 25 C 24 25.55 23.55 26 23 26 L 18 26 C 17.64 26 17.299141 25.800469 17.119141 25.480469 C 16.949141 25.170469 16.960391 24.780703 17.150391 24.470703 L 21.199219 18 L 18 18 C 17.45 18 17 17.55 17 17 C 17 16.45 17.45 16 18 16 z M 27.5 19 C 28.11 19 28.679453 19.169219 29.189453 19.449219 C 29.369453 19.189219 29.65 19 30 19 C 30.55 19 31 19.45 31 20 L 31 25 C 31 25.55 30.55 26 30 26 C 29.65 26 29.369453 25.810781 29.189453 25.550781 C 28.679453 25.830781 28.11 26 27.5 26 C 25.57 26 24 24.43 24 22.5 C 24 20.57 25.57 19 27.5 19 z M 38.5 19 C 40.43 19 42 20.57 42 22.5 C 42 24.43 40.43 26 38.5 26 C 36.57 26 35 24.43 35 22.5 C 35 20.57 36.57 19 38.5 19 z M 27.5 21 C 27.39625 21 27.29502 21.011309 27.197266 21.03125 C 27.001758 21.071133 26.819727 21.148164 26.660156 21.255859 C 26.500586 21.363555 26.363555 21.500586 26.255859 21.660156 C 26.148164 21.819727 26.071133 22.001758 26.03125 22.197266 C 26.011309 22.29502 26 22.39625 26 22.5 C 26 22.60375 26.011309 22.70498 26.03125 22.802734 C 26.051191 22.900488 26.079297 22.994219 26.117188 23.083984 C 26.155078 23.17375 26.202012 23.260059 26.255859 23.339844 C 26.309707 23.419629 26.371641 23.492734 26.439453 23.560547 C 26.507266 23.628359 26.580371 23.690293 26.660156 23.744141 C 26.819727 23.851836 27.001758 23.928867 27.197266 23.96875 C 27.29502 23.988691 27.39625 24 27.5 24 C 27.60375 24 27.70498 23.988691 27.802734 23.96875 C 28.487012 23.82916 29 23.22625 29 22.5 C 29 21.67 28.33 21 27.5 21 z M 38.5 21 C 38.39625 21 38.29502 21.011309 38.197266 21.03125 C 38.099512 21.051191 38.005781 21.079297 37.916016 21.117188 C 37.82625 21.155078 37.739941 21.202012 37.660156 21.255859 C 37.580371 21.309707 37.507266 21.371641 37.439453 21.439453 C 37.303828 21.575078 37.192969 21.736484 37.117188 21.916016 C 37.079297 22.005781 37.051191 22.099512 37.03125 22.197266 C 37.011309 22.29502 37 22.39625 37 22.5 C 37 22.60375 37.011309 22.70498 37.03125 22.802734 C 37.051191 22.900488 37.079297 22.994219 37.117188 23.083984 C 37.155078 23.17375 37.202012 23.260059 37.255859 23.339844 C 37.309707 23.419629 37.371641 23.492734 37.439453 23.560547 C 37.507266 23.628359 37.580371 23.690293 37.660156 23.744141 C 37.739941 23.797988 37.82625 23.844922 37.916016 23.882812 C 38.005781 23.920703 38.099512 23.948809 38.197266 23.96875 C 38.29502 23.988691 38.39625 24 38.5 24 C 38.60375 24 38.70498 23.988691 38.802734 23.96875 C 39.487012 23.82916 40 23.22625 40 22.5 C 40 21.67 39.33 21 38.5 21 z"
+          ></path></svg
+        >
+      </a>
+    </div>
+  </div>
+</header>
 
 <style>
-/* ===============================
+  /* ===============================
    HERO SECTION (FADE OUT EFFECT)
    =============================== */
 
-.hero-section {
+  .hero-section {
     height: 120vh;
     width: 100%;
     border: none;
 
     /* Desktop Hero Image */
-    background-image: url('/Backgrounds/Hero-Desktop.png');
+    background-image: url("/Backgrounds/Hero-Desktop.png");
     background-size: cover;
     background-position: center;
 
@@ -181,10 +184,10 @@ const asset_Therapies_Thuoc_Bac_webp = getImageByPath("Therapies/Thuoc Bac.webp"
     align-items: center;
     position: relative;
     overflow: hidden; /* REQUIRED for fade */
-}
+  }
 
-/* --- Hero Redesign Layout --- */
-.hero-layout-container {
+  /* --- Hero Redesign Layout --- */
+  .hero-layout-container {
     width: 100%;
     max-width: 1200px;
     display: flex;
@@ -193,53 +196,54 @@ const asset_Therapies_Thuoc_Bac_webp = getImageByPath("Therapies/Thuoc Bac.webp"
     padding: 0 40px;
     margin-top: 60px;
     z-index: 3;
-}
+  }
 
-.hero-left-col {
+  .hero-left-col {
     flex: 1;
     max-width: 550px;
     text-align: left;
-}
+  }
 
-.hero-title {
+  .hero-title {
     font-family: var(--font-serif);
-    font-size: 4.5rem;
+    font-size: 4.5rem !important;
+    font-weight: 600;
     color: var(--cream-rice);
     line-height: 1.1;
     margin-bottom: 30px;
-    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
 
-.hero-desc {
+  .hero-desc {
     font-size: 1.15rem;
     color: var(--cream-rice);
     margin-top: 30px;
     line-height: 1.6;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-}
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
 
-.btn-hero-primary {
+  .btn-hero-primary {
     background-color: var(--mustard-gold);
     color: var(--mahogany-dark);
     font-size: 1.1rem;
     padding: 14px 35px;
     border: none;
     font-weight: 700;
-}
-.btn-hero-primary:hover {
+  }
+  .btn-hero-primary:hover {
     background-color: #e0b04c;
     color: var(--mahogany-dark);
     border-color: transparent;
-}
+  }
 
-/* --- Right Side Card --- */
-.hero-right-col {
+  /* --- Right Side Card --- */
+  .hero-right-col {
     flex: 1;
     display: flex;
     justify-content: flex-end;
-}
+  }
 
-.hero-floating-card {
+  .hero-floating-card {
     width: 360px;
     border-radius: 20px;
     padding: 15px;
@@ -247,37 +251,37 @@ const asset_Therapies_Thuoc_Bac_webp = getImageByPath("Therapies/Thuoc Bac.webp"
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 15px 45px rgba(0,0,0,0.4);
-}
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+  }
 
-.floating-card-img {
+  .floating-card-img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 15px;
-}
+  }
 
-.floating-card-address {
+  .floating-card-address {
     font-size: 0.95rem;
     color: var(--cream-rice);
     line-height: 1.4;
     margin-bottom: 15px;
     font-weight: 600;
-}
+  }
 
-.floating-card-footer {
+  .floating-card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+  }
 
-.floating-card-status {
+  .floating-card-status {
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.8);
-}
+    color: rgba(255, 255, 255, 0.8);
+  }
 
-.icon-btn-arrow {
+  .icon-btn-arrow {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -288,13 +292,13 @@ const asset_Therapies_Thuoc_Bac_webp = getImageByPath("Therapies/Thuoc Bac.webp"
     align-items: center;
     transition: transform 0.2s ease;
     text-decoration: none;
-}
-.icon-btn-arrow:hover {
+  }
+  .icon-btn-arrow:hover {
     transform: translateX(3px);
-}
+  }
 
-/* --- Bottom Booking Bar --- */
-.hero-bottom-bar {
+  /* --- Bottom Booking Bar --- */
+  .hero-bottom-bar {
     width: 100%;
     max-width: 1200px;
     margin: 80px auto 0;
@@ -303,9 +307,9 @@ const asset_Therapies_Thuoc_Bac_webp = getImageByPath("Therapies/Thuoc Bac.webp"
     justify-content: space-between;
     align-items: flex-end;
     z-index: 3;
-}
+  }
 
-.hero-booking-bar {
+  .hero-booking-bar {
     display: flex;
     align-items: center;
     background: rgba(40, 40, 40, 0.45);
@@ -313,56 +317,98 @@ const asset_Therapies_Thuoc_Bac_webp = getImageByPath("Therapies/Thuoc Bac.webp"
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 10px 10px 10px 40px;
-    filter: drop-shadow(0 15px 45px rgba(0,0,0,0.4));
-    
+    filter: drop-shadow(0 15px 45px rgba(0, 0, 0, 0.4));
+
     /* Scooped Corners Mask */
     --scoop-radius: 25px;
-    -webkit-mask-image: 
-        radial-gradient(circle at top left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
-        radial-gradient(circle at top right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
-        radial-gradient(circle at bottom left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
-        radial-gradient(circle at bottom right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px));
-    -webkit-mask-position: top left, top right, bottom left, bottom right;
+    -webkit-mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      );
+    -webkit-mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
     -webkit-mask-size: 51% 51%;
     -webkit-mask-repeat: no-repeat;
-    
-    mask-image: 
-        radial-gradient(circle at top left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
-        radial-gradient(circle at top right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
-        radial-gradient(circle at bottom left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
-        radial-gradient(circle at bottom right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px));
-    mask-position: top left, top right, bottom left, bottom right;
+
+    mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      );
+    mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
     mask-size: 51% 51%;
     mask-repeat: no-repeat;
-}
+  }
 
-.booking-segment {
+  .booking-segment {
     display: flex;
     flex-direction: column;
     padding: 0 25px;
     cursor: pointer;
-}
-.booking-segment:first-child { padding-left: 0; }
+  }
+  .booking-segment:first-child {
+    padding-left: 0;
+  }
 
-.segment-label {
+  .segment-label {
     font-size: 0.9rem;
     color: var(--cream-rice);
     font-weight: 700;
     margin-bottom: 4px;
-}
+  }
 
-.segment-value {
+  .segment-value {
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.7);
-}
+    color: rgba(255, 255, 255, 0.7);
+  }
 
-.segment-divider {
+  .segment-divider {
     width: 1px;
     height: 45px;
     background: rgba(255, 255, 255, 0.2);
-}
+  }
 
-.btn-booking-submit {
+  .btn-booking-submit {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -370,149 +416,158 @@ const asset_Therapies_Thuoc_Bac_webp = getImageByPath("Therapies/Thuoc Bac.webp"
     border-radius: 40px;
     margin-left: 20px;
     cursor: pointer;
-}
-.search-icon {
+  }
+  .search-icon {
     width: 20px;
     height: 20px;
-}
+  }
 
-/* Scroll Indicator & Socials */
-.hero-scroll-indicator, .hero-socials {
+  /* Scroll Indicator & Socials */
+  .hero-scroll-indicator,
+  .hero-socials {
     display: flex;
     align-items: center;
     gap: 15px;
     padding-bottom: 10px;
-}
+  }
 
-.scroll-circle {
+  .scroll-circle {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     color: var(--cream-rice);
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
-}
-.scroll-circle:hover {
-    background: rgba(255,255,255,0.15);
+  }
+  .scroll-circle:hover {
+    background: rgba(255, 255, 255, 0.15);
     border-color: var(--cream-rice);
-}
+  }
 
-.social-link {
+  .social-link {
     color: var(--cream-rice);
     opacity: 0.8;
     transition: opacity 0.3s ease;
-}
-.social-link:hover {
+  }
+  .social-link:hover {
     opacity: 1;
-}
+  }
 
-/* ===============================
+  /* ===============================
    MOBILE ADJUSTMENTS
    =============================== */
 
-@media screen and (max-width: 900px) {
+  @media screen and (max-width: 900px) {
     .hero-section {
-        background-image: url('/Backgrounds/Hero-Mobile3.png');
-        background-size: cover;
-        background-position: top center;
-        background-attachment: scroll;
-        justify-content: space-between;
-        padding-top: 12vh;
-        padding-bottom: 10vh;
+      background-image: url("/Backgrounds/Hero-Mobile3.png");
+      background-size: cover;
+      background-position: top center;
+      background-attachment: scroll;
+      justify-content: space-between;
+      padding-top: 12vh;
+      padding-bottom: 10vh;
     }
 
     .hero-layout-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        margin-top: 0;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 0;
     }
-    
+
     .hero-left-col {
-        text-align: center;
-        margin-bottom: 40px;
+      text-align: center;
+      margin-bottom: 40px;
     }
-    
+
     .hero-title {
-        font-size: 3rem;
+      font-size: 3rem;
     }
-    
+
     .hero-right-col {
-        justify-content: center;
+      justify-content: center;
     }
-    
+
     .hero-bottom-bar {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        margin-top: auto;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      margin-top: auto;
     }
-    
+
     .hero-booking-bar {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: 
-            "treat date"
-            "name time"
-            "btn btn";
-        gap: 8px;
-        padding: 15px;
-        width: 100%;
-        --scoop-radius: 12px; /* smaller corner scoops for mobile layout */
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "treat date"
+        "name time"
+        "btn btn";
+      gap: 8px;
+      padding: 15px;
+      width: 100%;
+      --scoop-radius: 12px; /* smaller corner scoops for mobile layout */
     }
-    
+
     .booking-segment {
-        padding: 0 5px;
+      padding: 0 5px;
     }
 
     .segment-label {
-        font-size: 0.8rem;
-        margin-bottom: 2px;
+      font-size: 0.8rem;
+      margin-bottom: 2px;
     }
 
     .segment-value {
-        font-size: 0.9rem;
+      font-size: 0.9rem;
     }
-    
+
     /* Assign specific grid areas based on HTML classes */
-    .segment-treatment { grid-area: treat; }
-    .segment-date      { grid-area: date; }
-    .segment-name      { grid-area: name; }
-    .segment-time      { grid-area: time; }
-    
+    .segment-treatment {
+      grid-area: treat;
+    }
+    .segment-date {
+      grid-area: date;
+    }
+    .segment-name {
+      grid-area: name;
+    }
+    .segment-time {
+      grid-area: time;
+    }
+
     .segment-divider {
-        display: none; /* Hide native flex dividers in grid view */
+      display: none; /* Hide native flex dividers in grid view */
     }
-    
+
     .btn-booking-submit {
-        grid-area: btn;
-        margin-left: 0;
-        margin-top: 5px;
-        padding: 10px;
-        font-size: 1rem;
-        width: 100%;
-        justify-content: center;
+      grid-area: btn;
+      margin-left: 0;
+      margin-top: 5px;
+      padding: 10px;
+      font-size: 1rem;
+      width: 100%;
+      justify-content: center;
     }
-}
-    
-@media screen and (max-width: 768px) {
+  }
+
+  @media screen and (max-width: 768px) {
     .hero-title {
-        font-size: 2.5rem;
+      font-size: 2.5rem;
     }
     .hero-layout-container {
-        margin-top: 0;
+      margin-top: 0;
     }
-}
+  }
 
-@media screen and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .hero-title {
-        font-size: 2.1rem;
+      font-size: 2.1rem;
     }
     .hero-desc {
-        font-size: 1.05rem;
+      font-size: 1.05rem;
     }
-}
+  }
 </style>

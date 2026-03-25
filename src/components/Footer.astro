@@ -7,14 +7,14 @@ const logoAsset = getImageByPath("Logo/Logo-NBG.png");
 const bookingAsset = getImageByPath("Thuốc 1E.webp");
 ---
 
-<footer class="site-footer border-brass-top">
-  <div class="footer-container">
+<footer class="bg-ebony-black text-cream-rice pt-2xl pb-0 font-sans relative border-t-[5px] border-brass-gold">
+  <div class="max-w-[1200px] mx-auto px-lg pb-xl pt-0 grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-lg max-[900px]:grid-cols-1 max-[900px]:gap-lg max-[900px]:text-left max-[900px]:px-[25px] max-[900px]:pb-lg">
     <!-- Brand Column -->
-    <div class="footer-col branding-col">
+    <div class="flex flex-col items-start max-[900px]:col-span-1">
       <Image src={logoAsset} alt="An Binh Logo" class="footer-logo" />
-      <h3 class="heading-component">Phòng Khám Y Học Cổ Truyền An Bình</h3>
+      <h3 class="font-serif text-[1.5rem] text-brass-gold mb-[15px]">Phòng Khám Y Học Cổ Truyền An Bình</h3>
       <p
-        class="body-regular lang-text"
+        class="text-[0.95rem] leading-[1.6] text-subtle-grey max-w-[280px] lang-text"
         data-en="Peaceful nourishment, balanced vitality"
         data-vn="An nhiên dưỡng tạng – Bình ổn thân tâm"
       >
@@ -23,15 +23,15 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
     </div>
 
     <!-- Links Column -->
-    <div class="footer-col links-col">
+    <div class="flex flex-col">
       <h4
-        class="heading-component lang-text"
+        class="font-serif text-[1.2rem] text-white mb-md relative pb-[15px] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-[2px] after:bg-primary-green lang-text"
         data-en="Quick Links"
         data-vn="Liên Kết Nhanh"
       >
         Liên Kết Nhanh
       </h4>
-      <div class="footer-nav">
+      <div class="flex flex-col gap-[15px] max-[900px]:grid max-[900px]:grid-cols-2 max-[900px]:gap-5">
         <a
           href="/about"
           class="lang-text"
@@ -60,62 +60,62 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
     </div>
 
     <!-- Contact Column -->
-    <div class="footer-col contact-col">
+    <div class="flex flex-col">
       <h4
-        class="heading-component lang-text"
+        class="font-serif text-[1.2rem] text-white mb-md relative pb-[15px] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-[2px] after:bg-primary-green lang-text"
         data-en="Contact Us"
         data-vn="Liên Hệ"
       >
         Liên Hệ
       </h4>
-      <p class="contact-item body-small">
-        <strong class="lang-text" data-en="Old Address:" data-vn="Địa Chỉ Cũ:"
+      <p class="mb-md text-[0.95rem] text-subtle-grey leading-relaxed">
+        <strong class="text-white inline-block mr-[5px] lang-text" data-en="Old Address:" data-vn="Địa Chỉ Cũ:"
           >Địa Chỉ Cũ:</strong
-          >
+        >
         Đường Tháp Nước, Xã Láng Dài, Huyện Đất Đỏ, Tỉnh BR-VT
       </p>
-      
-      <div class="footer-contacts-row">
-        <p class="contact-item body-small">
-          <strong class="lang-text" data-en="Phone:" data-vn="Điện thoại:"
+
+      <div class="flex flex-row justify-start items-baseline gap-[30px] flex-wrap mt-[10px] max-[900px]:gap-[30px]">
+        <p class="mb-0 text-[0.95rem] text-subtle-grey leading-relaxed min-w-0">
+          <strong class="text-white block mr-[5px] lang-text" data-en="Phone:" data-vn="Điện thoại:"
             >Điện thoại:</strong
-            >
+          >
           0908 052 968
         </p>
-        <p class="contact-item body-small">
-          <strong>Email:</strong>
+        <p class="mb-0 text-[0.95rem] text-subtle-grey leading-relaxed min-w-0">
+          <strong class="text-white block mr-[5px]">Email:</strong>
           info@yhctanbinh.com
         </p>
       </div>
     </div>
 
     <!-- Hours Column -->
-    <div class="footer-col hours-col">
+    <div class="flex flex-col">
       <h4
-        class="heading-component lang-text"
+        class="font-serif text-[1.2rem] text-white mb-md relative pb-[15px] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-[2px] after:bg-primary-green lang-text"
         data-en="Hours"
         data-vn="Giờ Mở Cửa"
       >
         Giờ Mở Cửa
       </h4>
-      <ul class="hours-list">
-        <li>
-          <span class="lang-text" data-en="Mon-Fri:" data-vn="T2-T6:"
+      <ul class="list-none p-0">
+        <li class="flex justify-between mb-3 text-[0.95rem] text-[#ccc] border-b border-white/10 pb-2">
+          <span class="text-white font-semibold lang-text" data-en="Mon-Fri:" data-vn="T2-T6:"
             >T2-T6:</span
           >
-          <span class="lang-text" data-en="9am - 6pm" data-vn="9h - 18h"
+          <span class="text-white font-semibold lang-text" data-en="9am - 6pm" data-vn="9h - 18h"
             >9h - 18h</span
           >
         </li>
-        <li>
-          <span class="lang-text" data-en="Sat:" data-vn="T7:">T7:</span>
-          <span class="lang-text" data-en="10am - 4pm" data-vn="10h - 16h"
+        <li class="flex justify-between mb-3 text-[0.95rem] text-subtle-grey border-b border-white/10 pb-2">
+          <span class="text-white font-semibold lang-text" data-en="Sat:" data-vn="T7:">T7:</span>
+          <span class="text-white font-semibold lang-text" data-en="10am - 4pm" data-vn="10h - 16h"
             >10h - 16h</span
           >
         </li>
-        <li>
-          <span class="lang-text" data-en="Sun:" data-vn="CN:">CN:</span>
-          <span class="lang-text" data-en="Closed" data-vn="Đóng cửa"
+        <li class="flex justify-between mb-3 text-[0.95rem] text-subtle-grey border-b border-white/10 pb-2 !border-none">
+          <span class="text-white font-semibold lang-text" data-en="Sun:" data-vn="CN:">CN:</span>
+          <span class="text-white font-semibold lang-text" data-en="Closed" data-vn="Đóng cửa"
             >Đóng cửa</span
           >
         </li>
@@ -123,9 +123,9 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
     </div>
   </div>
 
-  <div class="footer-bottom">
+  <div class="bg-off-black py-md px-lg text-center border-t border-white/5 max-w-none">
     <div
-      class="copyright lang-text"
+      class="text-[0.85rem] text-[#888] lang-text"
       data-en="© 2026 An Binh Traditional Clinic. <br class='mobile-only'>All Rights Reserved."
       data-vn="© 2026 An Bình. <br class='mobile-only'>Bản Quyền Đã Được Bảo Lưu."
     >
@@ -134,245 +134,7 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
   </div>
 </footer>
 
-<!-- BOOKING MODAL -->
-<div class="booking-modal-overlay" id="bookingModal">
-  <div class="booking-modal-container">
-    <div class="booking-modal-image">
-      <Image src={bookingAsset} alt="Booking Clinic Image" />
-    </div>
-    <div class="booking-modal-content">
-      <button class="booking-modal-close" id="closeBookingModal">
-        <svg
-          viewBox="0 0 24 24"
-          width="24"
-          height="24"
-          stroke="currentColor"
-          stroke-width="2"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          ><line x1="18" y1="6" x2="6" y2="18"></line><line
-            x1="6"
-            y1="6"
-            x2="18"
-            y2="18"></line></svg
-        >
-      </button>
 
-      <h2
-        class="heading-section lang-text modal-title"
-        data-en="Book Appointment"
-        data-vn="Đặt lịch hẹn"
-      >
-        Đặt lịch hẹn
-      </h2>
-
-      <form class="booking-modal-form" id="bookingForm">
-        <input
-          type="hidden"
-          name="access_key"
-          value="79741266-64e1-4c9e-9786-90cc9fed613b"
-        />
-        <input
-          type="hidden"
-          name="subject"
-          value="New Appointment Booking - An Binh Clinic"
-        />
-        <input
-          type="hidden"
-          name="from_name"
-          value="An Binh Clinic Booking System"
-        />
-        <div class="form-grid">
-          <!-- LEFT COLUMN: Required Fields -->
-          <div class="form-col">
-            <h3
-              class="form-subheading lang-text"
-              data-en="Required Information"
-              data-vn="Thông tin bắt buộc"
-            >
-              Thông tin bắt buộc
-            </h3>
-
-            <!-- REQUIRED: Full Name -->
-            <div class="form-group box-input">
-              <label
-                for="b_fullname"
-                class="lang-text"
-                data-en="Full Name <span class='required-star'>*</span>"
-                data-vn="Họ và Tên <span class='required-star'>*</span>"
-                >Họ và Tên <span class="required-star">*</span></label
-              >
-              <input type="text" id="b_fullname" name="Full_Name" required />
-            </div>
-
-            <!-- REQUIRED: Date of Birth (plain text input) -->
-            <div class="form-group box-input">
-              <label
-                for="b_dob"
-                class="lang-text"
-                data-en="Date of Birth <span class='required-star'>*</span>"
-                data-vn="Ngày sinh <span class='required-star'>*</span>"
-                >Ngày sinh <span class="required-star">*</span></label
-              >
-              <input
-                type="text"
-                id="b_dob"
-                name="Date_Of_Birth"
-                data-placeholder-en="mm/dd/yyyy"
-                data-placeholder-vn="dd/mm/yyyy"
-                placeholder="dd/mm/yyyy"
-                maxlength="10"
-                autocomplete="off"
-                required
-              />
-            </div>
-
-            <!-- REQUIRED: Phone Number -->
-            <div class="form-group box-input">
-              <label
-                for="b_phone"
-                class="lang-text"
-                data-en="Phone Number <span class='required-star'>*</span>"
-                data-vn="Số điện thoại <span class='required-star'>*</span>"
-                >Số điện thoại <span class="required-star">*</span></label
-              >
-              <input type="tel" id="b_phone" name="Phone_Number" required />
-            </div>
-
-            <!-- Preferred Date (date only, no time) -->
-            <h3
-              class="form-subheading lang-text"
-              data-en="Preferred Date"
-              data-vn="Ngày hẹn ưu tiên"
-              style="margin-top: 25px;"
-            >
-              Ngày hẹn ưu tiên
-            </h3>
-
-            <div class="form-group box-input">
-              <label
-                for="b_prefdate"
-                class="lang-text"
-                data-en="Choose Date"
-                data-vn="Chọn Ngày">Chọn Ngày</label
-              >
-              <input
-                type="text"
-                id="b_prefdate"
-                name="Preferred_Date"
-                data-placeholder-en="mm/dd/yyyy"
-                data-placeholder-vn="dd/mm/yyyy"
-                placeholder="dd/mm/yyyy"
-                maxlength="10"
-                autocomplete="off"
-              />
-            </div>
-          </div>
-
-          <!-- RIGHT COLUMN: Optional Fields -->
-          <div class="form-col">
-            <h3
-              class="form-subheading lang-text"
-              data-en="Optional Information"
-              data-vn="Thông tin thêm"
-            >
-              Thông tin thêm
-            </h3>
-
-            <!-- OPTIONAL: Email -->
-            <div class="form-group box-input">
-              <label for="b_email">Email</label>
-              <input type="email" id="b_email" name="Email" />
-            </div>
-
-            <!-- OPTIONAL: Address -->
-            <div class="form-group box-input">
-              <label
-                for="b_address"
-                class="lang-text"
-                data-en="Address"
-                data-vn="Địa chỉ">Địa chỉ</label
-              >
-              <input type="text" id="b_address" name="Address" />
-            </div>
-
-            <!-- OPTIONAL: Gender -->
-            <div class="form-group radio-group">
-              <label class="radio-label" for="b_gender_male">
-                <input
-                  type="radio"
-                  id="b_gender_male"
-                  name="Gender"
-                  value="male"
-                  checked
-                />
-                <span class="custom-radio"></span>
-                <span class="lang-text" data-en="Male" data-vn="Nam">Nam</span>
-              </label>
-              <label class="radio-label" for="b_gender_female">
-                <input
-                  type="radio"
-                  id="b_gender_female"
-                  name="Gender"
-                  value="female"
-                />
-                <span class="custom-radio"></span>
-                <span class="lang-text" data-en="Female" data-vn="Nữ">Nữ</span>
-              </label>
-            </div>
-
-            <div class="recaptcha-box">
-              <label class="checkbox-label">
-                <input type="checkbox" id="b_robot" />
-                <div class="recaptcha-inner">
-                  <div class="recaptcha-check"></div>
-                  <span class="recaptcha-text">I'm not a robot</span>
-                  <Image
-                    src="https://upload.wikimedia.org/wikipedia/commons/a/ad/RecaptchaLogo.svg"
-                    alt="reCAPTCHA"
-                    class="recaptcha-logo"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-              </label>
-            </div>
-
-            <div class="terms-text">
-              <span
-                class="lang-text"
-                data-en="By clicking Submit, I acknowledge that I have read and agree to the "
-                data-vn="Bằng cách nhấn Đăng ký, tôi xác nhận đã đọc và đồng ý với các "
-                >Bằng cách nhấn Đăng ký, tôi xác nhận đã đọc và đồng ý với các
-              </span>
-              <a
-                href="#"
-                class="lang-text"
-                data-en="Privacy Policy"
-                data-vn="Chính Sách Quyền Riêng Tư">Chính Sách Quyền Riêng Tư</a
-              >.
-            </div>
-          </div>
-        </div>
-        <div class="form-submit-row">
-          <div
-            id="formResult"
-            style="margin-right: 20px; align-self: center; font-weight: 600;"
-          >
-          </div>
-          <button
-            type="submit"
-            class="btn-primary btn-submit lang-text"
-            id="submitBookingBtn"
-            data-en="Submit"
-            data-vn="Đăng Ký">Đăng Ký</button
-          >
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
 
 <!-- Zalo Floating Button -->
 <div class="zalo-container right">
@@ -399,556 +161,27 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
   /* =========================================
      SITE FOOTER (Indochine Theme)
      ========================================= */
-  .site-footer {
-      background-color: #1f1c1a;
-      color: #F9F5E3;
-      padding: 80px 0 0 0;
-      font-family: var(--font-sans);
-      position: relative;
-      border-top: 5px solid #C8A97E;
-  }
-
-  .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 40px 60px 40px;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 40px;
-  }
-
-  .branding-col {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-  }
-
+  /* --- SITE FOOTER STYLES REDUCED TO LOGO LOGIC --- */
   .footer-logo {
-      height: 80px;
-      width: auto;
-      margin-bottom: 20px;
-      filter: brightness(1.35);
-      padding: 9px;
-      background-image: url('/Logo/Seal-NBG.png'); 
-      background-size: 110px 110px;
-      background-position: center; 
-      background-repeat: no-repeat; 
+    height: 80px;
+    width: auto;
+    margin-bottom: 20px;
+    filter: brightness(1.35);
+    padding: 9px;
+    background-image: url("/Logo/Seal-NBG.png");
+    background-size: 110px 110px;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-  .branding-col h3 {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      color: #C8A97E;
-      margin-bottom: 15px;
-  }
-
-  .branding-col p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #ccc;
-      max-width: 280px;
-  }
-
-  .footer-col h4 {
-      font-family: var(--font-serif);
-      font-size: 1.2rem;
-      color: #fff;
-      margin-bottom: 25px;
-      position: relative;
-      padding-bottom: 15px;
-  }
-
-  .footer-col h4::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 40px;
-      height: 2px;
-      background-color: var(--primary-green);
-  }
-
-  .footer-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-  }
-
-  .footer-nav a {
-      color: #ccc;
-      text-decoration: none;
-      transition: color 0.3s;
-      font-size: 0.95rem;
-  }
-
-  .footer-nav a:hover {
-      color: #C8A97E;
-      padding-left: 5px;
-  }
-
-  .contact-item {
-      margin-bottom: 20px;
-      font-size: 0.95rem;
-      color: #ccc;
-      line-height: 1.6;
-  }
-
-  .contact-item strong {
-      color: #fff;
-      display: inline-block; /* Changed from block to inline-block for side-by-side row flow */
-      margin-right: 5px;
-  }
-
-  .hours-list {
-      list-style: none;
-      padding: 0;
-  }
-
-  .hours-list li {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 12px;
-      font-size: 0.95rem;
-      color: #ccc;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding-bottom: 8px;
-  }
-
-  .hours-list li span {
-      color: #fff;
-      font-weight: 600;
-  }
-
-  .footer-bottom {
-      background-color: #141110;
-      padding: 20px 40px;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      max-width: none;
-  }
-
-  .copyright {
-      font-size: 0.85rem;
-      color: #888;
-  }
 
   @media screen and (max-width: 900px) {
-      .site-footer {
-          padding: 60px 0 0 0;
-      }
-      .site-footer .footer-container {
-          grid-template-columns: 1fr;
-          gap: 40px;
-          text-align: left;
-          padding: 0 25px 40px 25px;
-      }
-      
-      .site-footer .branding-col {
-          grid-column: 1;
-          align-items: flex-start;
-          text-align: left;
-      }
-
-      .site-footer .branding-col p {
-          max-width: 100%;
-      }
-
-      .site-footer .footer-col h4 {
-          margin-bottom: 20px;
-      }
-
-      .site-footer .footer-nav {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 20px;
-      }
-
-      .site-footer .footer-contacts-row {
-          display: flex;
-          flex-direction: row; /* Force horizontal row */
-          justify-content: flex-start;
-          align-items: baseline;
-          gap: 30px;
-          flex-wrap: wrap;
-          margin-top: 10px;
-      }
-      
-      .site-footer .footer-contacts-row .contact-item {
-          margin-bottom: 0px; /* Reset original margin */
-          min-width: 0; 
-      }
-
-      .site-footer .footer-contacts-row .contact-item strong {
-          display: block; /* Stack label above text within the row items */
-      }
-  }
-
-  /* =========================================
-     BOOKING MODAL
-     ========================================= */
-  .booking-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease;
-  }
-
-  .booking-modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .booking-modal-container {
-    width: 90%;
-    max-width: 1100px;
-    height: 85vh;
-    max-height: 750px;
-    display: flex;
-    background: var(--cream-rice, #f9f5e3);
-    position: relative;
-    transform: translateY(30px) scale(0.98);
-    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-
-    /* Concave/Scooped Corners Mask */
-    --modal-scoop: 35px;
-    mask-image:
-      radial-gradient(
-        circle at top left,
-        transparent var(--modal-scoop),
-        black calc(var(--modal-scoop) + 0.5px)
-      ),
-      radial-gradient(
-        circle at top right,
-        transparent var(--modal-scoop),
-        black calc(var(--modal-scoop) + 0.5px)
-      ),
-      radial-gradient(
-        circle at bottom left,
-        transparent var(--modal-scoop),
-        black calc(var(--modal-scoop) + 0.5px)
-      ),
-      radial-gradient(
-        circle at bottom right,
-        transparent var(--modal-scoop),
-        black calc(var(--modal-scoop) + 0.5px)
-      );
-    -webkit-mask-image:
-      radial-gradient(
-        circle at top left,
-        transparent var(--modal-scoop),
-        black calc(var(--modal-scoop) + 0.5px)
-      ),
-      radial-gradient(
-        circle at top right,
-        transparent var(--modal-scoop),
-        black calc(var(--modal-scoop) + 0.5px)
-      ),
-      radial-gradient(
-        circle at bottom left,
-        transparent var(--modal-scoop),
-        black calc(var(--modal-scoop) + 0.5px)
-      ),
-      radial-gradient(
-        circle at bottom right,
-        transparent var(--modal-scoop),
-        black calc(var(--modal-scoop) + 0.5px)
-      );
-    mask-position:
-      top left,
-      top right,
-      bottom left,
-      bottom right;
-    -webkit-mask-position:
-      top left,
-      top right,
-      bottom left,
-      bottom right;
-    mask-size: 51% 51%;
-    -webkit-mask-size: 51% 51%;
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-  }
-
-  .booking-modal-overlay.active .booking-modal-container {
-    transform: translateY(0) scale(1);
-  }
-
-  .booking-modal-image {
-    flex: 0 0 42%;
-    position: relative;
-    background: var(--mahogany-dark, #241a0f);
-  }
-  .booking-modal-image :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.95;
-  }
-
-  .booking-modal-content {
-    flex: 1;
-    padding: 50px 60px;
-    position: relative;
-    overflow-y: auto;
-    background: var(--cream-rice, #f9f5e3);
-    display: flex;
-    flex-direction: column;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .booking-modal-content::-webkit-scrollbar {
-    display: none;
-  }
-
-  .booking-modal-close {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    background: transparent;
-    border: 1px solid var(--text-brown, #523a20);
-    color: var(--text-brown, #523a20);
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    opacity: 0.6;
-  }
-  .booking-modal-close:hover {
-    opacity: 1;
-    border-color: var(--mahogany-dark, #241a0f);
-    color: var(--mahogany-dark, #241a0f);
-    background: rgba(36, 26, 15, 0.05);
-  }
-
-  .modal-title {
-    color: var(--mahogany-dark, #241a0f);
-    margin-bottom: 35px;
-    font-size: 2.5rem;
-  }
-
-  .booking-modal-form {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .required-star {
-    color: #e53935;
-    font-weight: 700;
-    margin-left: 2px;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    flex: 1;
-  }
-
-  .form-subheading {
-    font-family: var(--font-serif, serif);
-    color: var(--mahogany-dark, #241a0f);
-    font-weight: 600;
-    font-size: 1.15rem;
-    margin-bottom: 25px;
-    border-bottom: 1px dashed rgba(82, 58, 32, 0.3);
-    padding-bottom: 8px;
-  }
-
-  .form-group {
-    margin-bottom: 25px;
-    position: relative;
-  }
-
-  .box-input {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .box-input label {
-    font-size: 0.85rem;
-    color: var(--text-brown, #523a20);
-    margin-bottom: 8px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .box-input input,
-  .box-input select {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(82, 58, 32, 0.3);
-    padding: 8px 0;
-    font-size: 1.05rem;
-    color: var(--text-brown, #523a20);
-    font-family: var(--font-sans, sans-serif);
-    transition: border-color 0.3s ease;
-    outline: none;
-    width: 100%;
-  }
-
-  .box-input input:focus {
-    border-bottom-color: var(--mahogany-dark, #241a0f);
-  }
-
-  .radio-group {
-    display: flex;
-    gap: 40px;
-    margin-top: 15px;
-  }
-  .radio-label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-size: 1rem;
-    color: var(--text-brown, #523a20);
-    position: relative;
-  }
-  .radio-label input[type="radio"] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 1;
-  }
-  .custom-radio {
-    width: 20px;
-    height: 20px;
-    border: 2px solid rgba(82, 58, 32, 0.5);
-    border-radius: 50%;
-    margin-right: 10px;
-    position: relative;
-    transition: all 0.3s ease;
-  }
-  .radio-label input[type="radio"]:checked + .custom-radio {
-    border-color: var(--mahogany-dark, #241a0f);
-  }
-  .radio-label input[type="radio"]:checked + .custom-radio::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    background: var(--mahogany-dark, #241a0f);
-    border-radius: 50%;
-  }
-
-  .recaptcha-box {
-    margin-top: 15px;
-    background: #ffffff;
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    padding: 10px 15px;
-    display: inline-block;
-    width: 100%;
-    max-width: 280px;
-  }
-  .recaptcha-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .checkbox-label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    width: 100%;
-  }
-  .checkbox-label input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    margin-right: 12px;
-  }
-  .recaptcha-text {
-    font-size: 0.9rem;
-    color: #333;
-    flex: 1;
-  }
-  .recaptcha-logo {
-    width: 30px;
-  }
-
-  .terms-text {
-    font-size: 0.75rem;
-    color: rgba(82, 58, 32, 0.7);
-    margin-top: 20px;
-    line-height: 1.6;
-  }
-  .terms-text a {
-    color: var(--primary-green, #526b48);
-    text-decoration: underline;
-    font-weight: 600;
-  }
-
-  .form-submit-row {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 40px;
-  }
-  .btn-submit {
-    padding: 14px 45px;
-    font-size: 1.1rem;
-    background-color: var(--mahogany-dark, #241a0f);
-    color: var(--mustard-gold, #f2c94c);
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-  .btn-submit:hover {
-    background-color: var(--primary-green, #526b48);
-    color: #fff;
-  }
-
-  /* Modal Mobile Adjustments */
-  @media screen and (max-width: 900px) {
-    .booking-modal-container {
-      flex-direction: column;
-      height: 90vh;
-      max-height: none;
-      overflow-y: hidden;
-      border-radius: 0;
-      --modal-scoop: 20px;
-    }
-    .booking-modal-image {
-      flex: none;
-      height: 200px;
-    }
-    .booking-modal-content {
-      padding: 30px 25px;
-      overflow-y: auto;
-    }
-    .form-grid {
-      grid-template-columns: 1fr;
-      gap: 0px;
-    }
-    .modal-title {
-      font-size: 2rem;
-      margin-bottom: 25px;
+    .site-footer {
+      padding: 60px 0 0 0;
     }
   }
+
+  /* --- BOOKING MODAL MOVED TO COMPONENT --- */
 
   /* =========================================
      FLOATING ZALO BUTTON

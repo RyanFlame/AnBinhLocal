@@ -1,0 +1,819 @@
+---
+import { Image } from "astro:assets";
+import { getImageByPath } from "../utils/assets";
+
+const bookingAsset = getImageByPath("Thuốc 1E.webp");
+---
+
+<!-- BOOKING MODAL -->
+<div class="booking-modal-overlay" id="bookingModal">
+  <div class="booking-modal-container">
+    <div class="booking-modal-image">
+      <Image src={bookingAsset} alt="Booking Clinic Image" />
+    </div>
+    <div class="booking-modal-content">
+      <button class="booking-modal-close" id="closeBookingModal" aria-label="Close booking modal">
+        <svg
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          stroke="currentColor"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><line x1="18" y1="6" x2="6" y2="18"></line><line
+            x1="6"
+            y1="6"
+            x2="18"
+            y2="18"></line></svg
+        >
+      </button>
+
+      <h2
+        class="heading-section lang-text modal-title"
+        data-en="Book Appointment"
+        data-vn="Đặt lịch hẹn"
+      >
+        Đặt lịch hẹn
+      </h2>
+
+      <form class="booking-modal-form" id="bookingForm">
+        <input
+          type="hidden"
+          name="access_key"
+          value="79741266-64e1-4c9e-9786-90cc9fed613b"
+        />
+        <input
+          type="hidden"
+          name="subject"
+          value="New Appointment Booking - An Binh Clinic"
+        />
+        <input
+          type="hidden"
+          name="from_name"
+          value="An Binh Clinic Booking System"
+        />
+        <div class="form-grid">
+          <!-- LEFT COLUMN: Required Fields -->
+          <div class="form-col">
+            <h3
+              class="form-subheading lang-text"
+              data-en="Required Information"
+              data-vn="Thông tin bắt buộc"
+            >
+              Thông tin bắt buộc
+            </h3>
+
+            <!-- REQUIRED: Full Name -->
+            <div class="form-group box-input">
+              <label
+                for="b_fullname"
+                class="lang-text"
+                data-en="Full Name <span class='required-star'>*</span>"
+                data-vn="Họ và Tên <span class='required-star'>*</span>"
+                >Họ và Tên <span class="required-star">*</span></label
+              >
+              <input type="text" id="b_fullname" name="Full_Name" required />
+            </div>
+
+            <!-- REQUIRED: Date of Birth (plain text input) -->
+            <div class="form-group box-input">
+              <label
+                for="b_dob"
+                class="lang-text"
+                data-en="Date of Birth <span class='required-star'>*</span>"
+                data-vn="Ngày sinh <span class='required-star'>*</span>"
+                >Ngày sinh <span class="required-star">*</span></label
+              >
+              <input
+                type="text"
+                id="b_dob"
+                name="Date_Of_Birth"
+                data-placeholder-en="mm/dd/yyyy"
+                data-placeholder-vn="dd/mm/yyyy"
+                placeholder="dd/mm/yyyy"
+                maxlength="10"
+                autocomplete="off"
+                required
+              />
+            </div>
+
+            <!-- REQUIRED: Phone Number -->
+            <div class="form-group box-input">
+              <label
+                for="b_phone"
+                class="lang-text"
+                data-en="Phone Number <span class='required-star'>*</span>"
+                data-vn="Số điện thoại <span class='required-star'>*</span>"
+                >Số điện thoại <span class="required-star">*</span></label
+              >
+              <input type="tel" id="b_phone" name="Phone_Number" required />
+            </div>
+
+            <!-- Preferred Date (date only, no time) -->
+            <h3
+              class="form-subheading lang-text mt-[25px]"
+              data-en="Preferred Date"
+              data-vn="Ngày hẹn ưu tiên"
+            >
+              Ngày hẹn ưu tiên
+            </h3>
+
+            <div class="form-group box-input">
+              <label
+                for="b_prefdate"
+                class="lang-text"
+                data-en="Choose Date"
+                data-vn="Chọn Ngày">Chọn Ngày</label
+              >
+              <input
+                type="text"
+                id="b_prefdate"
+                name="Preferred_Date"
+                data-placeholder-en="mm/dd/yyyy"
+                data-placeholder-vn="dd/mm/yyyy"
+                placeholder="dd/mm/yyyy"
+                maxlength="10"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Optional Fields -->
+          <div class="form-col">
+            <h3
+              class="form-subheading lang-text"
+              data-en="Optional Information"
+              data-vn="Thông tin thêm"
+            >
+              Thông tin thêm
+            </h3>
+
+            <!-- OPTIONAL: Email -->
+            <div class="form-group box-input">
+              <label for="b_email">Email</label>
+              <input type="email" id="b_email" name="Email" />
+            </div>
+
+            <!-- OPTIONAL: Address -->
+            <div class="form-group box-input">
+              <label
+                for="b_address"
+                class="lang-text"
+                data-en="Address"
+                data-vn="Địa chỉ">Địa chỉ</label
+              >
+              <input type="text" id="b_address" name="Address" />
+            </div>
+
+            <!-- OPTIONAL: Gender -->
+            <div class="form-group radio-group">
+              <label class="radio-label" for="b_gender_male">
+                <input
+                  type="radio"
+                  id="b_gender_male"
+                  name="Gender"
+                  value="male"
+                  checked
+                />
+                <span class="custom-radio"></span>
+                <span class="lang-text" data-en="Male" data-vn="Nam">Nam</span>
+              </label>
+              <label class="radio-label" for="b_gender_female">
+                <input
+                  type="radio"
+                  id="b_gender_female"
+                  name="Gender"
+                  value="female"
+                />
+                <span class="custom-radio"></span>
+                <span class="lang-text" data-en="Female" data-vn="Nữ">Nữ</span>
+              </label>
+            </div>
+
+            <div class="recaptcha-box">
+              <label class="checkbox-label">
+                <input type="checkbox" id="b_robot" />
+                <div class="recaptcha-inner">
+                  <div class="recaptcha-check"></div>
+                  <span class="recaptcha-text">I'm not a robot</span>
+                  <Image
+                    src="https://upload.wikimedia.org/wikipedia/commons/a/ad/RecaptchaLogo.svg"
+                    alt="reCAPTCHA"
+                    class="recaptcha-logo"
+                    width={20}
+                    height={20}
+                  />
+                </div>
+              </label>
+            </div>
+
+            <div class="terms-text text-text-brown/70 mt-5 leading-relaxed text-[0.75rem]">
+              <span
+                class="lang-text"
+                data-en="By clicking Submit, I acknowledge that I have read and agree to the "
+                data-vn="Bằng cách nhấn Đăng ký, tôi xác nhận đã đọc và đồng ý với các "
+                >Bằng cách nhấn Đăng ký, tôi xác nhận đã đọc và đồng ý với các
+              </span>
+              <a
+                href="#"
+                class="lang-text text-primary-green underline font-semibold"
+                data-en="Privacy Policy"
+                data-vn="Chính Sách Quyền Riêng Tư">Chính Sách Quyền Riêng Tư</a
+              >.
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-end mt-10">
+          <div
+            id="formResult"
+            class="mr-md self-center font-semibold"
+          >
+          </div>
+          <button
+            type="submit"
+            class="bg-mahogany-dark text-brass-gold px-[45px] py-[14px] text-[1.1rem] rounded-[30px] font-semibold cursor-pointer transition-all duration-300 hover:bg-primary-green hover:text-white lang-text"
+            id="submitBookingBtn"
+            data-en="Submit"
+            data-vn="Đăng Ký">Đăng Ký</button
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* =========================================
+     BOOKING MODAL
+     ========================================= */
+  .booking-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .booking-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .booking-modal-container {
+    width: 90%;
+    max-width: 1100px;
+    height: 85vh;
+    max-height: 750px;
+    display: flex;
+    background: var(--cream-rice, #f9f5e3);
+    position: relative;
+    transform: translateY(30px) scale(0.98);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Concave/Scooped Corners Mask */
+    --modal-scoop: 35px;
+    mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      );
+    -webkit-mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--modal-scoop),
+        black calc(var(--modal-scoop) + 0.5px)
+      );
+    mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+    -webkit-mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+    mask-size: 51% 51%;
+    -webkit-mask-size: 51% 51%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+  }
+
+  .booking-modal-overlay.active .booking-modal-container {
+    transform: translateY(0) scale(1);
+  }
+
+  .booking-modal-image {
+    flex: 0 0 42%;
+    position: relative;
+    background: var(--mahogany-dark, #241a0f);
+  }
+  .booking-modal-image :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.95;
+  }
+
+  .booking-modal-content {
+    flex: 1;
+    padding: 50px 60px;
+    position: relative;
+    overflow-y: auto;
+    background: var(--cream-rice, #f9f5e3);
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .booking-modal-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .booking-modal-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: transparent;
+    border: 1px solid var(--text-brown, #523a20);
+    color: var(--text-brown, #523a20);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+  }
+  .booking-modal-close:hover {
+    opacity: 1;
+    border-color: var(--mahogany-dark, #241a0f);
+    color: var(--mahogany-dark, #241a0f);
+    background: rgba(36, 26, 15, 0.05);
+  }
+
+  .modal-title {
+    color: var(--mahogany-dark, #241a0f);
+    margin-bottom: 35px;
+    font-size: 2.5rem;
+  }
+
+  .booking-modal-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .required-star {
+    color: #e53935;
+    font-weight: 700;
+    margin-left: 2px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    flex: 1;
+  }
+
+  .form-subheading {
+    font-family: var(--font-serif, serif);
+    color: var(--mahogany-dark, #241a0f);
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 25px;
+    border-bottom: 1px dashed rgba(82, 58, 32, 0.3);
+    padding-bottom: 8px;
+  }
+
+  .form-group {
+    margin-bottom: 25px;
+    position: relative;
+  }
+
+  .box-input {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .box-input label {
+    font-size: 0.85rem;
+    color: var(--text-brown, #523a20);
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .box-input input,
+  .box-input select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(82, 58, 32, 0.3);
+    padding: 8px 0;
+    font-size: 1.05rem;
+    color: var(--text-brown, #523a20);
+    font-family: var(--font-sans, sans-serif);
+    transition: border-color 0.3s ease;
+    outline: none;
+    width: 100%;
+  }
+
+  .box-input input:focus {
+    border-bottom-color: var(--mahogany-dark, #241a0f);
+  }
+
+  .radio-group {
+    display: flex;
+    gap: 40px;
+    margin-top: 15px;
+  }
+  .radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-brown, #523a20);
+    position: relative;
+  }
+  .radio-label input[type="radio"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .custom-radio {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(82, 58, 32, 0.5);
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .radio-label input[type="radio"]:checked + .custom-radio {
+    border-color: var(--mahogany-dark, #241a0f);
+  }
+  .radio-label input[type="radio"]:checked + .custom-radio::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: var(--mahogany-dark, #241a0f);
+    border-radius: 50%;
+  }
+
+  .recaptcha-box {
+    margin-top: 15px;
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    padding: 10px 15px;
+    display: inline-block;
+    width: 100%;
+    max-width: 280px;
+  }
+  .recaptcha-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  .checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+  }
+  .recaptcha-text {
+    font-size: 0.9rem;
+    color: #333;
+    flex: 1;
+  }
+  .recaptcha-logo {
+    width: 30px;
+  }
+
+  /* Modal Mobile Adjustments */
+  @media screen and (max-width: 900px) {
+    .booking-modal-container {
+      flex-direction: column;
+      height: 90vh;
+      max-height: none;
+      overflow-y: hidden;
+      border-radius: 0;
+      --modal-scoop: 20px;
+    }
+    .booking-modal-image {
+      flex: none;
+      height: 200px;
+    }
+    .booking-modal-content {
+      padding: 30px 25px;
+      overflow-y: auto;
+    }
+    .form-grid {
+      grid-template-columns: 1fr;
+      gap: 0px;
+    }
+    .modal-title {
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("bookingModal");
+    const closeBtn = document.getElementById("closeBookingModal");
+    const bookingForm = document.getElementById("bookingForm");
+    const submitBtn = document.getElementById("submitBookingBtn");
+    const formResult = document.getElementById("formResult");
+
+    // All Book Now buttons and links should open this
+    const bookButtons = document.querySelectorAll(
+      '.btn-booking-submit, .btn-primary[href="#booking"], .btn-secondary[href="#booking"], .booking-feature, .mobile-link-item.booking-feature a',
+    );
+
+    bookButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (modal) {
+          modal.classList.add("active");
+          document.body.classList.add("overflow-hidden");
+        }
+      });
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        modal.classList.remove("active");
+        document.body.classList.remove("overflow-hidden");
+      });
+    }
+
+    // Close when clicking outside
+    if (modal) {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.remove("active");
+          document.body.classList.remove("overflow-hidden");
+        }
+      });
+    }
+
+    // Web3Forms AJAX Submission
+    if (bookingForm) {
+      bookingForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Change button text to indicate loading
+        const originalText = submitBtn.innerText;
+        submitBtn.innerText = "Sending...";
+        submitBtn.disabled = true;
+
+        const formData = new FormData(bookingForm);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        formResult.innerHTML = "Please wait...";
+        formResult.style.color = "var(--text-brown, #523A20)";
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async (response) => {
+            let jsonResponse = await response.json();
+            if (response.status == 200) {
+              formResult.innerHTML = "Booking request sent successfully!";
+              formResult.style.color = "var(--primary-green, #526B48)";
+              bookingForm.reset();
+
+              // Close modal after 3 seconds
+              setTimeout(() => {
+                modal.classList.remove("active");
+                document.body.classList.remove("overflow-hidden");
+                formResult.innerHTML = "";
+              }, 3000);
+            } else {
+              console.log(response);
+              formResult.innerHTML =
+                jsonResponse.message || "An error occurred.";
+              formResult.style.color = "var(--burnt-sienna)";
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            formResult.innerHTML = "Something went wrong!";
+            formResult.style.color = "var(--burnt-sienna)";
+          })
+          .then(function () {
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
+          });
+      });
+    }
+
+    // =========================================
+    // Smart Date Input Handler
+    // =========================================
+    function getLang() {
+      return localStorage.getItem("site_lang") || "vn";
+    }
+
+    // Get max days for a given month (1-12) and year
+    function getMaxDay(month, year) {
+      if (!month) return 31;
+      const m = parseInt(month);
+      if ([4, 6, 9, 11].includes(m)) return 30;
+      if (m === 2) {
+        const y = parseInt(year) || 2000;
+        return y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0) ? 29 : 28;
+      }
+      return 31;
+    }
+
+    // Clamp a numeric string to a max value, preserving leading zero
+    function clampField(val, max) {
+      let n = parseInt(val);
+      if (isNaN(n)) return val;
+      if (n > max) n = max;
+      if (n < 0) n = 0;
+      return String(n).padStart(val.length, "0");
+    }
+
+    // Format handler for date text inputs
+    function setupDateInput(inputId) {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+
+      input.addEventListener("input", function (e) {
+        const lang = getLang();
+        let raw = this.value.replace(/[^\d]/g, "");
+        if (raw.length > 8) raw = raw.substring(0, 8);
+
+        // Determine format: VN = dd/mm/yyyy, EN = mm/dd/yyyy
+        const isDMY = lang === "vn";
+        let part1 = "",
+          part2 = "",
+          part3 = "";
+
+        // Part 1: first 2 digits (day for VN, month for EN)
+        if (raw.length >= 1) {
+          part1 = raw.substring(0, Math.min(raw.length, 2));
+          if (raw.length >= 2) {
+            const max1 = isDMY ? 31 : 12;
+            part1 = clampField(part1, max1);
+            if (parseInt(part1) === 0 && raw.length >= 2) part1 = "01";
+          }
+        }
+
+        // Part 2: digits 3-4 (month for VN, day for EN)
+        if (raw.length >= 3) {
+          part2 = raw.substring(2, Math.min(raw.length, 4));
+          if (raw.length >= 4) {
+            if (isDMY) {
+              // part2 = month, clamp 1-12
+              part2 = clampField(part2, 12);
+              if (parseInt(part2) === 0) part2 = "01";
+              // Also re-clamp part1 (day) based on this month
+              const maxD = getMaxDay(
+                part2,
+                raw.length >= 5 ? raw.substring(4) : null,
+              );
+              part1 = clampField(part1, maxD);
+              if (parseInt(part1) === 0) part1 = "01";
+            } else {
+              // part2 = day, clamp based on month (part1)
+              const maxD = getMaxDay(
+                part1,
+                raw.length >= 5 ? raw.substring(4) : null,
+              );
+              part2 = clampField(part2, maxD);
+              if (parseInt(part2) === 0) part2 = "01";
+            }
+          }
+        }
+
+        // Part 3: digits 5-8 (year)
+        if (raw.length >= 5) {
+          part3 = raw.substring(4, Math.min(raw.length, 8));
+          // Full year entered - re-validate day for leap year
+          if (part3.length === 4) {
+            const yr = parseInt(part3);
+            if (yr < 1900) part3 = "1900";
+            if (yr > 2100) part3 = "2100";
+            // Re-clamp day based on final month and year
+            const month = isDMY ? part2 : part1;
+            const maxD = getMaxDay(month, part3);
+            if (isDMY) {
+              part1 = clampField(part1, maxD);
+            } else {
+              part2 = clampField(part2, maxD);
+            }
+          }
+        }
+
+        // Reconstruct value with slashes
+        if (raw.length >= 5) {
+          this.value = part1 + "/" + part2 + "/" + part3;
+        } else if (raw.length >= 3) {
+          this.value = part1 + "/" + part2;
+        } else {
+          this.value = part1;
+        }
+      });
+    }
+
+    // Setup both date inputs
+    setupDateInput("b_dob");
+    setupDateInput("b_prefdate");
+
+    // Auto-fill Preferred Date with today's date in current language format
+    function fillTodayDate() {
+      const input = document.getElementById("b_prefdate");
+      if (!input) return;
+      const lang = getLang();
+      const today = new Date();
+      const dd = String(today.getDate()).padStart(2, "0");
+      const mm = String(today.getMonth() + 1).padStart(2, "0");
+      const yyyy = today.getFullYear();
+      if (lang === "vn") {
+        input.value = dd + "/" + mm + "/" + yyyy;
+      } else {
+        input.value = mm + "/" + dd + "/" + yyyy;
+      }
+    }
+    fillTodayDate();
+
+    // Re-fill preferred date when language changes
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        setTimeout(fillTodayDate, 100);
+      });
+    });
+  });
+</script>

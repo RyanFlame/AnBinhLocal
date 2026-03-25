@@ -2,6 +2,7 @@
 import BlogHeader from "../components/BlogHeader.astro";
 import Footer from "../components/Footer.astro";
 import GlobalLoader from "../components/GlobalLoader.astro";
+import BookingModal from "../components/BookingModal.astro";
 import SEO from "../components/SEO.astro";
 import "../styles/global.css";
 
@@ -15,7 +16,7 @@ const { title, description, image } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
   <head>
     <SEO title={title} description={description} image={image} />
 
@@ -55,24 +56,30 @@ const { title, description, image } = Astro.props;
       ).toString()}
     />
   </head>
-  <body class="blog-body">
+  <body
+    class="antialiased !bg-blog-gray text-text-main font-sans leading-relaxed overflow-x-clip min-h-screen"
+  >
+    <a href="#main-content" class="skip-to-content"> Skip to content </a>
+
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-M93VGLK5"
         height="0"
         width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
+        class="hidden invisible"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
     <GlobalLoader />
     <BlogHeader />
 
-    <main class="blog-layout-content">
+    <main id="main-content" class="min-h-dvh pt-md">
       <slot />
     </main>
 
     <Footer />
+    
+    <BookingModal />
 
     <script
       is:inline
@@ -85,15 +92,3 @@ const { title, description, image } = Astro.props;
     <script is:inline src="/script.js"></script>
   </body>
 </html>
-
-<style is:global>
-  .blog-body {
-    background-color: #f7f7f7 !important;
-    overflow-x: clip;
-  }
-
-  .blog-layout-content {
-    min-height: 100dvh;
-    padding-top: 20px;
-  }
-</style>

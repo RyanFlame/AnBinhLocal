@@ -1,102 +1,349 @@
 @import "tailwindcss";
-@import './indochine-design-system.css';
-@import './navbar.css';
 
-/* 
- * -----------------------------------------------------
- * GLOBAL BASE LAYER
- * -----------------------------------------------------
- * Only essential resets, scrollbars, and body defaults.
- * Everything else is handled by Tailwind or Scoped CSS.
- */
+@theme {
+  /* 🎨 Tailwind v4 Registered Colors (for text- and bg- utilities) */
+  --color-indochine-teal: #2d5f5d;
+  --color-indochine-emerald: #4a6f4f;
+  --color-primary-green: #9daf73;
+  --color-brass-gold: #ffc94b; /* Much more vibrant premium gold */
+  --color-mustard-gold: #ffb800; /* Vibrant sunlight gold */
+  --color-tarnished-brass: #b8860b;
+  --color-cream-rice: #f9f5e3;
+  --color-beige-sand: #f1e7d6;
+  --color-warm-white: #f6efe9;
+  --color-cool-white: #fafaf8;
+  --color-accent-cream: #f9f5e3;
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  --color-mahogany-dark: #4a3b2a;
+  --color-walnut-brown: #3a2f2a;
+  --color-ebony-black: #1f1c1a;
+  --color-charcoal-wood: #241a0f;
+  --color-text-main: #3a2f2a;
+  --color-text-brown: #4a3b2a;
+
+  --color-burnt-sienna: #9c5532;
+  --color-burnt-orange: #9c5532;
+  --color-subtle-grey: #cccccc;
+  --color-grey-subtle: #cccccc;
+  --color-black-off: #141110;
+  --color-off-black: #141110;
+  --color-beige-light: #ece4de;
+  --color-light-beige: #ece4de;
+  --color-brown-dark: #1f1c1a;
+  --color-dark-brown: #1f1c1a;
+  --color-blog-gray: #f7f7f7;
+
+
+  /* 📐 Tailwind v4 Registered Spacing */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 1rem; /* 16px */
+  --spacing-md: 1.5rem; /* 24px */
+  --spacing-lg: 2.5rem; /* 40px */
+  --spacing-xl: 3.75rem; /* 60px */
+  --spacing-2xl: 5rem; /* 80px */
+  --spacing-3xl: 7.5rem; /* 120px */
+
+  /* 🖼️ Shadows */
+  --shadow-brass: 0 5px 20px rgba(200, 169, 126, 0.3);
+  --shadow-teal: 0 8px 20px rgba(45, 95, 93, 0.3);
+
+  /* 🎭 Typography */
+  --font-serif: "Merriweather", serif;
+  --font-sans: "Open Sans", sans-serif;
+
+  /* 🎞️ Easing */
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* 🎬 Keyframes & Animations */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-  overflow-x: clip;
+/* 🏺 LEGACY BRIDGE (Exposing variables to standard var() usage) */
+:root {
+  --indochine-teal: #2d5f5d;
+  --indochine-emerald: #4a6f4f;
+  --brass-gold: #c8a97e;
+  --tarnished-brass: #9b7e52;
+  --warm-white: #f6efe9;
+  --cream-rice: #f9f5e3;
+  --beige-sand: #f1e7d6;
+  --mahogany-dark: #4a3b2a;
+  --walnut-brown: #3a2f2a;
+  --ebony-black: #1f1c1a;
+  --charcoal-wood: #241a0f;
+  --text-main: #3a2f2a;
+  --text-brown: #4a3b2a;
+  --burnt-sienna: #9c5532;
+  --subtle-grey: #cccccc;
+  --off-black: #141110;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 3.75rem;
+  --space-2xl: 5rem;
 }
+
+/* Base Styles Consolidated (Tailwind v4 Base Layer) */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+    font-size: 16px;
+    overflow-x: clip;
+  }
+
+  body {
+    @apply antialiased bg-warm-white text-text-main font-sans leading-relaxed overflow-x-clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-normal leading-tight;
+  }
+
+  p {
+    @apply mb-md;
+  }
+
+  a {
+    @apply no-underline text-inherit;
+  }
+
+  img {
+    @apply max-w-full block;
+    border-style: none;
+  }
+
+  button {
+    @apply bg-transparent border-none cursor-pointer;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-warm-white;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-tarnished-brass rounded-full hover:bg-brass-gold;
+  }
+
+  /* Accessibility */
+  .skip-to-content {
+    @apply absolute -top-10 left-0 bg-indochine-teal text-white p-2 z-[10000] no-underline focus:top-0;
+  }
+}
+
+/* Component Layer (Restoring Original Component Names) */
+@layer components {
+  /* --- Shared Transition Class --- */
+  .transition-smooth {
+    @apply transition-all duration-400 ease-smooth;
+  }
+
+  /* --- Buttons --- */
+  .btn-primary,
+  .button-primary {
+    @apply inline-block px-9 py-3 bg-indochine-teal text-cream-rice font-sans font-semibold tracking-wider no-underline cursor-pointer transition-all duration-400 ease-smooth hover:-translate-y-0.5 hover:shadow-teal active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-brass,
+  .btn-hero-primary {
+    @apply inline-block px-9 py-3 bg-gradient-to-br from-brass-gold to-tarnished-brass text-ebony-black font-sans font-semibold tracking-wider no-underline cursor-pointer border-2 border-brass-gold transition-all duration-400 ease-smooth hover:-translate-y-0.5 hover:shadow-brass hover:brightness-110 active:translate-y-0 shadow-sm;
+  }
+
+  .btn-secondary,
+  .button-secondary {
+    @apply inline-block px-9 py-3 border-2 border-mahogany-dark rounded-lg bg-transparent text-mahogany-dark font-sans font-semibold tracking-wider no-underline cursor-pointer transition-all duration-400 ease-smooth hover:bg-mahogany-dark hover:text-white!;
+  }
+
+  .btn-pill {
+    @apply inline-block px-8 py-3 border border-gray-300 rounded-full bg-transparent text-mahogany-dark font-sans font-semibold no-underline cursor-pointer transition-all duration-400 ease-smooth hover:bg-mahogany-dark hover:text-white hover:border-mahogany-dark;
+  }
+
+  /* --- Cards --- */
+  .card,
+  .card-light {
+    @apply bg-white rounded-xl p-8 shadow-md transition-all duration-400 ease-smooth hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .card-dark,
+  .card-wood {
+    @apply bg-charcoal-wood border border-white/5 rounded-lg p-6 shadow-xl text-cream-rice transition-all duration-400 ease-smooth hover:-translate-x-1;
+  }
+
+  /* Scooped Frame Effect (Signature Indochine) */
+  .frame-scooped {
+    @apply relative border border-mahogany-dark transition-all duration-400 ease-smooth p-2;
+    --scoop-radius: 30px;
+    mask-image:
+      radial-gradient(
+        circle at top left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at top right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      ),
+      radial-gradient(
+        circle at bottom right,
+        transparent var(--scoop-radius),
+        black calc(var(--scoop-radius) + 0.5px)
+      );
+    mask-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+    mask-size: 51% 51%;
+    mask-repeat: no-repeat;
+  }
+
+  /* --- Typography Utilities --- */
+  .heading-hero {
+    @apply font-serif text-[3rem] font-semibold text-mahogany-dark leading-[1.2];
+  }
+  .heading-section {
+    @apply font-serif text-[2.5rem] text-mahogany-dark leading-[1.3];
+  }
+  .heading-subsection {
+    @apply font-serif text-[1.5rem] font-semibold text-mahogany-dark leading-[1.3];
+  }
+  .heading-component {
+    @apply font-serif text-[1.25rem] font-semibold text-mahogany-dark leading-[1.3];
+  }
+
+  .sub-heading,
+  .accent-label {
+    @apply font-serif text-[1.1rem] text-indochine-emerald font-medium uppercase tracking-wider;
+  }
+
+  .body-large {
+    @apply font-sans text-[1.1rem] leading-relaxed text-walnut-brown;
+  }
+  .body-regular {
+    @apply font-sans text-[1rem] leading-relaxed text-walnut-brown;
+  }
+  .body-small {
+    @apply font-sans text-[0.9rem] leading-relaxed text-subtle-grey;
+  }
+
+  /* --- Borders & Decor --- */
+  .border-brass-top {
+    border-top: 5px solid var(--brass-gold);
+  }
+  .border-brass-bottom {
+    border-bottom: 5px solid var(--brass-gold);
+  }
+  .border-brass-all {
+    border: 2px solid var(--brass-gold);
+  }
+
+  .heading-underline-indochine {
+    @apply relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-indochine-emerald;
+  }
+
+  .divider-vertical-brass {
+    @apply w-0.5 h-24 my-8 mx-auto bg-repeat-y;
+    background-image: linear-gradient(
+      to bottom,
+      var(--brass-gold) 50%,
+      transparent 50%
+    );
+    background-size: 2px 10px;
+  }
+
+  /* --- Shared Utilities --- */
+  .transition-smooth {
+    @apply transition-all duration-400 ease-smooth;
+  }
+  .lift-hover {
+    @apply transition-all duration-400 ease-smooth hover:-translate-y-1 hover:shadow-lg;
+  }
+  .scale-hover {
+    @apply transition-all duration-400 ease-smooth hover:scale-105;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-md bg-black/92;
+  }
+}
+
+@import "./navbar.css";
 
 /* The mobile media query in navbar.css handles visibility. */
-
-body {
-  font-family: var(--font-sans);
-  background-color: var(--warm-white);
-  color: var(--text-main);
-  line-height: 1.6;
-  overflow-x: clip;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--warm-white);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--tarnished-brass);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--brass-gold);
-}
-
-/* Typography Resets */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  line-height: 1.3;
-  margin-bottom: var(--space-sm);
-}
-
-p {
-  margin-bottom: var(--space-md);
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-img {
-  max-width: 100%;
-  border-style: none;
-}
-
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
 
 /* =========================================
    GLOBAL MOBILE RESPONSIVE OVERRIDES (< 768px)
    ========================================= */
 @media screen and (max-width: 768px) {
   /* General Vertical & Horizontal Spacing Reductions */
-  .philosophy-section, .ingredient-section, .reviews-section, .faq-section, .product-grid-section {
+  .philosophy-section,
+  .ingredient-section,
+  .reviews-section,
+  .faq-section,
+  .product-grid-section {
     padding: 60px 0;
   }
   .location-section {
     padding: 40px 15px;
   }
-  .philosophy-container, .ingredient-container, .reviews-container, .product-grid-container, .faq-container, .hero-layout-container, .hero-bottom-bar {
+  .philosophy-container,
+  .ingredient-container,
+  .reviews-container,
+  .product-grid-container,
+  .faq-container,
+  .hero-layout-container,
+  .hero-bottom-bar {
     padding: 0 20px;
   }
 
   /* Primary Headings */
-  .section-heading, .grid-header h2 {
+  .heading-hero {
+    font-size: 2.22rem;
+  }
+  .heading-section,
+  .grid-header h2 {
     font-size: 2rem;
   }
   .sub-heading {
@@ -105,7 +352,8 @@ button {
 }
 
 @media screen and (max-width: 480px) {
-  .section-heading, .grid-header h2 {
+  .heading-section,
+  .grid-header h2 {
     font-size: 1.8rem;
   }
 }
