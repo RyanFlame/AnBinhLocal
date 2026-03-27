@@ -1,6 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import { getImageByPath } from "../../utils/assets";
+import { useTranslations } from "../../i18n/utils";
+
+const { locale = "vi" } = Astro.props;
+const t = useTranslations(locale);
 
 const asset_Therapies_Bam_huyet_webp = getImageByPath("Therapies/Bam huyet.webp");
 const asset_Therapies_Cham_Cuu_webp = getImageByPath("Therapies/Cham Cuu.webp");
@@ -9,118 +13,92 @@ const asset_Therapies_Exercise_webp = getImageByPath("Therapies/Exercise.webp");
 const asset_Therapies_Nutrition1_webp = getImageByPath("Therapies/Nutrition1.webp");
 const asset_Therapies_Thuoc_Bac_webp = getImageByPath("Therapies/Thuoc Bac.webp");
 ---
-  <section class="product-grid-section" id="services" data-header-theme="light">
-    <div class="product-grid-container">
-      <!-- Header -->
-      <div class="grid-header">
-        <h2
-          class="heading-section lang-text"
-          data-en="Explore our key therapies<br>and traditional remedies"
-          data-vn="Khám phá các phương pháp trị liệu<br>và y học truyền thống"
-        >
-          Khám phá các phương pháp trị liệu<br />và y học truyền thống
-        </h2>
-        <a
-          href="/therapies"
-          class="btn-pill lang-text"
-          data-en="Explore now"
-          data-vn="Khám phá ngay">Khám phá ngay</a
-        >
+
+<section class="product-grid-section" id="services" data-header-theme="light">
+  <div class="product-grid-container">
+    <!-- Header -->
+    <div class="grid-header">
+      <h2 class="heading-section" set:html={t("bento.title")} />
+      <a href="/therapies" class="btn-pill">
+        {t("bento.btn_explore")}
+      </a>
+    </div>
+
+    <!-- Bento Grid Layout -->
+    <div class="bento-grid">
+      <!-- Card 1: Therapy (Top Left) -->
+      <div class="bento-card card-therapy">
+        <Image
+          src={asset_Therapies_Cham_Cuu_webp}
+          alt="Acupuncture"
+          class="bento-bg"
+        />
+        <span class="bento-text">
+          {t("bento.card.acupuncture")}
+        </span>
       </div>
 
-      <!-- Bento Grid Layout -->
-      <div class="bento-grid">
-        <!-- Card 1: Therapy (Top Left) -->
-        <div class="bento-card card-therapy">
-          <Image
-            src={asset_Therapies_Cham_Cuu_webp}
-            alt="Acupuncture"
-            class="bento-bg"
-          />
-          <span
-            class="bento-text lang-text"
-            data-en="Acupuncture"
-            data-vn="Châm Cứu">Châm Cứu</span
-          >
-        </div>
+      <!-- Card 2: Central Large (Medicines) -->
+      <div class="bento-card card-large">
+        <Image
+          src={asset_Therapies_Thuoc_Bac_webp}
+          alt="Herbal Medicines"
+          class="bento-bg"
+        />
+        <h3 class="heading-subsection bento-text" set:html={t("bento.card.medicines")} />
+        <div class="plus-btn bento-text">+</div>
+      </div>
 
-        <!-- Card 2: Central Large (Medicines) -->
-        <div class="bento-card card-large">
-          <Image
-            src={asset_Therapies_Thuoc_Bac_webp}
-            alt="Herbal Medicines"
-            class="bento-bg"
-          />
-          <h3
-            class="heading-subsection bento-text lang-text"
-            data-en="Specialized<br>Medicines"
-            data-vn="Thuốc Đông Y<br>Đặc Trị"
-          >
-            Thuốc Đông Y<br />Đặc Trị
-          </h3>
-          <div class="plus-btn bento-text">+</div>
-        </div>
+      <!-- Card 3: Diagnosis (Top Right) -->
+      <div class="bento-card">
+        <Image
+          src={asset_Therapies_Diagnose_webp}
+          alt="Diagnosis"
+          class="bento-bg"
+        />
+        <span class="bento-text">
+          {t("bento.card.diagnosis")}
+        </span>
+      </div>
 
-        <!-- Card 3: Diagnosis (Top Right) -->
-        <div class="bento-card">
-          <Image
-            src={asset_Therapies_Diagnose_webp}
-            alt="Diagnosis"
-            class="bento-bg"
-          />
-          <span
-            class="bento-text lang-text"
-            data-en="Diagnosis"
-            data-vn="Bắt Mạch">Bắt Mạch</span
-          >
-        </div>
+      <!-- Card 4: Nutrition (Bottom Left) -->
+      <div class="bento-card">
+        <Image
+          src={asset_Therapies_Nutrition1_webp}
+          alt="Nutrition"
+          class="bento-bg"
+        />
+        <span class="bento-text">
+          {t("bento.card.nutrition")}
+        </span>
+      </div>
 
-        <!-- Card 4: Nutrition (Bottom Left) -->
-        <div class="bento-card">
-          <Image
-            src={asset_Therapies_Nutrition1_webp}
-            alt="Nutrition"
-            class="bento-bg"
-          />
-          <span
-            class="bento-text lang-text"
-            data-en="Nutrition"
-            data-vn="Dinh Dưỡng">Dinh Dưỡng</span
-          >
-        </div>
+      <!-- Card 5: Description (Bottom Right) -->
+      <div class="bento-card card-text">
+        <Image
+          src={asset_Therapies_Bam_huyet_webp}
+          alt="Acupressure"
+          class="bento-bg"
+        />
+        <p class="body-regular bento-text">
+          {t("bento.card.acupressure")}
+        </p>
+      </div>
 
-        <!-- Card 5: Description (Bottom Right) -->
-        <div class="bento-card card-text">
-          <Image
-            src={asset_Therapies_Bam_huyet_webp}
-            alt="Acupressure"
-            class="bento-bg"
-          />
-          <p
-            class="body-regular bento-text lang-text"
-            data-en="Acupressure"
-            data-vn="Bấm Huyệt"
-          >
-            Bấm Huyệt
-          </p>
-        </div>
-
-        <!-- Card 6: Tools (Bottom Far Right) -->
-        <div class="bento-card">
-          <Image
-            src={asset_Therapies_Exercise_webp}
-            alt="Physical Therapy"
-            class="bento-bg"
-          />
-          <span
-            class="bento-text lang-text"
-            data-en="Physical Therapy"
-            data-vn="Vật Lý Trị Liệu">Vật Lý Trị Liệu</span
-          >
-        </div>
+      <!-- Card 6: Tools (Bottom Far Right) -->
+      <div class="bento-card">
+        <Image
+          src={asset_Therapies_Exercise_webp}
+          alt="Physical Therapy"
+          class="bento-bg"
+        />
+        <span class="bento-text">
+          {t("bento.card.physical_therapy")}
+        </span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <style>
 /* =========================================

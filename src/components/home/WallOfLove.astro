@@ -1,98 +1,81 @@
 ---
 import { Image } from "astro:assets";
 import { getImageByPath } from "../../utils/assets";
+import { useTranslations } from "../../i18n/utils";
+
+const { locale = "vi" } = Astro.props;
+const t = useTranslations(locale);
 
 const asset_Thu_c_1_webp = getImageByPath("Thuốc 1.webp");
 const asset_Thu_c_2_webp = getImageByPath("Thuốc 2.webp");
 const asset_Thu_c_webp = getImageByPath("Thuốc.webp");
 
 const column1Reviews = [
-  { name: 'Minh T.', condition: 'Chronic Back Pain', text: 'I was skeptical about traditional medicine, but the acupuncture treatments here completely reset my sleep cycle. I feel years younger.', avatar: asset_Thu_c_webp },
-  { name: 'Sarah J.', condition: 'Wellness Check', text: 'The atmosphere is so calming. An Binh is a hidden gem in Winnipeg for anyone looking for holistic care.', avatar: asset_Thu_c_1_webp },
-  { name: 'David L.', condition: 'Herbal Therapy', text: 'The herbal tea blends are not only delicious but actually effective. My digestion has never been better.', avatar: asset_Thu_c_2_webp }
+  { name: t('reviews.col1.0.name'), condition: t('reviews.col1.0.condition'), text: t('reviews.col1.0.text'), avatar: asset_Thu_c_webp },
+  { name: t('reviews.col1.1.name'), condition: t('reviews.col1.1.condition'), text: t('reviews.col1.1.text'), avatar: asset_Thu_c_1_webp },
+  { name: t('reviews.col1.2.name'), condition: t('reviews.col1.2.condition'), text: t('reviews.col1.2.text'), avatar: asset_Thu_c_2_webp }
 ];
 
 const column2Reviews = [
-  { name: 'Emily R.', condition: 'Acupuncture', text: 'Finally found relief for my shoulder pain after months of struggling. The staff is incredibly professional.', avatar: asset_Thu_c_1_webp },
-  { name: 'James K.', condition: 'Stress Relief', text: 'A sanctuary of peace. The treatments helped me manage my work stress significantly.', avatar: asset_Thu_c_webp },
-  { name: 'Linh N.', condition: 'General Health', text: 'I love the personalized approach. They really take the time to understand your body\'s needs.', avatar: asset_Thu_c_2_webp }
+  { name: t('reviews.col2.0.name'), condition: t('reviews.col2.0.condition'), text: t('reviews.col2.0.text'), avatar: asset_Thu_c_1_webp },
+  { name: t('reviews.col2.1.name'), condition: t('reviews.col2.1.condition'), text: t('reviews.col2.1.text'), avatar: asset_Thu_c_webp },
+  { name: t('reviews.col2.2.name'), condition: t('reviews.col2.2.condition'), text: t('reviews.col2.2.text'), avatar: asset_Thu_c_2_webp }
 ];
 
 // Duplicate logic to guarantee a seamless CSS scroll
 const duplicatedCol1 = [...column1Reviews, ...column1Reviews, ...column1Reviews];
 const duplicatedCol2 = [...column2Reviews, ...column2Reviews, ...column2Reviews];
 ---
-  <section class="reviews-section" data-header-theme="light">
-    <div class="reviews-container">
-      <!-- Left Text -->
-      <div class="reviews-text">
-        <p
-          class="sub-heading mb-md lang-text"
-          data-en="Patient Stories"
-          data-vn="Câu Chuyện Bệnh Nhân"
-        >
-          Câu Chuyện Bệnh Nhân
-        </p>
-        <h2
-          class="heading-section mb-lg lang-text"
-          data-en="Don't trust us,<br>Trust their voice"
-          data-vn="Lắng nghe để thấu hiểu <br> Đồng hành để chữa lành"
-        >
-          Lắng nghe để thấu hiểu <br />Đồng hành để chữa lành
-        </h2>
-        <p
-          class="body-regular mb-xl lang-text"
-          data-en="Real healing, real stories. Hear how traditional medicine has restored balance to our patients' lives through our holistic treatments."
-          data-vn="Mỗi bệnh nhân đến với An Bình đều mang theo một hy vọng về sức khỏe.
-          Sự tin tưởng và những nụ cười sau mỗi liệu trình là động lực lớn nhất để chúng tôi 
-          tiếp tục gìn giữ, phát huy chất lượng trong từng vị thuốc, mang lại sự bình yên cho 
-          sức khỏe quê hương."
-        >
-          Mỗi bệnh nhân đến với An Bình đều mang theo một hy vọng về sức khỏe.
-          Sự tin tưởng và những nụ cười sau mỗi liệu trình là động lực lớn nhất
-          để chúng tôi tiếp tục gìn giữ, phát huy chất lượng trong từng vị
-          thuốc, mang lại sự bình yên cho sức khỏe quê hương.
-        </p>
+
+<section class="reviews-section" data-header-theme="light">
+  <div class="reviews-container">
+    <!-- Left Text -->
+    <div class="reviews-text">
+       <p class="sub-heading mb-md">
+        {t("reviews.title_sub")}
+      </p>
+      <h2 class="heading-section mb-lg" set:html={t("reviews.title_main")} />
+      <p class="body-regular mb-xl" set:html={t("reviews.body")} />
+    </div>
+
+    <!-- Right Wall -->
+    <div class="reviews-wall">
+      <div class="review-column col-1">
+        <div class="scroll-track">
+          {duplicatedCol1.map(review => (
+            <div class="review-card">
+              <div class="reviewer-header">
+                <Image src={review.avatar} alt="Patient" class="reviewer-avatar" />
+                <div class="reviewer-info">
+                  <h4>{review.name}</h4>
+                  <span>{review.condition}</span>
+                </div>
+              </div>
+              <p class="review-body">"{review.text}"</p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <!-- Right Wall -->
-      <div class="reviews-wall">
-        <div class="review-column col-1">
-          <div class="scroll-track">
-            {duplicatedCol1.map(review => (
-              <div class="review-card">
-                <div class="reviewer-header">
-                  <Image src={review.avatar} alt="Patient" class="reviewer-avatar" />
-                  <div class="reviewer-info">
-                    <h4>{review.name}</h4>
-                    <span>{review.condition}</span>
-                  </div>
+      <div class="review-column col-2">
+        <div class="scroll-track">
+          {duplicatedCol2.map(review => (
+            <div class="review-card">
+              <div class="reviewer-header">
+                <Image src={review.avatar} alt="Patient" class="reviewer-avatar" />
+                <div class="reviewer-info">
+                  <h4>{review.name}</h4>
+                  <span>{review.condition}</span>
                 </div>
-                <p class="review-body">"{review.text}"</p>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div class="review-column col-2">
-          <div class="scroll-track">
-            {duplicatedCol2.map(review => (
-              <div class="review-card">
-                <div class="reviewer-header">
-                  <Image src={review.avatar} alt="Patient" class="reviewer-avatar" />
-                  <div class="reviewer-info">
-                    <h4>{review.name}</h4>
-                    <span>{review.condition}</span>
-                  </div>
-                </div>
-                <p class="review-body">"{review.text}"</p>
-              </div>
-            ))}
-          </div>
+              <p class="review-body">"{review.text}"</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <style>
 /* =========================================

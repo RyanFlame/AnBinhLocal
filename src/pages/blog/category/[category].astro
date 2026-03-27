@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 import BlogLayout from "../../../layouts/BlogLayout.astro";
 import { Image } from "astro:assets";
+import { useTranslations } from "../../../i18n/utils";
+import { type Locale } from "../../../i18n/config";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
@@ -16,36 +18,40 @@ export async function getStaticPaths() {
   });
 }
 
-const { category } = Astro.params;
-const { posts } = Astro.props;
+const { category: routeCategory } = Astro.params;
+const { posts, category: categoryProp } = Astro.props;
+const category = categoryProp ?? routeCategory;
+
+const locale = (Astro.currentLocale || "vi") as Locale;
+const t = useTranslations(locale);
 ---
 
-<BlogLayout title={`Chuyên Mục: ${category} | An Bình`}>
+<BlogLayout title={`${t("blog.category.title").replace("{category}", category)} | An Bình`}>
   <div class="category-page">
     <header class="category-header">
-      <h1 class="category-title lang-text" data-vn={`Chuyên Mục: ${category}`} data-en={`Category: ${category}`}>
-        Chuyên Mục: {category}
+      <h1 class="category-title">
+        {t("blog.category.title").replace("{category}", category)}
       </h1>
-      <p class="category-desc lang-text" data-vn={`Khám phá các bài viết về ${category}`} data-en={`Explore articles in ${category}`}>Khám phá các bài viết về {category}</p>
+      <p class="category-desc">{t("blog.category.desc").replace("{category}", category)}</p>
     </header>
 
     <div class="category-grid">
       {posts.map((post: any) => (
         <article class="post-card main-feature">
-          <a href={`/blog/${post.id}`} style="text-decoration: none; color: inherit; display: block;">
+          <a href={locale === "vi" ? `/blog/${post.id}` : `/en/blog/${post.id}`} style="text-decoration: none; color: inherit; display: block;">
             <figure class="post-image concave-corner">
               <Image src={post.data.image} alt={post.data.title} />
             </figure>
           </a>
           <div class="post-content">
-            <a href={`/blog/${post.id}`} style="text-decoration: none; color: inherit;">
+            <a href={locale === "vi" ? `/blog/${post.id}` : `/en/blog/${post.id}`} style="text-decoration: none; color: inherit;">
               <h3 class="post-title">{post.data.title}</h3>
             </a>
             <p class="post-excerpt">{post.data.excerpt}</p>
             <div class="post-meta">
               <span>{post.data.author}</span>
               <span class="dot">•</span>
-              <span>{new Intl.DateTimeFormat('vi-VN', { month: 'short', day: 'numeric' }).format(post.data.date)} • 4 min read</span>
+              <span>{new Intl.DateTimeFormat(locale === "vi" ? 'vi-VN' : 'en-US', { month: 'short', day: 'numeric' }).format(post.data.date)} • 4 min read</span>
             </div>
           </div>
         </article>
@@ -53,7 +59,7 @@ const { posts } = Astro.props;
     </div>
     
     <div class="back-link">
-      <a href="/blog" class="pagination-btn">← Quay lại trang Blog</a>
+      <a href={locale === "vi" ? "/blog" : "/en/blog"} class="pagination-btn">{t("blog.category.back")}</a>
     </div>
   </div>
 </BlogLayout>

@@ -7,14 +7,17 @@ import TherapiesBentoGrid from "../components/home/TherapiesBentoGrid.astro";
 import LocationSection from "../components/home/LocationSection.astro";
 import WallOfLove from "../components/home/WallOfLove.astro";
 import FAQSection from "../components/home/FAQSection.astro";
+import { type Locale } from "../i18n/config";
+
+const locale = (Astro.currentLocale || "vi") as Locale;
 ---
 
 <Layout title="An Binh - Traditional Chinese Medicine">
-  <HeroSection />
-  <ProductCarousel />
-  <PhilosophySection />
-  <TherapiesBentoGrid />
-  <LocationSection />
-  <WallOfLove />
-  <FAQSection />
+  <HeroSection locale={locale} />
+  <ProductCarousel locale={locale} />
+  <PhilosophySection locale={locale} />
+  <TherapiesBentoGrid locale={locale} />
+  <LocationSection locale={locale} />
+  <WallOfLove locale={locale} />
+  <FAQSection locale={locale} />
 </Layout>

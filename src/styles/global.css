@@ -81,11 +81,14 @@
 :root {
   --indochine-teal: #2d5f5d;
   --indochine-emerald: #4a6f4f;
+  --primary-green: #9daf73;
   --brass-gold: #c8a97e;
+  --mustard-gold: #ffb800;
   --tarnished-brass: #9b7e52;
   --warm-white: #f6efe9;
   --cream-rice: #f9f5e3;
   --beige-sand: #f1e7d6;
+  --bg-main: #f6efe9;
   --mahogany-dark: #4a3b2a;
   --walnut-brown: #3a2f2a;
   --ebony-black: #1f1c1a;

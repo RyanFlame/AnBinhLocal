@@ -1,6 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import { getImageByPath } from "../utils/assets";
+import { useTranslations } from "../i18n/utils";
+
+const { locale = "vi" } = Astro.props;
+const t = useTranslations(locale);
 
 const bookingAsset = getImageByPath("Thuốc 1E.webp");
 ---
@@ -30,15 +34,17 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
         >
       </button>
 
-      <h2
-        class="heading-section lang-text modal-title"
-        data-en="Book Appointment"
-        data-vn="Đặt lịch hẹn"
-      >
-        Đặt lịch hẹn
+      <h2 class="heading-section modal-title">
+        {t("booking.title")}
       </h2>
 
-      <form class="booking-modal-form" id="bookingForm">
+      <form 
+        class="booking-modal-form" 
+        id="bookingForm"
+        data-msg-sending={t("booking.btn_sending")}
+        data-msg-success={t("booking.msg_success")}
+        data-msg-error={t("booking.msg_error")}
+      >
         <input
           type="hidden"
           name="access_key"
@@ -57,42 +63,24 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
         <div class="form-grid">
           <!-- LEFT COLUMN: Required Fields -->
           <div class="form-col">
-            <h3
-              class="form-subheading lang-text"
-              data-en="Required Information"
-              data-vn="Thông tin bắt buộc"
-            >
-              Thông tin bắt buộc
+            <h3 class="form-subheading">
+              {t("booking.info_required")}
             </h3>
 
             <!-- REQUIRED: Full Name -->
             <div class="form-group box-input">
-              <label
-                for="b_fullname"
-                class="lang-text"
-                data-en="Full Name <span class='required-star'>*</span>"
-                data-vn="Họ và Tên <span class='required-star'>*</span>"
-                >Họ và Tên <span class="required-star">*</span></label
-              >
+              <label for="b_fullname" set:html={t("booking.label.fullname")} />
               <input type="text" id="b_fullname" name="Full_Name" required />
             </div>
 
             <!-- REQUIRED: Date of Birth (plain text input) -->
             <div class="form-group box-input">
-              <label
-                for="b_dob"
-                class="lang-text"
-                data-en="Date of Birth <span class='required-star'>*</span>"
-                data-vn="Ngày sinh <span class='required-star'>*</span>"
-                >Ngày sinh <span class="required-star">*</span></label
-              >
+              <label for="b_dob" set:html={t("booking.label.dob")} />
               <input
                 type="text"
                 id="b_dob"
                 name="Date_Of_Birth"
-                data-placeholder-en="mm/dd/yyyy"
-                data-placeholder-vn="dd/mm/yyyy"
-                placeholder="dd/mm/yyyy"
+                placeholder={t("booking.placeholder.date")}
                 maxlength="10"
                 autocomplete="off"
                 required
@@ -101,39 +89,22 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
 
             <!-- REQUIRED: Phone Number -->
             <div class="form-group box-input">
-              <label
-                for="b_phone"
-                class="lang-text"
-                data-en="Phone Number <span class='required-star'>*</span>"
-                data-vn="Số điện thoại <span class='required-star'>*</span>"
-                >Số điện thoại <span class="required-star">*</span></label
-              >
+              <label for="b_phone" set:html={t("booking.label.phone")} />
               <input type="tel" id="b_phone" name="Phone_Number" required />
             </div>
 
             <!-- Preferred Date (date only, no time) -->
-            <h3
-              class="form-subheading lang-text mt-[25px]"
-              data-en="Preferred Date"
-              data-vn="Ngày hẹn ưu tiên"
-            >
-              Ngày hẹn ưu tiên
+            <h3 class="form-subheading mt-[25px]">
+              {t("booking.info_preferred")}
             </h3>
 
             <div class="form-group box-input">
-              <label
-                for="b_prefdate"
-                class="lang-text"
-                data-en="Choose Date"
-                data-vn="Chọn Ngày">Chọn Ngày</label
-              >
+              <label for="b_prefdate">{t("booking.label.choose_date")}</label>
               <input
                 type="text"
                 id="b_prefdate"
                 name="Preferred_Date"
-                data-placeholder-en="mm/dd/yyyy"
-                data-placeholder-vn="dd/mm/yyyy"
-                placeholder="dd/mm/yyyy"
+                placeholder={t("booking.placeholder.date")}
                 maxlength="10"
                 autocomplete="off"
               />
@@ -142,28 +113,19 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
 
           <!-- RIGHT COLUMN: Optional Fields -->
           <div class="form-col">
-            <h3
-              class="form-subheading lang-text"
-              data-en="Optional Information"
-              data-vn="Thông tin thêm"
-            >
-              Thông tin thêm
+            <h3 class="form-subheading">
+              {t("booking.info_optional")}
             </h3>
 
             <!-- OPTIONAL: Email -->
             <div class="form-group box-input">
-              <label for="b_email">Email</label>
+              <label for="b_email">{t("booking.label.email")}</label>
               <input type="email" id="b_email" name="Email" />
             </div>
 
             <!-- OPTIONAL: Address -->
             <div class="form-group box-input">
-              <label
-                for="b_address"
-                class="lang-text"
-                data-en="Address"
-                data-vn="Địa chỉ">Địa chỉ</label
-              >
+              <label for="b_address">{t("booking.label.address")}</label>
               <input type="text" id="b_address" name="Address" />
             </div>
 
@@ -178,7 +140,7 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
                   checked
                 />
                 <span class="custom-radio"></span>
-                <span class="lang-text" data-en="Male" data-vn="Nam">Nam</span>
+                <span>{t("booking.label.male")}</span>
               </label>
               <label class="radio-label" for="b_gender_female">
                 <input
@@ -188,7 +150,7 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
                   value="female"
                 />
                 <span class="custom-radio"></span>
-                <span class="lang-text" data-en="Female" data-vn="Nữ">Nữ</span>
+                <span>{t("booking.label.female")}</span>
               </label>
             </div>
 
@@ -210,18 +172,10 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
             </div>
 
             <div class="terms-text text-text-brown/70 mt-5 leading-relaxed text-[0.75rem]">
-              <span
-                class="lang-text"
-                data-en="By clicking Submit, I acknowledge that I have read and agree to the "
-                data-vn="Bằng cách nhấn Đăng ký, tôi xác nhận đã đọc và đồng ý với các "
-                >Bằng cách nhấn Đăng ký, tôi xác nhận đã đọc và đồng ý với các
-              </span>
-              <a
-                href="#"
-                class="lang-text text-primary-green underline font-semibold"
-                data-en="Privacy Policy"
-                data-vn="Chính Sách Quyền Riêng Tư">Chính Sách Quyền Riêng Tư</a
-              >.
+              <span>{t("booking.terms_prefix")}</span>
+              <a href="#" class="text-primary-green underline font-semibold">
+                {t("booking.terms_link")}
+              </a>.
             </div>
           </div>
         </div>
@@ -233,11 +187,11 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
           </div>
           <button
             type="submit"
-            class="bg-mahogany-dark text-brass-gold px-[45px] py-[14px] text-[1.1rem] rounded-[30px] font-semibold cursor-pointer transition-all duration-300 hover:bg-primary-green hover:text-white lang-text"
+            class="bg-mahogany-dark text-brass-gold px-[45px] py-[14px] text-[1.1rem] rounded-[30px] font-semibold cursor-pointer transition-all duration-300 hover:bg-primary-green hover:text-white"
             id="submitBookingBtn"
-            data-en="Submit"
-            data-vn="Đăng Ký">Đăng Ký</button
           >
+            {t("booking.btn_submit")}
+          </button>
         </div>
       </form>
     </div>
@@ -625,16 +579,20 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
       bookingForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
+        const msgSending = bookingForm.getAttribute('data-msg-sending') || "Sending...";
+        const msgSuccess = bookingForm.getAttribute('data-msg-success') || "Success!";
+        const msgError = bookingForm.getAttribute('data-msg-error') || "Error.";
+
         // Change button text to indicate loading
         const originalText = submitBtn.innerText;
-        submitBtn.innerText = "Sending...";
+        submitBtn.innerText = msgSending;
         submitBtn.disabled = true;
 
         const formData = new FormData(bookingForm);
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
 
-        formResult.innerHTML = "Please wait...";
+        formResult.innerHTML = msgSending;
         formResult.style.color = "var(--text-brown, #523A20)";
 
         fetch("https://api.web3forms.com/submit", {
@@ -648,7 +606,7 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
           .then(async (response) => {
             let jsonResponse = await response.json();
             if (response.status == 200) {
-              formResult.innerHTML = "Booking request sent successfully!";
+              formResult.innerHTML = msgSuccess;
               formResult.style.color = "var(--primary-green, #526B48)";
               bookingForm.reset();
 
@@ -660,14 +618,13 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
               }, 3000);
             } else {
               console.log(response);
-              formResult.innerHTML =
-                jsonResponse.message || "An error occurred.";
+              formResult.innerHTML = jsonResponse.message || msgError;
               formResult.style.color = "var(--burnt-sienna)";
             }
           })
           .catch((error) => {
             console.log(error);
-            formResult.innerHTML = "Something went wrong!";
+            formResult.innerHTML = msgError;
             formResult.style.color = "var(--burnt-sienna)";
           })
           .then(function () {
@@ -681,7 +638,7 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
     // Smart Date Input Handler
     // =========================================
     function getLang() {
-      return localStorage.getItem("site_lang") || "vn";
+      return document.documentElement.lang.startsWith("en") ? "en" : "vi";
     }
 
     // Get max days for a given month (1-12) and year
@@ -715,13 +672,13 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
         let raw = this.value.replace(/[^\d]/g, "");
         if (raw.length > 8) raw = raw.substring(0, 8);
 
-        // Determine format: VN = dd/mm/yyyy, EN = mm/dd/yyyy
-        const isDMY = lang === "vn";
+        // Determine format: VI = dd/mm/yyyy, EN = mm/dd/yyyy
+        const isDMY = lang === "vi";
         let part1 = "",
           part2 = "",
           part3 = "";
 
-        // Part 1: first 2 digits (day for VN, month for EN)
+        // Part 1: first 2 digits (day for VI, month for EN)
         if (raw.length >= 1) {
           part1 = raw.substring(0, Math.min(raw.length, 2));
           if (raw.length >= 2) {
@@ -731,7 +688,7 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
           }
         }
 
-        // Part 2: digits 3-4 (month for VN, day for EN)
+        // Part 2: digits 3-4 (month for VI, day for EN)
         if (raw.length >= 3) {
           part2 = raw.substring(2, Math.min(raw.length, 4));
           if (raw.length >= 4) {
@@ -791,7 +748,6 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
     // Setup both date inputs
     setupDateInput("b_dob");
     setupDateInput("b_prefdate");
-
     // Auto-fill Preferred Date with today's date in current language format
     function fillTodayDate() {
       const input = document.getElementById("b_prefdate");
@@ -801,19 +757,13 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
       const dd = String(today.getDate()).padStart(2, "0");
       const mm = String(today.getMonth() + 1).padStart(2, "0");
       const yyyy = today.getFullYear();
-      if (lang === "vn") {
+      if (lang === "vi") {
         input.value = dd + "/" + mm + "/" + yyyy;
       } else {
         input.value = mm + "/" + dd + "/" + yyyy;
       }
     }
-    fillTodayDate();
 
-    // Re-fill preferred date when language changes
-    document.querySelectorAll(".lang-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        setTimeout(fillTodayDate, 100);
-      });
-    });
+    fillTodayDate();
   });
 </script>

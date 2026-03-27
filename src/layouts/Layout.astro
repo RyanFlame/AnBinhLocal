@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import GlobalLoader from "../components/GlobalLoader.astro";
 import BookingModal from "../components/BookingModal.astro";
 import SEO from "../components/SEO.astro";
+import { type Locale } from "../i18n/config";
 import "../styles/global.css";
 
 type Props = {
@@ -13,14 +14,14 @@ type Props = {
 };
 
 const { title, description, image } = Astro.props;
-const isEnglish = Astro.url.pathname.startsWith("/en");
-const lang = isEnglish ? "en" : "vi";
+const locale = (Astro.currentLocale || "vi") as Locale;
+const lang = locale;
 ---
 
 <!doctype html>
 <html lang={lang} class="scroll-smooth">
   <head>
-    <SEO title={title} description={description} image={image} />
+    <SEO title={title} description={description} image={image} locale={locale} />
 
     <!-- Google Tag Manager -->
     <script type="text/partytown">
@@ -147,7 +148,10 @@ const lang = isEnglish ? "en" : "vi";
       }
     </script>
   </head>
-  <body class="antialiased bg-warm-white text-text-main font-sans leading-relaxed overflow-x-clip">
+  <body
+    class="antialiased bg-warm-white text-text-main font-sans leading-relaxed overflow-x-clip"
+    data-locale={locale}
+  >
     <a href="#main-content" class="skip-to-content">
       Skip to content
     </a>
@@ -164,22 +168,22 @@ const lang = isEnglish ? "en" : "vi";
     
     <GlobalLoader />
 
-    <Header />
+    <Header locale={locale} />
 
     <main id="main-content" class="min-h-dvh">
       <slot />
     </main>
 
-    <Footer />
+    <Footer locale={locale} />
     
-    <BookingModal />
+    <BookingModal locale={locale} />
 
     <!-- GSAP for Animations -->
     <script
       is:inline
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
     ></script>
-    <script is:inline src="/script.js"></script>
+
 
 
   </body>

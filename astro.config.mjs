@@ -10,6 +10,14 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://yhctanbinh.com',
 
+  i18n: {
+    defaultLocale: 'vi',
+    locales: ['vi', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   integrations: [sitemap(),    partytown({
       config: {
         forward: ["dataLayer.push"],

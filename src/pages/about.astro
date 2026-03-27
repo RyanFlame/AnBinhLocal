@@ -2,6 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from 'astro:assets';
 import { getImageByPath } from '../utils/assets';
+import { useTranslations } from "../i18n/utils";
+import { type Locale } from "../i18n/config";
+
+const locale = (Astro.currentLocale || "vi") as Locale;
+const t = useTranslations(locale);
 
 // Use the elite bulk loader for clinical photography
 const asset_About_us2_webp = getImageByPath('About-us2.webp');
@@ -11,39 +16,28 @@ const asset_Med3_webp = getImageByPath('Med3.webp');
 const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
 ---
 
-<Layout title="About Us - An Binh">
+<Layout title={`${t("about.hero.title")} - An Binh`}>
   <!-- Main About Container -->
   <div class="about-page" data-header-theme="light">
     <!-- Hero Section -->
     <section class="about-hero">
       <div class="hero-header">
-        <h1
-          class="huge-title lang-text"
-          data-en="About Us"
-          data-vn="Về Chúng Tôi"
-        >
-          Về Chúng Tôi
+        <h1 class="huge-title">
+          {t("about.hero.title")}
         </h1>
         <div class="hero-right">
-          <p
-            class="hero-desc lang-text"
-            data-en="The most popular and trusted traditional medicine clinic in the city."
-            data-vn="Phòng khám y học cổ truyền uy tín và được tin tưởng nhất thành phố."
-          >
-            Phòng khám y học cổ truyền uy tín và được tin tưởng nhất thành phố.
+          <p class="hero-desc">
+            {t("about.hero.desc")}
           </p>
-          <a
-            href="/therapies"
-            class="explore-link lang-text"
-            data-en="EXPLORE TREATMENTS ↗"
-            data-vn="KHÁM PHÁ TRỊ LIỆU ↗">KHÁM PHÁ TRỊ LIỆU ↗</a
-          >
+          <a href={locale === "vi" ? "/therapies" : "/en/therapies"} class="explore-link">
+            {t("about.hero.link")}
+          </a>
         </div>
       </div>
 
       <figure class="hero-banner concave-corner">
         <!-- Using a wide landscape image -->
-        <Image src={asset_About_us2_webp} alt="An Binh Clinic Landscape" / />
+        <Image src={asset_About_us2_webp} alt="An Binh Clinic Landscape" />
       </figure>
     </section>
 
@@ -52,44 +46,28 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
       <div class="bento-grid-about">
         <!-- Left Image -->
         <figure class="bento-col img-left concave-corner">
-          <Image src={asset_Chinese_med1_webp} alt="Herbs preparation" / />
+          <Image src={asset_Chinese_med1_webp} alt="Herbs preparation" />
         </figure>
 
         <!-- Center Content -->
         <div class="bento-col center-content">
-          <span
-            class="label lang-text"
-            data-en="☆ ABOUT US"
-            data-vn="☆ VỀ CHÚNG TÔI">☆ VỀ CHÚNG TÔI</span
-          >
-          <h2
-            class="section-title lang-text"
-            data-en="The Highest Level of Comfort, Healing and Service"
-            data-vn="Đỉnh Cao Của Chăm Sóc, Chữa Lành Và Phục Vụ"
-          >
-            Đỉnh Cao Của Chăm Sóc, Chữa Lành Và Phục Vụ
+          <span class="label">
+            {t("about.bento.label")}
+          </span>
+          <h2 class="section-title">
+            {t("about.bento.title")}
           </h2>
-          <p
-            class="section-desc lang-text"
-            data-en="At An Binh Clinic, we combine premium traditional medicine with attention to detail. Whether it's a private therapy session tailored just for you, or a relaxing herbal remedy routine — we take care of everything, so you can enjoy every moment."
-            data-vn="Tại Phòng khám An Bình, chúng tôi kết hợp y học cổ truyền cao cấp với sự tỉ mỉ đến từng chi tiết. Cho dù đó là một liệu trình châm cứu được kê riêng cho bạn, hay một liệu pháp thảo dược thư giãn — chúng tôi lo mọi thứ, để bạn có thể hoàn toàn tận hưởng."
-          >
-            Tại Phòng khám An Bình, chúng tôi kết hợp y học cổ truyền cao cấp
-            với sự tỉ mỉ đến từng chi tiết. Cho dù đó là một liệu trình châm cứu
-            được kê riêng cho bạn, hay một liệu pháp thảo dược thư giãn — chúng
-            tôi lo mọi thứ, để bạn có thể hoàn toàn tận hưởng.
+          <p class="section-desc">
+            {t("about.bento.desc")}
           </p>
-          <a
-            href="/ingredients"
-            class="text-link lang-text"
-            data-en="MORE ABOUT US ↗"
-            data-vn="TÌM HIỂU THÊM ↗">TÌM HIỂU THÊM ↗</a
-          >
+          <a href={locale === "vi" ? "/ingredients" : "/en/ingredients"} class="text-link">
+            {t("about.bento.link")}
+          </a>
         </div>
 
         <!-- Right Taller Image -->
         <figure class="bento-col img-right concave-corner">
-          <Image src={asset_Dad_webp} alt="Traditional Medicine" / />
+          <Image src={asset_Dad_webp} alt="Traditional Medicine" />
         </figure>
       </div>
     </section>
@@ -100,30 +78,18 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
     <section class="tab-panel-section">
       <!-- Tab switcher row -->
       <div class="tab-switcher">
-        <button
-          class="tab-pill active lang-text"
-          data-tab="why-choose-us"
-          data-en="✦ Why Choose Us"
-          data-vn="✦ Tại Sao Chọn Chúng Tôi">✦ Tại Sao Chọn Chúng Tôi</button
-        >
-        <button
-          class="tab-pill lang-text"
-          data-tab="journey"
-          data-en="Journey"
-          data-vn="Hành Trình">Hành Trình</button
-        >
-        <button
-          class="tab-pill lang-text"
-          data-tab="vision"
-          data-en="Vision"
-          data-vn="Tầm Nhìn">Tầm Nhìn</button
-        >
-        <button
-          class="tab-pill lang-text"
-          data-tab="mission"
-          data-en="Mission"
-          data-vn="Sứ Mệnh">Sứ Mệnh</button
-        >
+        <button class="tab-pill active" data-tab="why-choose-us">
+          {t("about.tabs.why.pill")}
+        </button>
+        <button class="tab-pill" data-tab="journey">
+          {t("about.tabs.journey.pill")}
+        </button>
+        <button class="tab-pill" data-tab="vision">
+          {t("about.tabs.vision.pill")}
+        </button>
+        <button class="tab-pill" data-tab="mission">
+          {t("about.tabs.mission.pill")}
+        </button>
       </div>
 
       <!-- Tab content panels -->
@@ -131,90 +97,30 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
         <!-- WHY CHOOSE US panel -->
         <div class="tab-panel active" id="tab-why-choose-us">
           <div class="tab-meta">
-            <span
-              class="tab-meta-label lang-text"
-              data-en="✦ Why Choose Us"
-              data-vn="✦ Tại Sao Chọn Chúng Tôi"
-            >
-              ✦ Tại Sao Chọn Chúng Tôi
+            <span class="tab-meta-label">
+              {t("about.tabs.why.label")}
             </span>
           </div>
           <div class="tab-body">
-            <h2
-              class="tab-heading lang-text"
-              data-en="Rooted in Tradition, Perfected for Modern Healing."
-              data-vn="Bắt nguồn từ truyền thống, hoàn thiện cho sự chữa lành hiện đại."
-            >
-              Bắt nguồn từ truyền thống, hoàn thiện cho sự chữa lành hiện đại.
+            <h2 class="tab-heading">
+              {t("about.tabs.why.title")}
             </h2>
             <div class="tab-features-grid">
               <div class="feature-item">
-                <h4
-                  class="lang-text"
-                  data-en="Master Herbalists"
-                  data-vn="Đội Ngũ Lương Y"
-                >
-                  Đội Ngũ Lương Y
-                </h4>
-                <p
-                  class="lang-text"
-                  data-en="Decades of classical training — every diagnosis is rooted in time-proven protocols."
-                  data-vn="Hàng chục năm đào tạo cổ điển — mỗi chẩn đoán đều bắt nguồn từ phác đồ đã được kiểm chứng."
-                >
-                  Hàng chục năm đào tạo cổ điển — mỗi chẩn đoán đều bắt nguồn từ
-                  phác đồ đã được kiểm chứng.
-                </p>
+                <h4>{t("about.tabs.why.f1.title")}</h4>
+                <p>{t("about.tabs.why.f1.desc")}</p>
               </div>
               <div class="feature-item">
-                <h4
-                  class="lang-text"
-                  data-en="Personalised Care"
-                  data-vn="Chăm Sóc Cá Nhân Hoá"
-                >
-                  Chăm Sóc Cá Nhân Hoá
-                </h4>
-                <p
-                  class="lang-text"
-                  data-en="Every plan is built for you — targeting your body's unique needs."
-                  data-vn="Mỗi phác đồ được xây dựng cho riêng bạn — nhắm vào nhu cầu riêng của cơ thể."
-                >
-                  Mỗi phác đồ được xây dựng cho riêng bạn — nhắm vào nhu cầu
-                  riêng của cơ thể.
-                </p>
+                <h4>{t("about.tabs.why.f2.title")}</h4>
+                <p>{t("about.tabs.why.f2.desc")}</p>
               </div>
               <div class="feature-item">
-                <h4
-                  class="lang-text"
-                  data-en="Premium Ingredients"
-                  data-vn="Dược Liệu Thượng Hạng"
-                >
-                  Dược Liệu Thượng Hạng
-                </h4>
-                <p
-                  class="lang-text"
-                  data-en="80+ varieties sourced from certified highland farms, prepared using traditional methods."
-                  data-vn="Hơn 80 loại dược liệu từ vườn cao nguyên, sơ chế theo phương pháp truyền thống."
-                >
-                  Hơn 80 loại dược liệu từ vườn cao nguyên, sơ chế theo phương
-                  pháp truyền thống.
-                </p>
+                <h4>{t("about.tabs.why.f3.title")}</h4>
+                <p>{t("about.tabs.why.f3.desc")}</p>
               </div>
               <div class="feature-item">
-                <h4
-                  class="lang-text"
-                  data-en="Holistic Approach"
-                  data-vn="Tiếp Cận Toàn Diện"
-                >
-                  Tiếp Cận Toàn Diện
-                </h4>
-                <p
-                  class="lang-text"
-                  data-en="We treat the root, not just the symptom — balancing body, mind, and energy."
-                  data-vn="Chúng tôi điều trị tận gốc, không chỉ triệu chứng — cân bằng cơ thể, tâm trí và năng lượng."
-                >
-                  Chúng tôi điều trị tận gốc, không chỉ triệu chứng — cân bằng
-                  cơ thể, tâm trí và năng lượng.
-                </p>
+                <h4>{t("about.tabs.why.f4.title")}</h4>
+                <p>{t("about.tabs.why.f4.desc")}</p>
               </div>
             </div>
           </div>
@@ -223,32 +129,16 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
         <!-- JOURNEY panel -->
         <div class="tab-panel" id="tab-journey">
           <div class="tab-meta">
-            <span
-              class="tab-meta-label lang-text"
-              data-en="● Our Journey"
-              data-vn="● Hành trình của chúng tôi"
-            >
-              ● Hành trình của chúng tôi
+            <span class="tab-meta-label">
+              {t("about.tabs.journey.label")}
             </span>
           </div>
           <div class="tab-body">
-            <h2
-              class="tab-heading lang-text"
-              data-en="Over 30 years of healing, guided by ancestral wisdom and modern care."
-              data-vn="Hơn 30 năm chữa lành, được dẫn dắt bởi trí tuệ tổ tiên và sự chăm sóc hiện đại."
-            >
-              Hơn 30 năm chữa lành, được dẫn dắt bởi trí tuệ tổ tiên và sự chăm
-              sóc hiện đại.
+            <h2 class="tab-heading">
+              {t("about.tabs.journey.title")}
             </h2>
-            <p
-              class="tab-desc lang-text"
-              data-en="An Binh was founded in the early 1990s by Dr. Nguyen Phuoc Binh, a renowned physician trained in classical Eastern medicine. What began as a modest family clinic grew — generation by generation — into one of the city's most trusted institutions for holistic care."
-              data-vn="An Bình được thành lập vào đầu những năm 1990 bởi Lương y Nguyễn Phước Bình — một thầy thuốc được đào tạo chính quy theo y học cổ truyền phương Đông. Từ một phòng khám gia đình nhỏ, qua từng thế hệ, nơi đây đã trở thành một trong những cơ sở chăm sóc sức khỏe toàn diện được tin tưởng nhất thành phố."
-            >
-              An Bình được thành lập vào đầu những năm 1990 bởi Lương y Nguyễn
-              Phước Bình. Từ một phòng khám gia đình nhỏ, qua từng thế hệ, nơi
-              đây đã trở thành một trong những cơ sở chăm sóc sức khỏe toàn diện
-              được tin tưởng nhất thành phố.
+            <p class="tab-desc">
+              {t("about.tabs.journey.desc")}
             </p>
           </div>
         </div>
@@ -256,31 +146,16 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
         <!-- VISION panel -->
         <div class="tab-panel" id="tab-vision">
           <div class="tab-meta">
-            <span
-              class="tab-meta-label lang-text"
-              data-en="● Our vision"
-              data-vn="● Tầm nhìn của chúng tôi"
-            >
-              ● Tầm nhìn của chúng tôi
+            <span class="tab-meta-label">
+              {t("about.tabs.vision.label")}
             </span>
           </div>
           <div class="tab-body">
-            <h2
-              class="tab-heading lang-text"
-              data-en="A future where traditional medicine is accessible to every family, at every stage of life."
-              data-vn="Một tương lai mà y học cổ truyền trở nên dễ tiếp cận với mọi gia đình, ở mọi giai đoạn cuộc đời."
-            >
-              Một tương lai mà y học cổ truyền trở nên dễ tiếp cận với mọi gia
-              đình, ở mọi giai đoạn cuộc đời.
+            <h2 class="tab-heading">
+              {t("about.tabs.vision.title")}
             </h2>
-            <p
-              class="tab-desc lang-text"
-              data-en="We envision An Binh as more than a clinic — a living bridge between ancient healing knowledge and the needs of modern life. By combining classical diagnostics with contemporary wellness practices, we strive to make holistic care not just effective, but truly welcoming."
-              data-vn="Chúng tôi hình dung An Bình không chỉ là một phòng khám — mà là cầu nối sống động giữa kho tàng y học cổ và những nhu cầu của cuộc sống hiện đại. Bằng cách kết hợp chẩn đoán cổ điển với các thực hành sức khỏe đương đại, chúng tôi mong muốn mỗi người đều tìm được sự chữa lành thật sự."
-            >
-              Chúng tôi hình dung An Bình là cầu nối sống động giữa kho tàng y
-              học cổ và những nhu cầu của cuộc sống hiện đại — mang lại sự chữa
-              lành thật sự cho mọi người.
+            <p class="tab-desc">
+              {t("about.tabs.vision.desc")}
             </p>
           </div>
         </div>
@@ -288,31 +163,16 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
         <!-- MISSION panel -->
         <div class="tab-panel" id="tab-mission">
           <div class="tab-meta">
-            <span
-              class="tab-meta-label lang-text"
-              data-en="● Our mission"
-              data-vn="● Sứ mệnh của chúng tôi"
-            >
-              ● Sứ mệnh của chúng tôi
+            <span class="tab-meta-label">
+              {t("about.tabs.mission.label")}
             </span>
           </div>
           <div class="tab-body">
-            <h2
-              class="tab-heading lang-text"
-              data-en="To honour the wisdom of traditional medicine while serving each patient with empathy, precision, and care."
-              data-vn="Tôn vinh trí tuệ y học cổ truyền, phục vụ mỗi bệnh nhân bằng sự đồng cảm, chính xác và tận tâm."
-            >
-              Tôn vinh trí tuệ y học cổ truyền, phục vụ mỗi bệnh nhân bằng sự
-              đồng cảm, chính xác và tận tâm.
+            <h2 class="tab-heading">
+              {t("about.tabs.mission.title")}
             </h2>
-            <p
-              class="tab-desc lang-text"
-              data-en="Our mission is grounded in three principles: personalised care that sees the whole person, ethical sourcing of every herb and remedy, and a deep commitment to education — sharing the knowledge of Eastern medicine with each patient and the wider community."
-              data-vn="Sứ mệnh của chúng tôi dựa trên ba nguyên tắc: chăm sóc cá nhân hoá nhìn nhận toàn diện con người, tìm nguồn dược liệu có đạo đức, và cam kết chia sẻ kiến thức y học phương Đông đến từng bệnh nhân và cộng đồng."
-            >
-              Sứ mệnh của chúng tôi dựa trên ba nguyên tắc: chăm sóc cá nhân
-              hoá, tìm nguồn dược liệu có đạo đức, và cam kết chia sẻ kiến thức
-              y học phương Đông đến từng bệnh nhân và cộng đồng.
+            <p class="tab-desc">
+              {t("about.tabs.mission.desc")}
             </p>
           </div>
         </div>
@@ -322,68 +182,38 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
     <!-- Services Offer Section -->
     <section class="services-offer">
       <div class="offer-header">
-        <span
-          class="label heart-icon lang-text"
-          data-en="♥ SERVICES"
-          data-vn="♥ DỊCH VỤ">♥ DỊCH VỤ</span
-        >
-        <h3
-          class="section-title lang-text"
-          data-en="What we offer?"
-          data-vn="Chúng tôi cung cấp gì?"
-        >
-          Chúng tôi cung cấp gì?
+        <span class="label heart-icon">
+          {t("about.services.label")}
+        </span>
+        <h3 class="section-title">
+          {t("about.services.title")}
         </h3>
-        <p
-          class="centered-desc lang-text"
-          data-en="From a private diagnosis to a scheduled multi-month healing route to an accessible wellness check — we've got the perfect option for you."
-          data-vn="Từ chẩn đoán riêng tư đến lộ trình phục hồi nhiều tháng hay kiểm tra sức khỏe cơ bản — chúng tôi có giải pháp hoàn hảo cho bạn."
-        >
-          Từ chẩn đoán riêng tư đến lộ trình phục hồi nhiều tháng hay kiểm tra
-          sức khỏe cơ bản — chúng tôi có giải pháp hoàn hảo cho bạn.
+        <p class="centered-desc">
+          {t("about.services.desc")}
         </p>
       </div>
 
       <div class="services-grid">
         <!-- Left Menu -->
         <div class="services-nav">
-          <button
-            class="service-btn active lang-text"
-            data-service="private"
-            data-en="Private Therapies"
-            data-vn="Trị Liệu Cá Nhân">Trị Liệu Cá Nhân</button
-          >
-          <button
-            class="service-btn lang-text"
-            data-service="scheduled"
-            data-en="Scheduled Treatments"
-            data-vn="Điều Trị Theo Liệu Trình">Điều Trị Theo Liệu Trình</button
-          >
-          <button
-            class="service-btn lang-text"
-            data-service="herbal"
-            data-en="Herbal Blends"
-            data-vn="Thảo Dược Bốc Thuốc">Thảo Dược Bốc Thuốc</button
-          >
-          <button
-            class="service-btn lang-text"
-            data-service="acupuncture"
-            data-en="Acupuncture - Acupressure"
-            data-vn="Trâm cứu - Bấm huyệt">Trâm cứu - Bấm huyệt</button
-          >
-          <button
-            class="service-btn lang-text"
-            data-service="nutrition"
-            data-en="Nutrition - Physical Therapy"
-            data-vn="Dinh dưỡng - Vật lý Trị liệu"
-            >Dinh dưỡng - Vật lý Trị liệu</button
-          >
-          <button
-            class="service-btn lang-text"
-            data-service="community"
-            data-en="Community Support"
-            data-vn="Hỗ Trợ Cộng Đồng">Hỗ Trợ Cộng Đồng</button
-          >
+          <button class="service-btn active" data-service="private">
+            {t("about.services.btn.private")}
+          </button>
+          <button class="service-btn" data-service="scheduled">
+            {t("about.services.btn.scheduled")}
+          </button>
+          <button class="service-btn" data-service="herbal">
+            {t("about.services.btn.herbal")}
+          </button>
+          <button class="service-btn" data-service="acupuncture">
+            {t("about.services.btn.acupuncture")}
+          </button>
+          <button class="service-btn" data-service="nutrition">
+            {t("about.services.btn.nutrition")}
+          </button>
+          <button class="service-btn" data-service="community">
+            {t("about.services.btn.community")}
+          </button>
         </div>
 
         <!-- Right content area: image + detail stacked per service -->
@@ -391,283 +221,138 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
           <!-- PRIVATE THERAPIES -->
           <div class="service-panel active" id="svc-private">
             <figure class="service-image concave-corner">
-              <Image
-                src={asset_Personal_Treatment_webp}
-                alt="Private Therapies"
-              / />
+              <Image src={asset_Personal_Treatment_webp} alt="Private Therapies" />
             </figure>
             <div class="service-detail">
-              <span
-                class="label icon-star lang-text"
-                data-en="⚚ AS YOU WISH"
-                data-vn="⚚ NHƯ Ý NGUYỆN">⚚ NHƯ Ý NGUYỆN</span
-              >
-              <h4
-                class="detail-title lang-text"
-                data-en="Tailored <em>Private Therapies</em><br>and treatments"
-                data-vn="<em>Chăm sóc cá nhân</em><br>và điều trị chuyên biệt"
-              >
-                <em>Chăm sóc cá nhân</em><br />và điều trị chuyên biệt
-              </h4>
-              <p
-                class="detail-desc lang-text"
-                data-en="Enjoy a personalized healing journey in our VIP relaxing rooms. These sessions offer complete flexibility — targeting exactly your pain points or energy blocks at your own pace."
-                data-vn="Tận hưởng hành trình phục hồi cá nhân trong phòng thư giãn VIP của chúng tôi. Các buổi điều trị mang lại sự linh hoạt hoàn toàn — nhắm chính xác vào điểm đau theo nhịp độ của riêng bạn."
-              >
-                Tận hưởng hành trình phục hồi cá nhân trong phòng thư giãn VIP
-                của chúng tôi. Các buổi điều trị mang lại sự linh hoạt hoàn toàn
-                — nhắm chính xác vào điểm đau theo nhịp độ của riêng bạn.
+              <span class="label icon-star">
+                {t("about.services.panel.private.label")}
+              </span>
+              <h4 class="detail-title" set:html={t("about.services.panel.private.title")} />
+              <p class="detail-desc">
+                {t("about.services.panel.private.desc")}
               </p>
               <div class="highlight-callout">
                 <span class="highlight-icon">❁</span>
-                <p
-                  class="lang-text"
-                  data-en="Perfect for those seeking a<br>custom wellness experience."
-                  data-vn="Hoàn hảo cho những ai tìm kiếm<br>trải nghiệm phục hồi tuỳ chỉnh."
-                >
-                  Hoàn hảo cho những ai tìm kiếm<br />trải nghiệm phục hồi tuỳ
-                  chỉnh.
-                </p>
+                <p set:html={t("about.services.panel.private.highlight")} />
               </div>
-              <a
-                href="#booking"
-                class="text-link booking-feature lang-text"
-                data-en="EXPLORE TREATMENTS ↗"
-                data-vn="TÌM HIỂU KHÓA TRỊ LIỆU ↗">TÌM HIỂU KHÓA TRỊ LIỆU ↗</a
-              >
+              <a href="#booking" class="text-link booking-feature">
+                {t("about.services.panel.private.link")}
+              </a>
             </div>
           </div>
 
           <!-- SCHEDULED TREATMENTS -->
           <div class="service-panel" id="svc-scheduled">
             <figure class="service-image concave-corner">
-              <Image src={asset_Chinese_med1_webp} alt="Scheduled Treatments" / />
+              <Image src={asset_Chinese_med1_webp} alt="Scheduled Treatments" />
             </figure>
             <div class="service-detail">
-              <span
-                class="label icon-star lang-text"
-                data-en="⚚ STRUCTURED CARE"
-                data-vn="⚚ CHĂM SÓC CÓ LỘ TRÌNH">⚚ CHĂM SÓC CÓ LỘ TRÌNH</span
-              >
-              <h4
-                class="detail-title lang-text"
-                data-en="<em>Structured</em><br>healing programmes"
-                data-vn="<em>Lộ trình</em><br>phục hồi có cấu trúc"
-              >
-                <em>Lộ trình</em><br />phục hồi có cấu trúc
-              </h4>
-              <p
-                class="detail-desc lang-text"
-                data-en="Our multi-session treatment plans are designed for conditions that require sustained, progressive care. Each follow-up builds on the last — measurable improvement, every step."
-                data-vn="Các chương trình điều trị nhiều buổi của chúng tôi được thiết kế cho các tình trạng cần chăm sóc liên tục và tiến triển. Mỗi lần theo dõi kế thừa kết quả trước — cải thiện rõ rệt từng bước."
-              >
-                Các chương trình điều trị nhiều buổi được thiết kế cho tình
-                trạng cần chăm sóc liên tục. Mỗi lần theo dõi kế thừa kết quả
-                trước — cải thiện rõ rệt từng bước.
+              <span class="label icon-star">
+                {t("about.services.panel.scheduled.label")}
+              </span>
+              <h4 class="detail-title" set:html={t("about.services.panel.scheduled.title")} />
+              <p class="detail-desc">
+                {t("about.services.panel.scheduled.desc")}
               </p>
               <div class="highlight-callout">
                 <span class="highlight-icon">❁</span>
-                <p
-                  class="lang-text"
-                  data-en="Ideal for chronic conditions<br>and long-term recovery."
-                  data-vn="Lý tưởng cho các bệnh mãn tính<br>và phục hồi dài hạn."
-                >
-                  Lý tưởng cho các bệnh mãn tính<br />và phục hồi dài hạn.
-                </p>
+                <p set:html={t("about.services.panel.scheduled.highlight")} />
               </div>
-              <a
-                href="#booking"
-                class="text-link booking-feature lang-text"
-                data-en="VIEW TREATMENT PLANS ↗"
-                data-vn="XEM LỘ TRÌNH ĐIỀU TRỊ ↗">XEM LỘ TRÌNH ĐIỀU TRỊ ↗</a
-              >
+              <a href="#booking" class="text-link booking-feature">
+                {t("about.services.panel.scheduled.link")}
+              </a>
             </div>
           </div>
 
           <!-- HERBAL BLENDS -->
           <div class="service-panel" id="svc-herbal">
             <figure class="service-image concave-corner">
-              <Image src={asset_Med3_webp} alt="Herbal Blends" / />
+              <Image src={asset_Med3_webp} alt="Herbal Blends" />
             </figure>
             <div class="service-detail">
-              <span
-                class="label icon-star lang-text"
-                data-en="⚚ FROM THE SOURCE"
-                data-vn="⚚ THẲNG TỪ NGUỒN GỐC">⚚ THẲNG TỪ NGUỒN GỐC</span
-              >
-              <h4
-                class="detail-title lang-text"
-                data-en="<em>Handcrafted</em><br>herbal prescriptions"
-                data-vn="<em>Bài thuốc thảo dược</em><br>thủ công tinh tuyển"
-              >
-                <em>Bài thuốc thảo dược</em><br />thủ công tinh tuyển
-              </h4>
-              <p
-                class="detail-desc lang-text"
-                data-en="Every herbal blend is prescribed and prepared on-site by our herbalists using over 80 premium varieties sourced from certified highland farms — dried, processed, and dispensed with care."
-                data-vn="Mỗi thang thuốc được kê và bào chế tại chỗ bởi các lương y của chúng tôi, sử dụng hơn 80 loại dược liệu từ vườn cao nguyên — được sấy, chế biến và cấp phát một cách tỉ mỉ."
-              >
-                Mỗi thang thuốc được kê và bào chế tại chỗ từ hơn 80 loại dược
-                liệu cao nguyên — được sấy, chế biến và cấp phát một cách tỉ mỉ.
+              <span class="label icon-star">
+                {t("about.services.panel.herbal.label")}
+              </span>
+              <h4 class="detail-title" set:html={t("about.services.panel.herbal.title")} />
+              <p class="detail-desc">
+                {t("about.services.panel.herbal.desc")}
               </p>
               <div class="highlight-callout">
                 <span class="highlight-icon">❁</span>
-                <p
-                  class="lang-text"
-                  data-en="80+ premium herb varieties,<br>sourced and prepared in-house."
-                  data-vn="Hơn 80 loại thảo dược thượng hạng,<br>nguồn gốc và bào chế tại chỗ."
-                >
-                  Hơn 80 loại thảo dược thượng hạng,<br />nguồn gốc và bào chế
-                  tại chỗ.
-                </p>
+                <p set:html={t("about.services.panel.herbal.highlight")} />
               </div>
-              <a
-                href="/ingredients"
-                class="text-link booking-feature lang-text"
-                data-en="SEE OUR INGREDIENTS ↗"
-                data-vn="XEM DƯỢC LIỆU CỦA CHÚNG TÔI ↗"
-                >XEM DƯỢC LIỆU CỦA CHÚNG TÔI ↗</a
-              >
+              <a href={locale === "vi" ? "/ingredients" : "/en/ingredients"} class="text-link">
+                {t("about.services.panel.herbal.link")}
+              </a>
             </div>
           </div>
 
           <!-- ACUPUNCTURE -->
           <div class="service-panel" id="svc-acupuncture">
             <figure class="service-image concave-corner">
-              <Image src={asset_About_us2_webp} alt="Acupuncture" / />
+              <Image src={asset_About_us2_webp} alt="Acupuncture" />
             </figure>
             <div class="service-detail">
-              <span
-                class="label icon-star lang-text"
-                data-en="⚚ ANCIENT PRECISION"
-                data-vn="⚚ SỰ CHÍNH XÁC CỔ XƯA">⚚ SỰ CHÍNH XÁC CỔ XƯA</span
-              >
-              <h4
-                class="detail-title lang-text"
-                data-en="<em>Acupuncture</em><br>and acupressure therapy"
-                data-vn="<em>Châm cứu</em><br>và bấm huyệt trị liệu"
-              >
-                <em>Châm cứu</em><br />và bấm huyệt trị liệu
-              </h4>
-              <p
-                class="detail-desc lang-text"
-                data-en="Practiced for over 2,000 years, our acupuncture and acupressure treatments restore the body's natural energy flow — relieving pain, reducing stress, and supporting deep healing from within."
-                data-vn="Được thực hành hơn 2.000 năm, châm cứu và bấm huyệt của chúng tôi giúp khôi phục dòng chảy năng lượng tự nhiên — giảm đau, giảm căng thẳng và hỗ trợ chữa lành sâu từ bên trong."
-              >
-                Được thực hành hơn 2.000 năm, châm cứu và bấm huyệt khôi phục
-                dòng năng lượng tự nhiên — giảm đau, giảm căng thẳng và hỗ trợ
-                chữa lành từ bên trong.
+              <span class="label icon-star">
+                {t("about.services.panel.acupuncture.label")}
+              </span>
+              <h4 class="detail-title" set:html={t("about.services.panel.acupuncture.title")} />
+              <p class="detail-desc">
+                {t("about.services.panel.acupuncture.desc")}
               </p>
               <div class="highlight-callout">
                 <span class="highlight-icon">❁</span>
-                <p
-                  class="lang-text"
-                  data-en="Trusted by millions across<br>Asia for over two millennia."
-                  data-vn="Được hàng triệu người tin dùng<br>trên khắp châu Á hơn hai thiên niên kỷ."
-                >
-                  Được hàng triệu người tin dùng<br />trên khắp châu Á hơn hai
-                  thiên niên kỷ.
-                </p>
+                <p set:html={t("about.services.panel.acupuncture.highlight")} />
               </div>
-              <a
-                href="#booking"
-                class="text-link booking-feature lang-text"
-                data-en="BOOK A SESSION ↗"
-                data-vn="ĐẶT LỊCH NGAY ↗">ĐẶT LỊCH NGAY ↗</a
-              >
+              <a href="#booking" class="text-link booking-feature">
+                {t("about.services.panel.acupuncture.link")}
+              </a>
             </div>
           </div>
 
           <!-- NUTRITION -->
           <div class="service-panel" id="svc-nutrition">
             <figure class="service-image concave-corner">
-              <Image src={asset_Dad_webp} alt="Nutrition and Physical Therapy" / />
+              <Image src={asset_Dad_webp} alt="Nutrition and Physical Therapy" />
             </figure>
             <div class="service-detail">
-              <span
-                class="label icon-star lang-text"
-                data-en="⚚ WHOLE-BODY CARE"
-                data-vn="⚚ CHĂM SÓC TOÀN THÂN">⚚ CHĂM SÓC TOÀN THÂN</span
-              >
-              <h4
-                class="detail-title lang-text"
-                data-en="<em>Nutrition</em><br>and physical therapy"
-                data-vn="<em>Dinh dưỡng</em><br>và vật lý trị liệu"
-              >
-                <em>Dinh dưỡng</em><br />và vật lý trị liệu
-              </h4>
-              <p
-                class="detail-desc lang-text"
-                data-en="We take a whole-body approach — combining Eastern dietary therapy with targeted physical rehabilitation. Our specialists guide you through corrective exercises and restorative nutrition plans."
-                data-vn="Chúng tôi áp dụng phương pháp toàn thân — kết hợp liệu pháp ăn uống Đông y với phục hồi chức năng có mục tiêu. Các chuyên gia hướng dẫn bạn các bài tập phục hồi và kế hoạch dinh dưỡng tái tạo."
-              >
-                Phương pháp toàn thân — kết hợp liệu pháp dinh dưỡng Đông y với
-                phục hồi chức năng. Chuyên gia hướng dẫn bạn các bài tập và kế
-                hoạch dinh dưỡng tái tạo sức khoẻ.
+              <span class="label icon-star">
+                {t("about.services.panel.nutrition.label")}
+              </span>
+              <h4 class="detail-title" set:html={t("about.services.panel.nutrition.title")} />
+              <p class="detail-desc">
+                {t("about.services.panel.nutrition.desc")}
               </p>
               <div class="highlight-callout">
                 <span class="highlight-icon">❁</span>
-                <p
-                  class="lang-text"
-                  data-en="Combining Eastern diet theory<br>with modern physiotherapy."
-                  data-vn="Kết hợp lý thuyết ăn uống Đông y<br>với vật lý trị liệu hiện đại."
-                >
-                  Kết hợp lý thuyết ăn uống Đông y<br />với vật lý trị liệu hiện
-                  đại.
-                </p>
+                <p set:html={t("about.services.panel.nutrition.highlight")} />
               </div>
-              <a
-                href="#booking"
-                class="text-link booking-feature lang-text"
-                data-en="LEARN MORE ↗"
-                data-vn="TÌM HIỂU THÊM ↗">TÌM HIỂU THÊM ↗</a
-              >
+              <a href="#booking" class="text-link booking-feature">
+                {t("about.services.panel.nutrition.link")}
+              </a>
             </div>
           </div>
 
           <!-- COMMUNITY SUPPORT -->
           <div class="service-panel" id="svc-community">
             <figure class="service-image concave-corner">
-              <Image src={asset_Chinese_med1_webp} alt="Community Support" / />
+              <Image src={asset_Chinese_med1_webp} alt="Community Support" />
             </figure>
             <div class="service-detail">
-              <span
-                class="label icon-star lang-text"
-                data-en="⚚ TOGETHER WE HEAL"
-                data-vn="⚚ CÙNG NHAU CHỮA LÀNH">⚚ CÙNG NHAU CHỮA LÀNH</span
-              >
-              <h4
-                class="detail-title lang-text"
-                data-en="<em>Community</em><br>health support"
-                data-vn="<em>Hỗ trợ sức khoẻ</em><br>cộng đồng"
-              >
-                <em>Hỗ trợ sức khoẻ</em><br />cộng đồng
-              </h4>
-              <p
-                class="detail-desc lang-text"
-                data-en="We believe healing should be accessible to all. Through subsidised consultations, community workshops, and outreach programmes, we bring traditional medicine care to those who need it most."
-                data-vn="Chúng tôi tin rằng việc chữa lành nên được tiếp cận bởi tất cả mọi người. Thông qua các buổi tư vấn trợ giá, hội thảo cộng đồng và chương trình tiếp cận, chúng tôi đưa y học cổ truyền đến những người cần nhất."
-              >
-                Chữa lành nên được tiếp cận bởi tất cả mọi người. Qua các buổi
-                tư vấn trợ giá và hội thảo cộng đồng, chúng tôi đưa y học cổ
-                truyền đến những người cần nhất.
+              <span class="label icon-star">
+                {t("about.services.panel.community.label")}
+              </span>
+              <h4 class="detail-title" set:html={t("about.services.panel.community.title")} />
+              <p class="detail-desc">
+                {t("about.services.panel.community.desc")}
               </p>
               <div class="highlight-callout">
                 <span class="highlight-icon">❁</span>
-                <p
-                  class="lang-text"
-                  data-en="Free workshops every month<br>for the local community."
-                  data-vn="Hội thảo miễn phí mỗi tháng<br>cho cộng đồng địa phương."
-                >
-                  Hội thảo miễn phí mỗi tháng<br />cho cộng đồng địa phương.
-                </p>
+                <p set:html={t("about.services.panel.community.highlight")} />
               </div>
-              <a
-                href="#booking"
-                class="text-link booking-feature lang-text"
-                data-en="JOIN THE COMMUNITY ↗"
-                data-vn="THAM GIA CỘNG ĐỒNG ↗">THAM GIA CỘNG ĐỒNG ↗</a
-              >
+              <a href="#booking" class="text-link booking-feature">
+                {t("about.services.panel.community.link")}
+              </a>
             </div>
           </div>
         </div>
@@ -678,29 +363,17 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
   <!-- CTA Section -->
   <section class="about-cta">
     <div class="cta-overlay"></div>
-    <Image src={asset_About_us2_webp} alt="An Binh Clinic" class="cta-bg" / />
+    <Image src={asset_About_us2_webp} alt="An Binh Clinic" class="cta-bg" />
     <div class="cta-content">
-      <h2
-        class="cta-title lang-text"
-        data-en="Ready to Begin Your Healing Journey?"
-        data-vn="Sẵn Sàng Bắt Đầu Hành Trình Chữa Lành?"
-      >
-        Sẵn Sàng Bắt Đầu Hành Trình Chữa Lành?
+      <h2 class="cta-title">
+        {t("about.cta.title")}
       </h2>
-      <p
-        class="cta-desc lang-text"
-        data-en="Experience the perfect balance of traditional wisdom and modern care at An Binh Clinic."
-        data-vn="Trải nghiệm sự cân bằng hoàn hảo giữa trí tuệ truyền thống và sự chăm sóc hiện đại tại Phòng khám An Bình."
-      >
-        Trải nghiệm sự cân bằng hoàn hảo giữa trí tuệ truyền thống và sự chăm
-        sóc hiện đại tại Phòng khám An Bình.
+      <p class="cta-desc">
+        {t("about.cta.desc")}
       </p>
-      <a
-        href="/#booking"
-        class="cta-btn lang-text"
-        data-en="Book an Appointment"
-        data-vn="Đặt Lịch Hẹn Ngay">Đặt Lịch Hẹn Ngay</a
-      >
+      <a href={locale === "vi" ? "/#booking" : "/en/#booking"} class="cta-btn">
+        {t("about.cta.btn")}
+      </a>
     </div>
   </section>
 </Layout>

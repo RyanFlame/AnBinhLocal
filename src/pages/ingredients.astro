@@ -2,6 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { getImageByPath } from "../utils/assets";
+import { useTranslations } from "../i18n/utils";
+import { type Locale } from "../i18n/config";
+
+const locale = (Astro.currentLocale || "vi") as Locale;
+const t = useTranslations(locale);
 
 // Use the elite bulk loader to get images automatically
 // This is much cleaner than manually importing every single file.
@@ -13,70 +18,39 @@ const asset_Thu_c_3_webp = getImageByPath("Thuốc 3.webp");
 const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
 ---
 
-<Layout title="Premium Ingredients - An Binh Traditional Medicine">
+<Layout title={`${t("ingredients.why.title").replace("<br>", " ")} - An Binh`}>
   <!-- ================================================ -->
   <!-- HERO SECTION                                       -->
   <!-- ================================================ -->
   <section class="ing-hero">
     <div class="ing-hero-overlay"></div>
     <div class="ing-hero-content">
-      <p
-        class="ing-hero-label lang-text"
-        data-en="Our Heritage"
-        data-vn="Di Sản Của Chúng Tôi"
-      >
-        Di Sản Của Chúng Tôi
+      <p class="ing-hero-label">
+        {t("ingredients.hero.label")}
       </p>
-      <h1
-        class="ing-hero-title lang-text"
-        data-en="Nature's Finest,<br>Carefully Curated."
-        data-vn="Tinh Tuý Thiên Nhiên,<br>Tuyển Chọn Kỹ Lưỡng."
-      >
-        Tinh Tuý Thiên Nhiên,<br />Tuyển Chọn Kỹ Lưỡng.
-      </h1>
-      <p
-        class="ing-hero-desc lang-text"
-        data-en="Every herb, every root, every blossom — ethically sourced from pristine highland gardens and trusted traditional farms."
-        data-vn="Mỗi thảo dược, mỗi rễ cây, mỗi bông hoa — được thu hoạch có trách nhiệm từ những vườn cao nguyên trong lành và các trang trại truyền thống uy tín."
-      >
-        Mỗi thảo dược, mỗi rễ cây, mỗi bông hoa — được thu hoạch có trách nhiệm
-        từ những vườn cao nguyên trong lành và các trang trại truyền thống uy
-        tín.
+      <h1 class="ing-hero-title" set:html={t("ingredients.hero.title")} />
+      <p class="ing-hero-desc">
+        {t("ingredients.hero.desc")}
       </p>
-      <a
-        href="#categories"
-        class="btn-primary ing-hero-btn lang-text"
-        data-en="EXPLORE INGREDIENTS"
-        data-vn="KHÁM PHÁ THÀNH PHẦN"
-      >
-        KHÁM PHÁ THÀNH PHẦN
+      <a href="#categories" class="btn-primary ing-hero-btn">
+        {t("ingredients.hero.btn")}
       </a>
     </div>
     <!-- Scooped decorative corner card -->
     <div class="ing-hero-corner">
       <div class="ing-hero-corner-inner">
-        <span
-          class="ing-corner-label lang-text"
-          data-en="100% Natural Sources"
-          data-vn="100% Nguồn Thiên Nhiên">100% Nguồn Thiên Nhiên</span
-        >
+        <span class="ing-corner-label">
+          {t("ingredients.hero.corner.label")}
+        </span>
         <div class="ing-corner-stats">
           <div class="ing-stat">
-            <strong>80+</strong>
-            <small
-              class="lang-text"
-              data-en="Herb Varieties"
-              data-vn="Loại Thảo Dược">Loại Thảo Dược</small
-            >
+            <strong>{t("ingredients.hero.corner.stat1.num")}</strong>
+            <small>{t("ingredients.hero.corner.stat1.label")}</small>
           </div>
           <div class="ing-stat-divider"></div>
           <div class="ing-stat">
-            <strong>25+</strong>
-            <small
-              class="lang-text"
-              data-en="Exclusive Traditional Medicines"
-              data-vn="Bài Thuốc Độc Quyền">Bài Thuốc Độc Quyền</small
-            >
+            <strong>{t("ingredients.hero.corner.stat2.num")}</strong>
+            <small>{t("ingredients.hero.corner.stat2.label")}</small>
           </div>
         </div>
       </div>
@@ -89,28 +63,12 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
   <section class="ing-why" id="categories">
     <div class="ing-why-container">
       <div class="ing-why-header">
-        <p
-          class="sub-heading lang-text"
-          data-en="Our Promise"
-          data-vn="Cam Kết Của Chúng Tôi"
-        >
-          Cam Kết Của Chúng Tôi
+        <p class="sub-heading">
+          {t("ingredients.why.label")}
         </p>
-        <h2
-          class="heading-section lang-text"
-          data-en="Why Our Ingredients<br>Stand Apart"
-          data-vn="Vì Sao Thành Phần<br>Của Chúng Tôi Khác Biệt"
-        >
-          Vì Sao Thành Phần<br />Của Chúng Tôi Khác Biệt
-        </h2>
-        <p
-          class="body-regular ing-why-desc lang-text"
-          data-en="We work directly with highland farmers and traditional cultivators to bring you herbs harvested at peak potency, dried and processed using centuries-old methods."
-          data-vn="Chúng tôi làm việc trực tiếp với nông dân vùng cao và các nhà canh tác truyền thống để mang đến các loại thảo dược được thu hoạch đúng độ chín, sơ chế theo phương pháp có tuổi đời hàng thế kỷ."
-        >
-          Chúng tôi làm việc trực tiếp với nông dân vùng cao và các nhà canh tác
-          truyền thống để mang đến các loại thảo dược được thu hoạch đúng độ
-          chín, sơ chế theo phương pháp có tuổi đời hàng thế kỷ.
+        <h2 class="heading-section" set:html={t("ingredients.why.title")} />
+        <p class="body-regular ing-why-desc">
+          {t("ingredients.why.desc")}
         </p>
       </div>
 
@@ -121,34 +79,20 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
           <div class="ing-card-img-wrap">
             <Image
               src={asset_Med_webp}
-              alt="Dried Herbs"
+              alt={t("ingredients.cards.c1.title")}
               class="ing-card-img"
             />
             <div class="ing-card-img-overlay"></div>
           </div>
           <div class="ing-card-body">
-            <h3
-              class="heading-subsection ing-card-title lang-text"
-              data-en="Dried Herbs"
-              data-vn="Thảo Dược Khô"
-            >
-              Thảo Dược Khô
+            <h3 class="heading-subsection ing-card-title">
+              {t("ingredients.cards.c1.title")}
             </h3>
-            <p
-              class="body-small ing-card-desc lang-text"
-              data-en="Sun-dried at optimal harvest time to preserve active compounds and maximum therapeutic value for your healing formulas."
-              data-vn="Phơi sấy đúng thời điểm thu hoạch để bảo toàn hợp chất hoạt tính và giá trị trị liệu tối đa cho các bài thuốc của bạn."
-            >
-              Phơi sấy đúng thời điểm thu hoạch để bảo toàn hợp chất hoạt tính
-              và giá trị trị liệu tối đa.
+            <p class="body-small ing-card-desc">
+              {t("ingredients.cards.c1.desc")}
             </p>
-            <a
-              href="/about"
-              class="btn-secondary ing-card-btn lang-text"
-              data-en="Learn More"
-              data-vn="Tìm Hiểu Thêm"
-            >
-              Tìm Hiểu Thêm
+            <a href={locale === "vi" ? "/about" : "/en/about"} class="btn-secondary ing-card-btn">
+              {t("ingredients.cards.c1.btn")}
             </a>
           </div>
         </div>
@@ -158,34 +102,20 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
           <div class="ing-card-img-wrap">
             <Image
               src={asset_Ingri_Ginseng_webp}
-              alt="Medicinal Roots"
+              alt={t("ingredients.cards.c2.title")}
               class="ing-card-img"
             />
             <div class="ing-card-img-overlay"></div>
           </div>
           <div class="ing-card-body">
-            <h3
-              class="heading-subsection ing-card-title lang-text"
-              data-en="Medicinal Roots"
-              data-vn="Rễ Cây Dược Liệu"
-            >
-              Rễ Cây Dược Liệu
+            <h3 class="heading-subsection ing-card-title">
+              {t("ingredients.cards.c2.title")}
             </h3>
-            <p
-              class="body-small ing-card-desc lang-text"
-              data-en="Ginseng, astragalus, and licorice root — cornerstone tonics of Eastern medicine, sourced with decades of trusted partnerships."
-              data-vn="Nhân sâm, hoàng kỳ và cam thảo — các vị thuốc bổ nền tảng của Đông y, được tuyển chọn qua nhiều thập kỷ tin cậy."
-            >
-              Nhân sâm, hoàng kỳ và cam thảo — các vị thuốc bổ nền tảng của Đông
-              y, được tuyển chọn qua nhiều thập kỷ tin cậy.
+            <p class="body-small ing-card-desc">
+              {t("ingredients.cards.c2.desc")}
             </p>
-            <a
-              href="/about"
-              class="btn-primary ing-card-btn lang-text"
-              data-en="Learn More"
-              data-vn="Tìm Hiểu Thêm"
-            >
-              Tìm Hiểu Thêm
+            <a href={locale === "vi" ? "/about" : "/en/about"} class="btn-primary ing-card-btn">
+              {t("ingredients.cards.c2.btn")}
             </a>
           </div>
         </div>
@@ -195,34 +125,20 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
           <div class="ing-card-img-wrap">
             <Image
               src={asset_Med8_webp}
-              alt="Herbal Blends"
+              alt={t("ingredients.cards.c3.title")}
               class="ing-card-img"
             />
             <div class="ing-card-img-overlay"></div>
           </div>
           <div class="ing-card-body">
-            <h3
-              class="heading-subsection ing-card-title lang-text"
-              data-en="Herbal Blends"
-              data-vn="Hỗn Hợp Thảo Dược"
-            >
-              Hỗn Hợp Thảo Dược
+            <h3 class="heading-subsection ing-card-title">
+              {t("ingredients.cards.c3.title")}
             </h3>
-            <p
-              class="body-small ing-card-desc lang-text"
-              data-en="Carefully balanced multi-herb formulas following classical prescriptions, refined by generations of traditional practitioners."
-              data-vn="Các bài thuốc đa vị được cân đối cẩn thận theo cổ phương, được tinh luyện qua nhiều thế hệ thầy thuốc truyền thống."
-            >
-              Các bài thuốc đa vị được cân đối cẩn thận theo cổ phương, tinh
-              luyện qua nhiều thế hệ.
+            <p class="body-small ing-card-desc">
+              {t("ingredients.cards.c3.desc")}
             </p>
-            <a
-              href="/about"
-              class="btn-secondary ing-card-btn lang-text"
-              data-en="Learn More"
-              data-vn="Tìm Hiểu Thêm"
-            >
-              Tìm Hiểu Thêm
+            <a href={locale === "vi" ? "/about" : "/en/about"} class="btn-secondary ing-card-btn">
+              {t("ingredients.cards.c3.btn")}
             </a>
           </div>
         </div>
@@ -239,48 +155,24 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
       <div class="ing-editorial-row ing-row-top">
         <!-- Col 1: label + big statement -->
         <div class="ing-ed-col ing-ed-col-left">
-          <p
-            class="ing-ed-label lang-text"
-            data-en="What we do?"
-            data-vn="Chúng Tôi Làm Gì?"
-          >
-            Chúng Tôi Làm Gì?
+          <p class="ing-ed-label">
+            {t("ingredients.editorial.label1")}
           </p>
-          <h2
-            class="ing-ed-statement lang-text"
-            data-en="We provide premium herbs with a personal touch."
-            data-vn="Chúng tôi cung cấp thảo dược thượng hạng với sự tận tâm đặc biệt."
-          >
-            Chúng tôi cung cấp thảo dược thượng hạng với sự tận tâm đặc biệt.
+          <h2 class="ing-ed-statement">
+            {t("ingredients.editorial.statement")}
           </h2>
         </div>
 
         <!-- Col 2: category label + description paragraphs -->
         <div class="ing-ed-col ing-ed-col-mid">
-          <p
-            class="ing-ed-label lang-text"
-            data-en="Our Ingredients"
-            data-vn="Thành Phần Của Chúng Tôi"
-          >
-            Thành Phần Của Chúng Tôi
+          <p class="ing-ed-label">
+            {t("ingredients.editorial.label2")}
           </p>
-          <p
-            class="ing-ed-body lang-text"
-            data-en="Our collection spans over 80 varieties of dried herbs, medicinal roots, and blended formulas — each chosen by our master herbalists from trusted highland farms across Vietnam."
-            data-vn="Bộ sưu tập của chúng tôi gồm hơn 80 loại thảo dược khô, rễ cây dược liệu và bài thuốc phối hợp — mỗi loại được lương y trưởng tuyển chọn từ các vườn dược liệu cao nguyên uy tín trên khắp Việt Nam."
-          >
-            Bộ sưu tập của chúng tôi gồm hơn 80 loại thảo dược khô, rễ cây dược
-            liệu và bài thuốc phối hợp — mỗi loại được lương y trưởng tuyển chọn
-            từ các vườn dược liệu cao nguyên uy tín trên khắp Việt Nam.
+          <p class="ing-ed-body">
+            {t("ingredients.editorial.body1")}
           </p>
-          <p
-            class="ing-ed-body lang-text"
-            data-en="To ensure consistency and potency, all batches are tested before entering our dispensary. We process using sun-drying and traditional methods that preserve the full therapeutic profile of every herb."
-            data-vn="Để đảm bảo chất lượng và hiệu lực nhất quán, mọi lô hàng đều được kiểm tra trước khi nhập kho. Chúng tôi sơ chế theo phương pháp phơi sấy và kỹ thuật truyền thống, bảo toàn toàn bộ hoạt chất trị liệu của mỗi vị thuốc."
-          >
-            Để đảm bảo chất lượng và hiệu lực nhất quán, mọi lô hàng đều được
-            kiểm tra trước khi nhập kho. Chúng tôi sơ chế theo phương pháp phơi
-            sấy và kỹ thuật truyền thống.
+          <p class="ing-ed-body">
+            {t("ingredients.editorial.body2")}
           </p>
         </div>
 
@@ -299,59 +191,27 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
 
         <!-- Col 2: large italic quote -->
         <div class="ing-ed-col ing-ed-col-quote">
-          <p
-            class="ing-ed-label lang-text"
-            data-en="Our Values"
-            data-vn="Giá Trị Của Chúng Tôi"
-          >
-            Giá Trị Của Chúng Tôi
+          <p class="ing-ed-label">
+            {t("ingredients.editorial.label3")}
           </p>
-          <blockquote
-            class="ing-ed-quote lang-text"
-            data-en="At An Binh, inclusivity of care is at the heart of what we do. We believe healing should be accessible and personalised for everyone."
-            data-vn="Tại An Bình, chăm sóc toàn diện là trọng tâm của chúng tôi. Chúng tôi tin rằng việc chữa lành phải dễ tiếp cận và được cá nhân hoá cho mỗi người."
-          >
-            "Tại An Bình, chăm sóc toàn diện là trọng tâm của chúng tôi. Chúng
-            tôi tin rằng việc chữa lành phải dễ tiếp cận và được cá nhân hoá cho
-            mỗi người."
+          <blockquote class="ing-ed-quote">
+            {t("ingredients.editorial.quote")}
           </blockquote>
         </div>
 
         <!-- Col 3: supporting text + CTA link -->
         <div class="ing-ed-col ing-ed-col-body">
-          <p
-            class="ing-ed-label lang-text"
-            data-en="Our Practitioners"
-            data-vn="Đội Ngũ Lương Y"
-          >
-            Đội Ngũ Lương Y
+          <p class="ing-ed-label">
+            {t("ingredients.editorial.label4")}
           </p>
-          <p
-            class="ing-ed-body lang-text"
-            data-en="Our herbalists aren't just dispensers — they are traditional medicine specialists who prioritise your wellbeing and recovery. Beyond sourcing, they guide each patient toward the right formula for their specific needs."
-            data-vn="Các lương y của chúng tôi không chỉ là người cấp phát thuốc — họ là các chuyên gia y học cổ truyền đặt sức khỏe và sự phục hồi của bạn lên hàng đầu. Ngoài việc tuyển chọn dược liệu, họ hướng dẫn từng bệnh nhân đến bài thuốc phù hợp nhất với nhu cầu riêng."
-          >
-            Các lương y của chúng tôi không chỉ là người cấp phát thuốc — họ là
-            các chuyên gia y học cổ truyền đặt sức khỏe và phục hồi của bạn lên
-            hàng đầu. Họ hướng dẫn từng bệnh nhân đến bài thuốc phù hợp với nhu
-            cầu riêng.
+          <p class="ing-ed-body">
+            {t("ingredients.editorial.body3")}
           </p>
-          <p
-            class="ing-ed-body lang-text"
-            data-en="Whether you are managing a chronic condition or seeking preventive care, our team crafts personalised herbal protocols grounded in classical Eastern medicine traditions."
-            data-vn="Dù bạn đang điều trị bệnh mãn tính hay tìm kiếm chăm sóc phòng ngừa, đội ngũ của chúng tôi xây dựng phác đồ thảo dược cá nhân hóa, dựa trên nền tảng y học cổ phương Đông."
-          >
-            Dù bạn đang điều trị bệnh mãn tính hay tìm kiếm chăm sóc phòng ngừa,
-            đội ngũ chúng tôi xây dựng phác đồ cá nhân hóa dựa trên y học cổ
-            phương Đông.
+          <p class="ing-ed-body">
+            {t("ingredients.editorial.body4")}
           </p>
-          <a
-            href="/about"
-            class="ing-ed-link lang-text"
-            data-en="EXPLORE MORE →"
-            data-vn="KHÁM PHÁ THÊM →"
-          >
-            KHÁM PHÁ THÊM →
+          <a href={locale === "vi" ? "/about" : "/en/about"} class="ing-ed-link">
+            {t("ingredients.editorial.link")}
           </a>
         </div>
       </div>
@@ -370,7 +230,7 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
 
       <!-- Card 2: Stat — Years -->
       <div class="ing-bento-card ing-bento-stat ing-stat-light">
-        <a href="/about" class="ing-stat-arrow" aria-label="Learn more">
+        <a href={locale === "vi" ? "/about" : "/en/about"} class="ing-stat-arrow" aria-label="Learn more">
           <svg
             viewBox="0 0 24 24"
             width="18"
@@ -382,35 +242,23 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
             <path d="M7 17L17 7M17 7H7M17 7v10"></path>
           </svg>
         </a>
-        <div class="ing-bento-stat-number">25+</div>
-        <div
-          class="ing-bento-stat-title lang-text"
-          data-en="Exclusive Traditional Formulas"
-          data-vn="Bài Thuốc Độc Quyền"
-        >
-          Bài Thuốc Độc Quyền
+        <div class="ing-bento-stat-number">{t("ingredients.bento.s1.num")}</div>
+        <div class="ing-bento-stat-title">
+          {t("ingredients.bento.s1.title")}
         </div>
-        <p
-          class="ing-bento-stat-desc lang-text"
-          data-en="Time-tested prescriptions refined across generations, targeting the root causes of chronic conditions."
-          data-vn="Các bài thuốc đã được kiểm chứng qua nhiều thế hệ, nhắm vào nguyên nhân gốc rễ của các bệnh mãn tính."
-        >
-          Các bài thuốc được kiểm chứng qua nhiều thế hệ, nhắm vào nguyên nhân
-          gốc rễ của bệnh mãn tính.
+        <p class="ing-bento-stat-desc">
+          {t("ingredients.bento.s1.desc")}
         </p>
       </div>
 
       <!-- Card 3: Image -->
       <div class="ing-bento-card ing-bento-img">
-        <Image
-          src={asset_Herbal_Medicine_webp}
-          alt="Herbal medicine collection"
-        />
+        <Image src={asset_Herbal_Medicine_webp} alt="Herbal medicine collection" />
       </div>
 
       <!-- Card 4: Stat — Satisfaction (Brass accent) -->
       <div class="ing-bento-card ing-bento-stat ing-stat-brass">
-        <a href="/about" class="ing-stat-arrow" aria-label="Learn more">
+        <a href={locale === "vi" ? "/about" : "/en/about"} class="ing-stat-arrow" aria-label="Learn more">
           <svg
             viewBox="0 0 24 24"
             width="18"
@@ -422,21 +270,12 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
             <path d="M7 17L17 7M17 7H7M17 7v10"></path>
           </svg>
         </a>
-        <div class="ing-bento-stat-number">80+</div>
-        <div
-          class="ing-bento-stat-title lang-text"
-          data-en="Herb Varieties Sourced"
-          data-vn="Loại Thảo Dược Được Tuyển Chọn"
-        >
-          Loại Thảo Dược Được Tuyển Chọn
+        <div class="ing-bento-stat-number">{t("ingredients.bento.s2.num")}</div>
+        <div class="ing-bento-stat-title">
+          {t("ingredients.bento.s2.title")}
         </div>
-        <p
-          class="ing-bento-stat-desc lang-text"
-          data-en="From highland ginseng roots to coastal sea herbs — our range covers the full spectrum of Eastern medicine philosophy."
-          data-vn="Từ nhân sâm núi cao đến dược thảo ven biển — bộ sưu tập của chúng tôi bao phủ toàn bộ phổ triết học y học phương Đông."
-        >
-          Từ nhân sâm núi cao đến dược thảo ven biển — bộ sưu tập bao phủ toàn
-          bộ phổ triết học y học phương Đông.
+        <p class="ing-bento-stat-desc">
+          {t("ingredients.bento.s2.desc")}
         </p>
       </div>
     </div>
@@ -448,30 +287,15 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
   <section class="ing-cta-minimal">
     <div class="ing-cta-minimal-container">
       <div class="ing-editorial-rule"></div>
-      <p
-        class="ing-cta-min-label lang-text"
-        data-en="✦ An Binh Traditional Medicine"
-        data-vn="✦ Phòng Khám Đông Y An Bình"
-      >
-        ✦ Phòng Khám Đông Y An Bình
+      <p class="ing-cta-min-label">
+        {t("ingredients.cta.label")}
       </p>
-      <h2
-        class="ing-cta-min-title lang-text"
-        data-en="We make every remedy a harmonious blend of nature and wisdom. Start your healing journey with An Binh — book now!"
-        data-vn="Chúng tôi tạo nên mỗi thang thuốc như một sự hòa quyện hoàn hảo giữa thiên nhiên và trí tuệ truyền thống. Bắt đầu hành trình chữa lành — đặt lịch ngay!"
-      >
-        Chúng tôi tạo nên mỗi thang thuốc như một sự hòa quyện hoàn hảo giữa
-        thiên nhiên và trí tuệ truyền thống. Bắt đầu hành trình chữa lành — đặt
-        lịch ngay!
+      <h2 class="ing-cta-min-title">
+        {t("ingredients.cta.title")}
       </h2>
       <div class="ing-editorial-rule"></div>
-      <a
-        href="#booking"
-        class="ing-cta-min-link booking-feature lang-text"
-        data-en="ĐẶT LỊCH TƯ VẤN ↗"
-        data-vn="ĐẶT LỊCH TƯ VẤN ↗"
-      >
-        ĐẶT LỊCH TƯ VẤN ↗
+      <a href="#booking" class="ing-cta-min-link booking-feature">
+        {t("ingredients.cta.btn")}
       </a>
     </div>
   </section>

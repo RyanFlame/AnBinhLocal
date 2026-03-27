@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import GlobalLoader from "../components/GlobalLoader.astro";
 import BookingModal from "../components/BookingModal.astro";
 import SEO from "../components/SEO.astro";
+import { getLocaleFromPath } from "../i18n/config";
 import "../styles/global.css";
 
 type Props = {
@@ -13,12 +14,13 @@ type Props = {
 };
 
 const { title, description, image } = Astro.props;
+const locale = getLocaleFromPath(Astro.url.pathname);
 ---
 
 <!doctype html>
-<html lang="vi" class="scroll-smooth">
+<html lang={locale} class="scroll-smooth">
   <head>
-    <SEO title={title} description={description} image={image} />
+    <SEO title={title} description={description} image={image} locale={locale} />
 
     <!-- Google Tag Manager -->
     <script type="text/partytown">
@@ -58,6 +60,7 @@ const { title, description, image } = Astro.props;
   </head>
   <body
     class="antialiased !bg-blog-gray text-text-main font-sans leading-relaxed overflow-x-clip min-h-screen"
+    data-locale={locale}
   >
     <a href="#main-content" class="skip-to-content"> Skip to content </a>
 
@@ -71,13 +74,13 @@ const { title, description, image } = Astro.props;
     >
     <!-- End Google Tag Manager (noscript) -->
     <GlobalLoader />
-    <BlogHeader />
+    <BlogHeader locale={locale} />
 
     <main id="main-content" class="min-h-dvh pt-md">
       <slot />
     </main>
 
-    <Footer />
+    <Footer locale={locale} />
     
     <BookingModal />
 

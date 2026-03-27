@@ -6,6 +6,8 @@ import type { CollectionEntry } from "astro:content";
 import BlogLayout from "../../layouts/BlogLayout.astro";
 import { Image } from "astro:assets";
 import { getImageByPath } from "../../utils/assets";
+import { useTranslations } from "../../i18n/utils";
+import { type Locale } from "../../i18n/config";
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const allPosts = await getCollection("blog");
@@ -20,6 +22,8 @@ interface Props {
 }
 
 const { page } = Astro.props as Props;
+const locale = (Astro.currentLocale || "vi") as Locale;
+const t = useTranslations(locale);
 
 // Asset Loading
 const asset_About_us2_webp = getImageByPath("About-us2.webp");
@@ -33,8 +37,8 @@ const asset_Personal_Treatment_webp = getImageByPath("Personal Treatment.webp");
 const location_2 = getImageByPath("Location/Location 2.png");
 ---
 
-<BlogLayout title={`Blog & Tin Tức - Trang ${page.currentPage}`}>
-  <h1 class="sr-only">Blog và Kiến Thức Y Học Cổ Truyền An Bình</h1>
+<BlogLayout title={`${t("blog.title")} - ${t("blog.pagination.info").replace("{current}", page.currentPage.toString()).replace("{last}", page.lastPage.toString())}`}>
+  <h1 class="sr-only">{t("blog.title")}</h1>
   {page.currentPage === 1 && (
     <!-- ===================== HERO SLIDER (Restored from Old Design) ===================== -->
     <section class="hs-section" data-header-theme="dark">
@@ -43,48 +47,48 @@ const location_2 = getImageByPath("Location/Location 2.png");
           <div class="hs-slide" data-index="0">
             <Image class="hs-bg" src={asset_Chinese_Med_webp} alt="Slide 1" />
             <div class="hs-overlay">
-              <span class="hs-cat lang-text" data-en="Therapies" data-vn="Trị Liệu">Trị Liệu</span>
-              <h2 class="hs-title lang-text" data-en="The Future of Acupuncture in Modern Healing" data-vn="Tương Lai Của Châm Cứu Trong Phục Hồi Hiện Đại">Tương Lai Của Châm Cứu Trong Phục Hồi Hiện Đại</h2>
+              <span class="hs-cat">{t("blog.hero.cat.therapy")}</span>
+              <h2 class="hs-title">{t("blog.hero.slide1.title")}</h2>
               <div class="hs-meta">Dr. Minh Hieu &nbsp;•&nbsp; Mar 20, 2025 &nbsp;•&nbsp; 5 min read</div>
             </div>
           </div>
           <div class="hs-slide" data-index="1">
             <Image class="hs-bg" src={asset_Herb_Farm_webp} alt="Slide 2" />
             <div class="hs-overlay">
-              <span class="hs-cat lang-text" data-en="Herbs" data-vn="Thảo Dược">Thảo Dược</span>
-              <h2 class="hs-title lang-text" data-en="5 Herbs to Naturally Boost Your Immunity" data-vn="5 Thảo Dược Tăng Cường Miễn Dịch Tự Nhiên">5 Thảo Dược Tăng Cường Miễn Dịch Tự Nhiên</h2>
+              <span class="hs-cat">{t("blog.hero.cat.herbs")}</span>
+              <h2 class="hs-title">{t("blog.hero.slide2.title")}</h2>
               <div class="hs-meta">Dr. An &nbsp;•&nbsp; Mar 18, 2025 &nbsp;•&nbsp; 4 min read</div>
             </div>
           </div>
           <div class="hs-slide" data-index="2">
             <Image class="hs-bg" src={location_1} alt="Slide 3" />
             <div class="hs-overlay">
-              <span class="hs-cat lang-text" data-en="Care" data-vn="Chăm Sóc">Chăm Sóc</span>
-              <h2 class="hs-title lang-text" data-en="The Science Behind Cupping Therapy Explained" data-vn="Giải Thích Khoa Học Đằng Sau Sự Giác Hơi">Giải Thích Khoa Học Đằng Sau Sự Giác Hơi</h2>
+              <span class="hs-cat">{t("blog.hero.cat.care")}</span>
+              <h2 class="hs-title">{t("blog.hero.slide3.title")}</h2>
               <div class="hs-meta">Dr. Hieu &nbsp;•&nbsp; Mar 01, 2025 &nbsp;•&nbsp; 4 min read</div>
             </div>
           </div>
           <div class="hs-slide" data-index="3">
             <Image class="hs-bg" src={asset_Thu_c_1E_webp} alt="Slide 4" />
             <div class="hs-overlay">
-              <span class="hs-cat lang-text" data-en="Traditional Medicine" data-vn="Y Học Cổ Truyền">Y Học Cổ Truyền</span>
-              <h2 class="hs-title lang-text" data-en="Balancing Your Yin and Yang with Daily Herbs" data-vn="Cân Bằng Âm Dương Bằng Thảo Dược Hàng Ngày">Cân Bằng Âm Dương Bằng Thảo Dược Hàng Ngày</h2>
+              <span class="hs-cat">{t("blog.hero.cat.tm")}</span>
+              <h2 class="hs-title">{t("blog.hero.slide4.title")}</h2>
               <div class="hs-meta">Dr. Bao &nbsp;•&nbsp; Feb 22, 2025 &nbsp;•&nbsp; 6 min read</div>
             </div>
           </div>
           <div class="hs-slide" data-index="4">
             <Image class="hs-bg" src={asset_Personal_Treatment_webp} alt="Slide 5" />
             <div class="hs-overlay">
-              <span class="hs-cat lang-text" data-en="Recovery" data-vn="Phục Hồi">Phục Hồi</span>
-              <h2 class="hs-title lang-text" data-en="Helping Women Navigate Postpartum Recovery" data-vn="Giúp Phụ Nữ Phục Hồi Sau Sinh">Giúp Phụ Nữ Phục Hồi Sau Sinh</h2>
+              <span class="hs-cat">{t("blog.hero.cat.recovery")}</span>
+              <h2 class="hs-title">{t("blog.hero.slide5.title")}</h2>
               <div class="hs-meta">Dr. Hanh &nbsp;•&nbsp; Feb 10, 2025 &nbsp;•&nbsp; 5 min read</div>
             </div>
           </div>
           <div class="hs-slide" data-index="5">
             <Image class="hs-bg" src={asset_About_us2_webp} alt="Slide 6" />
             <div class="hs-overlay">
-              <span class="hs-cat lang-text" data-en="Journal" data-vn="Nhật Ký">Nhật Ký</span>
-              <h2 class="hs-title lang-text" data-en="Understanding Meridian Lines" data-vn="Hiểu về Hệ Thống Kinh Lạc">Hiểu về Hệ Thống Kinh Lạc</h2>
+              <span class="hs-cat">{t("blog.hero.cat.journal")}</span>
+              <h2 class="hs-title">{t("blog.hero.slide6.title")}</h2>
               <div class="hs-meta">Dr. Minh &nbsp;•&nbsp; Jan 28, 2025 &nbsp;•&nbsp; 3 min read</div>
             </div>
           </div>
@@ -104,27 +108,27 @@ const location_2 = getImageByPath("Location/Location 2.png");
         <div class="hs-thumb-track" id="hsThumbTrack">
           <div class="hs-thumb active" data-index="0">
             <div class="hs-thumb-img-wrap"><Image src={asset_Chinese_Med_webp} alt="Thumb 1" /></div>
-            <p class="hs-thumb-title lang-text" data-en="The Future of Acupuncture" data-vn="Tương Lai Của Châm Cứu">Tương Lai Của Châm Cứu</p>
+            <p class="hs-thumb-title">{t("blog.hero.slide1.title")}</p>
           </div>
           <div class="hs-thumb" data-index="1">
             <div class="hs-thumb-img-wrap"><Image src={asset_Herb_Farm_webp} alt="Thumb 2" /></div>
-            <p class="hs-thumb-title lang-text" data-en="5 Herbs to Boost Immunity" data-vn="5 Thảo Dược Tăng Cường Miễn Dịch">5 Thảo Dược Tăng Cường Miễn Dịch</p>
+            <p class="hs-thumb-title">{t("blog.hero.slide2.title")}</p>
           </div>
           <div class="hs-thumb" data-index="2">
             <div class="hs-thumb-img-wrap"><Image src={location_1} alt="Thumb 3" /></div>
-            <p class="hs-thumb-title lang-text" data-en="The Science of Cupping Therapy" data-vn="Khoa Học Của Giác Hơi">Khoa Học Của Giác Hơi</p>
+            <p class="hs-thumb-title">{t("blog.hero.slide3.title")}</p>
           </div>
           <div class="hs-thumb" data-index="3">
             <div class="hs-thumb-img-wrap"><Image src={asset_Thu_c_1E_webp} alt="Thumb 4" /></div>
-            <p class="hs-thumb-title lang-text" data-en="Balancing Yin and Yang" data-vn="Cân Bằng Âm Dương">Cân Bằng Âm Dương</p>
+            <p class="hs-thumb-title">{t("blog.hero.slide4.title")}</p>
           </div>
           <div class="hs-thumb" data-index="4">
             <div class="hs-thumb-img-wrap"><Image src={asset_Personal_Treatment_webp} alt="Thumb 5" /></div>
-            <p class="hs-thumb-title lang-text" data-en="Postpartum Recovery" data-vn="Phục Hồi Sau Sinh">Phục Hồi Sau Sinh</p>
+            <p class="hs-thumb-title">{t("blog.hero.slide5.title")}</p>
           </div>
           <div class="hs-thumb" data-index="5">
             <div class="hs-thumb-img-wrap"><Image src={asset_About_us2_webp} alt="Thumb 6" /></div>
-            <p class="hs-thumb-title lang-text" data-en="Meridian Lines" data-vn="Hệ Thống Kinh Lạc">Hệ Thống Kinh Lạc</p>
+            <p class="hs-thumb-title">{t("blog.hero.slide6.title")}</p>
           </div>
         </div>
       </div>
@@ -135,16 +139,16 @@ const location_2 = getImageByPath("Location/Location 2.png");
     {page.currentPage === 1 && (
       <!-- Featured Section -->
       <section id="featured" class="featured-section" data-header-theme="light">
-          <h2 class="section-heading lang-text" data-en="Featured Articles" data-vn="Bài Viết Nổi Bật">Bài Viết Nổi Bật</h2>
+          <h2 class="section-heading">{t("blog.featured.title")}</h2>
           <div class="heading-underline"></div>
           <div class="featured-grid">
-            <a href="/blog/future-of-acupuncture" class="post-link-wrapper" style="text-decoration: none; color: inherit; display: block;">
+            <a href={locale === "vi" ? "/blog/future-of-acupuncture" : "/en/blog/future-of-acupuncture"} class="post-link-wrapper" style="text-decoration: none; color: inherit; display: block;">
               <article class="post-card main-feature">
                 <figure class="post-image concave-corner"><Image src={asset_Thu_c_1_webp} alt="Featured Post" /></figure>
                 <div class="post-content">
-                  <h3 class="post-title lang-text" data-en="The Future of Acupuncture in Modern Healing" data-vn="Tương Lai Của Châm Cứu Trong Phục Hồi Hiện Đại">Tương Lai Của Châm Cứu Trong Phục Hồi Hiện Đại</h3>
-                  <p class="post-excerpt lang-text" data-en="How ancient techniques are being validated by modern science to treat chronic pain." data-vn="Cách khoa học hiện đại đang chứng minh công dụng của các phương pháp cổ xưa trong điều trị đau mãn tính.">Cách khoa học hiện đại đang chứng minh công dụng của các phương pháp cổ xưa trong điều trị đau mãn tính.</p>
-                  <div class="post-meta"><span>Dr. Minh Hieu in Trị Liệu</span><span class="dot">•</span><span>Mar 20</span><span class="dot">•</span><span>5 min read ★</span></div>
+                  <h3 class="post-title">{t("blog.hero.slide1.title")}</h3>
+                  <p class="post-excerpt">{t("blog.featured.main.excerpt")}</p>
+                  <div class="post-meta"><span>Dr. Minh Hieu in {t("blog.hero.cat.therapy")}</span><span class="dot">•</span><span>Mar 20</span><span class="dot">•</span><span>5 min read ★</span></div>
                 </div>
               </article>
             </a>
@@ -161,15 +165,15 @@ const location_2 = getImageByPath("Location/Location 2.png");
                     <article class="post-card medium">
                       <figure class="post-image concave-corner"><Image src={asset_Dad_Final_3_webp} alt="Medium Post 1" /></figure>
                       <div class="post-content">
-                        <h4 class="post-title lang-text" data-en="Balancing Your Yin and Yang with Daily Herbs" data-vn="Cân Bằng Âm Dương Bằng Thảo Dược Hàng Ngày">Cân Bằng Âm Dương Bằng Thảo Dược Hàng Ngày</h4>
-                        <div class="post-meta"><span>Dr. An in Thảo Dược</span><span class="dot">•</span><span>Mar 18</span></div>
+                        <h4 class="post-title">{t("blog.hero.slide4.title")}</h4>
+                        <div class="post-meta"><span>Dr. An in {t("blog.hero.cat.herbs")}</span><span class="dot">•</span><span>Mar 18</span></div>
                       </div>
                     </article>
                     <article class="post-card medium">
                       <figure class="post-image concave-corner"><Image src={location_1} alt="Medium Post 2" /></figure>
                       <div class="post-content">
-                        <h4 class="post-title lang-text" data-en="Why Pulse Diagnosis tells a 1000 words" data-vn="Tại Sao Bắt Mạch Mang Thể Nói Lên 1000 Lời">Tại Sao Bắt Mạch Mang Thể Nói Lên 1000 Lời</h4>
-                        <div class="post-meta" style="margin-top: auto;"><span>Dr. Bao in Chẩn Đoán</span><span class="dot">•</span><span>Mar 15</span></div>
+                        <h4 class="post-title">{t("blog.hero.slide3.title")}</h4>
+                        <div class="post-meta" style="margin-top: auto;"><span>Dr. Bao in {t("blog.hero.cat.care")}</span><span class="dot">•</span><span>Mar 15</span></div>
                       </div>
                     </article>
                   </div>
@@ -177,15 +181,15 @@ const location_2 = getImageByPath("Location/Location 2.png");
                     <article class="post-card medium">
                       <figure class="post-image concave-corner"><Image src={location_2} alt="Medium Post 3" /></figure>
                       <div class="post-content">
-                        <h4 class="post-title lang-text" data-en="Organizing Your Morning Routine" data-vn="Thiết Lập Thói Quen Buổi Sáng">Thiết Lập Thói Quen Buổi Sáng</h4>
-                        <div class="post-meta"><span>Admin in Sức Khỏe</span><span class="dot">•</span><span>Mar 12</span></div>
+                        <h4 class="post-title">{t("blog.hero.slide1.title")}</h4>
+                        <div class="post-meta"><span>Admin in {t("blog.hero.cat.journal")}</span><span class="dot">•</span><span>Mar 12</span></div>
                       </div>
                     </article>
                     <article class="post-card medium">
                       <figure class="post-image concave-corner"><Image src={asset_Chinese_Med_webp} alt="Medium Post 4" /></figure>
                       <div class="post-content">
-                        <h4 class="post-title lang-text" data-en="Helping Women Navigate Postpartum" data-vn="Giúp Phụ Nữ Phục Hồi Sau Sinh">Giúp Phụ Nữ Phục Hồi Sau Sinh</h4>
-                        <div class="post-meta"><span>Dr. Hanh in Chăm Sóc</span><span class="dot">•</span><span>Mar 10</span></div>
+                        <h4 class="post-title">{t("blog.hero.slide5.title")}</h4>
+                        <div class="post-meta"><span>Dr. Hanh in {t("blog.hero.cat.care")}</span><span class="dot">•</span><span>Mar 10</span></div>
                       </div>
                     </article>
                   </div>
@@ -199,25 +203,25 @@ const location_2 = getImageByPath("Location/Location 2.png");
     <!-- Latest Posts Section -->
     <div class="bottom-layout">
       <section class="latest-section">
-        <h2 class="section-heading lang-text" data-en="Latest Posts" data-vn="Bài Viết Mới Nhất">Bài Viết Mới Nhất</h2>
+        <h2 class="section-heading">{t("blog.latest.title")}</h2>
         <div class="heading-underline"></div>
         <div class="latest-grid" id="latestGrid">
           {page.data.map((post: CollectionEntry<"blog">) => (
             <article class="post-card main-feature">
-              <a href={`/blog/${post.id}`} style="text-decoration: none; color: inherit; display: block;">
+              <a href={locale === "vi" ? `/blog/${post.id}` : `/en/blog/${post.id}`} style="text-decoration: none; color: inherit; display: block;">
                 <figure class="post-image concave-corner">
                   <Image src={post.data.image as any} alt={post.data.title} />
                 </figure>
               </a>
               <div class="post-content">
-                <a href={`/blog/${post.id}`} style="text-decoration: none; color: inherit;">
+                <a href={locale === "vi" ? `/blog/${post.id}` : `/en/blog/${post.id}`} style="text-decoration: none; color: inherit;">
                   <h3 class="post-title">{post.data.title}</h3>
                 </a>
                 <p class="post-excerpt">{post.data.excerpt}</p>
                 <div class="post-meta">
                   <span>{post.data.author}</span>
                   <span class="dot">•</span>
-                  <span>{new Intl.DateTimeFormat('vi-VN', { month: 'short', day: 'numeric' }).format(post.data.date)} • 4 min read</span>
+                  <span>{new Intl.DateTimeFormat(locale === "vi" ? 'vi-VN' : 'en-US', { month: 'short', day: 'numeric' }).format(post.data.date)} • 4 min read</span>
                 </div>
               </div>
             </article>
@@ -227,28 +231,28 @@ const location_2 = getImageByPath("Location/Location 2.png");
 
       <!-- Popular Posts -->
       <aside class="popular-section">
-        <h2 class="section-heading lang-text" data-en="Popular" data-vn="Phổ Biến">Phổ Biến</h2>
+        <h2 class="section-heading">{t("blog.popular.title")}</h2>
         <div class="heading-underline"></div>
         <div class="popular-list">
           <article class="popular-item">
             <span class="popular-number">01</span>
             <div class="post-content">
-              <h4 class="post-title lang-text" data-en="What to expect on your first session" data-vn="Lưu ý cho buổi trị liệu đầu tiên">Lưu ý cho buổi trị liệu đầu tiên</h4>
-              <div class="post-meta"><span>Admin in Hướng Dẫn</span><span>Feb 10</span></div>
+              <h4 class="post-title">{t("blog.popular.item1.title")}</h4>
+              <div class="post-meta"><span>Admin in {t("blog.hero.cat.journal")}</span><span>Feb 10</span></div>
             </div>
           </article>
           <article class="popular-item">
             <span class="popular-number">02</span>
             <div class="post-content">
-              <h4 class="post-title lang-text" data-en="Dietary changes for better sleep" data-vn="Thay đổi chế độ ăn để ngủ ngon hơn">Thay đổi chế độ ăn để ngủ ngon hơn</h4>
-              <div class="post-meta"><span>Dr. Bao in Dinh Dưỡng</span><span>Feb 15</span></div>
+              <h4 class="post-title">{t("blog.popular.item2.title")}</h4>
+              <div class="post-meta"><span>Dr. Bao in {t("blog.hero.cat.therapy")}</span><span>Feb 15</span></div>
             </div>
           </article>
           <article class="popular-item">
             <span class="popular-number">03</span>
             <div class="post-content">
-              <h4 class="post-title lang-text" data-en="Understanding Meridian Lines" data-vn="Hiểu về Hệ Thống Kinh Lạc">Hiểu về Hệ Thống Kinh Lạc</h4>
-              <div class="post-meta"><span>Dr. Minh in Kiến Thức</span><span>Jan 28</span></div>
+              <h4 class="post-title">{t("blog.popular.item3.title")}</h4>
+              <div class="post-meta"><span>Dr. Minh in {t("blog.hero.cat.care")}</span><span>Jan 28</span></div>
             </div>
           </article>
         </div>
@@ -257,20 +261,20 @@ const location_2 = getImageByPath("Location/Location 2.png");
 
     <!-- Pagination Navigation -->
     <nav class="pagination-nav" aria-label="Blog Pagination">
-      <div class="pagination-info lang-text" data-en={`Page ${page.currentPage} of ${page.lastPage}`} data-vn={`Trang ${page.currentPage} / ${page.lastPage}`}>
-        Trang {page.currentPage} / {page.lastPage}
+      <div class="pagination-info">
+        {t("blog.pagination.info").replace("{current}", page.currentPage.toString()).replace("{last}", page.lastPage.toString())}
       </div>
       <div class="pagination-links">
         {page.url.prev ? (
-          <a href={page.url.prev} class="pagination-btn">← Trang trước</a>
+          <a href={locale === "vi" ? page.url.prev : page.url.prev.replace("/blog", "/en/blog")} class="pagination-btn">{t("blog.pagination.prev")}</a>
         ) : (
-          <span class="pagination-btn disabled">← Trang trước</span>
+          <span class="pagination-btn disabled">{t("blog.pagination.prev")}</span>
         )}
         
         <div class="page-numbers">
           {[...Array(page.lastPage)].map((_, i) => (
             <a 
-              href={i === 0 ? "/blog" : `/blog/${i + 1}`} 
+              href={locale === "vi" ? (i === 0 ? "/blog" : `/blog/${i + 1}`) : (i === 0 ? "/en/blog" : `/en/blog/${i + 1}`)} 
               class={`page-number ${page.currentPage === i + 1 ? 'active' : ''}`}
             >
               {i + 1}
@@ -279,9 +283,9 @@ const location_2 = getImageByPath("Location/Location 2.png");
         </div>
 
         {page.url.next ? (
-          <a href={page.url.next} class="pagination-btn">Trang sau →</a>
+          <a href={locale === "vi" ? page.url.next : page.url.next.replace("/blog", "/en/blog")} class="pagination-btn">{t("blog.pagination.next")}</a>
         ) : (
-          <span class="pagination-btn disabled">Trang sau →</span>
+          <span class="pagination-btn disabled">{t("blog.pagination.next")}</span>
         )}
       </div>
     </nav>

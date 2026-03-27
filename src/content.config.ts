@@ -11,6 +11,7 @@ const blogCollection = defineCollection({
     date: z.date(),
     image: image(),
     category: z.string(),
+    lang: z.enum(['vi', 'en']).default('vi'),
   }),
 });
 

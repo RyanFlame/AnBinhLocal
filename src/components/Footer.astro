@@ -1,8 +1,20 @@
 ---
 import { Image } from "astro:assets";
 import { getImageByPath } from "../utils/assets";
+import { type Locale } from "../i18n/config";
+import { useTranslations } from "../i18n/utils";
+
+type Props = {
+  locale: Locale;
+};
 
 // Footer Component
+const { locale = "vi" } = Astro.props;
+const t = useTranslations(locale);
+
+const aboutHref = locale === "en" ? "/en/about" : "/about";
+const ingredientsHref = locale === "en" ? "/en/ingredients" : "/ingredients";
+const therapiesHref = locale === "en" ? "/en/therapies" : "/therapies";
 const logoAsset = getImageByPath("Logo/Logo-NBG.png");
 const bookingAsset = getImageByPath("Thuốc 1E.webp");
 ---
@@ -13,73 +25,45 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
     <div class="flex flex-col items-start max-[900px]:col-span-1">
       <Image src={logoAsset} alt="An Binh Logo" class="footer-logo" />
       <h3 class="font-serif text-[1.5rem] text-brass-gold mb-[15px]">Phòng Khám Y Học Cổ Truyền An Bình</h3>
-      <p
-        class="text-[0.95rem] leading-[1.6] text-subtle-grey max-w-[280px] lang-text"
-        data-en="Peaceful nourishment, balanced vitality"
-        data-vn="An nhiên dưỡng tạng – Bình ổn thân tâm"
-      >
-        An nhiên dưỡng tạng – Bình ổn thân tâm
+      <p class="text-[0.95rem] leading-[1.6] text-subtle-grey max-w-[280px]">
+        {t("footer.brand_slogan")}
       </p>
     </div>
 
     <!-- Links Column -->
     <div class="flex flex-col">
-      <h4
-        class="font-serif text-[1.2rem] text-white mb-md relative pb-[15px] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-[2px] after:bg-primary-green lang-text"
-        data-en="Quick Links"
-        data-vn="Liên Kết Nhanh"
-      >
-        Liên Kết Nhanh
+      <h4 class="font-serif text-[1.2rem] text-white mb-md relative pb-[15px] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-[2px] after:bg-primary-green">
+        {t("footer.links_title")}
       </h4>
       <div class="flex flex-col gap-[15px] max-[900px]:grid max-[900px]:grid-cols-2 max-[900px]:gap-5">
-        <a
-          href="/about"
-          class="lang-text"
-          data-en="Philosophy"
-          data-vn="Triết Lý">Triết Lý</a
-        >
-        <a
-          href="/ingredients"
-          class="lang-text"
-          data-en="Remedies"
-          data-vn="Bài Thuốc">Bài Thuốc</a
-        >
-        <a
-          href="/therapies"
-          class="lang-text"
-          data-en="Services"
-          data-vn="Liệu Pháp">Liệu Pháp</a
-        >
+        <a href={aboutHref}>{t("footer.link.philosophy")}</a>
+        <a href={ingredientsHref}>{t("footer.link.remedies")}</a>
+        <a href={therapiesHref}>{t("footer.link.services")}</a>
         <a
           href="https://www.google.com/maps/place/Ph%C3%B2ng+Y+H%E1%BB%8Dc+C%E1%BB%95+Truy%E1%BB%81n+An+B%C3%ACnh/@10.5085571,107.327058,455m/data=!3m1!1e3!4m6!3m5!1s0x3175a100125c7973:0x97569e0490503fa6!8m2!3d10.5082762!4d107.3262642!16s%2Fg%2F11mf93d8rf!5m1!1e1?authuser=0&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
-          class="lang-text"
-          data-en="Visit Us"
-          data-vn="Địa Chỉ">Địa Chỉ</a
         >
+          {t("footer.link.visit")}
+        </a>
       </div>
     </div>
 
     <!-- Contact Column -->
     <div class="flex flex-col">
-      <h4
-        class="font-serif text-[1.2rem] text-white mb-md relative pb-[15px] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-[2px] after:bg-primary-green lang-text"
-        data-en="Contact Us"
-        data-vn="Liên Hệ"
-      >
-        Liên Hệ
+      <h4 class="font-serif text-[1.2rem] text-white mb-md relative pb-[15px] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-[2px] after:bg-primary-green">
+        {t("footer.contact_title")}
       </h4>
       <p class="mb-md text-[0.95rem] text-subtle-grey leading-relaxed">
-        <strong class="text-white inline-block mr-[5px] lang-text" data-en="Old Address:" data-vn="Địa Chỉ Cũ:"
-          >Địa Chỉ Cũ:</strong
-        >
+        <strong class="text-white inline-block mr-[5px]">
+          {t("footer.address_label")}
+        </strong>
         Đường Tháp Nước, Xã Láng Dài, Huyện Đất Đỏ, Tỉnh BR-VT
       </p>
 
       <div class="flex flex-row justify-start items-baseline gap-[30px] flex-wrap mt-[10px] max-[900px]:gap-[30px]">
         <p class="mb-0 text-[0.95rem] text-subtle-grey leading-relaxed min-w-0">
-          <strong class="text-white block mr-[5px] lang-text" data-en="Phone:" data-vn="Điện thoại:"
-            >Điện thoại:</strong
-          >
+          <strong class="text-white block mr-[5px]">
+            {t("footer.phone_label")}
+          </strong>
           0908 052 968
         </p>
         <p class="mb-0 text-[0.95rem] text-subtle-grey leading-relaxed min-w-0">
@@ -91,47 +75,42 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
 
     <!-- Hours Column -->
     <div class="flex flex-col">
-      <h4
-        class="font-serif text-[1.2rem] text-white mb-md relative pb-[15px] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-[2px] after:bg-primary-green lang-text"
-        data-en="Hours"
-        data-vn="Giờ Mở Cửa"
-      >
-        Giờ Mở Cửa
+      <h4 class="font-serif text-[1.2rem] text-white mb-md relative pb-[15px] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-[2px] after:bg-primary-green">
+        {t("footer.hours_title")}
       </h4>
       <ul class="list-none p-0">
         <li class="flex justify-between mb-3 text-[0.95rem] text-[#ccc] border-b border-white/10 pb-2">
-          <span class="text-white font-semibold lang-text" data-en="Mon-Fri:" data-vn="T2-T6:"
-            >T2-T6:</span
-          >
-          <span class="text-white font-semibold lang-text" data-en="9am - 6pm" data-vn="9h - 18h"
-            >9h - 18h</span
-          >
+          <span class="text-white font-semibold">
+            {t("footer.days.mon_fri")}
+          </span>
+          <span class="text-white font-semibold">
+            {t("footer.hours.mon_fri")}
+          </span>
         </li>
         <li class="flex justify-between mb-3 text-[0.95rem] text-subtle-grey border-b border-white/10 pb-2">
-          <span class="text-white font-semibold lang-text" data-en="Sat:" data-vn="T7:">T7:</span>
-          <span class="text-white font-semibold lang-text" data-en="10am - 4pm" data-vn="10h - 16h"
-            >10h - 16h</span
-          >
+          <span class="text-white font-semibold">
+            {t("footer.days.sat")}
+          </span>
+          <span class="text-white font-semibold">
+            {t("footer.hours.sat")}
+          </span>
         </li>
         <li class="flex justify-between mb-3 text-[0.95rem] text-subtle-grey border-b border-white/10 pb-2 !border-none">
-          <span class="text-white font-semibold lang-text" data-en="Sun:" data-vn="CN:">CN:</span>
-          <span class="text-white font-semibold lang-text" data-en="Closed" data-vn="Đóng cửa"
-            >Đóng cửa</span
-          >
+          <span class="text-white font-semibold">
+            {t("footer.days.sun")}
+          </span>
+          <span class="text-white font-semibold">
+            {t("footer.hours.sun")}
+          </span>
         </li>
       </ul>
     </div>
   </div>
 
   <div class="bg-off-black py-md px-lg text-center border-t border-white/5 max-w-none">
-    <div
-      class="text-[0.85rem] text-[#888] lang-text"
-      data-en="© 2026 An Binh Traditional Clinic. <br class='mobile-only'>All Rights Reserved."
-      data-vn="© 2026 An Bình. <br class='mobile-only'>Bản Quyền Đã Được Bảo Lưu."
-    >
-      &copy; 2026 An Bình. <br class="mobile-only" />Bản Quyền Đã Được Bảo Lưu.
-    </div>
+    <div class="text-[0.85rem] text-[#888]" set:html={t("footer.copyright")} />
   </div>
+</footer>
 </footer>
 
 

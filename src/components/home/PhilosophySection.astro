@@ -1,121 +1,70 @@
----
+﻿---
 import { Image } from "astro:assets";
 import { getImageByPath } from "../../utils/assets";
+import { useTranslations } from "../../i18n/utils";
+
+const { locale = "vi" } = Astro.props;
+const t = useTranslations(locale);
 
 const asset_Dad_Final_3_webp = getImageByPath("Dad Final 3.webp");
 const asset_Thu_c_1E_webp = getImageByPath("Thuốc 1E.webp");
 ---
-  <!-- PHILOSOPHY SECTION  -->
-  <section class="philosophy-section">
-    <div class="philosophy-container">
-      <div class="philosophy-text">
-        <h2
-          class="section-heading heading-section lang-text"
-          data-en="Our Philosophy"
-          data-vn="Triết Lý Của Chúng Tôi"
-        >
-          Triết Lý Của Chúng Tôi
-        </h2>
-        <h3
-          class="sub-heading lang-text"
-          data-en="Harmony of Body & Nature"
-          data-vn="Hòa Hợp Giữa Cơ Thể & Thiên Nhiên"
-        >
-          Hòa Hợp Giữa Cơ Thể & Thiên Nhiên
-        </h3>
-        <p
-          class="body-regular lang-text"
-          data-en="At An Binh, we believe that true wellness comes from the balance between the internal elements of the body and the external rhythms of nature.<br><br>Drawing from thousands of years of traditional wisdom, our approach combines time-honored herbal remedies with modern understanding to restore your body's natural capacity for healing."
-          data-vn="Tại An Bình, chúng tôi tin rằng sự khỏe mạnh đích thực đến từ sự cân bằng giữa các yếu tố bên trong cơ thể và nhịp điệu bên ngoài của thiên nhiên.<br><br>
-          Với tâm niệm rằng mỗi người là một cá thể duy nhất với những nhu cầu chăm sóc khác nhau. 
-          Chúng tôi kết hợp những bài thuốc lành tính từ thiên nhiên,
-          được điều chỉnh theo từng thể trạng nhằm điều trị tận gốc bệnh lý và bồi
-          bổ cơ thể."
-        >
-          Tại An Bình, chúng tôi tin rằng sự khỏe mạnh đích thực đến từ sự cân
-          bằng giữa các yếu tố bên trong cơ thể và nhịp điệu bên ngoài của thiên
-          nhiên.
-          <br /><br />
-          Chúng tôi hiểu rằng mỗi người là một cá thể duy nhất với những nhu cầu chăm
-          sóc khác nhau. Chúng tôi kết hợp những bài thuốc lành tính từ thiên nhiên,
-          được điều chỉnh theo từng thể trạng nhằm điều trị tận gốc bệnh lý và bồi
-          bổ cơ thể.
-        </p>
-        <a
-          href="/about"
-          class="btn-secondary lang-text"
-          data-en="DISCOVER MORE"
-          data-vn="KHÁM PHÁ THÊM">KHÁM PHÁ THÊM</a
-        >
-      </div>
 
-      <div class="philosophy-image-wrapper">
-        <div class="philosophy-frame">
-          <Image
-            src={asset_Dad_Final_3_webp}
-            alt="Traditional Medicine Philosophy"
-            class="philosophy-img"
-          />
-        </div>
+<!-- PHILOSOPHY SECTION  -->
+<section class="philosophy-section">
+  <div class="philosophy-container">
+    <div class="philosophy-text">
+      <h2 class="section-heading heading-section">
+        {t("philosophy.section.title")}
+      </h2>
+      <h3 class="sub-heading">
+        {t("philosophy.section.subtitle")}
+      </h3>
+      <p class="body-regular" set:html={t("philosophy.section.body")} />
+      <a href="/about" class="btn-secondary">
+        {t("philosophy.section.btn")}
+      </a>
+    </div>
+
+    <div class="philosophy-image-wrapper">
+      <div class="philosophy-frame">
+        <Image
+          src={asset_Dad_Final_3_webp}
+          alt="Traditional Medicine Philosophy"
+          class="philosophy-img"
+        />
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- INGREDIENT DETAIL SECTION -->
-  <section class="philosophy-section">
-    <div class="philosophy-container reverse">
-      <div class="philosophy-text">
-        <h2
-          class="section-heading heading-section lang-text"
-          data-en="Premium Herbal Selection"
-          data-vn="Lựa Chọn Thảo Dược Chuẩn Mực"
-        >
-          Lựa Chọn Thảo Dược Chuẩn Mực
-        </h2>
-        <h3
-          class="sub-heading lang-text"
-          data-en="Curated for Potency"
-          data-vn="Tuyển Chọn Vì Chất Lượng"
-        >
-          Tuyển Chọn Vì Chất Lượng
-        </h3>
-        <p
-          class="body-regular lang-text"
-          data-en="Every formulation begins with the careful selection of premium herbs. We prioritize ingredients that are ethically sourced and harvested at peak maturity to ensure maximum therapeutic value.<br><br>Experience the difference that quality makes in your journey to wellness."
-          data-vn="Mỗi vị thuốc đều đóng vai trò then chốt trong quá trình điều trị, 
-          quyết định hiệu quả phục hồi của cơ thể. Tại An Bình, 
-          chúng tôi khắt khe trong việc tuyển chọn nguồn dược liệu chất lượng cao, 
-          đảm bảo thu hoạch đúng độ tuổi để giữ trọn vẹn dược tính và phát huy tối đa tác dụng trị liệu.
-          <br><br>Chúng tôi luôn đồng hành cùng bạn trên hành trình phục hồi sức khỏe bằng những bài thuốc tinh túy và chất lượng tốt nhất."
-        >
-          Mỗi vị thuốc đều đóng vai trò then chốt trong quá trình điều trị,
-          quyết định hiệu quả phục hồi của cơ thể. Tại An Bình, chúng tôi khắt
-          khe trong việc tuyển chọn nguồn dược liệu chất lượng cao, đảm bảo thu
-          hoạch đúng độ tuổi để giữ trọn vẹn dược tính và phát huy tối đa tác
-          dụng trị liệu.
-          <br /><br />
-          Chúng tôi luôn đồng hành cùng bạn trên hành trình phục hồi sức khỏe bằng
-          những bài thuốc tinh túy và chất lượng tốt nhất.
-        </p>
-        <a
-          href="/ingredients"
-          class="btn-secondary lang-text"
-          data-en="VIEW INGREDIENTS"
-          data-vn="XEM THÀNH PHẦN">XEM THÀNH PHẦN</a
-        >
-      </div>
+<!-- INGREDIENT DETAIL SECTION -->
+<section class="philosophy-section">
+  <div class="philosophy-container reverse">
+    <div class="philosophy-text">
+      <h2 class="section-heading heading-section">
+        {t("philosophy.herbs.title")}
+      </h2>
+      <h3 class="sub-heading">
+        {t("philosophy.herbs.subtitle")}
+      </h3>
+      <p class="body-regular" set:html={t("philosophy.herbs.body")} />
+      <a href="/ingredients" class="btn-secondary">
+        {t("philosophy.herbs.btn")}
+      </a>
+    </div>
 
-      <div class="philosophy-image-wrapper">
-        <div class="philosophy-frame">
-          <Image
-            src={asset_Thu_c_1E_webp}
-            alt="Premium Herbs"
-            class="philosophy-img"
-          />
-        </div>
+    <div class="philosophy-image-wrapper">
+      <div class="philosophy-frame">
+        <Image
+          src={asset_Thu_c_1E_webp}
+          alt="Premium Herbs"
+          class="philosophy-img"
+        />
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <style>
 /* =========================================
@@ -265,4 +214,3 @@ const asset_Thu_c_1E_webp = getImageByPath("Thuốc 1E.webp");
     }
 }
 </style>
-

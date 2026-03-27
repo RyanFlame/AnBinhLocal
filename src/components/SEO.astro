@@ -5,6 +5,7 @@
  */
 
 import { Image } from "astro:assets";
+import { getLocaleFromPath, localizePath } from "../i18n/config";
 import defaultImage from "../assets/Thuốc 1E.webp";
 
 type Props = {
@@ -12,6 +13,7 @@ type Props = {
   description?: string;
   image?: string | ImageMetadata;
   robots?: string;
+  locale?: import("../i18n/config").Locale;
 };
 
 const {
@@ -19,7 +21,11 @@ const {
   description = "Phòng khám YHCT An Bình - Chăm sóc sức khỏe bằng y học cổ truyền tinh hoa, châm cứu tại Đất Đỏ.",
   image,
   robots = "index, follow",
+  locale: localeProp,
 } = Astro.props;
+
+const locale = localeProp ?? getLocaleFromPath(Astro.url.pathname);
+const resolvedDescription = description;
 
 // Handle both string paths and ImageMetadata
 const resolvedImage = image
@@ -35,13 +41,8 @@ const formattedTitle = `${title} | ${siteName}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // 2. Bilingual Hreflang Logic
-const isEnglish = Astro.url.pathname.startsWith("/en");
-const basePath = isEnglish
-  ? Astro.url.pathname.replace(/^\/en/, "")
-  : Astro.url.pathname;
-
-const viUrl = new URL(basePath, Astro.site).toString();
-const enUrl = new URL(`/en${basePath}`, Astro.site).toString();
+const viUrl = new URL(localizePath(Astro.url.pathname, "vi"), Astro.site).toString();
+const enUrl = new URL(localizePath(Astro.url.pathname, "en"), Astro.site).toString();
 
 // 3. Absolute Image for Social Scrapers
 const socialImageURL = new URL(resolvedImage, Astro.site);
@@ -77,7 +78,7 @@ const socialImageURL = new URL(resolvedImage, Astro.site);
 <!-- Primary Meta Tags -->
 <title>{formattedTitle}</title>
 <meta name="title" content={formattedTitle} />
-<meta name="description" content={description} />
+<meta name="description" content={resolvedDescription} />
 <meta name="robots" content={robots} />
 <link rel="canonical" href={canonicalURL} />
 
@@ -101,16 +102,16 @@ const socialImageURL = new URL(resolvedImage, Astro.site);
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={formattedTitle} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={resolvedDescription} />
 <meta property="og:image" content={socialImageURL} />
 <meta property="og:site_name" content={siteName} />
-<meta property="og:locale" content={isEnglish ? "en_US" : "vi_VN"} />
+<meta property="og:locale" content={locale === "en" ? "en_US" : "vi_VN"} />
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={formattedTitle} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={resolvedDescription} />
 <meta name="twitter:image" content={socialImageURL} />
 
 <!-- Sitemap -->

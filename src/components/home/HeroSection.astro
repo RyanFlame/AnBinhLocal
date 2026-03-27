@@ -1,5 +1,9 @@
 ---
+import { useTranslations } from "../../i18n/utils";
 import { getImageByPath } from "../../utils/assets";
+
+const { locale = "vi" } = Astro.props;
+const t = useTranslations(locale);
 
 // Hero assets
 const asset_Therapies_Thuoc_Bac_webp = getImageByPath(
@@ -11,20 +15,9 @@ const asset_Therapies_Thuoc_Bac_webp = getImageByPath(
   <div class="hero-layout-container">
     <!-- Left Side: Text Content -->
     <div class="hero-left-col">
-      <h1
-        class="hero-title lang-text"
-        data-en="Restoring<br>balance naturally."
-        data-vn="Phục hồi<br>cân bằng tự nhiên."
-      >
-        Phục hồi<br />cân bằng tự nhiên.
-      </h1>
-      <p
-        class="hero-desc lang-text"
-        data-en="Discover the serenity of holistic healing in our traditional clinic nestled in the heart of the city."
-        data-vn="Khám phá sức mạnh từ những bài thuốc thảo dược dân gian thân quen, giúp cơ thể bạn phục hồi sự cân bằng tự nhiên."
-      >
-        Khám phá sức mạnh từ những bài thuốc thảo dược dân gian thân quen, giúp
-        cơ thể bạn phục hồi sự cân bằng tự nhiên.
+      <h1 class="hero-title" set:html={t("hero.title")} />
+      <p class="hero-desc">
+        {t("hero.desc")}
       </p>
     </div>
   </div>
@@ -51,64 +44,34 @@ const asset_Therapies_Thuoc_Bac_webp = getImageByPath(
         class="booking-segment segment-treatment booking-feature"
         style="cursor: pointer;"
       >
-        <span
-          class="segment-label lang-text"
-          data-en="Treatment"
-          data-vn="Trị Liệu">Trị Liệu</span
-        >
-        <span
-          class="segment-value lang-text"
-          data-en="Select therapy"
-          data-vn="Chọn liệu pháp">Chọn liệu pháp</span
-        >
+        <span class="segment-label">{t("hero.booking.treatment")}</span>
+        <span class="segment-value">{t("hero.booking.treatment_placeholder")}</span>
       </div>
       <div class="segment-divider div-1"></div>
       <div
         class="booking-segment segment-name booking-feature"
         style="cursor: pointer;"
       >
-        <span class="segment-label lang-text" data-en="Name" data-vn="Họ Tên"
-          >Họ Tên</span
-        >
-        <span
-          class="segment-value lang-text"
-          data-en="Add details"
-          data-vn="Thêm thông tin">Thêm thông tin</span
-        >
+        <span class="segment-label">{t("hero.booking.name")}</span>
+        <span class="segment-value">{t("hero.booking.name_placeholder")}</span>
       </div>
       <div class="segment-divider div-2"></div>
       <div
         class="booking-segment segment-date booking-feature"
         style="cursor: pointer;"
       >
-        <span class="segment-label lang-text" data-en="Date" data-vn="Ngày"
-          >Ngày</span
-        >
-        <span
-          class="segment-value lang-text"
-          data-en="Add date"
-          data-vn="Chọn ngày">Chọn ngày</span
-        >
+        <span class="segment-label">{t("hero.booking.date")}</span>
+        <span class="segment-value">{t("hero.booking.date_placeholder")}</span>
       </div>
       <div class="segment-divider div-3"></div>
       <div
         class="booking-segment segment-time booking-feature"
         style="cursor: pointer;"
       >
-        <span class="segment-label lang-text" data-en="Time" data-vn="Giờ"
-          >Giờ</span
-        >
-        <span
-          class="segment-value lang-text"
-          data-en="Select slot"
-          data-vn="Chọn khung giờ">Chọn khung giờ</span
-        >
+        <span class="segment-label">{t("hero.booking.time")}</span>
+        <span class="segment-value">{t("hero.booking.time_placeholder")}</span>
       </div>
-      <button
-        class="btn-booking-submit btn-hero-primary lang-text"
-        data-en="Book Now"
-        data-vn="Đặt Lịch"
-      >
+      <button class="btn-booking-submit btn-hero-primary">
         <svg
           width="18"
           height="18"
@@ -125,7 +88,7 @@ const asset_Therapies_Thuoc_Bac_webp = getImageByPath(
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        Đặt Lịch
+        {t("hero.booking.submit")}
       </button>
     </div>
 
@@ -571,3 +534,36 @@ const asset_Therapies_Thuoc_Bac_webp = getImageByPath(
     }
   }
 </style>
+
+<script is:inline>
+  (() => {
+    const hero = document.querySelector('.hero-section');
+    if (!hero) return;
+
+    let blurFrame = null;
+    let lastBlur = -1;
+
+    function updateBlur() {
+        const rect = hero.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const progress = Math.min(Math.max((windowHeight - rect.bottom) / windowHeight, 0), 1);
+        const blur = progress * progress * 12;
+
+        if (Math.abs(blur - lastBlur) < 0.1) return;
+        lastBlur = blur;
+        hero.style.setProperty('--hero-blur', `${blur}px`);
+    }
+
+    function requestBlurUpdate() {
+        if (blurFrame !== null) return;
+        blurFrame = window.requestAnimationFrame(() => {
+            blurFrame = null;
+            updateBlur();
+        });
+    }
+
+    window.addEventListener('scroll', requestBlurUpdate, { passive: true });
+    window.addEventListener('resize', requestBlurUpdate);
+    requestBlurUpdate();
+  })();
+</script>

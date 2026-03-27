@@ -2,11 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from 'astro:assets';
 import { getImageByPath } from '../utils/assets';
+import { useTranslations } from "../i18n/utils";
+import { type Locale } from "../i18n/config";
+
+const locale = (Astro.currentLocale || "vi") as Locale;
+const t = useTranslations(locale);
 
 const bgAsset = getImageByPath('Asset/404-bg.png');
 ---
 
-<Layout title="404 - Page Not Found | An Binh Clinic">
+<Layout title={t("404.title")}>
   <main class="error-page" data-header-theme="light">
     <div class="container error-container">
       <div class="error-visual">
@@ -17,22 +22,22 @@ const bgAsset = getImageByPath('Asset/404-bg.png');
       </div>
       
       <div class="error-content">
-        <span class="accent-label lang-text" data-en="Peaceful but Lost" data-vn="Bình Yên nhưng Lạc Lối">
-            Bình Yên nhưng Lạc Lối
+        <span class="accent-label">
+            {t("404.accent")}
         </span>
-        <h1 class="heading-section lang-text" data-en="Oops! This path is closed." data-vn="Ối! Con đường này đã đóng.">
-           Ối! Con đường này đã đóng.
+        <h1 class="heading-section">
+           {t("404.heading")}
         </h1>
-        <p class="body-large lang-text" data-en="The page you are looking for might have moved, or you might have taken a turn into a non-existent corner of our clinic." data-vn="Trang bạn đang tìm kiếm có thể đã được di chuyển, hoặc bạn có thể đã rẽ vào một góc không tồn tại trong phòng khám của chúng tôi.">
-          Trang bạn đang tìm kiếm có thể đã được di chuyển, hoặc bạn có thể đã rẽ vào một góc không tồn tại trong phòng khám của chúng tôi.
+        <p class="body-large">
+          {t("404.desc")}
         </p>
         
         <div class="error-actions">
-           <a href="/" class="btn-primary lang-text" data-en="Return to Balance" data-vn="Trở về Trang Chủ">
-              Trở về Trang Chủ
+           <a href={locale === "vi" ? "/" : "/en/"} class="btn-primary">
+              {t("404.actions.home")}
            </a>
-           <a href="/therapies" class="btn-secondary lang-text" data-en="Explore Therapies" data-vn="Khám Phá Liệu Pháp">
-              Khám Phá Liệu Pháp
+           <a href={locale === "vi" ? "/therapies" : "/en/therapies"} class="btn-secondary">
+              {t("404.actions.therapies")}
            </a>
         </div>
       </div>

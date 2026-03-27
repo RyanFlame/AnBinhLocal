@@ -1,6 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import { getImageByPath } from "../../utils/assets";
+import { useTranslations } from "../../i18n/utils";
+
+const { locale = "vi" } = Astro.props;
+const t = useTranslations(locale);
 
 const icon_Chuan_Doan = getImageByPath('Icon/Chuan Doan.png');
 const icon_Thuoc_1 = getImageByPath('Icon/Thuoc 1.png');
@@ -9,186 +13,155 @@ const icon_Bam_Huyet = getImageByPath('Icon/Bam Huyet.png');
 const icon_Dinh_Duong = getImageByPath('Icon/Dinh Duong.png');
 const icon_The_Duc = getImageByPath('Icon/The Duc.png');
 const icon_Thuoc_2 = getImageByPath('Icon/Thuoc 2.png');
+
+const aboutHref = locale === "en" ? "/en/about" : "/about";
 ---
-  <section class="product-section" id="products" data-header-theme="light">
-    <div class="product-container">
-      <div class="product-header">
-        <h2
-          class="heading-section lang-text"
-          data-en="Our Natural Collections"
-          data-vn="Bộ Sưu Tập Từ Thiên Nhiên"
-        >
-          Bộ Sưu Tập Từ Thiên Nhiên
-        </h2>
-        <div class="carousel-nav">
-          <button id="prevBtn" class="nav-arrow" aria-label="Previous">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M15 18l-6-6 6-6"></path>
-            </svg>
-          </button>
-          <button id="nextBtn" class="nav-arrow" aria-label="Next">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </button>
-        </div>
+
+<section class="product-section" id="products" data-header-theme="light">
+  <div class="product-container">
+    <div class="product-header">
+      <h2 class="heading-section">
+        {t("carousel.title")}
+      </h2>
+      <div class="carousel-nav">
+        <button id="prevBtn" class="nav-arrow" aria-label="Previous">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M15 18l-6-6 6-6"></path>
+          </svg>
+        </button>
+        <button id="nextBtn" class="nav-arrow" aria-label="Next">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M9 18l6-6-6-6"></path>
+          </svg>
+        </button>
       </div>
+    </div>
 
-      <div class="carousel-viewport" id="carouselViewport">
-        <div class="carousel-track" id="track">
-          <div class="product-card">
-            <a
-              href="/about#svc-private"
-              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
-            >
-              <div class="card-inner">
-                <div class="icon-placeholder">
-                  <Image
-                    src={icon_Chuan_Doan}
-                    alt="Icon"
-                    class="temp-icon"
-                  />
-                </div>
-                <h3
-                  class="lang-text"
-                  data-en="Pulse Diagnosis"
-                  data-vn="Chẩn Đoán"
-                >
-                  Chẩn Đoán
-                </h3>
+    <div class="carousel-viewport" id="carouselViewport">
+      <div class="carousel-track" id="track">
+        <div class="product-card">
+          <a
+            href={`${aboutHref}#svc-private`}
+            style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+          >
+            <div class="card-inner">
+              <div class="icon-placeholder">
+                <Image
+                  src={icon_Chuan_Doan}
+                  alt="Icon"
+                  class="temp-icon"
+                />
               </div>
-            </a>
-          </div>
+              <h3>{t("carousel.product.diagnosis")}</h3>
+            </div>
+          </a>
+        </div>
 
-          <div class="product-card">
-            <a
-              href="/about#svc-herbal"
-              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
-            >
-              <div class="card-inner">
-                <div class="icon-placeholder">
-                  <Image src={icon_Thuoc_1} alt="Icon" class="temp-icon" />
-                </div>
-                <h3
-                  class="lang-text"
-                  data-en="Herbal Decoctions"
-                  data-vn="Bốc Thuốc Bắc"
-                >
-                  Bốc Thuốc Bắc
-                </h3>
+        <div class="product-card">
+          <a
+            href={`${aboutHref}#svc-herbal`}
+            style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+          >
+            <div class="card-inner">
+              <div class="icon-placeholder">
+                <Image src={icon_Thuoc_1} alt="Icon" class="temp-icon" />
               </div>
-            </a>
-          </div>
+              <h3>{t("carousel.product.herbal")}</h3>
+            </div>
+          </a>
+        </div>
 
-          <div class="product-card">
-            <a
-              href="/about#svc-acupuncture"
-              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
-            >
-              <div class="card-inner">
-                <div class="icon-placeholder">
-                  <Image src={icon_Cham_Cuu} alt="Icon" class="temp-icon" />
-                </div>
-                <h3 class="lang-text" data-en="Acupuncture" data-vn="Châm Cứu">
-                  Châm Cứu
-                </h3>
+        <div class="product-card">
+          <a
+            href={`${aboutHref}#svc-acupuncture`}
+            style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+          >
+            <div class="card-inner">
+              <div class="icon-placeholder">
+                <Image src={icon_Cham_Cuu} alt="Icon" class="temp-icon" />
               </div>
-            </a>
-          </div>
+              <h3>{t("carousel.product.acupuncture")}</h3>
+            </div>
+          </a>
+        </div>
 
-          <div class="product-card">
-            <a
-              href="/about#svc-acupuncture"
-              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
-            >
-              <div class="card-inner">
-                <div class="icon-placeholder">
-                  <Image src={icon_Bam_Huyet} alt="Icon" class="temp-icon" />
-                </div>
-                <h3 class="lang-text" data-en="Acupressure" data-vn="Bấm Huyệt">
-                  Bấm Huyệt
-                </h3>
+        <div class="product-card">
+          <a
+            href={`${aboutHref}#svc-acupuncture`}
+            style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+          >
+            <div class="card-inner">
+              <div class="icon-placeholder">
+                <Image src={icon_Bam_Huyet} alt="Icon" class="temp-icon" />
               </div>
-            </a>
-          </div>
+              <h3>{t("carousel.product.acupressure")}</h3>
+            </div>
+          </a>
+        </div>
 
-          <div class="product-card">
-            <a
-              href="/about#svc-nutrition"
-              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
-            >
-              <div class="card-inner">
-                <div class="icon-placeholder">
-                  <Image
-                    src={icon_Dinh_Duong}
-                    alt="Icon"
-                    class="temp-icon"
-                  />
-                </div>
-                <h3
-                  class="lang-text"
-                  data-en="Nutritional Supplements"
-                  data-vn="Dinh Dưỡng"
-                >
-                  Dinh Dưỡng
-                </h3>
+        <div class="product-card">
+          <a
+            href={`${aboutHref}#svc-nutrition`}
+            style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+          >
+            <div class="card-inner">
+              <div class="icon-placeholder">
+                <Image
+                  src={icon_Dinh_Duong}
+                  alt="Icon"
+                  class="temp-icon"
+                />
               </div>
-            </a>
-          </div>
+              <h3>{t("carousel.product.nutrition")}</h3>
+            </div>
+          </a>
+        </div>
 
-          <div class="product-card">
-            <a
-              href="/about#svc-nutrition"
-              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
-            >
-              <div class="card-inner">
-                <div class="icon-placeholder">
-                  <Image src={icon_The_Duc} alt="Icon" class="temp-icon" />
-                </div>
-                <h3
-                  class="lang-text"
-                  data-en="Physical Therapy"
-                  data-vn="Vật Lý Trị Liệu"
-                >
-                  Vật Lý Trị Liệu
-                </h3>
+        <div class="product-card">
+          <a
+            href={`${aboutHref}#svc-nutrition`}
+            style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+          >
+            <div class="card-inner">
+              <div class="icon-placeholder">
+                <Image src={icon_The_Duc} alt="Icon" class="temp-icon" />
               </div>
-            </a>
-          </div>
+              <h3>{t("carousel.product.physical_therapy")}</h3>
+            </div>
+          </a>
+        </div>
 
-          <div class="product-card">
-            <a
-              href="/about#svc-herbal"
-              style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
-            >
-              <div class="card-inner">
-                <div class="icon-placeholder">
-                  <Image src={icon_Thuoc_2} alt="Icon" class="temp-icon" />
-                </div>
-                <h3 class="lang-text" data-en="Tonic" data-vn="Thuốc Bổ">
-                  Thuốc Bổ
-                </h3>
+        <div class="product-card">
+          <a
+            href={`${aboutHref}#svc-herbal`}
+            style="text-decoration: none; color: inherit; display: block; height: 100%; width: 100%;"
+          >
+            <div class="card-inner">
+              <div class="icon-placeholder">
+                <Image src={icon_Thuoc_2} alt="Icon" class="temp-icon" />
               </div>
-            </a>
-          </div>
+              <h3>{t("carousel.product.tonic")}</h3>
+            </div>
+          </a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <style>
 /* =========================================
@@ -378,4 +351,37 @@ const icon_Thuoc_2 = getImageByPath('Icon/Thuoc 2.png');
     }
 }
 </style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById('carouselViewport');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (track && prevBtn && nextBtn) {
+        function getScrollAmount() {
+            const card = document.querySelector('.product-card');
+            return card ? (card.offsetWidth + 20) : 220; 
+        }
+
+        nextBtn.addEventListener('click', () => {
+            const amount = getScrollAmount();
+            if (typeof gsap !== 'undefined') {
+                gsap.to(track, { scrollLeft: track.scrollLeft + amount, duration: 0.5, ease: 'power2.out' });
+            } else {
+                track.scrollBy({ left: amount, behavior: 'smooth' });
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            const amount = getScrollAmount();
+            if (typeof gsap !== 'undefined') {
+                gsap.to(track, { scrollLeft: track.scrollLeft - amount, duration: 0.5, ease: 'power2.out' });
+            } else {
+                track.scrollBy({ left: -amount, behavior: 'smooth' });
+            }
+        });
+    }
+  });
+</script>
 
