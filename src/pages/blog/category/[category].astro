@@ -5,6 +5,8 @@ import { Image } from "astro:assets";
 import { useTranslations } from "../../../i18n/utils";
 import { type Locale } from "../../../i18n/config";
 
+import type { CollectionEntry } from "astro:content";
+
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
   const viPosts = allPosts.filter(post => post.id.endsWith('.vi'));
@@ -14,14 +16,19 @@ export async function getStaticPaths() {
     const filteredPosts = viPosts.filter((post) => post.data.category === category);
     return {
       params: { category: category },
-      props: { posts: filteredPosts },
+      props: { posts: filteredPosts, category: category },
     };
   });
 }
 
+interface Props {
+  posts: CollectionEntry<"blog">[];
+  category?: string;
+}
+
 const { category: routeCategory } = Astro.params;
-const { posts, category: categoryProp } = Astro.props;
-const category = categoryProp ?? routeCategory;
+const { posts, category: propCategory } = Astro.props as unknown as Props;
+const category = propCategory || routeCategory;
 
 const locale = (Astro.currentLocale || "vi") as Locale;
 const t = useTranslations(locale);

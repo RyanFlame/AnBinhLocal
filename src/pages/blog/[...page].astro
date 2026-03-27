@@ -22,7 +22,7 @@ interface Props {
   page: Page<CollectionEntry<"blog">>;
 }
 
-const { page } = Astro.props as Props;
+const { page } = Astro.props as unknown as Props;
 const locale = (Astro.currentLocale || "vi") as Locale;
 const t = useTranslations(locale);
 

@@ -16,7 +16,7 @@ export async function getStaticPaths() {
   });
 }
 
-const { posts, category } = Astro.props;
+const { posts, category } = Astro.props as any;
 ---
 
 <Page posts={posts} category={category} />

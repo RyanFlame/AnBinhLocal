@@ -6,9 +6,13 @@ import { useTranslations } from "../../i18n/utils";
 const { locale = "vi" } = Astro.props;
 const t = useTranslations(locale);
 
-const location_1 = getImageByPath(t("location.step1.image")) || getImageByPath("Location/Location 1.png");
-const location_2 = getImageByPath(t("location.step2.image")) || getImageByPath("Location/Location 2.png");
-const location_3 = getImageByPath(t("location.step3.image")) || getImageByPath("Location/Location 3.jpg");
+const location_1 = getImageByPath(t("location.step1.image")) || getImageByPath("Location/outside.webp");
+const location_2 = getImageByPath(t("location.step2.image")) || getImageByPath("Location/inside.webp");
+const location_3 = getImageByPath(t("location.step3.image")) || getImageByPath("Location/healing.webp");
+
+const asset_Thu_c_1_webp = getImageByPath("Thuốc 1.webp");
+const asset_Thu_c_2_webp = getImageByPath("Thuốc 2.webp");
+const asset_Thu_c_webp = getImageByPath("Thuốc 3.webp");
 
 const carouselData = [
   {
@@ -39,7 +43,7 @@ const carouselData = [
   <div class="location-container">
     <!-- Background Image -->
     <img
-      src={location_1.src}
+      src={location_1?.src}
       class="location-bg-img"
       id="locationBg"
       alt="Location Background"
