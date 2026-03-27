@@ -209,13 +209,13 @@ const location_2 = getImageByPath("Location/Location 2.png");
         <div class="latest-grid" id="latestGrid">
           {page.data.map((post: CollectionEntry<"blog">) => (
             <article class="post-card main-feature">
-              <a href={locale === "vi" ? `/blog/${post.id}` : `/en/blog/${post.id}`} style="text-decoration: none; color: inherit; display: block;">
+              <a href={locale === "vi" ? `/blog/${post.id.replace('.vi', '')}` : `/en/blog/${post.id.replace('.en', '')}`} style="text-decoration: none; color: inherit; display: block;">
                 <figure class="post-image concave-corner">
                   <Image src={post.data.image as any} alt={post.data.title} />
                 </figure>
               </a>
               <div class="post-content">
-                <a href={locale === "vi" ? `/blog/${post.id}` : `/en/blog/${post.id}`} style="text-decoration: none; color: inherit;">
+                <a href={locale === "vi" ? `/blog/${post.id.replace('.vi', '')}` : `/en/blog/${post.id.replace('.en', '')}`} style="text-decoration: none; color: inherit;">
                   <h3 class="post-title">{post.data.title}</h3>
                 </a>
                 <p class="post-excerpt">{post.data.excerpt}</p>
