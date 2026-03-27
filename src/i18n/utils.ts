@@ -6,10 +6,13 @@ const translations = {
   en
 } as const;
 
-export function useTranslations(lang: keyof typeof translations | string) {
+export function useTranslations(lang: string) {
   return function t(key: string) {
-    const locale = (lang === 'vn' ? 'vi' : lang) as keyof typeof translations;
-    const dict = translations[locale] || translations.vi;
-    return (dict as any)[key] || key;
+    const locale = (lang === 'vn' ? 'vi' : lang) as 'vi' | 'en';
+    const dict = (translations as any)[locale] || translations.vi;
+    
+    // Support nested keys like "hero.title" or "location.step1.sub"
+    const value = key.split('.').reduce((obj, k) => obj?.[k], dict);
+    return value || key;
   };
 }

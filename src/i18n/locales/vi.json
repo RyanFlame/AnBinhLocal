@@ -1,281 +1,479 @@
 {
-  "hero.title": "Phục hồi<br />cân bằng tự nhiên.",
-  "hero.desc": "Khám phá sức mạnh từ những bà thuốc thảo dược dân gian thân quen, giúp cơ thể bạn phục hồi sự cân bằng tự nhiên.",
-  "hero.booking.treatment": "Trị Liệu",
-  "hero.booking.treatment_placeholder": "Chọn liệu pháp",
-  "hero.booking.name": "Họ Tên",
-  "hero.booking.name_placeholder": "Thêm thông tin",
-  "hero.booking.date": "Ngày",
-  "hero.booking.date_placeholder": "Chọn ngày",
-  "hero.booking.time": "Giờ",
-  "hero.booking.time_placeholder": "Chọn khung giờ",
-  "hero.booking.submit": "Đặt Lịch",
-  "nav.home": "Trang Chủ",
-  "nav.about": "Về Chúng Tôi",
-  "nav.booking": "Đặt Lịch",
-  "nav.blog": "Blog",
-  "footer.brand_slogan": "An nhiên dưỡng tạng – Bình ổn thân tâm",
-  "footer.links_title": "Liên Kết Nhanh",
-  "footer.link.philosophy": "Triết Lý",
-  "footer.link.remedies": "Bài Thuốc",
-  "footer.link.services": "Liệu Pháp",
-  "footer.link.visit": "Địa Chỉ",
-  "footer.contact_title": "Liên Hệ",
-  "footer.address_label": "Địa Chỉ Cũ:",
-  "footer.phone_label": "Điện thoại:",
-  "footer.hours_title": "Giờ Mở Cửa",
-  "footer.days.mon_fri": "T2-T6:",
-  "footer.days.sat": "T7:",
-  "footer.days.sun": "CN:",
-  "footer.hours.mon_fri": "9h - 18h",
-  "footer.hours.sat": "10h - 16h",
-  "footer.hours.sun": "Đóng cửa",
-  "footer.copyright": "© 2026 An Bình. <br class='mobile-only'>Bản Quyền Đã Được Bảo Lưu.",
-  "location.step1.sub": "GHÉ THĂM TIỆM THUỐC CHÍNH CỦA CHÚNG TÔI",
-  "location.step1.heading": "Phòng Khám<br />phía ngoài",
-  "location.step1.btn_text": "Xem Đường Đi",
-  "location.step2.sub": "TRỊ LIỆU TOÀN DIỆN & CHÂM CỨU",
-  "location.step2.heading": "Phòng Khám<br />phía trong",
-  "location.step2.btn_text": "Xem Đường Đi",
-  "location.step3.sub": "NÂNG TẦM HÀNH TRÌNH SỨC KHỎE CỦA BẠN",
-  "location.step3.heading": "Trải Nghiệm<br />Sự Kỳ Diệu Của<br />Trị Liệu!",
-  "location.step3.btn_text": "Đặt Lịch Ngay",
-  "location.corner.know_more": "Tìm Hiểu Thêm →",
-  "location.corner.title": "Chăm Sóc Toàn Diện",
-  "location.corner.subtitle": "Khám Phá Trí Tuệ Cổ Xưa",
-  "philosophy.section.title": "Triết Lý Của Chúng Tôi",
-  "philosophy.section.subtitle": "Hòa Hợp Giữa Cơ Thể & Thiên Nhiên",
-  "philosophy.section.body": "Tại An Bình, chúng tôi tin rằng sự khỏe mạnh đích thực đến từ sự cân bằng giữa các yếu tố bên trong cơ thể và nhịp điệu bên ngoài của thiên nhiên.<br><br>Chúng tôi hiểu rằng mỗi người là một cá thể duy nhất với những nhu cầu chăm sóc khác nhau. Chúng tôi kết hợp những bài thuốc lành tính từ thiên nhiên, được điều chỉnh theo từng thể trạng nhằm điều trị tận gốc bệnh lý và bồi bổ cơ thể.",
-  "philosophy.section.btn": "KHÁM PHÁ THÊM",
-  "philosophy.herbs.title": "Lựa Chọn Thảo Dược Chuẩn Mực",
-  "philosophy.herbs.subtitle": "Tuyển Chọn Vì Chất Lượng",
-  "philosophy.herbs.body": "Mỗi vị thuốc đều đóng vai trò then chốt trong quá trình điều trị, quyết định hiệu quả phục hồi của cơ thể. Tại An Bình, chúng tôi khắt khe trong việc tuyển chọn nguồn dược liệu chất lượng cao, đảm bảo thu hoạch đúng độ tuổi để giữ trọn vẹn dược tính và phát huy tối đa tác dụng trị liệu.<br><br>Chúng tôi luôn đồng hành cùng bạn trên hành trình phục hồi sức khỏe bằng những bài thuốc tinh túy và chất lượng tốt nhất.",
-  "philosophy.herbs.btn": "XEM THÀNH PHẦN",
-  "bento.title": "Khám phá các phương pháp trị liệu<br />và y học truyền thống",
-  "bento.btn_explore": "Khám phá ngay",
-  "bento.card.acupuncture": "Châm Cứu",
-  "bento.card.medicines": "Thuốc Đông Y<br />Đặc Trị",
-  "bento.card.diagnosis": "Bắt Mạch",
-  "bento.card.nutrition": "Dinh Dưỡng",
-  "bento.card.acupressure": "Bấm Huyệt",
-  "bento.card.physical_therapy": "Vật Lý Trị Liệu",
-  "faq.title_sub": "Câu Hỏi Thường Gặp",
-  "faq.title_main": "Tất Cả Những Gì Bạn Cần Biết",
-  "faq.q1.question": "Đông y có thể điều trị những loại bệnh nào?",
-  "faq.q1.answer": "Y học cổ truyền mang lại hiệu quả cao đối với nhiều loại bệnh lý như đau mãn tính, các vấn đề về tiêu hóa, căng thẳng, rối loạn giấc ngủ và mất cân bằng nội tiết tố. Chúng tôi tiếp cận toàn diện để giải quyết nguyên nhân gốc rễ gây ra triệu chứng của bạn.",
-  "faq.q2.question": "Châm cứu có đau không?",
-  "faq.q2.answer": "Hầu hết bệnh nhân ít hoặc không cảm thấy đau. Kim châm vô cùng mỏng - chỉ cỡ bằng sợi tóc. Bạn có thể cảm thấy hơi nhói nhẹ hoặc mỏi, đây thực chất là một dấu hiệu tốt cho thấy luồng khí (Khí) đang được kích hoạt.",
-  "faq.q3.question": "Quá trình tư vấn thường mất bao lâu?",
-  "faq.q3.answer": "Lần tư vấn đầu tiên thường kéo dài từ 60-90 phút. Điều này cho phép bác sĩ bắt mạch một cách cẩn thận, hiểu rõ tiền sử bệnh của bạn và lập ra một phác đồ điều trị cá nhân hóa.",
-  "faq.q4.question": "Thuốc thảo dược có an toàn khi dùng chung với các loại thuốc khác không?",
-  "faq.q4.answer": "Sự an toàn của bạn là ưu tiên hàng đầu. Trong quá trình khám bệnh, chúng tôi sẽ kiểm tra lại tất cả các loại thuốc bạn đang dùng để đảm bảo không có sự tương tác thuốc. Các công thức thuốc thảo dược của chúng tôi được thiết lập từ các thành phần có nguồn gốc rõ ràng và chất lượng cao.",
-  "faq.q5.question": "Thuốc thảo dược sắc sẵn có đảm bảo chất lượng bằng thuốc tự sắc không?",
-  "faq.q5.answer": "<strong>Có, thậm chí còn tốt hơn.</strong> Hệ thống máy sắc thuốc áp suất kín tại An Bình giúp chiết xuất tối đa dược tính mà cách sắc ấm đất thủ công dễ làm bay hơi. Thuốc được đóng túi tiệt trùng, giữ trọn vẹn hương vị và chất lượng trong thời gian dài. Điều này cực kỳ tiện lợi cho người bận rộn mà vẫn đảm bảo uống thuốc đúng giờ.",
-  "carousel.title": "Bộ Sưu Tập Từ Thiên Nhiên",
-  "carousel.product.diagnosis": "Chẩn Đoán",
-  "carousel.product.herbal": "Bốc Thuốc Bắc",
-  "carousel.product.acupuncture": "Châm Cứu",
-  "carousel.product.acupressure": "Bấm Huyệt",
-  "carousel.product.nutrition": "Dinh Dưỡng",
-  "carousel.product.physical_therapy": "Vật Lý Trị Liệu",
-  "carousel.product.tonic": "Thuốc Bổ",
-  "reviews.title_sub": "Câu Chuyện Bệnh Nhân",
-  "reviews.title_main": "Lắng nghe để thấu hiểu <br /> Đồng hành để chữa lành",
-  "reviews.body": "Mỗi bệnh nhân đến với An Bình đều mang theo một hy vọng về sức khỏe. Sự tin tưởng và những nụ cười sau mỗi liệu trình là động lực lớn nhất để chúng tôi tiếp tục gìn giữ, phát huy chất lượng trong từng vị thuốc, mang lại sự bình yên cho sức khỏe quê hương.",
-  "reviews.col1.0.name": "Minh T.",
-  "reviews.col1.0.condition": "Đau Lưng Mãn Tính",
-  "reviews.col1.0.text": "Tôi từng hoài nghi về y học cổ truyền, nhưng liệu trình châm cứu tại đây đã hoàn toàn thiết lập lại giấc ngủ của tôi. Tôi cảm thấy trẻ ra nhiều tuổi.",
-  "reviews.col1.1.name": "Sarah J.",
-  "reviews.col1.1.condition": "Kiểm Tra Sức Khỏe",
-  "reviews.col1.1.text": "Không gian thật yên bình. An Bình là một viên ngọc quý tại Winnipeg cho bất kỳ ai tìm kiếm sự chăm sóc toàn diện.",
-  "reviews.col1.2.name": "David L.",
-  "reviews.col1.2.condition": "Liệu Pháp Thảo Dược",
-  "reviews.col1.2.text": "Các loại trà thảo mộc không chỉ ngon mà còn thực sự hiệu quả. Tiêu hóa của tôi chưa bao giờ tốt hơn thế.",
-  "reviews.col2.0.name": "Emily R.",
-  "reviews.col2.0.condition": "Châm Cứu",
-  "reviews.col2.0.text": "Cuối cùng tôi đã tìm thấy sự nhẹ nhõm cho cơn đau vai sau nhiều tháng vật lộn. Đội ngũ nhân viên cực kỳ chuyên nghiệp.",
-  "reviews.col2.1.name": "James K.",
-  "reviews.col2.1.condition": "Giảm Căng Thẳng",
-  "reviews.col2.1.text": "Một nơi trú ẩn an bình. Các phương pháp điều trị đã giúp tôi quản lý căng thẳng công việc một cách đáng kể.",
-  "reviews.col2.2.name": "Linh N.",
-  "reviews.col2.2.condition": "Sức Khỏe Tổng Quát",
-  "reviews.col2.2.text": "Tôi thích cách tiếp cận cá nhân hóa. Họ thực sự dành thời gian để hiểu nhu cầu cơ thể của bạn.",
-  "booking.title": "Đặt lịch hẹn",
-  "booking.info_required": "Thông tin bắt buộc",
-  "booking.label.fullname": "Họ và Tên <span class='required-star'>*</span>",
-  "booking.label.dob": "Ngày sinh <span class='required-star'>*</span>",
-  "booking.label.phone": "Số điện thoại <span class='required-star'>*</span>",
-  "booking.info_preferred": "Ngày hẹn ưu tiên",
-  "booking.label.choose_date": "Chọn Ngày",
-  "booking.info_optional": "Thông tin thêm",
-  "booking.label.email": "Email",
-  "booking.label.address": "Địa chỉ",
-  "booking.label.male": "Nam",
-  "booking.label.female": "Nữ",
-  "booking.terms_prefix": "Bằng cách nhấn Đăng ký, tôi xác nhận đã đọc và đồng ý với các ",
-  "booking.terms_link": "Chính Sách Quyền Riêng Tư",
-  "booking.btn_submit": "Đăng Ký",
-  "booking.btn_sending": "Đang gửi...",
-  "booking.msg_success": "Yêu cầu đặt lịch đã được gửi thành công!",
-  "booking.msg_error": "Đã có lỗi xảy ra.",
-  "booking.placeholder.date": "dd/mm/yyyy",
-  "about.hero.title": "Về Chúng Tôi",
-  "about.hero.desc": "Phòng khám y học cổ truyền uy tín và được tin tưởng nhất thành phố.",
-  "about.hero.link": "KHÁM PHÁ TRỊ LIỆU ↗",
-  "about.bento.label": "☆ VỀ CHÚNG TÔI",
-  "about.bento.title": "Đỉnh Cao Của Chăm Sóc, Chữa Lành Và Phục Vụ",
-  "about.bento.desc": "Tại Phòng khám An Bình, chúng tôi kết hợp y học cổ truyền cao cấp với sự tỉ mỉ đến từng chi tiết. Cho dù đó là một liệu trình châm cứu được kê riêng cho bạn, hay một liệu pháp thảo dược thư giãn — chúng tôi lo mọi thứ, để bạn có thể hoàn toàn tận hưởng.",
-  "about.bento.link": "TÌM HIỂU THÊM ↗",
-  "about.tabs.why.pill": "✦ Tại Sao Chọn Chúng Tôi",
-  "about.tabs.why.label": "✦ Tại Sao Chọn Chúng Tôi",
-  "about.tabs.why.title": "Bắt nguồn từ truyền thống, hoàn thiện cho sự chữa lành hiện đại.",
-  "about.tabs.why.f1.title": "Đội Ngũ Lương Y",
-  "about.tabs.why.f1.desc": "Hàng chục năm đào tạo cổ điển — mỗi chẩn đoán đều bắt nguồn từ phác đồ đã được kiểm chứng.",
-  "about.tabs.why.f2.title": "Chăm Sóc Cá Nhân Hoá",
-  "about.tabs.why.f2.desc": "Mỗi phác đồ được xây dựng cho riêng bạn — nhắm vào nhu cầu riêng của cơ thể.",
-  "about.tabs.why.f3.title": "Dược Liệu Thượng Hạng",
-  "about.tabs.why.f3.desc": "Hơn 80 loại dược liệu từ vườn cao nguyên, sơ chế theo phương pháp truyền thống.",
-  "about.tabs.why.f4.title": "Tiếp Cận Toàn Diện",
-  "about.tabs.why.f4.desc": "Chúng tôi điều trị tận gốc, không chỉ triệu chứng — cân bằng cơ thể, tâm trí và năng lượng.",
-  "about.tabs.journey.pill": "Hành Trình",
-  "about.tabs.journey.label": "● Hành trình của chúng tôi",
-  "about.tabs.journey.title": "Hơn 30 năm chữa lành, được dẫn dắt bởi trí tuệ tổ tiên và sự chăm sóc hiện đại.",
-  "about.tabs.journey.desc": "An Bình được thành lập vào đầu những năm 1990 bởi Lương y Nguyễn Phước Bình. Từ một phòng khám gia đình nhỏ, qua từng thế hệ, nơi đây đã trở thành một trong những cơ sở chăm sóc sức khỏe toàn diện được tin tưởng nhất thành phố.",
-  "about.tabs.vision.pill": "Tầm Nhìn",
-  "about.tabs.vision.label": "● Tầm nhìn của chúng tôi",
-  "about.tabs.vision.title": "Một tương lai mà y học cổ truyền trở nên dễ tiếp cận với mọi gia đình, ở mọi giai đoạn cuộc đời.",
-  "about.tabs.vision.desc": "Chúng tôi hình dung An Bình là cầu nối sống động giữa kho tàng y học cổ và những nhu cầu của cuộc sống hiện đại — mang lại sự chữa lành thật sự cho mọi người.",
-  "about.tabs.mission.pill": "Sứ Mệnh",
-  "about.tabs.mission.label": "● Sứ mệnh của chúng tôi",
-  "about.tabs.mission.title": "Tôn vinh trí tuệ y học cổ truyền, phục vụ mỗi bệnh nhân bằng sự đồng cảm, chính xác và tận tâm.",
-  "about.tabs.mission.desc": "Sứ mệnh của chúng tôi dựa trên ba nguyên tắc: chăm sóc cá nhân hoá, tìm nguồn dược liệu có đạo đức, và cam kết chia sẻ kiến thức y học phương Đông đến từng bệnh nhân và cộng đồng.",
-  "about.services.label": "♥ DỊCH VỤ",
-  "about.services.title": "Chúng tôi cung cấp gì?",
-  "about.services.desc": "Từ chẩn đoán riêng tư đến lộ trình phục hồi nhiều tháng hay kiểm tra sức khỏe cơ bản — chúng tôi có giải pháp hoàn hảo cho bạn.",
-  "about.services.btn.private": "Trị Liệu Cá Nhân",
-  "about.services.btn.scheduled": "Điều Trị Theo Liệu Trình",
-  "about.services.btn.herbal": "Thảo Dược Bốc Thuốc",
-  "about.services.btn.acupuncture": "Trâm cứu - Bấm huyệt",
-  "about.services.btn.nutrition": "Dinh dưỡng - Vật lý Trị liệu",
-  "about.services.btn.community": "Hỗ Trợ Cộng Đồng",
-  "about.services.panel.private.label": "⚚ NHƯ Ý NGUYỆN",
-  "about.services.panel.private.title": "<em>Chăm sóc cá nhân</em><br>và điều trị chuyên biệt",
-  "about.services.panel.private.desc": "Tận hưởng hành trình phục hồi cá nhân trong phòng thư giãn VIP của chúng tôi. Các buổi điều trị mang lại sự linh hoạt hoàn toàn — nhắm chính xác vào điểm đau theo nhịp độ của riêng bạn.",
-  "about.services.panel.private.highlight": "Hoàn hảo cho những ai tìm kiếm<br>trải nghiệm phục hồi tuỳ chỉnh.",
-  "about.services.panel.private.link": "TÌM HIỂU KHÓA TRỊ LIỆU ↗",
-  "about.services.panel.scheduled.label": "⚚ CHĂM SÓC CÓ LỘ TRÌNH",
-  "about.services.panel.scheduled.title": "<em>Lộ trình</em><br>phục hồi có cấu trúc",
-  "about.services.panel.scheduled.desc": "Các chương trình điều trị nhiều buổi của chúng tôi được thiết kế cho các tình trạng cần chăm sóc liên tục và tiến triển. Mỗi lần theo dõi kế thừa kết quả trước — cải thiện rõ rệt từng bước.",
-  "about.services.panel.scheduled.highlight": "Lý tưởng cho các bệnh mãn tính<br>và phục hồi dài hạn.",
-  "about.services.panel.scheduled.link": "XEM LỘ TRÌNH ĐIỀU TRỊ ↗",
-  "about.services.panel.herbal.label": "⚚ THẲNG TỪ NGUỒN GỐC",
-  "about.services.panel.herbal.title": "<em>Bài thuốc thảo dược</em><br>thủ công tinh tuyển",
-  "about.services.panel.herbal.desc": "Mỗi thang thuốc được kê và bào chế tại chỗ bởi các lương y của chúng tôi, sử dụng hơn 80 loại dược liệu từ vườn cao nguyên — được sấy, chế biến và cấp phát một cách tỉ mỉ.",
-  "about.services.panel.herbal.highlight": "Hơn 80 loại thảo dược thượng hạng,<br>nguồn gốc và bào chế tại chỗ.",
-  "about.services.panel.herbal.link": "XEM DƯỢC LIỆU CỦA CHÚNG TÔI ↗",
-  "about.services.panel.acupuncture.label": "⚚ SỰ CHÍNH XÁC CỔ XƯA",
-  "about.services.panel.acupuncture.title": "<em>Châm cứu</em><br>và bấm huyệt trị liệu",
-  "about.services.panel.acupuncture.desc": "Được thực hành hơn 2.000 năm, châm cứu và bấm huyệt của chúng tôi giúp khôi phục dòng chảy năng lượng tự nhiên — giảm đau, giảm căng thẳng và hỗ trợ chữa lành sâu từ bên trong.",
-  "about.services.panel.acupuncture.highlight": "Được hàng triệu người tin dùng<br>trên khắp châu Á hơn hai thiên niên kỷ.",
-  "about.services.panel.acupuncture.link": "ĐẶT LỊCH NGAY ↗",
-  "about.services.panel.nutrition.label": "⚚ CHĂM SÓC TOÀN THÂN",
-  "about.services.panel.nutrition.title": "<em>Dinh dưỡng</em><br>và vật lý trị liệu",
-  "about.services.panel.nutrition.desc": "Chúng tôi áp dụng phương pháp toàn thân — kết hợp liệu pháp ăn uống Đông y với phục hồi chức năng có mục tiêu. Các chuyên gia hướng dẫn bạn các bài tập phục hồi và kế hoạch dinh dưỡng tái tạo.",
-  "about.services.panel.nutrition.highlight": "Kết hợp lý thuyết ăn uống Đông y<br>với vật lý trị liệu hiện đại.",
-  "about.services.panel.nutrition.link": "TÌM HIỂU THÊM ↗",
-  "about.services.panel.community.label": "⚚ CÙNG NHAU CHỮA LÀNH",
-  "about.services.panel.community.title": "<em>Hỗ trợ sức khoẻ</em><br>cộng đồng",
-  "about.services.panel.community.desc": "Chúng tôi tin rằng việc chữa lành nên được tiếp cận bởi tất cả mọi người. Thông qua các buổi tư vấn trợ giá, hội thảo cộng đồng và chương trình tiếp cận, chúng tôi đưa y học cổ truyền đến những người cần nhất.",
-  "about.services.panel.community.highlight": "Hội thảo miễn phí mỗi tháng<br>cho cộng đồng địa phương.",
-  "about.services.panel.community.link": "THAM GIA CỘNG ĐỒNG ↗",
-  "about.cta.title": "Sẵn Sàng Bắt Đầu Hành Trình Chữa Lành?",
-  "about.cta.desc": "Trải nghiệm sự cân bằng hoàn hảo giữa trí tuệ truyền thống và sự chăm sóc hiện đại tại Phòng khám An Bình.",
-  "about.cta.btn": "Đặt Lịch Hẹn Ngay",
-  "ingredients.hero.label": "Di Sản Của Chúng Tôi",
-  "ingredients.hero.title": "Tinh Tuý Thiên Nhiên,<br>Tuyển Chọn Kỹ Lưỡng.",
-  "ingredients.hero.desc": "Mỗi thảo dược, mỗi rễ cây, mỗi bông hoa — được thu hoạch có trách nhiệm từ những vườn cao nguyên trong lành và các trang trại truyền thống uy tín.",
-  "ingredients.hero.btn": "KHÁM PHÁ THÀNH PHẦN",
-  "ingredients.hero.corner.label": "100% Nguồn Thiên Nhiên",
-  "ingredients.hero.corner.stat1.num": "80+",
-  "ingredients.hero.corner.stat1.label": "Loại Thảo Dược",
-  "ingredients.hero.corner.stat2.num": "25+",
-  "ingredients.hero.corner.stat2.label": "Bài Thuốc Độc Quyền",
-  "ingredients.why.label": "Cam Kết Của Chúng Tôi",
-  "ingredients.why.title": "Vì Sao Thành Phần<br>Của Chúng Tôi Khác Biệt",
-  "ingredients.why.desc": "Chúng tôi làm việc trực tiếp với nông dân vùng cao và các nhà canh tác truyền thống để mang đến các loại thảo dược được thu hoạch đúng độ chín, sơ chế theo phương pháp có tuổi đời hàng thế kỷ.",
-  "ingredients.cards.c1.title": "Thảo Dược Khô",
-  "ingredients.cards.c1.desc": "Phơi sấy đúng thời điểm thu hoạch để bảo toàn hợp chất hoạt tính và giá trị trị liệu tối đa.",
-  "ingredients.cards.c1.btn": "Tìm Hiểu Thêm",
-  "ingredients.cards.c2.title": "Rễ Cây Dược Liệu",
-  "ingredients.cards.c2.desc": "Nhân sâm, hoàng kỳ và cam thảo — các vị thuốc bổ nền tảng của Đông y, được tuyển chọn qua nhiều thập kỷ tin cậy.",
-  "ingredients.cards.c2.btn": "Tìm Hiểu Thêm",
-  "ingredients.cards.c3.title": "Hỗn Hợp Thảo Dược",
-  "ingredients.cards.c3.desc": "Các bài thuốc đa vị được cân đối cẩn thận theo cổ phương, tinh luyện qua nhiều thế hệ.",
-  "ingredients.cards.c3.btn": "Tìm Hiểu Thêm",
-  "ingredients.editorial.label1": "Chúng Tôi Làm Gì?",
-  "ingredients.editorial.statement": "Chúng tôi cung cấp thảo dược thượng hạng với sự tận tâm đặc biệt.",
-  "ingredients.editorial.label2": "Thành Phần Của Chúng Tôi",
-  "ingredients.editorial.body1": "Bộ sưu tập của chúng tôi gồm hơn 80 loại thảo dược khô, rễ cây dược liệu và bài thuốc phối hợp — mỗi loại được lương y trưởng tuyển chọn từ các vườn dược liệu cao nguyên uy tín trên khắp Việt Nam.",
-  "ingredients.editorial.body2": "Để đảm bảo chất lượng và hiệu lực nhất quán, mọi lô hàng đều được kiểm tra trước khi nhập kho. Chúng tôi sơ chế theo phương pháp phơi sấy và kỹ thuật truyền thống.",
-  "ingredients.editorial.label3": "Giá Trị Của Chúng Tôi",
-  "ingredients.editorial.quote": "\"Tại An Bình, chăm sóc toàn diện là trọng tâm của chúng tôi. Chúng tôi tin rằng việc chữa lành phải dễ tiếp cận và được cá nhân hoá cho mỗi người.\"",
-  "ingredients.editorial.label4": "Đội Ngũ Lương Y",
-  "ingredients.editorial.body3": "Các lương y của chúng tôi không chỉ là người cấp phát thuốc — họ là các chuyên gia y học cổ truyền đặt sức khỏe và phục hồi của bạn lên hàng đầu. Họ hướng dẫn từng bệnh nhân đến bài thuốc phù hợp với nhu cầu riêng.",
-  "ingredients.editorial.body4": "Dù bạn đang điều trị bệnh mãn tính hay tìm kiếm chăm sóc phòng ngừa, đội ngũ chúng tôi xây dựng phác đồ cá nhân hóa dựa trên y học cổ phương Đông.",
-  "ingredients.editorial.link": "KHÁM PHÁ THÊM →",
-  "ingredients.bento.s1.num": "25+",
-  "ingredients.bento.s1.title": "Bài Thuốc Độc Quyền",
-  "ingredients.bento.s1.desc": "Các bài thuốc được kiểm chứng qua nhiều thế hệ, nhắm vào nguyên nhân gốc rễ của bệnh mãn tính.",
-  "ingredients.bento.s2.num": "80+",
-  "ingredients.bento.s2.title": "Loại Thảo Dược Được Tuyển Chọn",
-  "ingredients.bento.s2.desc": "Từ nhân sâm núi cao đến dược thảo ven biển — bộ sưu tập bao phủ toàn bộ phổ triết học y học phương Đông.",
-  "ingredients.cta.label": "✦ Phòng Khám Đông Y An Bình",
-  "ingredients.cta.title": "Chúng tôi tạo nên mỗi thang thuốc như một sự hòa quyện hoàn hảo giữa thiên nhiên và trí tuệ truyền thống. Bắt đầu hành trình chữa lành — đặt lịch ngay!",
-  "ingredients.cta.btn": "ĐẶT LỊCH TƯ VẤN ↗",
-  "404.title": "404 - Không Tìm Thấy Trang",
-  "404.accent": "Bình Yên nhưng Lạc Lối",
-  "404.heading": "Ối! Con đường này đã đóng.",
-  "404.desc": "Trang bạn đang tìm kiếm có thể đã được di chuyển, hoặc bạn có thể đã rẽ vào một góc không tồn tại trong phòng khám của chúng tôi.",
-  "404.actions.home": "Trở về Trang Chủ",
-  "404.actions.therapies": "Khám Phá Liệu Pháp",
-  "therapies.title": "Các Phương Pháp Trị Liệu - An Bình",
-  "therapies.page_title": "Các Phương Pháp Trị Liệu",
-  "therapies.desc": "Danh sách chi tiết các liệu pháp điều trị sẽ được đặt ở đây.",
-  "blog.title": "Blog & Tin Tức",
-  "blog.hero.cat.therapy": "Trị Liệu",
-  "blog.hero.cat.herbs": "Thảo Dược",
-  "blog.hero.cat.care": "Chăm Sóc",
-  "blog.hero.cat.tm": "Y Học Cổ Truyền",
-  "blog.hero.cat.recovery": "Phục Hồi",
-  "blog.hero.cat.journal": "Nhật Ký",
-  "blog.hero.slide1.title": "Tương Lai Của Châm Cứu Trong Phục Hồi Hiện Đại",
-  "blog.hero.slide2.title": "5 Thảo Dược Tăng Cường Miễn Dịch Tự Nhiên",
-  "blog.hero.slide3.title": "Giải Thích Khoa Học Đằng Sau Sự Giác Hơi",
-  "blog.hero.slide4.title": "Cân Bằng Âm Dương Bằng Thảo Dược Hàng Ngày",
-  "blog.hero.slide5.title": "Giúp Phụ Nữ Phục Hồi Sau Sinh",
-  "blog.hero.slide6.title": "Hiểu về Hệ Thống Kinh Lạc",
-  "blog.featured.title": "Bài Viết Nổi Bật",
-  "blog.featured.main.excerpt": "Cách khoa học hiện đại đang chứng minh công dụng của các phương pháp cổ xưa trong điều trị đau mãn tính.",
-  "blog.latest.title": "Bài Viết Mới Nhất",
-  "blog.popular.title": "Phổ Biến",
-  "blog.popular.item1.title": "Lưu ý cho buổi trị liệu đầu tiên",
-  "blog.popular.item2.title": "Thay đổi chế độ ăn để ngủ ngon hơn",
-  "blog.popular.item3.title": "Hiểu về Hệ Thống Kinh Lạc",
-  "blog.pagination.info": "Trang {current} / {last}",
-  "blog.pagination.prev": "← Trang trước",
-  "blog.pagination.next": "Trang sau →",
-  "blog.category.title": "Chuyên Mục: {category}",
-  "blog.category.desc": "Khám phá các bài viết về {category}",
-  "blog.category.back": "← Quay lại trang Blog",
-  "blog.post.read_time": "{time} phút đọc",
-  "blog.post.by": "Bởi {author}",
-  "blog.post.ai_summary.btn": "Tóm tắt nhanh",
-  "blog.post.ai_summary.title": "Điểm chính",
-  "blog.post.toc": "Mục lục",
-  "blog.post.no_toc": "Không có đề mục",
-  "blog.post.share": "Chia sẻ",
-  "blog.post.cta.message": "Quan tâm đến chuyên mục này?",
-  "blog.post.related.title": "Tin liên quan",
-  "blog.post.related.see_all": "Xem tất cả",
-  "blog.post.related.none": "Không tìm thấy bài viết liên quan."
+  "404": {
+    "title": "404 - Không Tìm Thấy Trang",
+    "accent": "Bình Yên nhưng Lạc Lối",
+    "heading": "Ối! Con đường này đã đóng.",
+    "desc": "Trang bạn đang tìm kiếm có thể đã được di chuyển, hoặc bạn có thể đã rẽ vào một góc không tồn tại trong phòng khám của chúng tôi.",
+    "actions": {
+      "home": "Trở về Trang Chủ",
+      "therapies": "Khám Phá Liệu Pháp"
+    }
+  },
+  "hero": {
+    "title": "Phục hồi<br />cân bằng tự nhiên.",
+    "desc": "Khám phá sức mạnh từ những bà thuốc thảo dược dân gian thân quen, giúp cơ thể bạn phục hồi sự cân bằng tự nhiên.",
+    "booking": {
+      "treatment": "Trị Liệu",
+      "treatment_placeholder": "Chọn liệu pháp",
+      "name": "Họ Tên",
+      "name_placeholder": "Thêm thông tin",
+      "date": "Ngày",
+      "date_placeholder": "Chọn ngày",
+      "time": "Giờ",
+      "time_placeholder": "Chọn khung giờ",
+      "submit": "Đặt Lịch"
+    }
+  },
+  "nav": {
+    "home": "Trang Chủ",
+    "about": "Về Chúng Tôi",
+    "booking": "Đặt Lịch",
+    "blog": "Blog"
+  },
+  "footer": {
+    "brand_slogan": "An nhiên dưỡng tạng – Bình ổn thân tâm",
+    "links_title": "Liên Kết Nhanh",
+    "link": {
+      "philosophy": "Triết Lý",
+      "remedies": "Bài Thuốc",
+      "services": "Liệu Pháp",
+      "visit": "Địa Chỉ"
+    },
+    "contact_title": "Liên Hệ",
+    "address_label": "Địa Chỉ Cũ:",
+    "phone_label": "Điện thoại:",
+    "hours_title": "Giờ Mở Cửa",
+    "days": {
+      "mon_fri": "T2-T6:",
+      "sat": "T7:",
+      "sun": "CN:"
+    },
+    "hours": {
+      "mon_fri": "9h - 18h",
+      "sat": "10h - 16h",
+      "sun": "Đóng cửa"
+    },
+    "copyright": "© 2026 An Bình. <br class='mobile-only'>Bản Quyền Đã Được Bảo Lưu."
+  },
+  "location": {
+    "step1": {
+      "sub": "GHÉ THĂM TIỆM THUỐC CHÍNH CỦA CHÚNG TÔI",
+      "heading": "Phòng Khám<br />phía ngoài",
+      "btn_text": "Xem Đường Đi"
+    },
+    "step2": {
+      "sub": "TRỊ LIỆU TOÀN DIỆN & CHÂM CỨU",
+      "heading": "Phòng Khám<br />phía trong",
+      "btn_text": "Xem Đường Đi"
+    },
+    "step3": {
+      "sub": "NÂNG TẦM HÀNH TRÌNH SỨC KHỎE CỦA BẠN",
+      "heading": "Trải Nghiệm<br />Sự Kỳ Diệu Của<br />Trị Liệu!",
+      "btn_text": "Đặt Lịch Ngay"
+    },
+    "corner": {
+      "know_more": "Tìm Hiểu Thêm →",
+      "title": "Chăm Sóc Toàn Diện",
+      "subtitle": "Khám Phá Trí Tuệ Cổ Xưa"
+    }
+  },
+  "philosophy": {
+    "section": {
+      "title": "Triết Lý Của Chúng Tôi",
+      "subtitle": "Hòa Hợp Giữa Cơ Thể & Thiên Nhiên",
+      "body": "Tại An Bình, chúng tôi tin rằng sự khỏe mạnh đích thực đến từ sự cân bằng giữa các yếu tố bên trong cơ thể và nhịp điệu bên ngoài của thiên nhiên.<br><br>Chúng tôi hiểu rằng mỗi người là một cá thể duy nhất với những nhu cầu chăm sóc khác nhau. Chúng tôi kết hợp những bài thuốc lành tính từ thiên nhiên, được điều chỉnh theo từng thể trạng nhằm điều trị tận gốc bệnh lý và bồi bổ cơ thể.",
+      "btn": "KHÁM PHÁ THÊM"
+    },
+    "herbs": {
+      "title": "Lựa Chọn Thảo Dược Chuẩn Mực",
+      "subtitle": "Tuyển Chọn Vì Chất Lượng",
+      "body": "Mỗi vị thuốc đều đóng vai trò then chốt trong quá trình điều trị, quyết định hiệu quả phục hồi của cơ thể. Tại An Bình, chúng tôi khắt khe trong việc tuyển chọn nguồn dược liệu chất lượng cao, đảm bảo thu hoạch đúng độ tuổi để giữ trọn vẹn dược tính và phát huy tối đa tác dụng trị liệu.<br><br>Chúng tôi luôn đồng hành cùng bạn trên hành trình phục hồi sức khỏe bằng những bài thuốc tinh túy và chất lượng tốt nhất.",
+      "btn": "XEM THÀNH PHẦN"
+    }
+  },
+  "bento": {
+    "title": "Khám phá các phương pháp trị liệu<br />và y học truyền thống",
+    "btn_explore": "Khám phá ngay",
+    "card": {
+      "acupuncture": "Châm Cứu",
+      "medicines": "Thuốc Đông Y<br />Đặc Trị",
+      "diagnosis": "Bắt Mạch",
+      "nutrition": "Dinh Dưỡng",
+      "acupressure": "Bấm Huyệt",
+      "physical_therapy": "Vật Lý Trị Liệu"
+    }
+  },
+  "faq": {
+    "title_sub": "Câu Hỏi Thường Gặp",
+    "title_main": "Tất Cả Những Gì Bạn Cần Biết",
+    "q1": {
+      "question": "Đông y có thể điều trị những loại bệnh nào?",
+      "answer": "Y học cổ truyền mang lại hiệu quả cao đối với nhiều loại bệnh lý như đau mãn tính, các vấn đề về tiêu hóa, căng thẳng, rối loạn giấc ngủ và mất cân bằng nội tiết tố. Chúng tôi tiếp cận toàn diện để giải quyết nguyên nhân gốc rễ gây ra triệu chứng của bạn."
+    },
+    "q2": {
+      "question": "Châm cứu có đau không?",
+      "answer": "Hầu hết bệnh nhân ít hoặc không cảm thấy đau. Kim châm vô cùng mỏng - chỉ cỡ bằng sợi tóc. Bạn có thể cảm thấy hơi nhói nhẹ hoặc mỏi, đây thực chất là một dấu hiệu tốt cho thấy luồng khí (Khí) đang được kích hoạt."
+    },
+    "q3": {
+      "question": "Quá trình tư vấn thường mất bao lâu?",
+      "answer": "Lần tư vấn đầu tiên thường kéo dài từ 60-90 phút. Điều này cho phép bác sĩ bắt mạch một cách cẩn thận, hiểu rõ tiền sử bệnh của bạn và lập ra một phác đồ điều trị cá nhân hóa."
+    },
+    "q4": {
+      "question": "Thuốc thảo dược có an toàn khi dùng chung với các loại thuốc khác không?",
+      "answer": "Sự an toàn của bạn là ưu tiên hàng đầu. Trong quá trình khám bệnh, chúng tôi sẽ kiểm tra lại tất cả các loại thuốc bạn đang dùng để đảm bảo không có sự tương tác thuốc. Các công thức thuốc thảo dược của chúng tôi được thiết lập từ các thành phần có nguồn gốc rõ ràng và chất lượng cao."
+    },
+    "q5": {
+      "question": "Thuốc thảo dược sắc sẵn có đảm bảo chất lượng bằng thuốc tự sắc không?",
+      "answer": "<strong>Có, thậm chí còn tốt hơn.</strong> Hệ thống máy sắc thuốc áp suất kín tại An Bình giúp chiết xuất tối đa dược tính mà cách sắc ấm đất thủ công dễ làm bay hơi. Thuốc được đóng túi tiệt trùng, giữ trọn vẹn hương vị và chất lượng trong thời gian dài. Điều này cực kỳ tiện lợi cho người bận rộn mà vẫn đảm bảo uống thuốc đúng giờ."
+    }
+  },
+  "carousel": {
+    "title": "Bộ Sưu Tập Từ Thiên Nhiên",
+    "product": {
+      "diagnosis": "Chẩn Đoán",
+      "herbal": "Bốc Thuốc Bắc",
+      "acupuncture": "Châm Cứu",
+      "acupressure": "Bấm Huyệt",
+      "nutrition": "Dinh Dưỡng",
+      "physical_therapy": "Vật Lý Trị Liệu",
+      "tonic": "Thuốc Bổ"
+    }
+  },
+  "reviews": {
+    "title_sub": "Câu Chuyện Bệnh Nhân",
+    "title_main": "Lắng nghe để thấu hiểu <br /> Đồng hành để chữa lành",
+    "body": "Mỗi bệnh nhân đến với An Bình đều mang theo một hy vọng về sức khỏe. Sự tin tưởng và những nụ cười sau mỗi liệu trình là động lực lớn nhất để chúng tôi tiếp tục gìn giữ, phát huy chất lượng trong từng vị thuốc, mang lại sự bình yên cho sức khỏe quê hương.",
+    "col1": {
+      "0": {
+        "name": "Minh T.",
+        "condition": "Đau Lưng Mãn Tính",
+        "text": "Tôi từng hoài nghi về y học cổ truyền, nhưng liệu trình châm cứu tại đây đã hoàn toàn thiết lập lại giấc ngủ của tôi. Tôi cảm thấy trẻ ra nhiều tuổi."
+      },
+      "1": {
+        "name": "Sarah J.",
+        "condition": "Kiểm Tra Sức Khỏe",
+        "text": "Không gian thật yên bình. An Bình là một viên ngọc quý tại Winnipeg cho bất kỳ ai tìm kiếm sự chăm sóc toàn diện."
+      },
+      "2": {
+        "name": "David L.",
+        "condition": "Liệu Pháp Thảo Dược",
+        "text": "Các loại trà thảo mộc không chỉ ngon mà còn thực sự hiệu quả. Tiêu hóa của tôi chưa bao giờ tốt hơn thế."
+      }
+    },
+    "col2": {
+      "0": {
+        "name": "Emily R.",
+        "condition": "Châm Cứu",
+        "text": "Cuối cùng tôi đã tìm thấy sự nhẹ nhõm cho cơn đau vai sau nhiều tháng vật lộn. Đội ngũ nhân viên cực kỳ chuyên nghiệp."
+      },
+      "1": {
+        "name": "James K.",
+        "condition": "Giảm Căng Thẳng",
+        "text": "Một nơi trú ẩn an bình. Các phương pháp điều trị đã giúp tôi quản lý căng thẳng công việc một cách đáng kể."
+      },
+      "2": {
+        "name": "Linh N.",
+        "condition": "Sức Khỏe Tổng Quát",
+        "text": "Tôi thích cách tiếp cận cá nhân hóa. Họ thực sự dành thời gian để hiểu nhu cầu cơ thể của bạn."
+      }
+    }
+  },
+  "booking": {
+    "title": "Đặt lịch hẹn",
+    "info_required": "Thông tin bắt buộc",
+    "label": {
+      "fullname": "Họ và Tên <span class='required-star'>*</span>",
+      "dob": "Ngày sinh <span class='required-star'>*</span>",
+      "phone": "Số điện thoại <span class='required-star'>*</span>",
+      "choose_date": "Chọn Ngày",
+      "email": "Email",
+      "address": "Địa chỉ",
+      "male": "Nam",
+      "female": "Nữ"
+    },
+    "info_preferred": "Ngày hẹn ưu tiên",
+    "info_optional": "Thông tin thêm",
+    "terms_prefix": "Bằng cách nhấn Đăng ký, tôi xác nhận đã đọc và đồng ý với các ",
+    "terms_link": "Chính Sách Quyền Riêng Tư",
+    "btn_submit": "Đăng Ký",
+    "btn_sending": "Đang gửi...",
+    "msg_success": "Yêu cầu đặt lịch đã được gửi thành công!",
+    "msg_error": "Đã có lỗi xảy ra.",
+    "placeholder": {
+      "date": "dd/mm/yyyy"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Về Chúng Tôi",
+      "desc": "Phòng khám y học cổ truyền uy tín và được tin tưởng nhất thành phố.",
+      "link": "KHÁM PHÁ TRỊ LIỆU ↗"
+    },
+    "bento": {
+      "label": "☆ VỀ CHÚNG TÔI",
+      "title": "Đỉnh Cao Của Chăm Sóc, Chữa Lành Và Phục Vụ",
+      "desc": "Tại Phòng khám An Bình, chúng tôi kết hợp y học cổ truyền cao cấp với sự tỉ mỉ đến từng chi tiết. Cho dù đó là một liệu trình châm cứu được kê riêng cho bạn, hay một liệu pháp thảo dược thư giãn — chúng tôi lo mọi thứ, để bạn có thể hoàn toàn tận hưởng.",
+      "link": "TÌM HIỂU THÊM ↗"
+    },
+    "tabs": {
+      "why": {
+        "pill": "✦ Tại Sao Chọn Chúng Tôi",
+        "label": "✦ Tại Sao Chọn Chúng Tôi",
+        "title": "Bắt nguồn từ truyền thống, hoàn thiện cho sự chữa lành hiện đại.",
+        "f1": {
+          "title": "Đội Ngũ Lương Y",
+          "desc": "Hàng chục năm đào tạo cổ điển — mỗi chẩn đoán đều bắt nguồn từ phác đồ đã được kiểm chứng."
+        },
+        "f2": {
+          "title": "Chăm Sóc Cá Nhân Hoá",
+          "desc": "Mỗi phác đồ được xây dựng cho riêng bạn — nhắm vào nhu cầu riêng của cơ thể."
+        },
+        "f3": {
+          "title": "Dược Liệu Thượng Hạng",
+          "desc": "Hơn 80 loại dược liệu từ vườn cao nguyên, sơ chế theo phương pháp truyền thống."
+        },
+        "f4": {
+          "title": "Tiếp Cận Toàn Diện",
+          "desc": "Chúng tôi điều trị tận gốc, không chỉ triệu chứng — cân bằng cơ thể, tâm trí và năng lượng."
+        }
+      },
+      "journey": {
+        "pill": "Hành Trình",
+        "label": "● Hành trình của chúng tôi",
+        "title": "Hơn 30 năm chữa lành, được dẫn dắt bởi trí tuệ tổ tiên và sự chăm sóc hiện đại.",
+        "desc": "An Bình được thành lập vào đầu những năm 1990 bởi Lương y Nguyễn Phước Bình. Từ một phòng khám gia đình nhỏ, qua từng thế hệ, nơi đây đã trở thành một trong những cơ sở chăm sóc sức khỏe toàn diện được tin tưởng nhất thành phố."
+      },
+      "vision": {
+        "pill": "Tầm Nhìn",
+        "label": "● Tầm nhìn của chúng tôi",
+        "title": "Một tương lai mà y học cổ truyền trở nên dễ tiếp cận với mọi gia đình, ở mọi giai đoạn cuộc đời.",
+        "desc": "Chúng tôi hình dung An Bình là cầu nối sống động giữa kho tàng y học cổ và những nhu cầu của cuộc sống hiện đại — mang lại sự chữa lành thật sự cho mọi người."
+      },
+      "mission": {
+        "pill": "Sứ Mệnh",
+        "label": "● Sứ mệnh của chúng tôi",
+        "title": "Tôn vinh trí tuệ y học cổ truyền, phục vụ mỗi bệnh nhân bằng sự đồng cảm, chính xác và tận tâm.",
+        "desc": "Sứ mệnh của chúng tôi dựa trên ba nguyên tắc: chăm sóc cá nhân hoá, tìm nguồn dược liệu có đạo đức, và cam kết chia sẻ kiến thức y học phương Đông đến từng bệnh nhân và cộng đồng."
+      }
+    },
+    "services": {
+      "label": "♥ DỊCH VỤ",
+      "title": "Chúng tôi cung cấp gì?",
+      "desc": "Từ chẩn đoán riêng tư đến lộ trình phục hồi nhiều tháng hay kiểm tra sức khỏe cơ bản — chúng tôi có giải pháp hoàn hảo cho bạn.",
+      "btn": {
+        "private": "Trị Liệu Cá Nhân",
+        "scheduled": "Điều Trị Theo Liệu Trình",
+        "herbal": "Thảo Dược Bốc Thuốc",
+        "acupuncture": "Trâm cứu - Bấm huyệt",
+        "nutrition": "Dinh dưỡng - Vật lý Trị liệu",
+        "community": "Hỗ Trợ Cộng Đồng"
+      },
+      "panel": {
+        "private": {
+          "label": "⚚ NHƯ Ý NGUYỆN",
+          "title": "<em>Chăm sóc cá nhân</em><br>và điều trị chuyên biệt",
+          "desc": "Tận hưởng hành trình phục hồi cá nhân trong phòng thư giãn VIP của chúng tôi. Các buổi điều trị mang lại sự linh hoạt hoàn toàn — nhắm chính xác vào điểm đau theo nhịp độ của riêng bạn.",
+          "highlight": "Hoàn hảo cho những ai tìm kiếm<br>trải nghiệm phục hồi tuỳ chỉnh.",
+          "link": "TÌM HIỂU KHÓA TRỊ LIỆU ↗"
+        },
+        "scheduled": {
+          "label": "⚚ CHĂM SÓC CÓ LỘ TRÌNH",
+          "title": "<em>Lộ trình</em><br>phục hồi có cấu trúc",
+          "desc": "Các chương trình điều trị nhiều buổi của chúng tôi được thiết kế cho các tình trạng cần chăm sóc liên tục và tiến triển. Mỗi lần theo dõi kế thừa kết quả trước — cải thiện rõ rệt từng bước.",
+          "highlight": "Lý tưởng cho các bệnh mãn tính<br>và phục hồi dài hạn.",
+          "link": "XEM LỘ TRÌNH ĐIỀU TRỊ ↗"
+        },
+        "herbal": {
+          "label": "⚚ THẲNG TỪ NGUỒN GỐC",
+          "title": "<em>Bài thuốc thảo dược</em><br>thủ công tinh tuyển",
+          "desc": "Mỗi thang thuốc được kê và bào chế tại chỗ bởi các lương y của chúng tôi, sử dụng hơn 80 loại dược liệu từ vườn cao nguyên — được sấy, chế biến và cấp phát một cách tỉ mỉ.",
+          "highlight": "Hơn 80 loại thảo dược thượng hạng,<br>nguồn gốc và bào chế tại chỗ.",
+          "link": "XEM DƯỢC LIỆU CỦA CHÚNG TÔI ↗"
+        },
+        "acupuncture": {
+          "label": "⚚ SỰ CHÍNH XÁC CỔ XƯA",
+          "title": "<em>Châm cứu</em><br>và bấm huyệt trị liệu",
+          "desc": "Được thực hành hơn 2.000 năm, châm cứu và bấm huyệt của chúng tôi giúp khôi phục dòng chảy năng lượng tự nhiên — giảm đau, giảm căng thẳng và hỗ trợ chữa lành sâu từ bên trong.",
+          "highlight": "Được hàng triệu người tin dùng<br>trên khắp châu Á hơn hai thiên niên kỷ.",
+          "link": "ĐẶT LỊCH NGAY ↗"
+        },
+        "nutrition": {
+          "label": "⚚ CHĂM SÓC TOÀN THÂN",
+          "title": "<em>Dinh dưỡng</em><br>và vật lý trị liệu",
+          "desc": "Chúng tôi áp dụng phương pháp toàn thân — kết hợp liệu pháp ăn uống Đông y với phục hồi chức năng có mục tiêu. Các chuyên gia hướng dẫn bạn các bài tập phục hồi và kế hoạch dinh dưỡng tái tạo.",
+          "highlight": "Kết hợp lý thuyết ăn uống Đông y<br>với vật lý trị liệu hiện đại.",
+          "link": "TÌM HIỂU THÊM ↗"
+        },
+        "community": {
+          "label": "⚚ CÙNG NHAU CHỮA LÀNH",
+          "title": "<em>Hỗ trợ sức khoẻ</em><br>cộng đồng",
+          "desc": "Chúng tôi tin rằng việc chữa lành nên được tiếp cận bởi tất cả mọi người. Thông qua các buổi tư vấn trợ giá, hội thảo cộng đồng và chương trình tiếp cận, chúng tôi đưa y học cổ truyền đến những người cần nhất.",
+          "highlight": "Hội thảo miễn phí mỗi tháng<br>cho cộng đồng địa phương.",
+          "link": "THAM GIA CỘNG ĐỒNG ↗"
+        }
+      }
+    },
+    "cta": {
+      "title": "Sẵn Sàng Bắt Đầu Hành Trình Chữa Lành?",
+      "desc": "Trải nghiệm sự cân bằng hoàn hảo giữa trí tuệ truyền thống và sự chăm sóc hiện đại tại Phòng khám An Bình.",
+      "btn": "Đặt Lịch Hẹn Ngay"
+    }
+  },
+  "ingredients": {
+    "hero": {
+      "label": "Di Sản Của Chúng Tôi",
+      "title": "Tinh Tuý Thiên Nhiên,<br>Tuyển Chọn Kỹ Lưỡng.",
+      "desc": "Mỗi thảo dược, mỗi rễ cây, mỗi bông hoa — được thu hoạch có trách nhiệm từ những vườn cao nguyên trong lành và các trang trại truyền thống uy tín.",
+      "btn": "KHÁM PHÁ THÀNH PHẦN",
+      "corner": {
+        "label": "100% Nguồn Thiên Nhiên",
+        "stat1": {
+          "num": "80+",
+          "label": "Loại Thảo Dược"
+        },
+        "stat2": {
+          "num": "25+",
+          "label": "Bài Thuốc Độc Quyền"
+        }
+      }
+    },
+    "why": {
+      "label": "Cam Kết Của Chúng Tôi",
+      "title": "Vì Sao Thành Phần<br>Của Chúng Tôi Khác Biệt",
+      "desc": "Chúng tôi làm việc trực tiếp với nông dân vùng cao và các nhà canh tác truyền thống để mang đến các loại thảo dược được thu hoạch đúng độ chín, sơ chế theo phương pháp có tuổi đời hàng thế kỷ."
+    },
+    "cards": {
+      "c1": {
+        "title": "Thảo Dược Khô",
+        "desc": "Phơi sấy đúng thời điểm thu hoạch để bảo toàn hợp chất hoạt tính và giá trị trị liệu tối đa.",
+        "btn": "Tìm Hiểu Thêm"
+      },
+      "c2": {
+        "title": "Rễ Cây Dược Liệu",
+        "desc": "Nhân sâm, hoàng kỳ và cam thảo — các vị thuốc bổ nền tảng của Đông y, được tuyển chọn qua nhiều thập kỷ tin cậy.",
+        "btn": "Tìm Hiểu Thêm"
+      },
+      "c3": {
+        "title": "Hỗn Hợp Thảo Dược",
+        "desc": "Các bài thuốc đa vị được cân đối cẩn thận theo cổ phương, tinh luyện qua nhiều thế hệ.",
+        "btn": "Tìm Hiểu Thêm"
+      }
+    },
+    "editorial": {
+      "label1": "Chúng Tôi Làm Gì?",
+      "statement": "Chúng tôi cung cấp thảo dược thượng hạng với sự tận tâm đặc biệt.",
+      "label2": "Thành Phần Của Chúng Tôi",
+      "body1": "Bộ sưu tập của chúng tôi gồm hơn 80 loại thảo dược khô, rễ cây dược liệu và bài thuốc phối hợp — mỗi loại được lương y trưởng tuyển chọn từ các vườn dược liệu cao nguyên uy tín trên khắp Việt Nam.",
+      "body2": "Để đảm bảo chất lượng và hiệu lực nhất quán, mọi lô hàng đều được kiểm tra trước khi nhập kho. Chúng tôi sơ chế theo phương pháp phơi sấy và kỹ thuật truyền thống.",
+      "label3": "Giá Trị Của Chúng Tôi",
+      "quote": "\"Tại An Bình, chăm sóc toàn diện là trọng tâm của chúng tôi. Chúng tôi tin rằng việc chữa lành phải dễ tiếp cận và được cá nhân hoá cho mỗi người.\"",
+      "label4": "Đội Ngũ Lương Y",
+      "body3": "Các lương y của chúng tôi không chỉ là người cấp phát thuốc — họ là các chuyên gia y học cổ truyền đặt sức khỏe và phục hồi của bạn lên hàng đầu. Họ hướng dẫn từng bệnh nhân đến bài thuốc phù hợp với nhu cầu riêng.",
+      "body4": "Dù bạn đang điều trị bệnh mãn tính hay tìm kiếm chăm sóc phòng ngừa, đội ngũ chúng tôi xây dựng phác đồ cá nhân hóa dựa trên y học cổ phương Đông.",
+      "link": "KHÁM PHÁ THÊM →"
+    },
+    "bento": {
+      "s1": {
+        "num": "25+",
+        "title": "Bài Thuốc Độc Quyền",
+        "desc": "Các bài thuốc được kiểm chứng qua nhiều thế hệ, nhắm vào nguyên nhân gốc rễ của bệnh mãn tính."
+      },
+      "s2": {
+        "num": "80+",
+        "title": "Loại Thảo Dược Được Tuyển Chọn",
+        "desc": "Từ nhân sâm núi cao đến dược thảo ven biển — bộ sưu tập bao phủ toàn bộ phổ triết học y học phương Đông."
+      }
+    },
+    "cta": {
+      "label": "✦ Phòng Khám Đông Y An Bình",
+      "title": "Chúng tôi tạo nên mỗi thang thuốc như một sự hòa quyện hoàn hảo giữa thiên nhiên và trí tuệ truyền thống. Bắt đầu hành trình chữa lành — đặt lịch ngay!",
+      "btn": "ĐẶT LỊCH TƯ VẤN ↗"
+    }
+  },
+  "therapies": {
+    "title": "Các Phương Pháp Trị Liệu - An Bình",
+    "page_title": "Các Phương Pháp Trị Liệu",
+    "desc": "Danh sách chi tiết các liệu pháp điều trị sẽ được đặt ở đây."
+  },
+  "blog": {
+    "title": "Blog & Tin Tức",
+    "hero": {
+      "cat": {
+        "therapy": "Trị Liệu",
+        "herbs": "Thảo Dược",
+        "care": "Chăm Sóc",
+        "tm": "Y Học Cổ Truyền",
+        "recovery": "Phục Hồi",
+        "journal": "Nhật Ký"
+      },
+      "slide1": {
+        "title": "Tương Lai Của Châm Cứu Trong Phục Hồi Hiện Đại"
+      },
+      "slide2": {
+        "title": "5 Thảo Dược Tăng Cường Miễn Dịch Tự Nhiên"
+      },
+      "slide3": {
+        "title": "Giải Thích Khoa Học Đằng Sau Sự Giác Hơi"
+      },
+      "slide4": {
+        "title": "Cân Bằng Âm Dương Bằng Thảo Dược Hàng Ngày"
+      },
+      "slide5": {
+        "title": "Giúp Phụ Nữ Phục Hồi Sau Sinh"
+      },
+      "slide6": {
+        "title": "Hiểu về Hệ Thống Kinh Lạc"
+      }
+    },
+    "featured": {
+      "title": "Bài Viết Nổi Bật",
+      "main": {
+        "excerpt": "Cách khoa học hiện đại đang chứng minh công dụng của các phương pháp cổ xưa trong điều trị đau mãn tính."
+      }
+    },
+    "latest": {
+      "title": "Bài Viết Mới Nhất"
+    },
+    "popular": {
+      "title": "Phổ Biến",
+      "item1": {
+        "title": "Lưu ý cho buổi trị liệu đầu tiên"
+      },
+      "item2": {
+        "title": "Thay đổi chế độ ăn để ngủ ngon hơn"
+      },
+      "item3": {
+        "title": "Hiểu về Hệ Thống Kinh Lạc"
+      }
+    },
+    "pagination": {
+      "info": "Trang {current} / {last}",
+      "prev": "← Trang trước",
+      "next": "Trang sau →"
+    },
+    "category": {
+      "title": "Chuyên Mục: {category}",
+      "desc": "Khám phá các bài viết về {category}",
+      "back": "← Quay lại trang Blog"
+    },
+    "post": {
+      "read_time": "{time} phút đọc",
+      "by": "Bởi {author}",
+      "ai_summary": {
+        "btn": "Tóm tắt nhanh",
+        "title": "Điểm chính"
+      },
+      "toc": "Mục lục",
+      "no_toc": "Không có đề mục",
+      "share": "Chia sẻ",
+      "cta": {
+        "message": "Quan tâm đến chuyên mục này?"
+      },
+      "related": {
+        "title": "Tin liên quan",
+        "see_all": "Xem tất cả",
+        "none": "Không tìm thấy bài viết liên quan."
+      }
+    }
+  }
 }
