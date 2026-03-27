@@ -1,5 +1,5 @@
-import vi from './locales/vi.json';
-import en from './locales/en.json';
+import vi from './locales/config.vi.json';
+import en from './locales/config.en.json';
 
 const translations = {
   vi,

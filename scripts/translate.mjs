@@ -7,8 +7,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const ROOT = path.join(__dirname, '..');
-const VI_PATH = path.join(ROOT, 'src/i18n/locales/vi.json');
-const EN_PATH = path.join(ROOT, 'src/i18n/locales/en.json');
+const VI_PATH = path.join(ROOT, 'src/i18n/locales/config.vi.json');
+const EN_PATH = path.join(ROOT, 'src/i18n/locales/config.en.json');
 
 /**
  * i18n Auto-Translate & Sync Utility (Nested Version)
