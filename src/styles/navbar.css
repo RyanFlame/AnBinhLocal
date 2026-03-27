@@ -32,6 +32,7 @@
     
     .logo-link {
         margin-right: auto;
+        position: relative;
     }
 
     .logo-image { 
@@ -43,7 +44,10 @@
         background-size: 130px 130px; 
         background-repeat: no-repeat; 
         background-position: center;
-        transition: filter 0.25s ease, opacity 0.25s ease; 
+        transform: translate3d(0, 0, 0) scale(1);
+        transform-origin: left center;
+        transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), filter 0.25s ease, opacity 0.25s ease; 
+        will-change: transform;
     }
 
     /* Language Dropdown Base Components (Desktop) */
@@ -146,8 +150,27 @@
             linear-gradient(to right, var(--brass-gold, #C8A97E), var(--brass-gold, #C8A97E)) border-box;
              
         border: 1.5px solid transparent; 
-        border-radius: 999px;
         box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
+
+        /* Keep the concave frame, but static and without blur to lower repaint cost. */
+        --scoop-radius: 20px;
+        -webkit-mask-image: 
+            radial-gradient(circle at top left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+            radial-gradient(circle at top right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+            radial-gradient(circle at bottom left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+            radial-gradient(circle at bottom right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px));
+        -webkit-mask-position: top left, top right, bottom left, bottom right;
+        -webkit-mask-size: 51% 51%;
+        -webkit-mask-repeat: no-repeat;
+
+        mask-image: 
+            radial-gradient(circle at top left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+            radial-gradient(circle at top right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+            radial-gradient(circle at bottom left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)),
+            radial-gradient(circle at bottom right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px));
+        mask-position: top left, top right, bottom left, bottom right;
+        mask-size: 51% 51%;
+        mask-repeat: no-repeat;
     }
 
     #navbar.scrolled-desktop .nav-links li a {
@@ -160,7 +183,12 @@
         color: var(--brass-gold, #C8A97E);
     }
 
-    #navbar.scrolled-desktop .logo-image { height: 60px; background-image: none; padding: 0px; }
+    #navbar.scrolled-desktop .logo-image {
+        height: 60px;
+        background-image: none;
+        padding: 0px;
+        transform: translate3d(0, 0, 0) scale(0.92);
+    }
     #navbar.scrolled-desktop .lang-dropdown.desktop-lang-nav { margin-left: auto; }
 
     /* Smart Header Themes (Desktop) */
