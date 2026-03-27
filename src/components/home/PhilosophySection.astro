@@ -1,4 +1,4 @@
-﻿---
+---
 import { Image } from "astro:assets";
 import { getImageByPath } from "../../utils/assets";
 import { useTranslations } from "../../i18n/utils";
@@ -6,8 +6,8 @@ import { useTranslations } from "../../i18n/utils";
 const { locale = "vi" } = Astro.props;
 const t = useTranslations(locale);
 
-const asset_Dad_Final_3_webp = getImageByPath("Dad Final 3.webp");
-const asset_Thu_c_1E_webp = getImageByPath("Thuốc 1E.webp");
+const philosophyImg = getImageByPath(t("philosophy.section.image")) || getImageByPath("About-us.webp");
+const herbsImg = getImageByPath(t("philosophy.herbs.image")) || getImageByPath("Chinese-Med.webp");
 ---
 
 <!-- PHILOSOPHY SECTION  -->
@@ -28,11 +28,7 @@ const asset_Thu_c_1E_webp = getImageByPath("Thuốc 1E.webp");
 
     <div class="philosophy-image-wrapper">
       <div class="philosophy-frame">
-        <Image
-          src={asset_Dad_Final_3_webp}
-          alt="Traditional Medicine Philosophy"
-          class="philosophy-img"
-        />
+        <Image src={philosophyImg} alt="Philosophy" class="philosophy-img" />
       </div>
     </div>
   </div>
@@ -56,11 +52,7 @@ const asset_Thu_c_1E_webp = getImageByPath("Thuốc 1E.webp");
 
     <div class="philosophy-image-wrapper">
       <div class="philosophy-frame">
-        <Image
-          src={asset_Thu_c_1E_webp}
-          alt="Premium Herbs"
-          class="philosophy-img"
-        />
+        <Image src={herbsImg} alt="Herbs Selection" class="philosophy-img" />
       </div>
     </div>
   </div>

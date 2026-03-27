@@ -22,7 +22,8 @@
       "time": "Time",
       "time_placeholder": "Select slot",
       "submit": "Book Now"
-    }
+    },
+    "bg_image": "Dad.webp"
   },
   "nav": {
     "home": "Home",
@@ -59,17 +60,20 @@
     "step1": {
       "sub": "VISIT OUR MAIN HERB APOTHECARY",
       "heading": "Outside the<br>Clinic",
-      "btn_text": "Get Directions"
+      "btn_text": "Get Directions",
+      "image": "Location/outside.webp"
     },
     "step2": {
       "sub": "HOLISTIC THERAPY & ACUPUNCTURE",
       "heading": "Inside the<br>Clinic",
-      "btn_text": "Get Directions"
+      "btn_text": "Get Directions",
+      "image": "Location/inside.webp"
     },
     "step3": {
       "sub": "ELEVATE YOUR WELLNESS JOURNEY",
       "heading": "Experience<br>The Magic Of<br>Healing!",
-      "btn_text": "Book A Visit Now"
+      "btn_text": "Book A Visit Now",
+      "image": "Location/healing.webp"
     },
     "corner": {
       "know_more": "Know More →",
@@ -82,13 +86,15 @@
       "title": "Our Philosophy",
       "subtitle": "Harmony of Body & Nature",
       "body": "At An Binh, we believe that true wellness comes from the balance between the internal elements of the body and the external rhythms of nature.<br><br>Drawing from thousands of years of traditional wisdom, our approach combines time-honored herbal remedies with modern understanding to restore your body's natural capacity for healing.",
-      "btn": "DISCOVER MORE"
+      "btn": "DISCOVER MORE",
+      "image": "About-us.webp"
     },
     "herbs": {
       "title": "Premium Herbal Selection",
       "subtitle": "Curated for Potency",
       "body": "Every formulation begins with the careful selection of premium herbs. We prioritize ingredients that are ethically sourced and harvested at peak maturity to ensure maximum therapeutic value.<br><br>Experience the difference that quality makes in your journey to wellness.",
-      "btn": "VIEW INGREDIENTS"
+      "btn": "VIEW INGREDIENTS",
+      "image": "Chinese-Med.webp"
     }
   },
   "bento": {
@@ -101,7 +107,8 @@
       "nutrition": "Nutrition",
       "acupressure": "Acupressure",
       "physical_therapy": "Physical Therapy"
-    }
+    },
+    "image": "Chinese-med1.webp"
   },
   "faq": {
     "title_sub": "Common Questions",

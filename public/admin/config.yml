@@ -10,8 +10,8 @@ i18n:
 
 publish_mode: editorial_workflow
 
-media_folder: "public/Asset"
-public_folder: "/Asset"
+media_folder: "src/assets"
+public_folder: ""
 
 collections:
   - name: "content"
@@ -30,6 +30,7 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string", i18n: true }
           - { label: "Description", name: "desc", widget: "text", i18n: true }
+          - { label: "Background Image", name: "bg_image", widget: "image", i18n: false }
           - label: "Booking Bar"
             name: "booking"
             widget: "object"
@@ -37,7 +38,6 @@ collections:
               - { label: "Treatment Label", name: "treatment", widget: "string", i18n: true }
               - { label: "Name Label", name: "name", widget: "string", i18n: true }
               - { label: "Date Label", name: "date", widget: "string", i18n: true }
-              - { label: "Time Label", name: "time", widget: "string", i18n: true }
               - { label: "Submit Button", name: "submit", widget: "string", i18n: true }
 
       - label: "Navigation"
@@ -49,6 +49,23 @@ collections:
           - { label: "Booking", name: "booking", widget: "string", i18n: true }
           - { label: "Blog", name: "blog", widget: "string", i18n: true }
 
+      - label: "Bento Grid"
+        name: "bento"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Main Image", name: "image", widget: "image", i18n: false }
+          - label: "Cards"
+            name: "card"
+            widget: "object"
+            fields:
+              - { label: "Acupuncture", name: "acupuncture", widget: "string", i18n: true }
+              - { label: "Medicines", name: "medicines", widget: "string", i18n: true }
+              - { label: "Diagnosis", name: "diagnosis", widget: "string", i18n: true }
+              - { label: "Nutrition", name: "nutrition", widget: "string", i18n: true }
+              - { label: "Acupressure", name: "acupressure", widget: "string", i18n: true }
+              - { label: "Physical Therapy", name: "physical_therapy", widget: "string", i18n: true }
+
       - label: "Location Carousel"
         name: "location"
         widget: "object"
@@ -59,21 +76,21 @@ collections:
             fields:
               - { label: "Subheading", name: "sub", widget: "string", i18n: true }
               - { label: "Heading", name: "heading", widget: "string", i18n: true }
-              - { label: "Button Text", name: "btn_text", widget: "string", i18n: true }
+              - { label: "Image", name: "image", widget: "image", i18n: false }
           - label: "Step 2"
             name: "step2"
             widget: "object"
             fields:
               - { label: "Subheading", name: "sub", widget: "string", i18n: true }
               - { label: "Heading", name: "heading", widget: "string", i18n: true }
-              - { label: "Button Text", name: "btn_text", widget: "string", i18n: true }
+              - { label: "Image", name: "image", widget: "image", i18n: false }
           - label: "Step 3"
             name: "step3"
             widget: "object"
             fields:
               - { label: "Subheading", name: "sub", widget: "string", i18n: true }
               - { label: "Heading", name: "heading", widget: "string", i18n: true }
-              - { label: "Button Text", name: "btn_text", widget: "string", i18n: true }
+              - { label: "Image", name: "image", widget: "image", i18n: false }
 
       - label: "Philosophy Section"
         name: "philosophy"
@@ -86,6 +103,7 @@ collections:
               - { label: "Title", name: "title", widget: "string", i18n: true }
               - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
               - { label: "Body", name: "body", widget: "text", i18n: true }
+              - { label: "Image", name: "image", widget: "image", i18n: false }
           - label: "Herbs Detail"
             name: "herbs"
             widget: "object"
@@ -93,6 +111,62 @@ collections:
               - { label: "Title", name: "title", widget: "string", i18n: true }
               - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
               - { label: "Body", name: "body", widget: "text", i18n: true }
+              - { label: "Image", name: "image", widget: "image", i18n: false }
+
+      - label: "FAQ Section"
+        name: "faq"
+        widget: "object"
+        fields:
+          - { label: "Sub Title", name: "title_sub", widget: "string", i18n: true }
+          - { label: "Main Title", name: "title_main", widget: "string", i18n: true }
+          - label: "Question 1"
+            name: "q1"
+            widget: "object"
+            fields:
+              - { label: "Question", name: "question", widget: "string", i18n: true }
+              - { label: "Answer", name: "answer", widget: "text", i18n: true }
+          - label: "Question 2"
+            name: "q2"
+            widget: "object"
+            fields:
+              - { label: "Question", name: "question", widget: "string", i18n: true }
+              - { label: "Answer", name: "answer", widget: "text", i18n: true }
+          - label: "Question 3"
+            name: "q3"
+            widget: "object"
+            fields:
+              - { label: "Question", name: "question", widget: "string", i18n: true }
+              - { label: "Answer", name: "answer", widget: "text", i18n: true }
+
+      - label: "Patient Reviews"
+        name: "reviews"
+        widget: "object"
+        fields:
+          - { label: "Sub Title", name: "title_sub", widget: "string", i18n: true }
+          - { label: "Main Title", name: "title_main", widget: "string", i18n: true }
+          - { label: "Body Text", name: "body", widget: "text", i18n: true }
+          - label: "Reviewers Column 1"
+            name: "col1"
+            widget: "object"
+            fields:
+              - label: "Review 1"
+                name: "0"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string", i18n: true }
+                  - { label: "Condition", name: "condition", widget: "string", i18n: true }
+                  - { label: "Comment", name: "text", widget: "text", i18n: true }
+          - label: "Reviewers Column 2"
+            name: "col2"
+            widget: "object"
+            fields:
+              - label: "Review 1"
+                name: "0"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string", i18n: true }
+                  - { label: "Condition", name: "condition", widget: "string", i18n: true }
+                  - { label: "Comment", name: "text", widget: "text", i18n: true }
 
       - label: "Footer"
         name: "footer"

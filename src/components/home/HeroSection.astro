@@ -6,12 +6,11 @@ const { locale = "vi" } = Astro.props;
 const t = useTranslations(locale);
 
 // Hero assets
-const asset_Therapies_Thuoc_Bac_webp = getImageByPath(
-  "Therapies/Thuoc Bac.webp",
-);
+const heroBg = getImageByPath(t("hero.bg_image")) || { src: "/Backgrounds/Hero-Desktop.png" };
+const bgUrl = heroBg.src;
 ---
 
-<header class="hero-section hero-redesign" data-header-theme="dark">
+<header class="hero-section hero-redesign" data-header-theme="dark" style={`background-image: url('${bgUrl}')`}>
   <div class="hero-layout-container">
     <!-- Left Side: Text Content -->
     <div class="hero-left-col">

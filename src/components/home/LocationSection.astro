@@ -6,31 +6,27 @@ import { useTranslations } from "../../i18n/utils";
 const { locale = "vi" } = Astro.props;
 const t = useTranslations(locale);
 
-const location_1 = getImageByPath("Location/Location 1.png");
-const location_2 = getImageByPath("Location/Location 2.png");
-const location_3 = getImageByPath("Location/Location 3.jpg");
-
-const asset_Thu_c_1_webp = getImageByPath("Thuốc 1.webp");
-const asset_Thu_c_2_webp = getImageByPath("Thuốc 2.webp");
-const asset_Thu_c_webp = getImageByPath("Thuốc.webp");
+const location_1 = getImageByPath(t("location.step1.image")) || getImageByPath("Location/Location 1.png");
+const location_2 = getImageByPath(t("location.step2.image")) || getImageByPath("Location/Location 2.png");
+const location_3 = getImageByPath(t("location.step3.image")) || getImageByPath("Location/Location 3.jpg");
 
 const carouselData = [
   {
-    bg: location_1.src,
+    bg: location_1?.src,
     sub: t("location.step1.sub"),
     heading: t("location.step1.heading"),
     btnText: t("location.step1.btn_text"),
     btnLink: "https://www.google.com/maps/place/Ph%C3%B2ng+Y+H%E1%BB%8Dc+C%E1%BB%95+Truy%E1%BB%81n+An+B%C3%ACnh/@10.5085571,107.327058,455m"
   },
   {
-    bg: location_2.src,
+    bg: location_2?.src,
     sub: t("location.step2.sub"),
     heading: t("location.step2.heading"),
     btnText: t("location.step2.btn_text"),
     btnLink: "https://www.google.com/maps/place/Ph%C3%B2ng+Y+H%E1%BB%8Dc+C%E1%BB%95+Truy%E1%BB%81n+An+B%C3%ACnh/@10.5085571,107.327058,455m"
   },
   {
-    bg: location_3.src,
+    bg: location_3?.src,
     sub: t("location.step3.sub"),
     heading: t("location.step3.heading"),
     btnText: t("location.step3.btn_text"),
