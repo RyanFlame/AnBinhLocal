@@ -1,0 +1,83 @@
+{
+  "blog": {
+    "title": "Blog & News",
+    "hero": {
+      "cat": {
+        "therapy": "Therapy",
+        "herbs": "Herbs",
+        "care": "Care",
+        "tm": "Traditional Medicine",
+        "recovery": "Recovery",
+        "journal": "Journal"
+      },
+      "slide1": {
+        "title": "The Future of Acupuncture in Modern Healing"
+      },
+      "slide2": {
+        "title": "5 Herbs to Naturally Boost Your Immunity"
+      },
+      "slide3": {
+        "title": "The Science Behind Cupping Therapy Explained"
+      },
+      "slide4": {
+        "title": "Balancing Your Yin and Yang with Daily Herbs"
+      },
+      "slide5": {
+        "title": "Helping Women Navigate Postpartum Recovery"
+      },
+      "slide6": {
+        "title": "Understanding Meridian Lines"
+      }
+    },
+    "featured": {
+      "title": "Featured Articles",
+      "main": {
+        "excerpt": "How ancient techniques are being validated by modern science to treat chronic pain."
+      }
+    },
+    "latest": {
+      "title": "Latest Posts"
+    },
+    "popular": {
+      "title": "Popular",
+      "item1": {
+        "title": "What to expect on your first session"
+      },
+      "item2": {
+        "title": "Dietary changes for better sleep"
+      },
+      "item3": {
+        "title": "Understanding Meridian Lines"
+      }
+    },
+    "pagination": {
+      "info": "Page {current} of {last}",
+      "prev": "← Previous",
+      "next": "Next →"
+    },
+    "category": {
+      "title": "Category: {category}",
+      "desc": "Explore articles in {category}",
+      "back": "← Back to Blog"
+    },
+    "post": {
+      "read_time": "{time} min read",
+      "by": "By {author}",
+      "ai_summary": {
+        "btn": "Quick Summarize",
+        "title": "Key Highlights"
+      },
+      "toc": "Table of Contents",
+      "no_toc": "No sections available",
+      "share": "Share",
+      "cta": {
+        "message": "Interested in this topic?"
+      },
+      "related": {
+        "title": "Related News",
+        "see_all": "See all",
+        "none": "No related articles found."
+      }
+    }
+  }
+}

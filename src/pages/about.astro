@@ -35,10 +35,6 @@ const personalImg = getImageByPath('Personal Treatment.webp');
         </div>
       </div>
 
-      <figure class="hero-banner concave-corner">
-        <!-- Using a wide landscape image -->
-        <Image src={heroImg} alt="An Binh Clinic Landscape" />
-      </figure>
     </section>
 
     <!-- Bento 3 Column Layout -->
@@ -544,23 +540,6 @@ const personalImg = getImageByPath('Personal Treatment.webp');
     border-bottom-color: var(--accent-green);
   }
 
-  .hero-banner {
-    /* Break out of the padded container to be full-screen width minus 10px on each side */
-    width: 90vw;
-    height: 450px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-    display: none;
-  }
-
-  @media screen and (max-width: 1100px) {
-    .hero-banner {
-      /* Break out of the padded container to be full-screen width minus 10px on each side */
-      display: none;
-    }
-  }
 
   /* ---------------------------------------
    BENTO 3 COLUMN

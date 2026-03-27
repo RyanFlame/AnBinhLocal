@@ -25,7 +25,10 @@ const herbalMed = getImageByPath("Herbal-Medicine.webp");
   <!-- ================================================ -->
   <!-- HERO SECTION                                       -->
   <!-- ================================================ -->
-  <section class="ing-hero" style={`background-image: url('${bgUrl}')`}>
+  <section 
+    class="ing-hero" 
+    style={`--hero-bg: url('${bgUrl}')`}
+  >
     <div class="ing-hero-overlay"></div>
     <div class="ing-hero-content">
       <p class="ing-hero-label">
@@ -311,6 +314,7 @@ const herbalMed = getImageByPath("Herbal-Medicine.webp");
   .ing-hero {
     position: relative;
     min-height: 100vh;
+    background-image: var(--hero-bg);
     background-size: cover;
     background-position: center;
     display: flex;

@@ -6,21 +6,17 @@ import { useTranslations } from "../../i18n/utils";
 const { locale = "vi" } = Astro.props;
 const t = useTranslations(locale);
 
-const asset_Thu_c_1_webp = getImageByPath("Thuốc 1.webp");
-const asset_Thu_c_2_webp = getImageByPath("Thuốc 2.webp");
-const asset_Thu_c_webp = getImageByPath("Thuốc.webp");
+// Fetch reviews array from i18n
+const reviewsRaw = t("reviews.cards") as any[];
+const allReviews = Array.isArray(reviewsRaw) ? reviewsRaw.map(r => ({
+  ...r,
+  avatarImg: getImageByPath(r.avatar) || getImageByPath("Thuốc.webp")
+})) : [];
 
-const column1Reviews = [
-  { name: t('reviews.col1.0.name'), condition: t('reviews.col1.0.condition'), text: t('reviews.col1.0.text'), avatar: asset_Thu_c_webp },
-  { name: t('reviews.col1.1.name'), condition: t('reviews.col1.1.condition'), text: t('reviews.col1.1.text'), avatar: asset_Thu_c_1_webp },
-  { name: t('reviews.col1.2.name'), condition: t('reviews.col1.2.condition'), text: t('reviews.col1.2.text'), avatar: asset_Thu_c_2_webp }
-];
-
-const column2Reviews = [
-  { name: t('reviews.col2.0.name'), condition: t('reviews.col2.0.condition'), text: t('reviews.col2.0.text'), avatar: asset_Thu_c_1_webp },
-  { name: t('reviews.col2.1.name'), condition: t('reviews.col2.1.condition'), text: t('reviews.col2.1.text'), avatar: asset_Thu_c_webp },
-  { name: t('reviews.col2.2.name'), condition: t('reviews.col2.2.condition'), text: t('reviews.col2.2.text'), avatar: asset_Thu_c_2_webp }
-];
+// Split into two columns
+const midIndex = Math.ceil(allReviews.length / 2);
+const column1Reviews = allReviews.slice(0, midIndex);
+const column2Reviews = allReviews.slice(midIndex);
 
 // Duplicate logic to guarantee a seamless CSS scroll
 const duplicatedCol1 = [...column1Reviews, ...column1Reviews, ...column1Reviews];
@@ -45,7 +41,7 @@ const duplicatedCol2 = [...column2Reviews, ...column2Reviews, ...column2Reviews]
           {duplicatedCol1.map(review => (
             <div class="review-card">
               <div class="reviewer-header">
-                <Image src={review.avatar} alt="Patient" class="reviewer-avatar" />
+                <Image src={review.avatarImg} alt="Patient" class="reviewer-avatar" />
                 <div class="reviewer-info">
                   <h4>{review.name}</h4>
                   <span>{review.condition}</span>
@@ -62,7 +58,7 @@ const duplicatedCol2 = [...column2Reviews, ...column2Reviews, ...column2Reviews]
           {duplicatedCol2.map(review => (
             <div class="review-card">
               <div class="reviewer-header">
-                <Image src={review.avatar} alt="Patient" class="reviewer-avatar" />
+                <Image src={review.avatarImg} alt="Patient" class="reviewer-avatar" />
                 <div class="reviewer-info">
                   <h4>{review.name}</h4>
                   <span>{review.condition}</span>

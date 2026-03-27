@@ -1,0 +1,117 @@
+{
+  "about": {
+    "hero": {
+      "title": "About Us",
+      "desc": "The most popular and trusted traditional medicine clinic in the city.",
+      "link": "EXPLORE TREATMENTS ↗",
+      "image": "About-us2.webp"
+    },
+    "bento": {
+      "label": "☆ ABOUT US",
+      "title": "The Highest Level of Comfort, Healing and Service",
+      "desc": "At An Binh Clinic, we combine premium traditional medicine with attention to detail. Whether it's a private therapy session tailored just for you, or a relaxing herbal remedy routine — we take care of everything, so you can enjoy every moment.",
+      "link": "MORE ABOUT US ↗",
+      "img_left": "Chinese-med1.webp",
+      "img_right": "Dad.webp"
+    },
+    "tabs": {
+      "why": {
+        "pill": "✦ Why Choose Us",
+        "label": "✦ Why Choose Us",
+        "title": "Rooted in Tradition, Perfected for Modern Healing.",
+        "f1": {
+          "title": "Master Herbalists",
+          "desc": "Decades of classical training — every diagnosis is rooted in time-proven protocols."
+        },
+        "f2": {
+          "title": "Personalised Care",
+          "desc": "Every plan is built for you — targeting your body's unique needs."
+        },
+        "f3": {
+          "title": "Premium Ingredients",
+          "desc": "80+ varieties sourced from certified highland farms, prepared using traditional methods."
+        },
+        "f4": {
+          "title": "Holistic Approach",
+          "desc": "We treat the root, not just the symptom — balancing body, mind, and energy."
+        }
+      },
+      "journey": {
+        "pill": "Journey",
+        "label": "● Our Journey",
+        "title": "Over 30 years of healing, guided by ancestral wisdom and modern care.",
+        "desc": "An Binh was founded in the early 1990s by Dr. Nguyen Phuoc Binh, a renowned physician trained in classical Eastern medicine. What began as a modest family clinic grew — generation by generation — into one of the city's most trusted institutions for holistic care."
+      },
+      "vision": {
+        "pill": "Vision",
+        "label": "● Our vision",
+        "title": "A future where traditional medicine is accessible to every family, at every stage of life.",
+        "desc": "We envision An Binh as more than a clinic — a living bridge between ancient healing knowledge and the needs of modern life. By combining classical diagnostics with contemporary wellness practices, we strive to make holistic care not just effective, but truly welcoming."
+      },
+      "mission": {
+        "pill": "Mission",
+        "label": "● Our mission",
+        "title": "To honour the wisdom of traditional medicine while serving each patient with empathy, precision, and care.",
+        "desc": "Our mission is grounded in three principles: personalised care that sees the whole person, ethical sourcing of every herb and remedy, and a deep commitment to education — sharing the knowledge of Eastern medicine with each patient and the wider community."
+      }
+    },
+    "services": {
+      "label": "♥ SERVICES",
+      "title": "What we offer?",
+      "desc": "From a private diagnosis to a scheduled multi-month healing route to an accessible wellness check — we've got the perfect option for you.",
+      "btn": {
+        "private": "Private Therapies",
+        "scheduled": "Scheduled Treatments",
+        "herbal": "Herbal Blends",
+        "acupuncture": "Acupuncture - Acupressure",
+        "nutrition": "Nutrition - Physical Therapy",
+        "community": "Community Support"
+      },
+      "panel": {
+        "private": {
+          "title": "Tailored <em>Private Therapies</em><br>and treatments",
+          "desc": "Enjoy a personalized healing journey in our VIP relaxing rooms. These sessions offer complete flexibility — targeting exactly your pain points or energy blocks at your own pace.",
+          "image": "Personal Treatment.webp"
+        },
+        "scheduled": {
+          "title": "<em>Structured</em><br>healing programmes",
+          "desc": "Our multi-session treatment plans are designed for conditions that require sustained, progressive care. Each follow-up builds on the last — measurable improvement, every step.",
+          "image": "Chinese-med1.webp"
+        },
+        "herbal": {
+          "label": "⚚ FROM THE SOURCE",
+          "title": "<em>Handcrafted</em><br>herbal prescriptions",
+          "desc": "Every herbal blend is prescribed and prepared on-site by our herbalists using over 80 premium varieties sourced from certified highland farms — dried, processed, and dispensed with care.",
+          "highlight": "80+ premium herb varieties,<br>sourced and prepared in-house.",
+          "link": "SEE OUR INGREDIENTS ↗"
+        },
+        "acupuncture": {
+          "label": "⚚ ANCIENT PRECISION",
+          "title": "<em>Acupuncture</em><br>and acupressure therapy",
+          "desc": "Practiced for over 2,000 years, our acupuncture and acupressure treatments restore the body's natural energy flow — relieving pain, reducing stress, and supporting deep healing from within.",
+          "highlight": "Trusted by millions across<br>Asia for over two millennia.",
+          "link": "BOOK A SESSION ↗"
+        },
+        "nutrition": {
+          "label": "⚚ WHOLE-BODY CARE",
+          "title": "<em>Nutrition</em><br>and physical therapy",
+          "desc": "We take a whole-body approach — combining Eastern dietary therapy with targeted physical rehabilitation. Our specialists guide you through corrective exercises and restorative nutrition plans.",
+          "highlight": "Combining Eastern diet theory<br>with modern physiotherapy.",
+          "link": "LEARN MORE ↗"
+        },
+        "community": {
+          "label": "⚚ TOGETHER WE HEAL",
+          "title": "<em>Community</em><br>health support",
+          "desc": "We believe healing should be accessible to all. Through subsidised consultations, community workshops, and outreach programmes, we bring traditional medicine care to those who need it most.",
+          "highlight": "Free workshops every month<br>for the local community.",
+          "link": "JOIN THE COMMUNITY ↗"
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Begin Your Healing Journey?",
+      "desc": "Experience the perfect balance of traditional wisdom and modern care at An Binh Clinic.",
+      "btn": "Book an Appointment"
+    }
+  }
+}

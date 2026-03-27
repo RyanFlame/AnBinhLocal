@@ -1,0 +1,43 @@
+{
+  "404": {
+    "title": "404 - Page Not Found",
+    "accent": "Peaceful but Lost",
+    "heading": "Oops! This path is closed.",
+    "desc": "The page you are looking for might have moved, or you might have taken a turn into a non-existent corner of our clinic.",
+    "actions": {
+      "home": "Return to Balance",
+      "therapies": "Explore Therapies"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "booking": "Booking",
+    "blog": "Blog"
+  },
+  "footer": {
+    "brand_slogan": "Peaceful nourishment, balanced vitality",
+    "links_title": "Quick Links",
+    "link": {
+      "philosophy": "Philosophy",
+      "remedies": "Remedies",
+      "services": "Services",
+      "visit": "Visit Us"
+    },
+    "contact_title": "Contact Us",
+    "address_label": "Old Address:",
+    "phone_label": "Phone:",
+    "hours_title": "Hours",
+    "days": {
+      "mon_fri": "Mon-Fri:",
+      "sat": "Sat:",
+      "sun": "Sun:"
+    },
+    "hours": {
+      "mon_fri": "9am - 6pm",
+      "sat": "10am - 4pm",
+      "sun": "Closed"
+    },
+    "copyright": "© 2026 An Binh Traditional Clinic. <br class='mobile-only'>All Rights Reserved."
+  }
+}

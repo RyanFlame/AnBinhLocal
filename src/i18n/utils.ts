@@ -1,9 +1,20 @@
-import vi from './locales/config.vi.json';
-import en from './locales/config.en.json';
+// Load all JSON files in the locales directories
+const viFiles: Record<string, any> = import.meta.glob('./locales/vi/*.json', { eager: true });
+const enFiles: Record<string, any> = import.meta.glob('./locales/en/*.json', { eager: true });
+
+function buildDict(files: Record<string, any>) {
+  const dict: Record<string, any> = {};
+  for (const path in files) {
+    // Merge the content of each file into the dictionary
+    const content = files[path].default || files[path];
+    Object.assign(dict, content);
+  }
+  return dict;
+}
 
 const translations = {
-  vi,
-  en
+  vi: buildDict(viFiles),
+  en: buildDict(enFiles)
 } as const;
 
 export function useTranslations(lang: string) {

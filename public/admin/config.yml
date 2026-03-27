@@ -14,263 +14,259 @@ media_folder: "src/assets"
 public_folder: ""
 
 collections:
-  - name: "content"
-    label: "Website Content"
-    folder: "src/i18n/locales"
-    extension: "json"
-    format: "json"
-    create: false
-    delete: false
+  - name: "pages"
+    label: "Website Pages"
     i18n: true
-    slug: "{{slug}}"
-    fields:
-      - label: "Hero Section"
-        name: "hero"
-        widget: "object"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "src/i18n/locales/{{locale}}/home.json"
         fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
-          - { label: "Description", name: "desc", widget: "text", i18n: true }
-          - { label: "Background Image", name: "bg_image", widget: "image", i18n: false }
-          - label: "Booking Bar"
-            name: "booking"
-            widget: "object"
-            fields:
-              - { label: "Treatment Label", name: "treatment", widget: "string", i18n: true }
-              - { label: "Name Label", name: "name", widget: "string", i18n: true }
-              - { label: "Date Label", name: "date", widget: "string", i18n: true }
-              - { label: "Submit Button", name: "submit", widget: "string", i18n: true }
-
-      - label: "Navigation"
-        name: "nav"
-        widget: "object"
-        fields:
-          - { label: "Home", name: "home", widget: "string", i18n: true }
-          - { label: "About", name: "about", widget: "string", i18n: true }
-          - { label: "Booking", name: "booking", widget: "string", i18n: true }
-          - { label: "Blog", name: "blog", widget: "string", i18n: true }
-
-      - label: "Bento Grid"
-        name: "bento"
-        widget: "object"
-        fields:
-          - { label: "Title", name: "title", widget: "string", i18n: true }
-          - { label: "Main Image", name: "image", widget: "image", i18n: false }
-          - label: "Cards"
-            name: "card"
-            widget: "object"
-            fields:
-              - { label: "Acupuncture", name: "acupuncture", widget: "string", i18n: true }
-              - { label: "Medicines", name: "medicines", widget: "string", i18n: true }
-              - { label: "Diagnosis", name: "diagnosis", widget: "string", i18n: true }
-              - { label: "Nutrition", name: "nutrition", widget: "string", i18n: true }
-              - { label: "Acupressure", name: "acupressure", widget: "string", i18n: true }
-              - { label: "Physical Therapy", name: "physical_therapy", widget: "string", i18n: true }
-
-      - label: "Location Carousel"
-        name: "location"
-        widget: "object"
-        fields:
-          - label: "Step 1"
-            name: "step1"
-            widget: "object"
-            fields:
-              - { label: "Subheading", name: "sub", widget: "string", i18n: true }
-              - { label: "Heading", name: "heading", widget: "string", i18n: true }
-              - { label: "Image", name: "image", widget: "image", i18n: false }
-          - label: "Step 2"
-            name: "step2"
-            widget: "object"
-            fields:
-              - { label: "Subheading", name: "sub", widget: "string", i18n: true }
-              - { label: "Heading", name: "heading", widget: "string", i18n: true }
-              - { label: "Image", name: "image", widget: "image", i18n: false }
-          - label: "Step 3"
-            name: "step3"
-            widget: "object"
-            fields:
-              - { label: "Subheading", name: "sub", widget: "string", i18n: true }
-              - { label: "Heading", name: "heading", widget: "string", i18n: true }
-              - { label: "Image", name: "image", widget: "image", i18n: false }
-
-      - label: "Philosophy Section"
-        name: "philosophy"
-        widget: "object"
-        fields:
-          - label: "Main Section"
-            name: "section"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
-              - { label: "Body", name: "body", widget: "text", i18n: true }
-              - { label: "Image", name: "image", widget: "image", i18n: false }
-          - label: "Herbs Detail"
-            name: "herbs"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
-              - { label: "Body", name: "body", widget: "text", i18n: true }
-              - { label: "Image", name: "image", widget: "image", i18n: false }
-
-      - label: "FAQ Section"
-        name: "faq"
-        widget: "object"
-        fields:
-          - { label: "Sub Title", name: "title_sub", widget: "string", i18n: true }
-          - { label: "Main Title", name: "title_main", widget: "string", i18n: true }
-          - label: "Question 1"
-            name: "q1"
-            widget: "object"
-            fields:
-              - { label: "Question", name: "question", widget: "string", i18n: true }
-              - { label: "Answer", name: "answer", widget: "text", i18n: true }
-          - label: "Question 2"
-            name: "q2"
-            widget: "object"
-            fields:
-              - { label: "Question", name: "question", widget: "string", i18n: true }
-              - { label: "Answer", name: "answer", widget: "text", i18n: true }
-          - label: "Question 3"
-            name: "q3"
-            widget: "object"
-            fields:
-              - { label: "Question", name: "question", widget: "string", i18n: true }
-              - { label: "Answer", name: "answer", widget: "text", i18n: true }
-
-      - label: "About Page"
-        name: "about"
-        widget: "object"
-        fields:
-          - label: "Hero"
+          - label: "Hero Section"
             name: "hero"
             widget: "object"
             fields:
               - { label: "Title", name: "title", widget: "string", i18n: true }
               - { label: "Description", name: "desc", widget: "text", i18n: true }
-              - { label: "Image", name: "image", widget: "image", i18n: false }
-          - label: "Bento"
+              - { label: "Background Image", name: "bg_image", widget: "image", i18n: false }
+              - label: "Booking Bar"
+                name: "booking"
+                widget: "object"
+                fields:
+                  - { label: "Treatment Label", name: "treatment", widget: "string", i18n: true }
+                  - { label: "Name Label", name: "name", widget: "string", i18n: true }
+                  - { label: "Date Label", name: "date", widget: "string", i18n: true }
+                  - { label: "Submit Button", name: "submit", widget: "string", i18n: true }
+
+          - label: "Bento Grid"
             name: "bento"
             widget: "object"
             fields:
-              - { label: "Label", name: "label", widget: "string", i18n: true }
               - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Description", name: "desc", widget: "text", i18n: true }
-              - { label: "Image Left", name: "img_left", widget: "image", i18n: false }
-              - { label: "Image Right", name: "img_right", widget: "image", i18n: false }
-          - label: "Services Section"
-            name: "services"
-            widget: "object"
-            fields:
-              - { label: "Label", name: "label", widget: "string", i18n: true }
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Description", name: "desc", widget: "text", i18n: true }
-              - label: "Panels"
-                name: "panel"
+              - { label: "Main Image", name: "image", widget: "image", i18n: false }
+              - label: "Cards"
+                name: "card"
                 widget: "object"
                 fields:
-                  - label: "Private"
-                    name: "private"
+                  - { label: "Acupuncture", name: "acupuncture", widget: "string", i18n: true }
+                  - { label: "Medicines", name: "medicines", widget: "string", i18n: true }
+                  - { label: "Diagnosis", name: "diagnosis", widget: "string", i18n: true }
+                  - { label: "Nutrition", name: "nutrition", widget: "string", i18n: true }
+                  - { label: "Acupressure", name: "acupressure", widget: "string", i18n: true }
+                  - { label: "Physical Therapy", name: "physical_therapy", widget: "string", i18n: true }
+
+          - label: "Location Carousel"
+            name: "location"
+            widget: "object"
+            fields:
+              - label: "Step 1"
+                name: "step1"
+                widget: "object"
+                fields:
+                  - { label: "Subheading", name: "sub", widget: "string", i18n: true }
+                  - { label: "Heading", name: "heading", widget: "string", i18n: true }
+                  - { label: "Image", name: "image", widget: "image", i18n: false }
+              - label: "Step 2"
+                name: "step2"
+                widget: "object"
+                fields:
+                  - { label: "Subheading", name: "sub", widget: "string", i18n: true }
+                  - { label: "Heading", name: "heading", widget: "string", i18n: true }
+                  - { label: "Image", name: "image", widget: "image", i18n: false }
+              - label: "Step 3"
+                name: "step3"
+                widget: "object"
+                fields:
+                  - { label: "Subheading", name: "sub", widget: "string", i18n: true }
+                  - { label: "Heading", name: "heading", widget: "string", i18n: true }
+                  - { label: "Image", name: "image", widget: "image", i18n: false }
+
+          - label: "Philosophy Section"
+            name: "philosophy"
+            widget: "object"
+            fields:
+              - label: "Main Section"
+                name: "section"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string", i18n: true }
+                  - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
+                  - { label: "Body", name: "body", widget: "text", i18n: true }
+                  - { label: "Image", name: "image", widget: "image", i18n: false }
+              - label: "Herbs Detail"
+                name: "herbs"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string", i18n: true }
+                  - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
+                  - { label: "Body", name: "body", widget: "text", i18n: true }
+                  - { label: "Image", name: "image", widget: "image", i18n: false }
+
+          - label: "FAQ Section"
+            name: "faq"
+            widget: "object"
+            fields:
+              - { label: "Sub Title", name: "title_sub", widget: "string", i18n: true }
+              - { label: "Main Title", name: "title_main", widget: "string", i18n: true }
+              - label: "Question 1"
+                name: "q1"
+                widget: "object"
+                fields:
+                  - { label: "Question", name: "question", widget: "string", i18n: true }
+                  - { label: "Answer", name: "answer", widget: "text", i18n: true }
+              - label: "Question 2"
+                name: "q2"
+                widget: "object"
+                fields:
+                  - { label: "Question", name: "question", widget: "string", i18n: true }
+                  - { label: "Answer", name: "answer", widget: "text", i18n: true }
+              - label: "Question 3"
+                name: "q3"
+                widget: "object"
+                fields:
+                  - { label: "Question", name: "question", widget: "string", i18n: true }
+                  - { label: "Answer", name: "answer", widget: "text", i18n: true }
+
+          - label: "Patient Reviews"
+            name: "reviews"
+            widget: "object"
+            fields:
+              - { label: "Sub Title", name: "title_sub", widget: "string", i18n: true }
+              - { label: "Main Title", name: "title_main", widget: "string", i18n: true }
+              - { label: "Body Text", name: "body", widget: "text", i18n: true }
+              - label: "Review Cards"
+                name: "cards"
+                widget: "list"
+                i18n: true
+                fields:
+                  - { label: "Name", name: "name", widget: "string", i18n: true }
+                  - { label: "Condition", name: "condition", widget: "string", i18n: true }
+                  - { label: "Comment", name: "text", widget: "text", i18n: true }
+                  - { label: "Avatar", name: "avatar", widget: "image", i18n: false }
+
+      - label: "About Page"
+        name: "about"
+        file: "src/i18n/locales/{{locale}}/about.json"
+        fields:
+          - label: "Hero"
+            name: "about" # Note: our JSON has "about" as top level
+            widget: "object"
+            fields:
+              - label: "Hero"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string", i18n: true }
+                  - { label: "Description", name: "desc", widget: "text", i18n: true }
+                  - { label: "Image", name: "image", widget: "image", i18n: false }
+              - label: "Bento"
+                name: "bento"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string", i18n: true }
+                  - { label: "Title", name: "title", widget: "string", i18n: true }
+                  - { label: "Description", name: "desc", widget: "text", i18n: true }
+                  - { label: "Image Left", name: "img_left", widget: "image", i18n: false }
+                  - { label: "Image Right", name: "img_right", widget: "image", i18n: false }
+              - label: "Services Section"
+                name: "services"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string", i18n: true }
+                  - { label: "Title", name: "title", widget: "string", i18n: true }
+                  - { label: "Description", name: "desc", widget: "text", i18n: true }
+                  - label: "Panels"
+                    name: "panel"
                     widget: "object"
                     fields:
-                      - { label: "Title", name: "title", widget: "string", i18n: true }
-                      - { label: "Desc", name: "desc", widget: "text", i18n: true }
-                      - { label: "Image", name: "image", widget: "image", i18n: false }
-                  - label: "Scheduled"
-                    name: "scheduled"
-                    widget: "object"
-                    fields:
-                      - { label: "Title", name: "title", widget: "string", i18n: true }
-                      - { label: "Desc", name: "desc", widget: "text", i18n: true }
-                      - { label: "Image", name: "image", widget: "image", i18n: false }
+                      - label: "Private"
+                        name: "private"
+                        widget: "object"
+                        fields:
+                          - { label: "Title", name: "title", widget: "string", i18n: true }
+                          - { label: "Desc", name: "desc", widget: "text", i18n: true }
+                          - { label: "Image", name: "image", widget: "image", i18n: false }
+                      - label: "Scheduled"
+                        name: "scheduled"
+                        widget: "object"
+                        fields:
+                          - { label: "Title", name: "title", widget: "string", i18n: true }
+                          - { label: "Desc", name: "desc", widget: "text", i18n: true }
+                          - { label: "Image", name: "image", widget: "image", i18n: false }
 
       - label: "Ingredients Page"
         name: "ingredients"
-        widget: "object"
+        file: "src/i18n/locales/{{locale}}/ingredients.json"
         fields:
-          - label: "Hero"
-            name: "hero"
+          - label: "Content"
+            name: "ingredients"
             widget: "object"
             fields:
-              - { label: "Label", name: "label", widget: "string", i18n: true }
+              - label: "Hero"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string", i18n: true }
+                  - { label: "Title", name: "title", widget: "string", i18n: true }
+                  - { label: "Description", name: "desc", widget: "text", i18n: true }
+                  - { label: "Background", name: "bg", widget: "image", i18n: false }
+              - label: "Why Section"
+                name: "why"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string", i18n: true }
+                  - { label: "Description", name: "desc", widget: "text", i18n: true }
+              - label: "Cards"
+                name: "cards"
+                widget: "object"
+                fields:
+                  - label: "Dried Herbs"
+                    name: "c1"
+                    widget: "object"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string", i18n: true }
+                      - { label: "Description", name: "desc", widget: "text", i18n: true }
+                      - { label: "Image", name: "image", widget: "image", i18n: false }
+                  - label: "Medicinal Roots"
+                    name: "c2"
+                    widget: "object"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string", i18n: true }
+                      - { label: "Description", name: "desc", widget: "text", i18n: true }
+                      - { label: "Image", name: "image", widget: "image", i18n: false }
+                  - label: "Herbal Blends"
+                    name: "c3"
+                    widget: "object"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string", i18n: true }
+                      - { label: "Description", name: "desc", widget: "text", i18n: true }
+                      - { label: "Image", name: "image", widget: "image", i18n: false }
+
+      - label: "Common & Navigation"
+        name: "common"
+        file: "src/i18n/locales/{{locale}}/common.json"
+        fields:
+          - label: "Navigation"
+            name: "nav"
+            widget: "object"
+            fields:
+              - { label: "Home", name: "home", widget: "string", i18n: true }
+              - { label: "About", name: "about", widget: "string", i18n: true }
+              - { label: "Booking", name: "booking", widget: "string", i18n: true }
+              - { label: "Blog", name: "blog", widget: "string", i18n: true }
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Brand Slogan", name: "brand_slogan", widget: "string", i18n: true }
+              - { label: "Copyright", name: "copyright", widget: "string", i18n: true }
+          - label: "404 Page"
+            name: "404"
+            widget: "object"
+            fields:
               - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Heading", name: "heading", widget: "string", i18n: true }
               - { label: "Description", name: "desc", widget: "text", i18n: true }
-              - { label: "Background", name: "bg", widget: "image", i18n: false }
-          - label: "Why Section"
-            name: "why"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Description", name: "desc", widget: "text", i18n: true }
-          - label: "Cards"
-            name: "cards"
-            widget: "object"
-            fields:
-              - label: "Dried Herbs"
-                name: "c1"
-                widget: "object"
-                fields:
-                  - { label: "Title", name: "title", widget: "string", i18n: true }
-                  - { label: "Description", name: "desc", widget: "text", i18n: true }
-                  - { label: "Image", name: "image", widget: "image", i18n: false }
-              - label: "Medicinal Roots"
-                name: "c2"
-                widget: "object"
-                fields:
-                  - { label: "Title", name: "title", widget: "string", i18n: true }
-                  - { label: "Description", name: "desc", widget: "text", i18n: true }
-                  - { label: "Image", name: "image", widget: "image", i18n: false }
-              - label: "Herbal Blends"
-                name: "c3"
-                widget: "object"
-                fields:
-                  - { label: "Title", name: "title", widget: "string", i18n: true }
-                  - { label: "Description", name: "desc", widget: "text", i18n: true }
-                  - { label: "Image", name: "image", widget: "image", i18n: false }
-
-      - label: "Therapies Page"
-        name: "therapies"
-        widget: "object"
-        fields:
-          - { label: "Page Title", name: "page_title", widget: "string", i18n: true }
-          - { label: "Description", name: "desc", widget: "text", i18n: true }
-
-      - label: "Patient Reviews"
-        name: "reviews"
-        widget: "object"
-        fields:
-          - { label: "Sub Title", name: "title_sub", widget: "string", i18n: true }
-          - { label: "Main Title", name: "title_main", widget: "string", i18n: true }
-          - { label: "Body Text", name: "body", widget: "text", i18n: true }
-          - label: "Reviewers Column 1"
-            name: "col1"
-            widget: "object"
-            fields:
-              - label: "Review 1"
-                name: "0"
-                widget: "object"
-                fields:
-                  - { label: "Name", name: "name", widget: "string", i18n: true }
-                  - { label: "Condition", name: "condition", widget: "string", i18n: true }
-                  - { label: "Comment", name: "text", widget: "text", i18n: true }
-          - label: "Reviewers Column 2"
-            name: "col2"
-            widget: "object"
-            fields:
-              - label: "Review 1"
-                name: "0"
-                widget: "object"
-                fields:
-                  - { label: "Name", name: "name", widget: "string", i18n: true }
-                  - { label: "Condition", name: "condition", widget: "string", i18n: true }
-                  - { label: "Comment", name: "text", widget: "text", i18n: true }
-
-      - label: "Footer"
-        name: "footer"
-        widget: "object"
-        fields:
-          - { label: "Brand Slogan", name: "brand_slogan", widget: "string", i18n: true }
-          - { label: "Copyright", name: "copyright", widget: "string", i18n: true }
 
   - name: "blog"
     label: "Blog Posts"

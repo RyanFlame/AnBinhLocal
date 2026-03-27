@@ -1,0 +1,83 @@
+{
+  "blog": {
+    "title": "Blog & Tin Tức",
+    "hero": {
+      "cat": {
+        "therapy": "Trị Liệu",
+        "herbs": "Thảo Dược",
+        "care": "Chăm Sóc",
+        "tm": "Y Học Cổ Truyền",
+        "recovery": "Phục Hồi",
+        "journal": "Nhật Ký"
+      },
+      "slide1": {
+        "title": "Tương Lai Của Châm Cứu Trong Phục Hồi Hiện Đại"
+      },
+      "slide2": {
+        "title": "5 Thảo Dược Tăng Cường Miễn Dịch Tự Nhiên"
+      },
+      "slide3": {
+        "title": "Giải Thích Khoa Học Đằng Sau Sự Giác Hơi"
+      },
+      "slide4": {
+        "title": "Cân Bằng Âm Dương Bằng Thảo Dược Hàng Ngày"
+      },
+      "slide5": {
+        "title": "Giúp Phụ Nữ Phục Hồi Sau Sinh"
+      },
+      "slide6": {
+        "title": "Hiểu về Hệ Thống Kinh Lạc"
+      }
+    },
+    "featured": {
+      "title": "Bài Viết Nổi Bật",
+      "main": {
+        "excerpt": "Cách khoa học hiện đại đang chứng minh công dụng của các phương pháp cổ xưa trong điều trị đau mãn tính."
+      }
+    },
+    "latest": {
+      "title": "Bài Viết Mới Nhất"
+    },
+    "popular": {
+      "title": "Phổ Biến",
+      "item1": {
+        "title": "Lưu ý for buổi trị liệu đầu tiên"
+      },
+      "item2": {
+        "title": "Thay đổi chế độ ăn để ngủ ngon hơn"
+      },
+      "item3": {
+        "title": "Hiểu về Hệ Thống Kinh Lạc"
+      }
+    },
+    "pagination": {
+      "info": "Trang {current} / {last}",
+      "prev": "← Trang trước",
+      "next": "Trang sau →"
+    },
+    "category": {
+      "title": "Chuyên Mục: {category}",
+      "desc": "Khám phá các bài viết về {category}",
+      "back": "← Quay lại trang Blog"
+    },
+    "post": {
+      "read_time": "{time} phút đọc",
+      "by": "Bởi {author}",
+      "ai_summary": {
+        "btn": "Tóm tắt nhanh",
+        "title": "Điểm chính"
+      },
+      "toc": "Mục lục",
+      "no_toc": "Không có đề mục",
+      "share": "Chia sẻ",
+      "cta": {
+        "message": "Quan tâm đến chuyên mục này?"
+      },
+      "related": {
+        "title": "Tin liên quan",
+        "see_all": "Xem tất cả",
+        "none": "Không tìm thấy bài viết liên quan."
+      }
+    }
+  }
+}

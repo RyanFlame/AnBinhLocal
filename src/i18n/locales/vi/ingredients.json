@@ -1,0 +1,77 @@
+{
+  "ingredients": {
+    "hero": {
+      "label": "Di Sản Của Chúng Tôi",
+      "title": "Tinh Tuý Thiên Nhiên,<br>Tuyển Chọn Kỹ Lưỡng.",
+      "desc": "Mỗi thảo dược, mỗi rễ cây, mỗi bông hoa — được thu hoạch có trách nhiệm từ những vườn cao nguyên trong lành và các trang trại truyền thống uy tín.",
+      "btn": "KHÁM PHÁ THÀNH PHẦN",
+      "corner": {
+        "label": "100% Nguồn Thiên Nhiên",
+        "stat1": {
+          "num": "80+",
+          "label": "Loại Thảo Dược"
+        },
+        "stat2": {
+          "num": "25+",
+          "label": "Bài Thuốc Độc Quyền"
+        }
+      },
+      "bg": "Thuốc 1E.webp"
+    },
+    "why": {
+      "label": "Cam Kết Của Chúng Tôi",
+      "title": "Vì Sao Thành Phần<br>Của Chúng Tôi Khác Biệt",
+      "desc": "Chúng tôi làm việc trực tiếp với nông dân vùng cao và các nhà canh tác truyền thống để mang đến các loại thảo dược được thu hoạch đúng độ chín, sơ chế theo phương pháp có tuổi đời hàng thế kỷ."
+    },
+    "cards": {
+      "c1": {
+        "title": "Thảo Dược Khô",
+        "desc": "Phơi sấy đúng thời điểm thu hoạch để bảo toàn hợp chất hoạt tính và giá trị trị liệu tối đa.",
+        "btn": "Tìm Hiểu Thêm",
+        "image": "Med.webp"
+      },
+      "c2": {
+        "title": "Rễ Cây Dược Liệu",
+        "desc": "Nhân sâm, hoàng kỳ và cam thảo — các vị thuốc bổ nền tảng của Đông y, được tuyển chọn qua nhiều thập kỷ tin cậy.",
+        "btn": "Tìm Hiểu Thêm",
+        "image": "Ingri/Ginseng.webp"
+      },
+      "c3": {
+        "title": "Hỗn Hợp Thảo Dược",
+        "desc": "Các bài thuốc đa vị được cân đối cẩn thận theo cổ phương, tinh luyện qua nhiều thế hệ.",
+        "btn": "Tìm Hiểu Thêm",
+        "image": "Med8.webp"
+      }
+    },
+    "editorial": {
+      "label1": "Chúng Tôi Làm Gì?",
+      "statement": "Chúng tôi cung cấp thảo dược thượng hạng với sự tận tâm đặc biệt.",
+      "label2": "Thành Phần Của Chúng Tôi",
+      "body1": "Bộ sưu tập của chúng tôi gồm hơn 80 loại thảo dược khô, rễ cây dược liệu and bài thuốc phối hợp — mỗi loại được lương y trưởng tuyển chọn từ các vườn dược liệu cao nguyên uy tín trên khắp Việt Nam.",
+      "body2": "Để đảm bảo chất lượng và hiệu lực nhất quán, mọi lô hàng đều được kiểm tra trước khi nhập kho. Chúng tôi sơ chế theo phương pháp phơi sấy và kỹ thuật truyền thống.",
+      "label3": "Giá Trị Của Chúng Tôi",
+      "quote": "\"Tại An Bình, chăm sóc toàn diện là trọng tâm của chúng tôi. Chúng tôi tin rằng việc chữa lành phải dễ tiếp cận và được cá nhân hoá cho mỗi người.\"",
+      "label4": "Đội Ngũ Lương Y",
+      "body3": "Các lương y của chúng tôi không chỉ là người cấp phát thuốc — họ là các chuyên gia y học cổ truyền đặt sức khỏe và phục hồi của bạn lên hàng đầu. Họ hướng dẫn từng bệnh nhân đến bài thuốc phù hợp với nhu cầu riêng.",
+      "body4": "Dù bạn đang điều trị bệnh mãn tính hay tìm kiếm chăm sóc phòng ngừa, đội ngũ chúng tôi xây dựng phác đồ cá nhân hóa dựa trên y học cổ phương Đông.",
+      "link": "KHÁM PHÁ THÊM →"
+    },
+    "bento": {
+      "s1": {
+        "num": "25+",
+        "title": "Bài Thuốc Độc Quyền",
+        "desc": "Các bài thuốc được kiểm chứng qua nhiều thế hệ, nhắm vào nguyên nhân gốc rễ của bệnh mãn tính."
+      },
+      "s2": {
+        "num": "80+",
+        "title": "Loại Thảo Dược Được Tuyển Chọn",
+        "desc": "Từ nhân sâm núi cao đến dược thảo ven biển — bộ sưu tập bao phủ toàn bộ phổ triết học y học phương Đông."
+      }
+    },
+    "cta": {
+      "label": "✦ Phòng Khám Đông Y An Bình",
+      "title": "Chúng tôi tạo nên mỗi thang thuốc như một sự hòa quyện hoàn hảo giữa thiên nhiên và trí tuệ truyền thống. Bắt đầu hành trình chữa lành — đặt lịch ngay!",
+      "btn": "ĐẶT LỊCH TƯ VẤN ↗"
+    }
+  }
+}

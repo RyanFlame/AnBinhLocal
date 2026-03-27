@@ -1,0 +1,117 @@
+{
+  "about": {
+    "hero": {
+      "title": "Về Chúng Tôi",
+      "desc": "Phòng khám y học cổ truyền uy tín và được tin tưởng nhất thành phố.",
+      "link": "KHÁM PHÁ TRỊ LIỆU ↗",
+      "image": "About-us2.webp"
+    },
+    "bento": {
+      "label": "☆ VỀ CHÚNG TÔI",
+      "title": "Đỉnh Cao Của Chăm Sóc, Chữa Lành Và Phục Vụ",
+      "desc": "Tại Phòng khám An Bình, chúng tôi kết hợp y học cổ truyền cao cấp với sự tỉ mỉ đến từng chi tiết. Cho dù đó là một liệu trình châm cứu được kê riêng cho bạn, hay một liệu pháp thảo dược thư giãn — chúng tôi lo mọi thứ, để bạn có thể hoàn toàn tận hưởng.",
+      "link": "TÌM HIỂU THÊM ↗",
+      "img_left": "Chinese-med1.webp",
+      "img_right": "Dad.webp"
+    },
+    "tabs": {
+      "why": {
+        "pill": "✦ Tại Sao Chọn Chúng Tôi",
+        "label": "✦ Tại Sao Chọn Chúng Tôi",
+        "title": "Bắt nguồn từ truyền thống, hoàn thiện cho sự chữa lành hiện đại.",
+        "f1": {
+          "title": "Đội Ngũ Lương Y",
+          "desc": "Hàng chục năm đào tạo cổ điển — mỗi chẩn đoán đều bắt nguồn từ phác đồ đã được kiểm chứng."
+        },
+        "f2": {
+          "title": "Chăm Sóc Cá Nhân Hoá",
+          "desc": "Mỗi phác đồ được xây dựng cho riêng bạn — nhắm vào nhu cầu riêng của cơ thể."
+        },
+        "f3": {
+          "title": "Dược Liệu Thượng Hạng",
+          "desc": "Hơn 80 loại dược liệu từ vườn cao nguyên, sơ chế theo phương pháp truyền thống."
+        },
+        "f4": {
+          "title": "Tiếp Cận Toàn Diện",
+          "desc": "Chúng tôi điều trị tận gốc, không chỉ triệu chứng — cân bằng cơ thể, tâm trí và năng lượng."
+        }
+      },
+      "journey": {
+        "pill": "Hành Trình",
+        "label": "● Hành trình của chúng tôi",
+        "title": "Hơn 30 năm chữa lành, được dẫn dắt bởi trí tuệ tổ tiên và sự chăm sóc hiện đại.",
+        "desc": "An Bình được thành lập vào đầu những năm 1990 bởi Lương y Nguyễn Phước Bình. Từ một phòng khám gia đình nhỏ, qua từng thế hệ, nơi đây đã trở thành một trong những cơ sở chăm sóc sức khỏe toàn diện được tin tưởng nhất thành phố."
+      },
+      "vision": {
+        "pill": "Tầm Nhìn",
+        "label": "● Tầm nhìn của chúng tôi",
+        "title": "Một tương lai mà y học cổ truyền trở nên dễ tiếp cận với mọi gia đình, ở mọi giai đoạn cuộc đời.",
+        "desc": "Chúng tôi hình dung An Bình là cầu nối sống động giữa kho tàng y học cổ và những nhu cầu của cuộc sống hiện đại — mang lại sự chữa lành thật sự for mọi người."
+      },
+      "mission": {
+        "pill": "Sứ Mệnh",
+        "label": "● Sứ mệnh của chúng tôi",
+        "title": "Tôn vinh trí tuệ y học cổ truyền, phục vụ mỗi bệnh nhân bằng sự đồng cảm, chính xác và tận tâm.",
+        "desc": "Sứ mệnh của chúng tôi dựa trên ba nguyên tắc: chăm sóc cá nhân hoá, tìm nguồn dược liệu có đạo đức, và cam kết chia sẻ kiến thức y học phương Đông đến từng bệnh nhân và cộng đồng."
+      }
+    },
+    "services": {
+      "label": "♥ DỊCH VỤ",
+      "title": "Chúng tôi cung cấp gì?",
+      "desc": "Từ chẩn đoán riêng tư đến lộ trình phục hồi nhiều tháng hay kiểm tra sức khỏe cơ bản — chúng tôi có giải pháp hoàn hảo cho bạn.",
+      "btn": {
+        "private": "Trị Liệu Cá Nhân",
+        "scheduled": "Điều Trị Theo Liệu Trình",
+        "herbal": "Thảo Dược Bốc Thuốc",
+        "acupuncture": "Trâm cứu - Bấm huyệt",
+        "nutrition": "Dinh dưỡng - Vật lý Trị liệu",
+        "community": "Hỗ Trợ Cộng Đồng"
+      },
+      "panel": {
+        "private": {
+          "title": "<em>Chăm sóc cá nhân</em><br>và điều trị chuyên biệt",
+          "desc": "Tận hưởng hành trình phục hồi cá nhân trong phòng thư giãn VIP của chúng tôi. Các buổi điều trị mang lại sự linh hoạt hoàn toàn — nhắm chính xác vào điểm đau theo nhịp độ của riêng bạn.",
+          "image": "Personal Treatment.webp"
+        },
+        "scheduled": {
+          "title": "<em>Lộ trình</em><br>phục hồi có cấu trúc",
+          "desc": "Các chương trình điều trị nhiều buổi của chúng tôi được thiết kế cho các tình trạng cần chăm sóc liên tục và tiến triển. Mỗi lần theo dõi kế thừa kết quả trước — cải thiện rõ rệt từng bước.",
+          "image": "Chinese-med1.webp"
+        },
+        "herbal": {
+          "label": "⚚ THẲNG TỪ NGUỒN GỐC",
+          "title": "<em>Bài thuốc thảo dược</em><br>thủ công tinh tuyển",
+          "desc": "Mỗi thang thuốc được kê và bào chế tại chỗ bởi các lương y của chúng tôi, sử dụng hơn 80 loại dược liệu từ vườn cao nguyên — được sấy, chế biến và cấp phát một cách tỉ mỉ.",
+          "highlight": "Hơn 80 loại thảo dược thượng hạng,<br>nguồn gốc và bào chế tại chỗ.",
+          "link": "XEM DƯỢC LIỆU CỦA CHÚNG TÔI ↗"
+        },
+        "acupuncture": {
+          "label": "⚚ SỰ CHÍNH XÁC CỔ XƯA",
+          "title": "<em>Châm cứu</em><br>và bấm huyệt trị liệu",
+          "desc": "Được thực hành hơn 2.000 năm, châm cứu và bấm huyệt của chúng tôi giúp khôi phục dòng chảy năng lượng tự nhiên — giảm đau, giảm căng thẳng và hỗ trợ chữa lành sâu từ bên trong.",
+          "highlight": "Được hàng triệu người tin dùng<br>trên khắp châu Á hơn hai thiên niên kỷ.",
+          "link": "ĐẶT LỊCH NGAY ↗"
+        },
+        "nutrition": {
+          "label": "⚚ CHĂM SÓC TOÀN THÂN",
+          "title": "<em>Dinh dưỡng</em><br>và vật lý trị liệu",
+          "desc": "Chúng tôi áp dụng phương pháp toàn thân — kết hợp liệu pháp ăn uống Đông y với phục hồi chức năng có mục tiêu. Các chuyên gia hướng dẫn bạn các bài tập phục hồi và kế hoạch dinh dưỡng tái tạo.",
+          "highlight": "Kết hợp lý thuyết ăn uống Đông y<br>với vật lý trị liệu hiện đại.",
+          "link": "TÌM HIỂU THÊM ↗"
+        },
+        "community": {
+          "label": "⚚ CÙNG NHAU CHỮA LÀNH",
+          "title": "<em>Hỗ trợ sức khoẻ</em><br>cộng đồng",
+          "desc": "Chúng tôi tin rằng việc chữa lành nên được tiếp cận bởi tất cả mọi người. Thông qua các buổi tư vấn trợ giá, hội thảo cộng đồng và chương trình tiếp cận, chúng tôi đưa y học cổ truyền đến những người cần nhất.",
+          "highlight": "Hội thảo miễn phí mỗi tháng<br>cho cộng đồng địa phương.",
+          "link": "THAM GIA CỘNG ĐỒNG ↗"
+        }
+      }
+    },
+    "cta": {
+      "title": "Sẵn Sàng Bắt Đầu Hành Trình Chữa Lành?",
+      "desc": "Trải nghiệm sự cân bằng hoàn hảo giữa trí tuệ truyền thống và sự chăm sóc hiện đại tại Phòng khám An Bình.",
+      "btn": "Đặt Lịch Hẹn Ngay"
+    }
+  }
+}

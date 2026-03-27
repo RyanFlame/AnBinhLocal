@@ -1,0 +1,43 @@
+{
+  "404": {
+    "title": "404 - Không Tìm Thấy Trang",
+    "accent": "Bình Yên nhưng Lạc Lối",
+    "heading": "Ối! Con đường này đã đóng.",
+    "desc": "Trang bạn đang tìm kiếm có thể đã được di chuyển, hoặc bạn có thể đã rẽ vào một góc không tồn tại trong phòng khám của chúng tôi.",
+    "actions": {
+      "home": "Trở về Trang Chủ",
+      "therapies": "Khám Phá Liệu Pháp"
+    }
+  },
+  "nav": {
+    "home": "Trang Chủ",
+    "about": "Về Chúng Tôi",
+    "booking": "Đặt Lịch",
+    "blog": "Blog"
+  },
+  "footer": {
+    "brand_slogan": "An nhiên dưỡng tạng – Bình ổn thân tâm",
+    "links_title": "Liên Kết Nhanh",
+    "link": {
+      "philosophy": "Triết Lý",
+      "remedies": "Bài Thuốc",
+      "services": "Liệu Pháp",
+      "visit": "Địa Chỉ"
+    },
+    "contact_title": "Liên Hệ",
+    "address_label": "Địa Chỉ Cũ:",
+    "phone_label": "Điện thoại:",
+    "hours_title": "Giờ Mở Cửa",
+    "days": {
+      "mon_fri": "T2-T6:",
+      "sat": "T7:",
+      "sun": "CN:"
+    },
+    "hours": {
+      "mon_fri": "9h - 18h",
+      "sat": "10h - 16h",
+      "sun": "Đóng cửa"
+    },
+    "copyright": "© 2026 An Bình. <br class='mobile-only'>Bản Quyền Đã Được Bảo Lưu."
+  }
+}

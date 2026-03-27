@@ -1,0 +1,77 @@
+{
+  "ingredients": {
+    "hero": {
+      "label": "Our Heritage",
+      "title": "Nature's Finest,<br>Carefully Curated.",
+      "desc": "Every herb, every root, every blossom — ethically sourced from pristine highland gardens and trusted traditional farms.",
+      "btn": "EXPLORE INGREDIENTS",
+      "corner": {
+        "label": "100% Natural Sources",
+        "stat1": {
+          "num": "80+",
+          "label": "Herb Varieties"
+        },
+        "stat2": {
+          "num": "25+",
+          "label": "Exclusive Traditional Medicines"
+        }
+      },
+      "bg": "Thuốc 1E.webp"
+    },
+    "why": {
+      "label": "Our Promise",
+      "title": "Why Our Ingredients<br>Stand Apart",
+      "desc": "We work directly with highland farmers and traditional cultivators to bring you herbs harvested at peak potency, dried and processed using centuries-old methods."
+    },
+    "cards": {
+      "c1": {
+        "title": "Dried Herbs",
+        "desc": "Sun-dried at optimal harvest time to preserve active compounds and maximum therapeutic value for your healing formulas.",
+        "btn": "Learn More",
+        "image": "Med.webp"
+      },
+      "c2": {
+        "title": "Medicinal Roots",
+        "desc": "Ginseng, astragalus, and licorice root — cornerstone tonics of Eastern medicine, sourced with decades of trusted partnerships.",
+        "btn": "Learn More",
+        "image": "Ingri/Ginseng.webp"
+      },
+      "c3": {
+        "title": "Herbal Blends",
+        "desc": "Carefully balanced multi-herb formulas following classical prescriptions, refined by generations of traditional practitioners.",
+        "btn": "Learn More",
+        "image": "Med8.webp"
+      }
+    },
+    "editorial": {
+      "label1": "What we do?",
+      "statement": "We provide premium herbs with a personal touch.",
+      "label2": "Our Ingredients",
+      "body1": "Our collection spans over 80 varieties of dried herbs, medicinal roots, and blended formulas — each chosen by our master herbalists from trusted highland farms across Vietnam.",
+      "body2": "To ensure consistency and potency, all batches are tested before entering our dispensary. We process using sun-drying and traditional methods that preserve the full therapeutic profile of every herb.",
+      "label3": "Our Values",
+      "quote": "\"At An Binh, inclusivity of care is at the heart of what we do. We believe healing should be accessible and personalised for everyone.\"",
+      "label4": "Our Practitioners",
+      "body3": "Our herbalists aren't just dispensers — they are traditional medicine specialists who prioritise your wellbeing and recovery. Beyond sourcing, they guide each patient toward the right formula for their specific needs.",
+      "body4": "Whether you are managing a chronic condition or seeking preventive care, our team crafts personalised herbal protocols grounded in classical Eastern medicine traditions.",
+      "link": "EXPLORE MORE →"
+    },
+    "bento": {
+      "s1": {
+        "num": "25+",
+        "title": "Exclusive Traditional Formulas",
+        "desc": "Time-tested prescriptions refined across generations, targeting the root causes of chronic conditions."
+      },
+      "s2": {
+        "num": "80+",
+        "title": "Herb Varieties Sourced",
+        "desc": "From highland ginseng roots to coastal sea herbs — our range covers the full spectrum of Eastern medicine philosophy."
+      }
+    },
+    "cta": {
+      "label": "✦ An Binh Traditional Medicine",
+      "title": "We make every remedy a harmonious blend of nature and wisdom. Start your healing journey with An Binh — book now!",
+      "btn": "BOOK CONSULTATION ↗"
+    }
+  }
+}

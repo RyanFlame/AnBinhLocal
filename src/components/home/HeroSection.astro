@@ -10,7 +10,11 @@ const heroBg = getImageByPath(t("hero.bg_image")) || { src: "/Backgrounds/Hero-D
 const bgUrl = heroBg.src;
 ---
 
-<header class="hero-section hero-redesign" data-header-theme="dark" style={`background-image: url('${bgUrl}')`}>
+<header 
+  class="hero-section hero-redesign" 
+  data-header-theme="dark" 
+  style={`--hero-bg: url('${bgUrl}')`}
+>
   <div class="hero-layout-container">
     <!-- Left Side: Text Content -->
     <div class="hero-left-col">
@@ -135,8 +139,8 @@ const bgUrl = heroBg.src;
     width: 100%;
     border: none;
 
-    /* Desktop Hero Image */
-    background-image: url("/Backgrounds/Hero-Desktop.png");
+    /* Desktop Hero Image fallback via CSS variable */
+    background-image: var(--hero-bg);
     background-size: cover;
     background-position: center;
 
@@ -424,7 +428,8 @@ const bgUrl = heroBg.src;
 
   @media screen and (max-width: 900px) {
     .hero-section {
-      background-image: url("/Backgrounds/Hero-Mobile3.png");
+      /* On mobile, we still use the background-image variable but allow specialized positioning */
+      background-image: var(--hero-bg);
       background-size: cover;
       background-position: top center;
       background-attachment: scroll;
