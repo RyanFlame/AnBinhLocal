@@ -17,10 +17,13 @@ const tocToggleAsset = getImageByPath("Icon/toc_toggle.png");
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
+  // Filter for Vietnamese entries only for this route
+  return blogEntries
+    .filter(entry => entry.id.endsWith('.vi'))
+    .map((entry) => ({
+      params: { slug: entry.id.replace('.vi', '') },
+      props: { entry },
+    }));
 }
 
 // 2. For your template, you can get the entry directly from the prop

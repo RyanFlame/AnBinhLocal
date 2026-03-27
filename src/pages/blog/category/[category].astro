@@ -7,10 +7,11 @@ import { type Locale } from "../../../i18n/config";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
-  const uniqueCategories = [...new Set(allPosts.map((post) => post.data.category))];
+  const viPosts = allPosts.filter(post => post.id.endsWith('.vi'));
+  const uniqueCategories = [...new Set(viPosts.map((post) => post.data.category))];
 
   return uniqueCategories.map((category) => {
-    const filteredPosts = allPosts.filter((post) => post.data.category === category);
+    const filteredPosts = viPosts.filter((post) => post.data.category === category);
     return {
       params: { category: category },
       props: { posts: filteredPosts },
@@ -38,13 +39,13 @@ const t = useTranslations(locale);
     <div class="category-grid">
       {posts.map((post: any) => (
         <article class="post-card main-feature">
-          <a href={locale === "vi" ? `/blog/${post.id}` : `/en/blog/${post.id}`} style="text-decoration: none; color: inherit; display: block;">
+          <a href={locale === "vi" ? `/blog/${post.id.replace('.vi', '')}` : `/en/blog/${post.id.replace('.en', '')}`} style="text-decoration: none; color: inherit; display: block;">
             <figure class="post-image concave-corner">
               <Image src={post.data.image} alt={post.data.title} />
             </figure>
           </a>
           <div class="post-content">
-            <a href={locale === "vi" ? `/blog/${post.id}` : `/en/blog/${post.id}`} style="text-decoration: none; color: inherit;">
+            <a href={locale === "vi" ? `/blog/${post.id.replace('.vi', '')}` : `/en/blog/${post.id.replace('.en', '')}`} style="text-decoration: none; color: inherit;">
               <h3 class="post-title">{post.data.title}</h3>
             </a>
             <p class="post-excerpt">{post.data.excerpt}</p>

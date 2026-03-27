@@ -4,13 +4,14 @@ import Page from "../../../blog/category/[category].astro";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
-  const uniqueCategories = [...new Set(allPosts.map((post) => post.data.category))];
+  const enPosts = allPosts.filter(post => post.id.endsWith('.en'));
+  const uniqueCategories = [...new Set(enPosts.map((post) => post.data.category))];
 
   return uniqueCategories.map((category) => {
-    const filteredPosts = allPosts.filter((post) => post.data.category === category);
+    const filteredPosts = enPosts.filter((post) => post.data.category === category);
     return {
       params: { category },
-      props: { posts: filteredPosts },
+      props: { posts: filteredPosts, category },
     };
   });
 }
