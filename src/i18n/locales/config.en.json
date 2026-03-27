@@ -214,13 +214,16 @@
     "hero": {
       "title": "About Us",
       "desc": "The most popular and trusted traditional medicine clinic in the city.",
-      "link": "EXPLORE TREATMENTS ↗"
+      "link": "EXPLORE TREATMENTS ↗",
+      "image": "About-us2.webp"
     },
     "bento": {
       "label": "☆ ABOUT US",
       "title": "The Highest Level of Comfort, Healing and Service",
       "desc": "At An Binh Clinic, we combine premium traditional medicine with attention to detail. Whether it's a private therapy session tailored just for you, or a relaxing herbal remedy routine — we take care of everything, so you can enjoy every moment.",
-      "link": "MORE ABOUT US ↗"
+      "link": "MORE ABOUT US ↗",
+      "img_left": "Chinese-med1.webp",
+      "img_right": "Dad.webp"
     },
     "tabs": {
       "why": {
@@ -277,18 +280,14 @@
       },
       "panel": {
         "private": {
-          "label": "⚚ AS YOU WISH",
           "title": "Tailored <em>Private Therapies</em><br>and treatments",
           "desc": "Enjoy a personalized healing journey in our VIP relaxing rooms. These sessions offer complete flexibility — targeting exactly your pain points or energy blocks at your own pace.",
-          "highlight": "Perfect for those seeking a<br>custom wellness experience.",
-          "link": "EXPLORE TREATMENTS ↗"
+          "image": "Personal Treatment.webp"
         },
         "scheduled": {
-          "label": "⚚ STRUCTURED CARE",
           "title": "<em>Structured</em><br>healing programmes",
           "desc": "Our multi-session treatment plans are designed for conditions that require sustained, progressive care. Each follow-up builds on the last — measurable improvement, every step.",
-          "highlight": "Ideal for chronic conditions<br>and long-term recovery.",
-          "link": "VIEW TREATMENT PLANS ↗"
+          "image": "Chinese-med1.webp"
         },
         "herbal": {
           "label": "⚚ FROM THE SOURCE",
@@ -342,7 +341,8 @@
           "num": "25+",
           "label": "Exclusive Traditional Medicines"
         }
-      }
+      },
+      "bg": "Thuốc 1E.webp"
     },
     "why": {
       "label": "Our Promise",
@@ -353,17 +353,20 @@
       "c1": {
         "title": "Dried Herbs",
         "desc": "Sun-dried at optimal harvest time to preserve active compounds and maximum therapeutic value for your healing formulas.",
-        "btn": "Learn More"
+        "btn": "Learn More",
+        "image": "Med.webp"
       },
       "c2": {
         "title": "Medicinal Roots",
         "desc": "Ginseng, astragalus, and licorice root — cornerstone tonics of Eastern medicine, sourced with decades of trusted partnerships.",
-        "btn": "Learn More"
+        "btn": "Learn More",
+        "image": "Ingri/Ginseng.webp"
       },
       "c3": {
         "title": "Herbal Blends",
         "desc": "Carefully balanced multi-herb formulas following classical prescriptions, refined by generations of traditional practitioners.",
-        "btn": "Learn More"
+        "btn": "Learn More",
+        "image": "Med8.webp"
       }
     },
     "editorial": {

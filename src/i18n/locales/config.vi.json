@@ -214,13 +214,16 @@
     "hero": {
       "title": "Về Chúng Tôi",
       "desc": "Phòng khám y học cổ truyền uy tín và được tin tưởng nhất thành phố.",
-      "link": "KHÁM PHÁ TRỊ LIỆU ↗"
+      "link": "KHÁM PHÁ TRỊ LIỆU ↗",
+      "image": "About-us2.webp"
     },
     "bento": {
       "label": "☆ VỀ CHÚNG TÔI",
       "title": "Đỉnh Cao Của Chăm Sóc, Chữa Lành Và Phục Vụ",
       "desc": "Tại Phòng khám An Bình, chúng tôi kết hợp y học cổ truyền cao cấp với sự tỉ mỉ đến từng chi tiết. Cho dù đó là một liệu trình châm cứu được kê riêng cho bạn, hay một liệu pháp thảo dược thư giãn — chúng tôi lo mọi thứ, để bạn có thể hoàn toàn tận hưởng.",
-      "link": "TÌM HIỂU THÊM ↗"
+      "link": "TÌM HIỂU THÊM ↗",
+      "img_left": "Chinese-med1.webp",
+      "img_right": "Dad.webp"
     },
     "tabs": {
       "why": {
@@ -277,18 +280,14 @@
       },
       "panel": {
         "private": {
-          "label": "⚚ NHƯ Ý NGUYỆN",
           "title": "<em>Chăm sóc cá nhân</em><br>và điều trị chuyên biệt",
           "desc": "Tận hưởng hành trình phục hồi cá nhân trong phòng thư giãn VIP của chúng tôi. Các buổi điều trị mang lại sự linh hoạt hoàn toàn — nhắm chính xác vào điểm đau theo nhịp độ của riêng bạn.",
-          "highlight": "Hoàn hảo cho những ai tìm kiếm<br>trải nghiệm phục hồi tuỳ chỉnh.",
-          "link": "TÌM HIỂU KHÓA TRỊ LIỆU ↗"
+          "image": "Personal Treatment.webp"
         },
         "scheduled": {
-          "label": "⚚ CHĂM SÓC CÓ LỘ TRÌNH",
           "title": "<em>Lộ trình</em><br>phục hồi có cấu trúc",
           "desc": "Các chương trình điều trị nhiều buổi của chúng tôi được thiết kế cho các tình trạng cần chăm sóc liên tục và tiến triển. Mỗi lần theo dõi kế thừa kết quả trước — cải thiện rõ rệt từng bước.",
-          "highlight": "Lý tưởng cho các bệnh mãn tính<br>và phục hồi dài hạn.",
-          "link": "XEM LỘ TRÌNH ĐIỀU TRỊ ↗"
+          "image": "Chinese-med1.webp"
         },
         "herbal": {
           "label": "⚚ THẲNG TỪ NGUỒN GỐC",
@@ -342,7 +341,8 @@
           "num": "25+",
           "label": "Bài Thuốc Độc Quyền"
         }
-      }
+      },
+      "bg": "Thuốc 1E.webp"
     },
     "why": {
       "label": "Cam Kết Của Chúng Tôi",
@@ -353,17 +353,20 @@
       "c1": {
         "title": "Thảo Dược Khô",
         "desc": "Phơi sấy đúng thời điểm thu hoạch để bảo toàn hợp chất hoạt tính và giá trị trị liệu tối đa.",
-        "btn": "Tìm Hiểu Thêm"
+        "btn": "Tìm Hiểu Thêm",
+        "image": "Med.webp"
       },
       "c2": {
         "title": "Rễ Cây Dược Liệu",
         "desc": "Nhân sâm, hoàng kỳ và cam thảo — các vị thuốc bổ nền tảng của Đông y, được tuyển chọn qua nhiều thập kỷ tin cậy.",
-        "btn": "Tìm Hiểu Thêm"
+        "btn": "Tìm Hiểu Thêm",
+        "image": "Ingri/Ginseng.webp"
       },
       "c3": {
         "title": "Hỗn Hợp Thảo Dược",
         "desc": "Các bài thuốc đa vị được cân đối cẩn thận theo cổ phương, tinh luyện qua nhiều thế hệ.",
-        "btn": "Tìm Hiểu Thêm"
+        "btn": "Tìm Hiểu Thêm",
+        "image": "Med8.webp"
       }
     },
     "editorial": {

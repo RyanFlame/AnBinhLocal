@@ -9,11 +9,11 @@ const locale = (Astro.currentLocale || "vi") as Locale;
 const t = useTranslations(locale);
 
 // Use the elite bulk loader for clinical photography
-const asset_About_us2_webp = getImageByPath('About-us2.webp');
-const asset_Chinese_med1_webp = getImageByPath('Chinese-med1.webp');
-const asset_Dad_webp = getImageByPath('Dad.webp');
-const asset_Med3_webp = getImageByPath('Med3.webp');
-const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
+const heroImg = getImageByPath(t("about.hero.image")) || getImageByPath('About-us2.webp');
+const bentoLeft = getImageByPath(t("about.bento.img_left")) || getImageByPath('Chinese-med1.webp');
+const bentoRight = getImageByPath(t("about.bento.img_right")) || getImageByPath('Dad.webp');
+const med3 = getImageByPath('Med3.webp');
+const personalImg = getImageByPath('Personal Treatment.webp');
 ---
 
 <Layout title={`${t("about.hero.title")} - An Binh`}>
@@ -37,7 +37,7 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
 
       <figure class="hero-banner concave-corner">
         <!-- Using a wide landscape image -->
-        <Image src={asset_About_us2_webp} alt="An Binh Clinic Landscape" />
+        <Image src={heroImg} alt="An Binh Clinic Landscape" />
       </figure>
     </section>
 
@@ -46,7 +46,7 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
       <div class="bento-grid-about">
         <!-- Left Image -->
         <figure class="bento-col img-left concave-corner">
-          <Image src={asset_Chinese_med1_webp} alt="Herbs preparation" />
+          <Image src={bentoLeft} alt="Herbs preparation" />
         </figure>
 
         <!-- Center Content -->
@@ -67,7 +67,7 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
 
         <!-- Right Taller Image -->
         <figure class="bento-col img-right concave-corner">
-          <Image src={asset_Dad_webp} alt="Traditional Medicine" />
+          <Image src={bentoRight} alt="Traditional Medicine" />
         </figure>
       </div>
     </section>
@@ -221,7 +221,7 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
           <!-- PRIVATE THERAPIES -->
           <div class="service-panel active" id="svc-private">
             <figure class="service-image concave-corner">
-              <Image src={asset_Personal_Treatment_webp} alt="Private Therapies" />
+              <Image src={personalImg} alt="Private Therapies" />
             </figure>
             <div class="service-detail">
               <span class="label icon-star">
@@ -244,7 +244,7 @@ const asset_Personal_Treatment_webp = getImageByPath('Personal Treatment.webp');
           <!-- SCHEDULED TREATMENTS -->
           <div class="service-panel" id="svc-scheduled">
             <figure class="service-image concave-corner">
-              <Image src={asset_Chinese_med1_webp} alt="Scheduled Treatments" />
+              <Image src={bentoLeft} alt="Scheduled Treatments" />
             </figure>
             <div class="service-detail">
               <span class="label icon-star">

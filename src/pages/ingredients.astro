@@ -9,20 +9,23 @@ const locale = (Astro.currentLocale || "vi") as Locale;
 const t = useTranslations(locale);
 
 // Use the elite bulk loader to get images automatically
-// This is much cleaner than manually importing every single file.
-const asset_Med_webp = getImageByPath("Med.webp");
-const asset_Ingri_Ginseng_webp = getImageByPath("Ingri/Ginseng.webp");
-const asset_Med8_webp = getImageByPath("Med8.webp");
-const asset_Med3_webp = getImageByPath("Med3.webp");
-const asset_Thu_c_3_webp = getImageByPath("Thuốc 3.webp");
-const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
+const heroBg = getImageByPath(t("ingredients.hero.bg")) || getImageByPath("Thuốc 1E.webp");
+const bgUrl = heroBg?.src || "/Asset/Thuoc-1E.webp";
+
+const card1Img = getImageByPath(t("ingredients.cards.c1.image")) || getImageByPath("Med.webp");
+const card2Img = getImageByPath(t("ingredients.cards.c2.image")) || getImageByPath("Ingri/Ginseng.webp");
+const card3Img = getImageByPath(t("ingredients.cards.c3.image")) || getImageByPath("Med8.webp");
+
+const med3 = getImageByPath("Med3.webp");
+const thuoc3 = getImageByPath("Thuốc 3.webp");
+const herbalMed = getImageByPath("Herbal-Medicine.webp");
 ---
 
 <Layout title={`${t("ingredients.why.title").replace("<br>", " ")} - An Binh`}>
   <!-- ================================================ -->
   <!-- HERO SECTION                                       -->
   <!-- ================================================ -->
-  <section class="ing-hero">
+  <section class="ing-hero" style={`background-image: url('${bgUrl}')`}>
     <div class="ing-hero-overlay"></div>
     <div class="ing-hero-content">
       <p class="ing-hero-label">
@@ -78,7 +81,7 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
         <div class="ing-category-card">
           <div class="ing-card-img-wrap">
             <Image
-              src={asset_Med_webp}
+              src={card1Img}
               alt={t("ingredients.cards.c1.title")}
               class="ing-card-img"
             />
@@ -101,7 +104,7 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
         <div class="ing-category-card ing-card-featured">
           <div class="ing-card-img-wrap">
             <Image
-              src={asset_Ingri_Ginseng_webp}
+              src={card2Img}
               alt={t("ingredients.cards.c2.title")}
               class="ing-card-img"
             />
@@ -124,7 +127,7 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
         <div class="ing-category-card">
           <div class="ing-card-img-wrap">
             <Image
-              src={asset_Med8_webp}
+              src={card3Img}
               alt={t("ingredients.cards.c3.title")}
               class="ing-card-img"
             />
@@ -179,7 +182,7 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
         <!-- Col 3: image — stretches to match col 2 height -->
         <div class="ing-ed-col ing-ed-col-img">
           <div class="ing-ed-img-box">
-            <Image src={asset_Med3_webp} alt="Herbal ingredients" />
+            <Image src={med3} alt="Herbal ingredients" />
           </div>
         </div>
       </div>
@@ -225,7 +228,7 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
     <div class="ing-bento-container">
       <!-- Card 1: Image -->
       <div class="ing-bento-card ing-bento-img">
-        <Image src={asset_Thu_c_3_webp} alt="Herbal preparation" />
+        <Image src={thuoc3} alt="Herbal preparation" />
       </div>
 
       <!-- Card 2: Stat — Years -->
@@ -253,7 +256,7 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
 
       <!-- Card 3: Image -->
       <div class="ing-bento-card ing-bento-img">
-        <Image src={asset_Herbal_Medicine_webp} alt="Herbal medicine collection" />
+        <Image src={herbalMed} alt="Herbal medicine collection" />
       </div>
 
       <!-- Card 4: Stat — Satisfaction (Brass accent) -->
@@ -300,6 +303,7 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
     </div>
   </section>
 </Layout>
+
 <style>
   /* ================================================
    HERO SECTION
@@ -307,7 +311,6 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
   .ing-hero {
     position: relative;
     min-height: 100vh;
-    background-image: url("/Asset/Thuoc-1E.webp");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -375,8 +378,6 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
     background: var(--cream-rice);
     padding: 35px 45px;
     border-top-left-radius: 40px;
-
-    /* Outer scooped shadow trick */
   }
   .ing-hero-corner::before {
     content: "";
@@ -798,22 +799,22 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
   .ing-ed-link {
     display: inline-block;
     font-family: var(--font-sans);
+    font-weight: 600;
     font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--mahogany-dark);
+    color: var(--walnut-brown);
     text-decoration: none;
-    letter-spacing: 1.5px;
-    margin-top: 28px;
-    border-bottom: 1.5px solid var(--mahogany-dark);
-    padding-bottom: 2px;
-    transition:
-      color 0.3s ease,
-      border-color 0.3s ease;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--walnut-brown);
+    padding-bottom: 3px;
+    width: fit-content;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    margin-top: 20px;
   }
 
   .ing-ed-link:hover {
     color: var(--indochine-teal);
-    border-color: var(--indochine-teal);
+    border-bottom-color: var(--indochine-teal);
   }
 
   /* ================================================
@@ -821,7 +822,7 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
    ================================================ */
   .ing-bento {
     background-color: var(--beige-sand);
-    padding: 80px 0;
+    padding: 0 0 100px;
   }
 
   .ing-bento-container {
@@ -830,363 +831,139 @@ const asset_Herbal_Medicine_webp = getImageByPath("Herbal-Medicine.webp");
     padding: 0 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 18px;
-    align-items: stretch;
+    gap: 20px;
   }
 
-  /* Image bento card */
-  .ing-bento-img {
-    height: 320px;
+  .ing-bento-card {
+    height: 300px;
     overflow: hidden;
-
+    position: relative;
     /* Scooped corners */
     --scoop-radius: 20px;
-    -webkit-mask-image:
-      radial-gradient(
-        circle at top left,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      ),
-      radial-gradient(
-        circle at top right,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      ),
-      radial-gradient(
-        circle at bottom left,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      ),
-      radial-gradient(
-        circle at bottom right,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      );
-    -webkit-mask-position:
-      top left,
-      top right,
-      bottom left,
-      bottom right;
+    -webkit-mask-image: radial-gradient(circle at top left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)), radial-gradient(circle at top right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)), radial-gradient(circle at bottom left, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px)), radial-gradient(circle at bottom right, transparent var(--scoop-radius), black calc(var(--scoop-radius) + 0.5px));
+    -webkit-mask-position: top left, top right, bottom left, bottom right;
     -webkit-mask-size: 51% 51%;
     -webkit-mask-repeat: no-repeat;
-    mask-image:
-      radial-gradient(
-        circle at top left,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      ),
-      radial-gradient(
-        circle at top right,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      ),
-      radial-gradient(
-        circle at bottom left,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      ),
-      radial-gradient(
-        circle at bottom right,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      );
-    mask-position:
-      top left,
-      top right,
-      bottom left,
-      bottom right;
-    mask-size: 51% 51%;
-    mask-repeat: no-repeat;
   }
 
   .ing-bento-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
   }
 
-  .ing-bento-img:hover img {
-    transform: scale(1.06);
-  }
-
-  /* Text/stat bento card */
   .ing-bento-stat {
-    position: relative;
+    background: #fff;
+    padding: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 30px;
-    height: 320px;
-
-    /* Scooped corners */
-    --scoop-radius: 20px;
-    -webkit-mask-image:
-      radial-gradient(
-        circle at top left,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      ),
-      radial-gradient(
-        circle at top right,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      ),
-      radial-gradient(
-        circle at bottom left,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      ),
-      radial-gradient(
-        circle at bottom right,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      );
-    -webkit-mask-position:
-      top left,
-      top right,
-      bottom left,
-      bottom right;
-    -webkit-mask-size: 51% 51%;
-    -webkit-mask-repeat: no-repeat;
-    mask-image:
-      radial-gradient(
-        circle at top left,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      ),
-      radial-gradient(
-        circle at top right,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      ),
-      radial-gradient(
-        circle at bottom left,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      ),
-      radial-gradient(
-        circle at bottom right,
-        transparent var(--scoop-radius),
-        black calc(var(--scoop-radius) + 0.5px)
-      );
-    mask-position:
-      top left,
-      top right,
-      bottom left,
-      bottom right;
-    mask-size: 51% 51%;
-    mask-repeat: no-repeat;
+    justify-content: center;
   }
-
-  /* Light stat variant */
   .ing-stat-light {
-    background-color: var(--cream-rice);
-    color: var(--mahogany-dark);
+    background-color: #f7f3e8;
   }
-
-  /* Brass/dark stat variant */
   .ing-stat-brass {
-    background-color: var(--charcoal-wood);
-    color: var(--cream-rice);
-  }
-  .ing-stat-brass .ing-bento-stat-number,
-  .ing-stat-brass .ing-bento-stat-title {
-    color: var(--cream-rice);
-  }
-  .ing-stat-brass .ing-bento-stat-desc {
-    color: rgba(249, 245, 227, 0.7);
-  }
-  .ing-stat-brass .ing-stat-arrow {
-    background: var(--brass-gold);
-    color: var(--mahogany-dark);
+    background-color: #e2d9c2;
   }
 
-  /* Arrow to-corner button */
   .ing-stat-arrow {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: var(--mahogany-dark);
-    color: var(--cream-rice);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition:
-      transform 0.3s ease,
-      background 0.3s ease;
+    top: 25px;
+    right: 25px;
+    color: var(--walnut-brown);
+    transition: transform 0.3s ease;
+  }
+  .ing-bento-stat:hover .ing-stat-arrow {
+    transform: translate(3px, -3px);
   }
 
-  .ing-stat-arrow:hover {
-    transform: translate(2px, -2px);
-  }
-
-  /* Large stat number */
   .ing-bento-stat-number {
     font-family: var(--font-serif);
     font-size: 3.5rem;
-    font-weight: 400;
-    color: var(--mahogany-dark);
     line-height: 1;
-    margin-bottom: 8px;
+    color: var(--mahogany-dark);
+    margin-bottom: 10px;
   }
 
   .ing-bento-stat-title {
     font-family: var(--font-serif);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--mahogany-dark);
-    margin-bottom: 10px;
-    line-height: 1.3;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--indochine-teal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
   }
 
   .ing-bento-stat-desc {
-    font-family: var(--font-sans);
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: var(--walnut-brown);
-    line-height: 1.55;
-    margin: 0;
+    line-height: 1.5;
   }
 
   /* ================================================
-   CTA — MINIMAL LARGE TEXT STYLE
+   CTA MINIMAL
    ================================================ */
   .ing-cta-minimal {
-    background-color: var(--warm-white);
-    padding: 80px 0 100px;
+    background-color: var(--beige-sand);
+    padding: 60px 0 140px;
   }
 
   .ing-cta-minimal-container {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 0 40px;
     text-align: center;
+    padding: 0 40px;
   }
 
-  /* Tiny label above */
   .ing-cta-min-label {
     font-family: var(--font-sans);
     font-size: 0.85rem;
-    color: var(--indochine-teal);
-    letter-spacing: 3px;
-    text-transform: uppercase;
     font-weight: 700;
-    margin: 25px 0 30px;
-    display: block;
+    color: var(--indochine-teal);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 40px 0 25px;
   }
 
-  /* Large display text — the hero statement */
   .ing-cta-min-title {
     font-family: var(--font-serif);
-    font-size: 2.6rem;
+    font-size: 3rem;
     color: var(--mahogany-dark);
-    line-height: 1.3;
-    font-weight: 400;
-    max-width: 1000px;
-    margin: 0 auto 30px;
+    line-height: 1.2;
+    margin-bottom: 40px;
   }
 
-  /* CTA underline link */
   .ing-cta-min-link {
     display: inline-block;
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--mahogany-dark);
+    margin-top: 40px;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--indochine-teal);
     text-decoration: none;
-    border-bottom: 2px solid var(--mahogany-dark);
-    padding-bottom: 3px;
-    margin-top: 25px;
-    transition:
-      color 0.3s ease,
-      border-color 0.3s ease;
+    border-bottom: 2px solid var(--indochine-teal);
+    padding-bottom: 8px;
+    transition: all 0.3s;
   }
 
   .ing-cta-min-link:hover {
-    color: var(--indochine-teal);
-    border-color: var(--indochine-teal);
+    color: var(--mahogany-dark);
+    border-bottom-color: var(--mahogany-dark);
   }
 
-  /* ================================================
-   MOBILE RESPONSIVE
-   ================================================ */
-  @media screen and (max-width: 900px) {
-    .ing-hero-content {
-      padding: 140px 30px 120px;
-    }
-    .ing-hero-title {
-      font-size: 2.8rem;
-    }
-    .ing-hero-corner {
-      display: none;
-    }
-
+  /* MEDIA QUERIES */
+  @media (max-width: 900px) {
     .ing-cards-grid {
       grid-template-columns: 1fr;
-      gap: 24px;
     }
-    .ing-card-featured {
-      transform: none;
-    }
-
-    /* Editorial rows stack */
-    .ing-row-top {
+    .ing-editorial-row {
       grid-template-columns: 1fr;
-      gap: 30px;
-      align-items: start; /* Don't stretch on mobile */
     }
-    .ing-row-mid {
-      grid-template-columns: 1fr;
-      gap: 30px;
-    }
-    /* Hide the blank spacer col on mobile */
-    .ing-ed-col-spacer {
-      display: none;
-    }
-    /* Image takes natural height on mobile */
-    .ing-ed-img-box {
-      flex: none;
-      height: 240px;
-    }
-    .ing-ed-statement {
-      font-size: 1.6rem;
-    }
-    .ing-ed-quote {
-      font-size: 1.3rem;
-    }
-
-    /* Bento: 2-col on tablet */
     .ing-bento-container {
       grid-template-columns: 1fr 1fr;
     }
-
-    .ing-cta-min-title {
-      font-size: 2.2rem;
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    .ing-why-container {
-      padding: 0 20px;
-    }
-    .ing-editorial-container,
-    .ing-bento-container,
-    .ing-cta-minimal-container {
-      padding: 0 20px;
-    }
-
-    /* Bento: single column */
-    .ing-bento-container {
-      grid-template-columns: 1fr;
-    }
-
-    .ing-cta-min-title {
-      font-size: 1.7rem;
+    .ing-hero-title {
+      font-size: 3rem;
     }
   }
 </style>
