@@ -2,64 +2,59 @@
 import { getCollection } from "astro:content";
 import BlogLayout from "../../../layouts/BlogLayout.astro";
 import { Image } from "astro:assets";
-import { useTranslations } from "../../../i18n/utils";
-import { type Locale } from "../../../i18n/config";
-
 import type { CollectionEntry } from "astro:content";
+
+import { slugify } from "../../../utils/slugify";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
-  const viPosts = allPosts.filter(post => post.id.endsWith('.vi'));
+  const viPosts = allPosts.filter((post) => post.data.lang === "vi");
   const uniqueCategories = [...new Set(viPosts.map((post) => post.data.category))];
 
   return uniqueCategories.map((category) => {
+    const slug = slugify(category);
     const filteredPosts = viPosts.filter((post) => post.data.category === category);
     return {
-      params: { category: category },
-      props: { posts: filteredPosts, category: category },
+      params: { category: slug },
+      props: { posts: filteredPosts, categoryName: category },
     };
   });
 }
 
 interface Props {
   posts: CollectionEntry<"blog">[];
-  category?: string;
+  categoryName: string;
 }
 
-const { category: routeCategory } = Astro.params;
-const { posts, category: propCategory } = Astro.props as unknown as Props;
-const category = propCategory || routeCategory;
-
-const locale = (Astro.currentLocale || "vi") as Locale;
-const t = useTranslations(locale);
+const { posts, categoryName } = Astro.props as unknown as Props;
+const fmtShort = (date: Date) =>
+  new Intl.DateTimeFormat("vi-VN", { month: "short", day: "numeric" }).format(date);
 ---
 
-<BlogLayout title={`${t("blog.category.title").replace("{category}", category)} | An Bình`}>
+<BlogLayout title={`Chuyên mục: ${categoryName} | An Bình`}>
   <div class="category-page">
     <header class="category-header">
-      <h1 class="category-title">
-        {t("blog.category.title").replace("{category}", category)}
-      </h1>
-      <p class="category-desc">{t("blog.category.desc").replace("{category}", category)}</p>
+      <h1 class="category-title">Chuyên mục: {categoryName}</h1>
+      <p class="category-desc">Khám phá các bài viết về {categoryName}</p>
     </header>
 
     <div class="category-grid">
       {posts.map((post: any) => (
         <article class="post-card main-feature">
-          <a href={locale === "vi" ? `/blog/${post.id.replace('.vi', '')}` : `/en/blog/${post.id.replace('.en', '')}`} style="text-decoration: none; color: inherit; display: block;">
+          <a href={`/blog/${post.id.replace(/\.(vi|en)$/, '')}`} style="text-decoration: none; color: inherit; display: block;">
             <figure class="post-image concave-corner">
               <Image src={post.data.image} alt={post.data.title} />
             </figure>
           </a>
           <div class="post-content">
-            <a href={locale === "vi" ? `/blog/${post.id.replace('.vi', '')}` : `/en/blog/${post.id.replace('.en', '')}`} style="text-decoration: none; color: inherit;">
+            <a href={`/blog/${post.id.replace(/\.(vi|en)$/, '')}`} style="text-decoration: none; color: inherit;">
               <h3 class="post-title">{post.data.title}</h3>
             </a>
             <p class="post-excerpt">{post.data.excerpt}</p>
             <div class="post-meta">
               <span>{post.data.author}</span>
               <span class="dot">•</span>
-              <span>{new Intl.DateTimeFormat(locale === "vi" ? 'vi-VN' : 'en-US', { month: 'short', day: 'numeric' }).format(post.data.date)} • 4 min read</span>
+              <span>{fmtShort(post.data.date)}</span>
             </div>
           </div>
         </article>
@@ -67,7 +62,7 @@ const t = useTranslations(locale);
     </div>
     
     <div class="back-link">
-      <a href={locale === "vi" ? "/blog" : "/en/blog"} class="pagination-btn">{t("blog.category.back")}</a>
+      <a href="/blog" class="pagination-btn">Quay lại Blog</a>
     </div>
   </div>
 </BlogLayout>

@@ -2,32 +2,31 @@
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import { getImageByPath } from "../utils/assets";
-import { localizePath, type Locale } from "../i18n/config";
+import { slugify } from "../utils/slugify";
 
-type Props = {
-  locale: Locale;
-};
-
-const { locale } = Astro.props;
 const logoAsset = getImageByPath("Logo/Logo-Blog-New.png");
 
+// Categories sorted by popularity (VN posts only)
 const allPosts = await getCollection("blog");
-const categories = [...new Set(allPosts.map((p) => p.data.category))] as string[];
+const viPosts = allPosts.filter(p => p.data.lang === 'vi');
+const categoryCounts = viPosts.reduce((acc, p) => {
+  acc[p.data.category] = (acc[p.data.category] || 0) + 1;
+  return acc;
+}, {} as Record<string, number>);
+const categoriesOriginal = Object.keys(categoryCounts).sort((a, b) => categoryCounts[b] - categoryCounts[a]);
+
+const categories = categoriesOriginal.map(cat => ({
+  name: cat,
+  slug: slugify(cat)
+}));
 
 const today = new Date();
-const formattedDate = today.toLocaleDateString(locale === "en" ? "en-US" : "vi-VN", {
+const formattedDate = today.toLocaleDateString("vi-VN", {
   weekday: "long",
   day: "numeric",
   month: "numeric",
   year: "numeric",
 });
-
-const homeHref = localizePath("/", locale);
-const blogHref = localizePath("/blog", locale);
-const aboutHref = localizePath("/about", locale);
-const switchToVi = localizePath(Astro.url.pathname, "vi");
-const switchToEn = localizePath(Astro.url.pathname, "en");
-const currentLangLabel = locale === "en" ? "EN" : "VN";
 ---
 
 <header class="blog-header-minimal">
@@ -37,51 +36,17 @@ const currentLangLabel = locale === "en" ? "EN" : "VN";
 
   <div class="bh-top-tier">
     <div class="bh-logo-minimal">
-      <a href={homeHref}>
+      <a href="/blog">
         <Image src={logoAsset} alt="An Binh Logo" />
       </a>
     </div>
 
     <div class="bh-utility-cluster">
-      <div class="lang-dropdown bh-lang-dropdown">
-        <div class="lang-dropdown-selected" role="button" tabindex="0">
-          <span class="current-lang-text">{currentLangLabel}</span>
-          <svg
-            viewBox="0 0 24 24"
-            width="18"
-            height="18"
-            class="dropdown-arrow"
-            fill="currentColor"><path d="M7 10l5 5 5-5z"></path></svg
-          >
-        </div>
-        <div class="lang-dropdown-options">
-          <a
-            href={switchToVi}
-            class={`lang-btn dropdown-opt ${locale === "vi" ? "active" : ""}`}
-            data-locale-switch="true"
-            data-lang="vn">VN</a
-          >
-          <a
-            href={switchToEn}
-            class={`lang-btn dropdown-opt ${locale === "en" ? "active" : ""}`}
-            data-locale-switch="true"
-            data-lang="en">EN</a
-          >
-        </div>
-      </div>
-
       <div class="bh-date-weather">
         <span class="bh-weather-item" id="bhWeather">
           TP HCM, --°C
           <span id="bhWeatherIcon">
-            <svg
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="5"></circle>
               <line x1="12" y1="1" x2="12" y2="3"></line>
               <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -102,29 +67,20 @@ const currentLangLabel = locale === "en" ? "EN" : "VN";
 
   <nav class="bh-bottom-tier">
     <div class="bh-category-nav">
+      <a href="/" class="cat-link">TRANG CHỦ</a>
       <a
-        href={blogHref}
-        class={`cat-link ${Astro.url.pathname.includes("/blog") && !Astro.url.pathname.includes("/category/") ? "active" : ""} lang-text`}
-        data-en="ALL"
-        data-vn="TẤT CẢ">TẤT CẢ</a
-      >
-      {
-        categories.map((cat) => {
-          const categoryPath = localizePath(`/blog/category/${cat}`, locale);
-          const isActive = Astro.url.pathname.includes(`/blog/category/${cat}`);
-          return (
-            <a href={categoryPath} class={`cat-link ${isActive ? "active" : ""}`}>
-              {cat.toUpperCase()}
-            </a>
-          );
-        })
-      }
-      <a
-        href={aboutHref}
-        class="cat-link highlight lang-text"
-        data-en="ABOUT US"
-        data-vn="VỀ CHÚNG TÔI">VỀ CHÚNG TÔI</a
-      >
+        href="/blog"
+        class={`cat-link ${Astro.url.pathname === '/blog' || Astro.url.pathname === '/blog/' ? "active" : ""}`}
+      >TẤT CẢ</a>
+      {categories.map((cat) => {
+        const isActive = Astro.url.pathname.includes(`/blog/category/${cat.slug}`);
+        return (
+          <a href={`/blog/category/${cat.slug}`} class={`cat-link ${isActive ? "active" : ""}`}>
+            {cat.name.toUpperCase()}
+          </a>
+        );
+      })}
+      <a href="/about" class="cat-link highlight">VỀ CHÚNG TÔI</a>
     </div>
   </nav>
 </header>
@@ -193,65 +149,6 @@ const currentLangLabel = locale === "en" ? "EN" : "VN";
     flex: 0 0 auto;
   }
 
-  .bh-lang-dropdown {
-    position: relative;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
-
-  .bh-lang-dropdown .lang-dropdown-selected {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
-    color: #333;
-  }
-
-  .bh-lang-dropdown .lang-dropdown-options {
-    position: absolute;
-    top: calc(100% + 12px);
-    right: 0;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    min-width: 72px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-    z-index: 2001;
-    padding: 5px 0;
-  }
-
-  .bh-lang-dropdown.open .lang-dropdown-options {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .bh-lang-dropdown .lang-btn {
-    padding: 10px 14px;
-    color: #3a2f2a;
-    text-align: center;
-    text-decoration: none;
-    opacity: 0.7;
-    transition: background-color 0.3s ease, opacity 0.3s ease;
-  }
-
-  .bh-lang-dropdown .lang-btn:hover {
-    background: #f5f5f5;
-    opacity: 1;
-  }
-
-  .bh-lang-dropdown .lang-btn.active {
-    color: #526b48;
-    background: rgba(82, 107, 72, 0.05);
-    opacity: 1;
-  }
 
   .bh-date-weather {
     display: flex;
@@ -293,6 +190,10 @@ const currentLangLabel = locale === "en" ? "EN" : "VN";
   }
 
   .bh-bottom-tier.is-sticky {
+    position: fixed;
+    top: 5px; /* Stay below progress bar */
+    left: 0;
+    width: 100%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid #eaeaea;
   }
@@ -303,7 +204,16 @@ const currentLangLabel = locale === "en" ? "EN" : "VN";
     gap: 35px;
     max-width: 1400px;
     margin: 0 auto;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding: 0 10px;
+    flex-wrap: nowrap;
+  }
+
+  .bh-category-nav::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Webkit */
   }
 
   .cat-link {
@@ -340,18 +250,9 @@ const currentLangLabel = locale === "en" ? "EN" : "VN";
     }
 
     .bh-category-nav {
-      gap: 15px;
+      gap: 20px;
       justify-content: flex-start;
-      overflow-x: auto;
-      white-space: nowrap;
-      padding-bottom: 5px;
-      flex-wrap: nowrap;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-
-    .bh-category-nav::-webkit-scrollbar {
-      display: none;
+      padding-bottom: 2px;
     }
 
     .cat-link {

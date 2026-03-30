@@ -6,7 +6,7 @@
     "desc": "Trang bạn đang tìm kiếm có thể đã được di chuyển, hoặc bạn có thể đã rẽ vào một góc không tồn tại trong phòng khám của chúng tôi.",
     "actions": {
       "home": "Trở về Trang Chủ",
-      "therapies": "Khám Phá Liệu Pháp"
+      "therapies": "Chúng tôi cung cấp gì?"
     }
   },
   "nav": {
@@ -21,7 +21,7 @@
     "link": {
       "philosophy": "Triết Lý",
       "remedies": "Bài Thuốc",
-      "services": "Liệu Pháp",
+      "services": "Chúng tôi cung cấp gì?",
       "visit": "Địa Chỉ"
     },
     "contact_title": "Liên Hệ",

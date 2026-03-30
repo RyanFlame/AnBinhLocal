@@ -14,7 +14,7 @@ const logoAsset = getImageByPath("Logo/Logo-NBG.png");
 
 const homeHref = locale === "en" ? "/en" : "/";
 const aboutHref = locale === "en" ? "/en/about" : "/about";
-const blogHref = locale === "en" ? "/en/blog" : "/blog";
+const blogHref = "/blog";
 const switchToVi = localizePath(Astro.url.pathname, "vi");
 const switchToEn = localizePath(Astro.url.pathname, "en");
 const currentLangLabel = locale === "en" ? "EN" : "VN";

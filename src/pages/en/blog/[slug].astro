@@ -1,19 +1,13 @@
 ---
-import { getCollection } from "astro:content";
-import Page from "../../blog/[slug].astro";
-
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("blog");
-  // Filter for English entries only for this route
-  return blogEntries
-    .filter(entry => entry.id.endsWith('.en'))
-    .map((entry) => ({
-      params: { slug: entry.id.replace('.en', '') },
-      props: { entry },
+  const { getCollection } = await import("astro:content");
+  const entries = await getCollection("blog");
+  return entries
+    .filter(e => e.data.lang === 'vi')
+    .map(e => ({
+      params: { slug: e.id.replace(/\.(vi|en)$/, '') },
     }));
 }
-
-const { entry } = Astro.props;
+const { slug } = Astro.params;
+return Astro.redirect(`/blog/${slug}`, 301);
 ---
-
-<Page entry={entry} />

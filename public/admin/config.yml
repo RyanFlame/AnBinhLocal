@@ -378,8 +378,11 @@ collections:
             fields:
               - { label: "Brand Slogan", name: "brand_slogan", widget: "string" }
               - { label: "Copyright", name: "copyright", widget: "text" }
-              - label: "Hours Title", name: "hours_title", widget: "string"
-              - label: "Opening Hours (Mon-Fri)", name: "hours", widget: "object", fields:
+              - { label: "Hours Title", name: "hours_title", widget: "string" }
+              - label: "Opening Hours (Mon-Fri)"
+                name: "hours"
+                widget: "object"
+                fields:
                   - { label: "Time", name: "mon_fri", widget: "string" }
 
   - label: "🇺🇸 Website Pages (English)"

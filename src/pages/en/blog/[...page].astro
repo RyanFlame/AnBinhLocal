@@ -1,18 +1,4 @@
 ---
-import type { GetStaticPaths } from "astro";
-import { getCollection } from "astro:content";
-import Page from "../../blog/[...page].astro";
-
-export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-  const allPosts = await getCollection("blog");
-  const enPosts = allPosts
-    .filter(post => post.id.endsWith('.en'))
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-  
-  return paginate(enPosts, { pageSize: 6 });
-};
-
-const { page } = Astro.props;
+// Redirect all EN blog pages → VN blog
+return Astro.redirect('/blog', 301);
 ---
-
-<Page page={page} />

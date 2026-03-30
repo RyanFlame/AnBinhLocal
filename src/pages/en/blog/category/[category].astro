@@ -1,22 +1,11 @@
 ---
-import { getCollection } from "astro:content";
-import Page from "../../../blog/category/[category].astro";
-
 export async function getStaticPaths() {
-  const allPosts = await getCollection("blog");
-  const enPosts = allPosts.filter(post => post.id.endsWith('.en'));
-  const uniqueCategories = [...new Set(enPosts.map((post) => post.data.category))];
-
-  return uniqueCategories.map((category) => {
-    const filteredPosts = enPosts.filter((post) => post.data.category === category);
-    return {
-      params: { category },
-      props: { posts: filteredPosts, category },
-    };
-  });
+  const { getCollection } = await import("astro:content");
+  const posts = await getCollection("blog");
+  const viPosts = posts.filter(p => p.data.lang === 'vi');
+  const cats = [...new Set(viPosts.map(p => p.data.category))];
+  return cats.map(category => ({ params: { category } }));
 }
-
-const { posts, category } = Astro.props as any;
+const { category } = Astro.params;
+return Astro.redirect(`/blog/category/${category}`, 301);
 ---
-
-<Page posts={posts} category={category} />

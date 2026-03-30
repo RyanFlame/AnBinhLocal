@@ -69,14 +69,20 @@
       },
       "panel": {
         "private": {
+          "label": "⚚ PRIVATE THERAPY",
           "title": "Tailored <em>Private Therapies</em><br>and treatments",
           "desc": "Enjoy a personalized healing journey in our VIP relaxing rooms. These sessions offer complete flexibility — targeting exactly your pain points or energy blocks at your own pace.",
-          "image": "Personal Treatment.webp"
+          "image": "Personal Treatment.webp",
+          "highlight": "Total privacy and comfort,<br>optimised for clinical recovery.",
+          "link": "BOOK A SESSION ↗"
         },
         "scheduled": {
+          "label": "⚚ SCHEDULED CARE",
           "title": "<em>Structured</em><br>healing programmes",
           "desc": "Our multi-session treatment plans are designed for conditions that require sustained, progressive care. Each follow-up builds on the last — measurable improvement, every step.",
-          "image": "Chinese-med1.webp"
+          "image": "Chinese-med1.webp",
+          "highlight": "In-depth protocols tailored<br>for chronic health conditions.",
+          "link": "BOOK A SESSION ↗"
         },
         "herbal": {
           "label": "⚚ FROM THE SOURCE",

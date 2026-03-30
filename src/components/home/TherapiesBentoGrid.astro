@@ -19,7 +19,7 @@ const asset_Therapies_Thuoc_Bac_webp = getImageByPath("Therapies/Thuoc Bac.webp"
     <!-- Header -->
     <div class="grid-header">
       <h2 class="heading-section" set:html={t("bento.title")} />
-      <a href="/therapies" class="btn-pill">
+      <a href={locale === "vi" ? "/about#services" : "/en/about#services"} class="btn-pill">
         {t("bento.btn_explore")}
       </a>
     </div>

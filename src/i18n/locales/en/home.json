@@ -13,26 +13,26 @@
       "time_placeholder": "Select slot",
       "submit": "Book Now"
     },
-    "bg_image": "Dad.webp"
+    "bg_image": "Backgrounds/Hero-Desktop.png"
   },
   "location": {
     "step1": {
       "sub": "VISIT OUR MAIN HERB APOTHECARY",
       "heading": "Outside the<br>Clinic",
       "btn_text": "Get Directions",
-      "image": "Location/outside.webp"
+      "image": "Location/Location 1.png"
     },
     "step2": {
       "sub": "HOLISTIC THERAPY & ACUPUNCTURE",
       "heading": "Inside the<br>Clinic",
       "btn_text": "Get Directions",
-      "image": "Location/inside.webp"
+      "image": "Location/Location 2.png"
     },
     "step3": {
       "sub": "ELEVATE YOUR WELLNESS JOURNEY",
       "heading": "Experience<br>The Magic Of<br>Healing!",
       "btn_text": "Book A Visit Now",
-      "image": "Location/healing.webp"
+      "image": "Location/Location 3.jpg"
     },
     "corner": {
       "know_more": "Know More →",
@@ -46,14 +46,14 @@
       "subtitle": "Harmony of Body & Nature",
       "body": "At An Binh, we believe that true wellness comes from the balance between the internal elements of the body and the external rhythms of nature.<br><br>Drawing from thousands of years of traditional wisdom, our approach combines time-honored herbal remedies with modern understanding to restore your body's natural capacity for healing.",
       "btn": "DISCOVER MORE",
-      "image": "About-us.webp"
+      "image": "Dad Final 3.webp"
     },
     "herbs": {
       "title": "Premium Herbal Selection",
       "subtitle": "Curated for Potency",
       "body": "Every formulation begins with the careful selection of premium herbs. We prioritize ingredients that are ethically sourced and harvested at peak maturity to ensure maximum therapeutic value.<br><br>Experience the difference that quality makes in your journey to wellness.",
       "btn": "VIEW INGREDIENTS",
-      "image": "Chinese-Med.webp"
+      "image": "Thuốc 1E.webp"
     }
   },
   "bento": {
@@ -109,40 +109,44 @@
     "title_sub": "Patient Stories",
     "title_main": "Don't trust us,<br>Trust their voice",
     "body": "Real healing, real stories. Hear how traditional medicine has restored balance to our patients' lives through our holistic treatments.",
-    "col1": {
-      "0": {
+    "cards": [
+      {
         "name": "Minh T.",
         "condition": "Chronic Back Pain",
-        "text": "I was skeptical about traditional medicine, but the acupuncture treatments here completely reset my sleep cycle. I feel years younger."
+        "text": "I was skeptical about traditional medicine, but the acupuncture treatments here completely reset my sleep cycle. I feel years younger.",
+        "avatar": "Thuốc.webp"
       },
-      "1": {
+      {
         "name": "Sarah J.",
         "condition": "Wellness Check",
-        "text": "The atmosphere is so calming. An Binh is a hidden gem in Winnipeg for anyone looking for holistic care."
+        "text": "The atmosphere is so calming. An Binh is a hidden gem in Winnipeg for anyone looking for holistic care.",
+        "avatar": "Thuốc 1.webp"
       },
-      "2": {
+      {
         "name": "David L.",
         "condition": "Herbal Therapy",
-        "text": "The herbal tea blends are not only delicious but actually effective. My digestion has never been better."
-      }
-    },
-    "col2": {
-      "0": {
+        "text": "The herbal tea blends are not only delicious but actually effective. My digestion has never been better.",
+        "avatar": "Thuốc 2.webp"
+      },
+      {
         "name": "Emily R.",
         "condition": "Acupuncture",
-        "text": "Finally found relief for my shoulder pain after months of struggling. The staff is incredibly professional."
+        "text": "Finally found relief for my shoulder pain after months of struggling. The staff is incredibly professional.",
+        "avatar": "Thuốc 1.webp"
       },
-      "1": {
+      {
         "name": "James K.",
         "condition": "Stress Relief",
-        "text": "A sanctuary of peace. The treatments helped me manage my work stress significantly."
+        "text": "A sanctuary of peace. The treatments helped me manage my work stress significantly.",
+        "avatar": "Thuốc.webp"
       },
-      "2": {
+      {
         "name": "Linh N.",
         "condition": "General Health",
-        "text": "I love the personalized approach. They really take the time to understand your body's needs."
+        "text": "I love the personalized approach. They really take the time to understand your body's needs.",
+        "avatar": "Thuốc 2.webp"
       }
-    }
+    ]
   },
   "booking": {
     "title": "Book Appointment",

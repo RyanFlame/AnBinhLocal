@@ -69,14 +69,20 @@
       },
       "panel": {
         "private": {
+          "label": "⚚ TRỊ LIỆU CÁ NHÂN",
           "title": "<em>Chăm sóc cá nhân</em><br>và điều trị chuyên biệt",
           "desc": "Tận hưởng hành trình phục hồi cá nhân trong phòng thư giãn VIP của chúng tôi. Các buổi điều trị mang lại sự linh hoạt hoàn toàn — nhắm chính xác vào điểm đau theo nhịp độ của riêng bạn.",
-          "image": "Personal Treatment.webp"
+          "image": "Personal Treatment.webp",
+          "highlight": "Không gian hoàn toàn riêng tư,<br>tối ưu hiệu quả phục hồi.",
+          "link": "ĐẶT LỊCH NGAY ↗"
         },
         "scheduled": {
+          "label": "⚚ THEO LIỆU TRÌNH",
           "title": "<em>Lộ trình</em><br>phục hồi có cấu trúc",
           "desc": "Các chương trình điều trị nhiều buổi của chúng tôi được thiết kế cho các tình trạng cần chăm sóc liên tục và tiến triển. Mỗi lần theo dõi kế thừa kết quả trước — cải thiện rõ rệt từng bước.",
-          "image": "Chinese-med1.webp"
+          "image": "Chinese-med1.webp",
+          "highlight": "Phác đồ chuyên sâu cho các<br>tình trạng bệnh lý mãn tính.",
+          "link": "ĐẶT LỊCH NGAY ↗"
         },
         "herbal": {
           "label": "⚚ THẲNG TỪ NGUỒN GỐC",
