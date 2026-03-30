@@ -17,8 +17,8 @@ collections:
   - label: "🇻🇳 Website Pages (Vietnamese)"
     name: "pages_vi"
     files:
-      - label: "Home Page"
-        name: "home"
+      - label: "🏠 Home Page"
+        name: "home_page"
         file: "src/i18n/locales/vi/home.json"
         fields:
           - label: "Hero Section"
@@ -101,6 +101,15 @@ collections:
                   - { label: "Button Text", name: "btn", widget: "string" }
                   - { label: "Image", name: "image", widget: "image" }
 
+          - label: "Bento (Therapies List)"
+            name: "bento"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Explore Button", name: "btn_explore", widget: "string" }
+              - { label: "Labels", name: "card", widget: "object" }
+              - { label: "Main Image", name: "image", widget: "image" }
+
           - label: "FAQ Section"
             name: "faq"
             widget: "object"
@@ -142,59 +151,130 @@ collections:
                   - { label: "Comment", name: "text", widget: "text" }
                   - { label: "Avatar", name: "avatar", widget: "image" }
 
-      - label: "About Page"
-        name: "about"
+      - label: "📝 About Page"
+        name: "about_page"
         file: "src/i18n/locales/vi/about.json"
         fields:
-          - label: "Hero"
-            name: "hero"
+          - label: "About Content Wrapper"
+            name: "about"
             widget: "object"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subtitle", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-          - label: "Story Section"
-            name: "story"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-          - label: "Values Section"
-            name: "values"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
+              - label: "Hero"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "text" }
+                  - { label: "Link/Button Text", name: "link", widget: "string" }
+                  - { label: "Hero Image", name: "image", widget: "image" }
+              - label: "Bento Section"
+                name: "bento"
+                widget: "object"
+                fields:
+                  - { label: "Small Label", name: "label", widget: "string" }
+                  - { label: "Headline", name: "title", widget: "string" }
+                  - { label: "Body Copy", name: "desc", widget: "text" }
+              - label: "CTA Section"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "text" }
+                  - { label: "Button", name: "btn", widget: "string" }
 
-      - label: "Ingredients Page"
-        name: "ingredients"
+      - label: "🍱 Ingredients Page"
+        name: "ingredients_page"
         file: "src/i18n/locales/vi/ingredients.json"
         fields:
-          - label: "Hero"
-            name: "hero"
+          - label: "Ingredients Content Wrapper"
+            name: "ingredients"
             widget: "object"
             fields:
-              - { label: "Label", name: "label", widget: "string" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
+              - label: "Hero"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Sub Label", name: "label", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "text" }
+                  - { label: "Button", name: "btn", widget: "string" }
+                  - { label: "Background", name: "bg", widget: "image" }
+              - label: "Intro Section"
+                name: "why"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Headline", name: "title", widget: "string" }
+                  - { label: "Text", name: "desc", widget: "text" }
 
-      - label: "Therapies Page"
-        name: "therapies"
+      - label: "🕯️ Therapies Page"
+        name: "therapies_page"
         file: "src/i18n/locales/vi/therapies.json"
         fields:
-          - label: "Hero"
-            name: "hero"
+          - label: "Therapies Content Wrapper"
+            name: "therapies"
             widget: "object"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - { label: "Tab Bar Title", name: "title", widget: "string" }
+              - { label: "Page Main Title", name: "page_title", widget: "string" }
               - { label: "Description", name: "desc", widget: "text" }
+
+      - label: "📢 Blog Index Page"
+        name: "blog_index_page"
+        file: "src/i18n/locales/vi/blog.json"
+        fields:
+          - label: "Blog Content Wrapper"
+            name: "blog"
+            widget: "object"
+            fields:
+              - { label: "Main Title", name: "title", widget: "string" }
+              - label: "Hero"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - label: "Categories"
+                    name: "cat"
+                    widget: "object"
+                    fields:
+                      - { label: "Therapy", name: "therapy", widget: "string" }
+                      - { label: "Herbs", name: "herbs", widget: "string" }
+                      - { label: "Care", name: "care", widget: "string" }
+              - label: "Featured"
+                name: "featured"
+                widget: "object"
+                fields:
+                  - { label: "Section Title", name: "title", widget: "string" }
+
+      - label: "🌐 Global Site Config"
+        name: "global_common"
+        file: "src/i18n/locales/vi/common.json"
+        fields:
+          - label: "Navigation Menu"
+            name: "nav"
+            widget: "object"
+            fields:
+              - { label: "Home", name: "home", widget: "string" }
+              - { label: "About", name: "about", widget: "string" }
+              - { label: "Booking", name: "booking", widget: "string" }
+              - { label: "Blog", name: "blog", widget: "string" }
+          - label: "Footer Info"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Brand Slogan", name: "brand_slogan", widget: "string" }
+              - { label: "Copyright", name: "copyright", widget: "text" }
+          - label: "Error Page (404)"
+            name: "404"
+            widget: "object"
+            fields:
+              - { label: "Page Title", name: "title", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
 
   - label: "🇺🇸 Website Pages (English)"
     name: "pages_en"
     files:
-      - label: "Home Page"
-        name: "home"
+      - label: "🏠 Home Page"
+        name: "home_page"
         file: "src/i18n/locales/en/home.json"
         fields:
           - label: "Hero Section"
@@ -205,43 +285,31 @@ collections:
               - { label: "Description", name: "desc", widget: "text" }
               - { label: "Background Image", name: "bg_image", widget: "image" }
 
-      - label: "About Page"
-        name: "about"
+      - label: "📝 About Page"
+        name: "about_page"
         file: "src/i18n/locales/en/about.json"
         fields:
-          - label: "Hero"
-            name: "hero"
+          - label: "About Wrapper"
+            name: "about"
             widget: "object"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subtitle", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-
-      - label: "Ingredients Page"
-        name: "ingredients"
-        file: "src/i18n/locales/en/ingredients.json"
+              - label: "Hero"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "text" }
+      - label: " Bento (Therapies List)"
+        name: "bento"
+        file: "src/i18n/locales/en/home.json"
         fields:
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - { label: "Label", name: "label", widget: "string" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-
-      - label: "Therapies Page"
-        name: "therapies"
-        file: "src/i18n/locales/en/therapies.json"
-        fields:
-          - label: "Hero"
-            name: "hero"
+          - label: "Content"
+            name: "bento"
             widget: "object"
             fields:
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subtitle", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
 
-  - label: "📰 Blog Posts"
+  - label: "📰 Blog Posts Content"
     name: "blog"
     folder: "src/content/blog"
     i18n: true
