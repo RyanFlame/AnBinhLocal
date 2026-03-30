@@ -107,8 +107,17 @@ collections:
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Explore Button", name: "btn_explore", widget: "string" }
-              - { label: "Labels", name: "card", widget: "object" }
               - { label: "Main Image", name: "image", widget: "image" }
+              - label: "Therapy Names"
+                name: "card"
+                widget: "object"
+                fields:
+                  - { label: "Acupuncture", name: "acupuncture", widget: "string" }
+                  - { label: "Medicines", name: "medicines", widget: "string" }
+                  - { label: "Diagnosis", name: "diagnosis", widget: "string" }
+                  - { label: "Nutrition", name: "nutrition", widget: "string" }
+                  - { label: "Acupressure", name: "acupressure", widget: "string" }
+                  - { label: "Physical Therapy", name: "physical_therapy", widget: "string" }
 
           - label: "FAQ Section"
             name: "faq"
@@ -155,7 +164,7 @@ collections:
         name: "about_page"
         file: "src/i18n/locales/vi/about.json"
         fields:
-          - label: "About Content Wrapper"
+          - label: "About Page Content"
             name: "about"
             widget: "object"
             fields:
@@ -174,11 +183,72 @@ collections:
                   - { label: "Small Label", name: "label", widget: "string" }
                   - { label: "Headline", name: "title", widget: "string" }
                   - { label: "Body Copy", name: "desc", widget: "text" }
-              - label: "CTA Section"
+                  - { label: "Link", name: "link", widget: "string" }
+                  - { label: "Left Image", name: "img_left", widget: "image" }
+                  - { label: "Right Image", name: "img_right", widget: "image" }
+
+              - label: "Detailed Info (Tabs)"
+                name: "tabs"
+                widget: "object"
+                fields:
+                  - label: "Why Choose Us"
+                    name: "why"
+                    widget: "object"
+                    fields:
+                      - { label: "Pill Title", name: "pill", widget: "string" }
+                      - { label: "Main Title", name: "title", widget: "string" }
+                      - label: "Feature 1"
+                        name: "f1"
+                        widget: "object"
+                        fields:
+                          - { label: "Title", name: "title", widget: "string" }
+                          - { label: "Desc", name: "desc", widget: "text" }
+                      - label: "Feature 2"
+                        name: "f2"
+                        widget: "object"
+                        fields:
+                          - { label: "Title", name: "title", widget: "string" }
+                          - { label: "Desc", name: "desc", widget: "text" }
+
+                  - label: "Our Journey"
+                    name: "journey"
+                    widget: "object"
+                    fields:
+                      - { label: "Pill Title", name: "pill", widget: "string" }
+                      - { label: "Headline", name: "title", widget: "string" }
+                      - { label: "Body", name: "desc", widget: "text" }
+
+              - label: "Services Provided"
+                name: "services"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "text" }
+                  - label: "Service Panes"
+                    name: "panel"
+                    widget: "object"
+                    fields:
+                      - label: "Private Care"
+                        name: "private"
+                        widget: "object"
+                        fields:
+                          - { label: "Headline", name: "title", widget: "string" }
+                          - { label: "Body", name: "desc", widget: "text" }
+                          - { label: "Image", name: "image", widget: "image" }
+                      - label: "Herbal Remedies"
+                        name: "herbal"
+                        widget: "object"
+                        fields:
+                          - { label: "Title", name: "title", widget: "string" }
+                          - { label: "Body", name: "desc", widget: "text" }
+                          - { label: "Highlight", name: "highlight", widget: "string" }
+
+              - label: "Bottom CTA"
                 name: "cta"
                 widget: "object"
                 fields:
-                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Headline", name: "title", widget: "string" }
                   - { label: "Description", name: "desc", widget: "text" }
                   - { label: "Button", name: "btn", widget: "string" }
 
@@ -186,7 +256,7 @@ collections:
         name: "ingredients_page"
         file: "src/i18n/locales/vi/ingredients.json"
         fields:
-          - label: "Ingredients Content Wrapper"
+          - label: "Ingredients Page Content"
             name: "ingredients"
             widget: "object"
             fields:
@@ -199,57 +269,102 @@ collections:
                   - { label: "Description", name: "desc", widget: "text" }
                   - { label: "Button", name: "btn", widget: "string" }
                   - { label: "Background", name: "bg", widget: "image" }
-              - label: "Intro Section"
+                  - label: "Corner Stats"
+                    name: "corner"
+                    widget: "object"
+                    fields:
+                      - { label: "Pill Label", name: "label", widget: "string" }
+                      - label: "Stat 1"
+                        name: "stat1"
+                        widget: "object"
+                        fields:
+                          - { label: "Number", name: "num", widget: "string" }
+                          - { label: "Label", name: "label", widget: "string" }
+                      - label: "Stat 2"
+                        name: "stat2"
+                        widget: "object"
+                        fields:
+                          - { label: "Number", name: "num", widget: "string" }
+                          - { label: "Label", name: "label", widget: "string" }
+
+              - label: "Our Difference"
                 name: "why"
                 widget: "object"
                 fields:
-                  - { label: "Label", name: "label", widget: "string" }
                   - { label: "Headline", name: "title", widget: "string" }
                   - { label: "Text", name: "desc", widget: "text" }
+
+              - label: "Deeper Description (Editorial)"
+                name: "editorial"
+                widget: "object"
+                fields:
+                  - { label: "Heading 1", name: "label1", widget: "string" }
+                  - { label: "Major Statement", name: "statement", widget: "text" }
+                  - { label: "Section 1 Body", name: "body1", widget: "text" }
+                  - { label: "Section 2 Body", name: "body2", widget: "text" }
+                  - { label: "Quote", name: "quote", widget: "text" }
+                  - { label: "Button", name: "link", widget: "string" }
+
+              - label: "Bottom Page Info"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Button", name: "btn", widget: "string" }
 
       - label: "🕯️ Therapies Page"
         name: "therapies_page"
         file: "src/i18n/locales/vi/therapies.json"
         fields:
-          - label: "Therapies Content Wrapper"
+          - label: "Therapies Page Content"
             name: "therapies"
             widget: "object"
             fields:
-              - { label: "Tab Bar Title", name: "title", widget: "string" }
-              - { label: "Page Main Title", name: "page_title", widget: "string" }
+              - { label: "Tab Label", name: "title", widget: "string" }
+              - { label: "Headline Title", name: "page_title", widget: "string" }
               - { label: "Description", name: "desc", widget: "text" }
 
-      - label: "📢 Blog Index Page"
+      - label: "📢 Blog Overview Layout"
         name: "blog_index_page"
         file: "src/i18n/locales/vi/blog.json"
         fields:
-          - label: "Blog Content Wrapper"
+          - label: "Blog Main Config"
             name: "blog"
             widget: "object"
             fields:
-              - { label: "Main Title", name: "title", widget: "string" }
-              - label: "Hero"
+              - { label: "Hero Title", name: "title", widget: "string" }
+              - label: "Hero Slider Titles"
                 name: "hero"
                 widget: "object"
                 fields:
-                  - label: "Categories"
+                  - label: "Category Labels"
                     name: "cat"
                     widget: "object"
                     fields:
                       - { label: "Therapy", name: "therapy", widget: "string" }
                       - { label: "Herbs", name: "herbs", widget: "string" }
-                      - { label: "Care", name: "care", widget: "string" }
-              - label: "Featured"
-                name: "featured"
+                  - label: "Slide 1"
+                    name: "slide1"
+                    widget: "object"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+                  - label: "Slide 2"
+                    name: "slide2"
+                    widget: "object"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+
+              - label: "Sections"
+                name: "latest"
                 widget: "object"
                 fields:
-                  - { label: "Section Title", name: "title", widget: "string" }
+                  - { label: "Latest title", name: "title", widget: "string" }
 
       - label: "🌐 Global Site Config"
         name: "global_common"
         file: "src/i18n/locales/vi/common.json"
         fields:
-          - label: "Navigation Menu"
+          - label: "Navigation"
             name: "nav"
             widget: "object"
             fields:
@@ -257,18 +372,15 @@ collections:
               - { label: "About", name: "about", widget: "string" }
               - { label: "Booking", name: "booking", widget: "string" }
               - { label: "Blog", name: "blog", widget: "string" }
-          - label: "Footer Info"
+          - label: "Footer"
             name: "footer"
             widget: "object"
             fields:
               - { label: "Brand Slogan", name: "brand_slogan", widget: "string" }
               - { label: "Copyright", name: "copyright", widget: "text" }
-          - label: "Error Page (404)"
-            name: "404"
-            widget: "object"
-            fields:
-              - { label: "Page Title", name: "title", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Hours Title", name: "hours_title", widget: "string"
+              - label: "Opening Hours (Mon-Fri)", name: "hours", widget: "object", fields:
+                  - { label: "Time", name: "mon_fri", widget: "string" }
 
   - label: "🇺🇸 Website Pages (English)"
     name: "pages_en"
@@ -277,39 +389,15 @@ collections:
         name: "home_page"
         file: "src/i18n/locales/en/home.json"
         fields:
-          - label: "Hero Section"
+          - label: "Hero"
             name: "hero"
             widget: "object"
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "desc", widget: "text" }
-              - { label: "Background Image", name: "bg_image", widget: "image" }
+              - { label: "Background", name: "bg_image", widget: "image" }
 
-      - label: "📝 About Page"
-        name: "about_page"
-        file: "src/i18n/locales/en/about.json"
-        fields:
-          - label: "About Wrapper"
-            name: "about"
-            widget: "object"
-            fields:
-              - label: "Hero"
-                name: "hero"
-                widget: "object"
-                fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Description", name: "desc", widget: "text" }
-      - label: " Bento (Therapies List)"
-        name: "bento"
-        file: "src/i18n/locales/en/home.json"
-        fields:
-          - label: "Content"
-            name: "bento"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-
-  - label: "📰 Blog Posts Content"
+  - label: "📰 Blog Articles"
     name: "blog"
     folder: "src/content/blog"
     i18n: true
@@ -320,7 +408,5 @@ collections:
       - { label: "Hero Image", name: "heroImage", widget: "image", i18n: false }
       - { label: "Description", name: "description", widget: "string", i18n: true }
       - { label: "Publication Date", name: "pubDate", widget: "datetime", i18n: false }
-      - { label: "Updated Date", name: "updatedDate", widget: "datetime", required: false, i18n: false }
       - { label: "Category", name: "category", widget: "select", options: ["Sống Khỏe", "Trị Liệu", "Thảo Dược", "Dinh Dưỡng"], i18n: false }
-      - { label: "Tags", name: "tags", widget: "list", i18n: false }
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
