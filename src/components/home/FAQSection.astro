@@ -200,21 +200,21 @@ const t = useTranslations(locale);
 }
 </style>
 
-<script is:inline>
+<script>
   document.addEventListener("DOMContentLoaded", () => {
     const faqQuestions = document.querySelectorAll('.faq-question');
 
     faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
-            const item = question.parentElement;
-            const answer = item.querySelector('.faq-answer');
+            const item = question.parentElement as HTMLElement;
+            const answer = item.querySelector('.faq-answer') as HTMLElement;
             const isActive = item.classList.contains('active');
 
             // Close all other FAQs
             document.querySelectorAll('.faq-item').forEach(otherItem => {
-                const otherAnswer = otherItem.querySelector('.faq-answer');
+                const otherAnswer = otherItem.querySelector('.faq-answer') as HTMLElement;
                 otherItem.classList.remove('active');
-                if(otherAnswer) otherAnswer.style.maxHeight = null;
+                if(otherAnswer) otherAnswer.style.maxHeight = '0px';
             });
 
             // If it wasn't active before, open it

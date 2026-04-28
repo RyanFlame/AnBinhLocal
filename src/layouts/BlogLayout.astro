@@ -21,6 +21,8 @@ const locale = getLocaleFromPath(Astro.url.pathname);
 <html lang={locale} class="scroll-smooth">
   <head>
     <SEO title={title} description={description} image={image} locale={locale} />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" is:inline></script>
+
 
     <!-- Google Tag Manager -->
     <script type="text/partytown">
@@ -84,14 +86,6 @@ const locale = getLocaleFromPath(Astro.url.pathname);
     
     <BookingModal />
 
-    <script
-      is:inline
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-    ></script>
-    <script
-      is:inline
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
-    ></script>
-    <script is:inline src="/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" is:inline></script>
   </body>
 </html>

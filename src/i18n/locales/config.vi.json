@@ -208,7 +208,8 @@
     "msg_error": "Đã có lỗi xảy ra.",
     "placeholder": {
       "date": "dd/mm/yyyy"
-    }
+    },
+    "captcha_hint": "Xác minh bảo mật bởi Cloudflare"
   },
   "about": {
     "hero": {

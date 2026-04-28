@@ -17,6 +17,7 @@ const ingredientsHref = locale === "en" ? "/en/ingredients" : "/ingredients";
 const therapiesHref = locale === "en" ? "/en/about#services" : "/about#services";
 const logoAsset = getImageByPath("Logo/Logo-NBG.png");
 const bookingAsset = getImageByPath("Thuốc 1E.webp");
+const privacyHref = locale === "en" ? "/en/privacy" : "/privacy";
 ---
 
 <footer class="bg-ebony-black text-cream-rice pt-2xl pb-0 font-sans relative border-t-[5px] border-brass-gold">
@@ -108,7 +109,8 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
   </div>
 
   <div class="bg-off-black py-md px-lg text-center border-t border-white/5 max-w-none">
-    <div class="text-[0.85rem] text-[#888]" set:html={t("footer.copyright")} />
+    <div class="mb-4 text-[0.85rem] text-[#888]" set:html={t("footer.copyright")} />
+    <a href={privacyHref} class="text-[0.8rem] text-subtle-grey hover:text-brass-gold transition-colors">{t("footer.link.privacy")}</a>
   </div>
 </footer>
 </footer>

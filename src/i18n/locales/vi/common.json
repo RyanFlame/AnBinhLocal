@@ -22,7 +22,8 @@
       "philosophy": "Triết Lý",
       "remedies": "Bài Thuốc",
       "services": "Chúng tôi cung cấp gì?",
-      "visit": "Địa Chỉ"
+      "visit": "Địa Chỉ",
+      "privacy": "Chính Sách Bảo Mật"
     },
     "contact_title": "Liên Hệ",
     "address_label": "Địa Chỉ Cũ:",
@@ -39,5 +40,22 @@
       "sun": "Đóng cửa"
     },
     "copyright": "© 2026 An Bình. <br class='mobile-only'>Bản Quyền Đã Được Bảo Lưu."
+  },
+  "privacy": {
+    "title": "Chính Sách Bảo Mật",
+    "last_updated": "Cập nhật lần cuối: Tháng 3, 2026",
+    "intro": "Tại Phòng Khám Y Học Cổ Truyền An Bình, chúng tôi coi trọng sự riêng tư của bạn. Chính sách này tóm tắt cách chúng tôi thu thập và sử dụng thông tin từ bạn.",
+    "col1": {
+      "title": "1. Thu Thập Dữ Liệu",
+      "text": "Chúng tôi chỉ thu thập thông tin bạn tự nguyện cung cấp qua biểu mẫu Đặt Lịch (Họ tên, SĐT, Ngày sinh). Thông tin này chỉ được dùng để xác nhận và sắp xếp cuộc hẹn của bạn tại phòng khám."
+    },
+    "col2": {
+      "title": "2. Bảo Mật Thông Tin",
+      "text": "Thông tin của bạn được truyền đi một cách an toàn và không bao giờ được chia sẻ với bên thứ ba cho mục đích thương mại. Chúng tôi sử dụng các dịch vụ uy tín (Netlify, Cloudflare) để đảm bảo dữ liệu luôn được bảo vệ."
+    },
+    "col3": {
+      "title": "3. Phân Tích & Cookies",
+      "text": "Chúng tôi sử dụng Google Analytics để theo dõi hành vi truy cập trang web một cách ẩn danh nhằm cải thiện trải nghiệm người dùng. Bạn có thể tắt cookie trong trình duyệt bất cứ lúc nào."
+    }
   }
 }

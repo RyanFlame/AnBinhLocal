@@ -13,7 +13,8 @@
       "time_placeholder": "Select slot",
       "submit": "Book Now"
     },
-    "bg_image": "Backgrounds/Hero-Desktop.png"
+    "bg_image": "Backgrounds/Hero-Desktop.png",
+    "bg_image_mobile": "Backgrounds/Hero-Mobile3.png"
   },
   "location": {
     "step1": {
@@ -171,6 +172,7 @@
     "msg_error": "An error occurred.",
     "placeholder": {
       "date": "mm/dd/yyyy"
-    }
+    },
+    "captcha_hint": "Security verification powered by Cloudflare"
   }
 }

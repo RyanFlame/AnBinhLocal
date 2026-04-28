@@ -39,7 +39,7 @@ const carouselData = [
 ];
 ---
 
-<section class="location-section" id="location" data-header-theme="dark">
+<section class="location-section" id="location" data-header-theme="dark" data-carousel={JSON.stringify(carouselData)}>
   <div class="location-container">
     <!-- Background Image -->
     <img
@@ -422,15 +422,19 @@ const carouselData = [
   }
 </style>
 
-<script is:inline define:vars={{ carouselData }}>
+<script>
+  declare const gsap: any;
   document.addEventListener("DOMContentLoaded", () => {
-    const locBg = document.getElementById('locationBg');
-    const locSub = document.getElementById('locationSub');
-    const locHeading = document.getElementById('locationHeading');
-    const locBtn = document.getElementById('locationBtn');
+    const section = document.getElementById('location');
+    if (!section) return;
+    const carouselData = JSON.parse(section.dataset.carousel || '[]');
+    const locBg = document.getElementById('locationBg') as HTMLImageElement;
+    const locSub = document.getElementById('locationSub') as HTMLElement;
+    const locHeading = document.getElementById('locationHeading') as HTMLElement;
+    const locBtn = document.getElementById('locationBtn') as HTMLAnchorElement;
     const stepIndicators = document.querySelectorAll('.step-indicator');
     const progressBars = document.querySelectorAll('.step-progress');
-    const playBtnEl = document.querySelector('.play-btn');
+    const playBtnEl = document.querySelector('.play-btn') as HTMLElement;
 
     let currentLocIndex = 0;
     let autoPlayTimer;

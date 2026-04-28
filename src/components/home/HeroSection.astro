@@ -6,14 +6,21 @@ const { locale = "vi" } = Astro.props;
 const t = useTranslations(locale);
 
 // Hero assets
-const heroBg = getImageByPath(t("hero.bg_image")) || { src: "/Backgrounds/Hero-Desktop.png" };
+const heroBg = getImageByPath(t("hero.bg_image")) || {
+  src: "/Backgrounds/Hero-Desktop.png",
+};
+const heroBgMobile = getImageByPath(t("hero.bg_image_mobile")) || {
+  src: "/Backgrounds/Hero-Mobile3.png",
+};
+
 const bgUrl = heroBg.src;
+const bgMobileUrl = heroBgMobile.src;
 ---
 
-<header 
-  class="hero-section hero-redesign" 
-  data-header-theme="dark" 
-  style={`--hero-bg: url('${bgUrl}')`}
+<header
+  class="hero-section hero-redesign"
+  data-header-theme="dark"
+  style={`--hero-bg: url('${bgUrl}'); --hero-bg-mobile: url('${bgMobileUrl}')`}
 >
   <div class="hero-layout-container">
     <!-- Left Side: Text Content -->
@@ -48,7 +55,9 @@ const bgUrl = heroBg.src;
         style="cursor: pointer;"
       >
         <span class="segment-label">{t("hero.booking.treatment")}</span>
-        <span class="segment-value">{t("hero.booking.treatment_placeholder")}</span>
+        <span class="segment-value"
+          >{t("hero.booking.treatment_placeholder")}</span
+        >
       </div>
       <div class="segment-divider div-1"></div>
       <div
@@ -428,10 +437,10 @@ const bgUrl = heroBg.src;
 
   @media screen and (max-width: 900px) {
     .hero-section {
-      /* On mobile, we still use the background-image variable but allow specialized positioning */
-      background-image: var(--hero-bg);
+      /* On mobile, we use the specialized mobile background variable */
+      background-image: var(--hero-bg-mobile);
       background-size: cover;
-      background-position: top center;
+      background-position: center bottom;
       background-attachment: scroll;
       justify-content: space-between;
       padding-top: 12vh;
@@ -451,7 +460,7 @@ const bgUrl = heroBg.src;
     }
 
     .hero-title {
-      font-size: 3rem;
+      font-size: 3.3rem !important;
     }
 
     .hero-right-col {
@@ -539,35 +548,38 @@ const bgUrl = heroBg.src;
   }
 </style>
 
-<script is:inline>
+<script>
   (() => {
-    const hero = document.querySelector('.hero-section');
+    const hero = document.querySelector(".hero-section") as HTMLElement;
     if (!hero) return;
 
-    let blurFrame = null;
+    let blurFrame: number | null = null;
     let lastBlur = -1;
 
     function updateBlur() {
-        const rect = hero.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const progress = Math.min(Math.max((windowHeight - rect.bottom) / windowHeight, 0), 1);
-        const blur = progress * progress * 12;
+      const rect = hero.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const progress = Math.min(
+        Math.max((windowHeight - rect.bottom) / windowHeight, 0),
+        1,
+      );
+      const blur = progress * progress * 12;
 
-        if (Math.abs(blur - lastBlur) < 0.1) return;
-        lastBlur = blur;
-        hero.style.setProperty('--hero-blur', `${blur}px`);
+      if (Math.abs(blur - lastBlur) < 0.1) return;
+      lastBlur = blur;
+      hero.style.setProperty("--hero-blur", `${blur}px`);
+      blurFrame = null;
     }
 
     function requestBlurUpdate() {
-        if (blurFrame !== null) return;
-        blurFrame = window.requestAnimationFrame(() => {
-            blurFrame = null;
-            updateBlur();
-        });
+      if (blurFrame !== null) return;
+      blurFrame = requestAnimationFrame(updateBlur);
     }
 
-    window.addEventListener('scroll', requestBlurUpdate, { passive: true });
-    window.addEventListener('resize', requestBlurUpdate);
+    if (window.innerWidth > 768) {
+      window.addEventListener("scroll", requestBlurUpdate, { passive: true });
+    }
+    window.addEventListener("resize", requestBlurUpdate);
     requestBlurUpdate();
   })();
 </script>

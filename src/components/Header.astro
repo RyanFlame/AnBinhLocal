@@ -179,7 +179,8 @@ const currentLangLabel = locale === "en" ? "EN" : "VN";
   </div>
 </div>
 
-<script is:inline>
+<script>
+  declare const gsap: any;
   document.addEventListener("DOMContentLoaded", function() {
     // =========================================
     // 1. Desktop Scroll Effect Logic
@@ -188,7 +189,7 @@ const currentLangLabel = locale === "en" ? "EN" : "VN";
     if (!navbar) return;
 
     let navbarState = "top";
-    let navbarFrame = null;
+    let navbarFrame: number | null = null;
 
     function handleScroll() {
         const isScrolled = window.scrollY > 50;
@@ -298,8 +299,9 @@ const currentLangLabel = locale === "en" ? "EN" : "VN";
             options.classList.toggle('show');
         });
 
-        selected.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
+        selected.addEventListener('keydown', (e: Event) => {
+            const keyEvent = e as KeyboardEvent;
+            if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
                 e.preventDefault();
                 dropdown.classList.toggle('open');
                 options.classList.toggle('show');

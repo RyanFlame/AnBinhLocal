@@ -1,11 +1,13 @@
 ---
+import { slugify } from "../../../../utils/slugify";
+
 export async function getStaticPaths() {
   const { getCollection } = await import("astro:content");
   const posts = await getCollection("blog");
   const viPosts = posts.filter(p => p.data.lang === 'vi');
   const cats = [...new Set(viPosts.map(p => p.data.category))];
-  return cats.map(category => ({ params: { category } }));
+  return cats.map(category => ({ params: { category: slugify(category) } }));
 }
 const { category } = Astro.params;
-return Astro.redirect(`/blog/category/${category}`, 301);
+return Astro.redirect(`/blog/category/${encodeURI(category || '')}`, 301);
 ---

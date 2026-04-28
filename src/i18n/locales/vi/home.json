@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "Phục hồi<br />cân bằng tự nhiên.",
-    "desc": "Khám phá sức mạnh từ những bà thuốc thảo dược dân gian thân quen, giúp cơ thể bạn phục hồi sự cân bằng tự nhiên.",
+    "desc": "Khám phá sức mạnh từ những bài thuốc thảo dược dân gian thân quen, giúp cơ thể bạn phục hồi sự cân bằng tự nhiên.",
     "booking": {
       "treatment": "Trị Liệu",
       "treatment_placeholder": "Chọn liệu pháp",
@@ -13,7 +13,8 @@
       "time_placeholder": "Chọn khung giờ",
       "submit": "Đặt Lịch"
     },
-    "bg_image": "Backgrounds/Hero-Desktop.png"
+    "bg_image": "Backgrounds/Hero-Desktop.png",
+    "bg_image_mobile": "Backgrounds/Hero-Mobile3.PNG"
   },
   "location": {
     "step1": {
@@ -171,6 +172,7 @@
     "msg_error": "Đã có lỗi xảy ra.",
     "placeholder": {
       "date": "dd/mm/yyyy"
-    }
+    },
+    "captcha_hint": "Xác minh bảo mật bởi Cloudflare"
   }
 }

@@ -381,12 +381,12 @@ const fmtShort = (date: Date) => new Intl.DateTimeFormat('vi-VN', { month: 'shor
   }
 </style>
 
-<script is:inline>
+<script>
   (function () {
-    const track = document.getElementById("hsTrack");
-    const thumbTrack = document.getElementById("hsThumbTrack");
-    const dots = Array.from(document.querySelectorAll(".hs-dot"));
-    const thumbs = Array.from(document.querySelectorAll(".hs-thumb"));
+    const track = document.getElementById("hsTrack") as HTMLElement;
+    const thumbTrack = document.getElementById("hsThumbTrack") as HTMLElement;
+    const dots = Array.from(document.querySelectorAll(".hs-dot")) as HTMLElement[];
+    const thumbs = Array.from(document.querySelectorAll(".hs-thumb")) as HTMLElement[];
     const prevBtn = document.getElementById("hsPrev");
     const nextBtn = document.getElementById("hsNext");
 
@@ -403,7 +403,7 @@ const fmtShort = (date: Date) => new Intl.DateTimeFormat('vi-VN', { month: 'shor
       return 4;
     }
 
-    function goToSlide(rawIndex) {
+    function goToSlide(rawIndex: number) {
       let index = rawIndex;
       if (index < 0) index = TOTAL - 1;
       if (index >= TOTAL) index = 0;
@@ -415,35 +415,39 @@ const fmtShort = (date: Date) => new Intl.DateTimeFormat('vi-VN', { month: 'shor
 
       // Centering/Shifting thumb track
       const visible = getThumbsVisible();
-      const maxOffset = TOTAL - visible;
-      
-      // Fix: Reset thumbOffset when wrapping around
-      if (rawIndex >= TOTAL) thumbOffset = 0;
-      else if (rawIndex < 0) thumbOffset = maxOffset;
-      else {
-        if (current >= thumbOffset + visible - 1 && thumbOffset < maxOffset) {
-          thumbOffset = Math.min(thumbOffset + 1, maxOffset);
-        } else if (current <= thumbOffset && thumbOffset > 0) {
-          thumbOffset = Math.max(thumbOffset - 1, 0);
+      if (TOTAL > visible) {
+        if (current >= thumbOffset + visible) {
+          thumbOffset = Math.min(TOTAL - visible, current);
+        } else if (current < thumbOffset) {
+          thumbOffset = Math.max(0, current);
+        }
+        if (thumbTrack) {
+          const shift = (thumbOffset / TOTAL) * 100;
+          thumbTrack.style.transform = `translateX(-${shift}%)`;
         }
       }
-
-      const thumbPct = (thumbOffset / visible) * 100;
-      if(thumbTrack) thumbTrack.style.transform = `translateX(-${thumbPct}%)`;
     }
 
     if (prevBtn) prevBtn.addEventListener("click", () => goToSlide(current - 1));
     if (nextBtn) nextBtn.addEventListener("click", () => goToSlide(current + 1));
-    dots.forEach((d, i) => d.addEventListener("click", () => goToSlide(i)));
-    thumbs.forEach((t) => t.addEventListener("click", () => goToSlide(parseInt(t.getAttribute("data-index"), 10))));
 
-    let autoTimer = setInterval(() => goToSlide(current + 1), 7000);
-    const section = document.querySelector(".hs-section");
-    if (section) {
-      section.addEventListener("mouseenter", () => clearInterval(autoTimer));
-      section.addEventListener("mouseleave", () => {
-        clearInterval(autoTimer);
-        autoTimer = setInterval(() => goToSlide(current + 1), 7000);
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => goToSlide(index));
+    });
+
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener("click", () => goToSlide(index));
+    });
+
+    // Auto-advance
+    let auto = setInterval(() => goToSlide(current + 1), 6000);
+
+    const container = document.querySelector(".hs-viewport");
+    if (container) {
+      container.addEventListener("mouseenter", () => clearInterval(auto));
+      container.addEventListener("mouseleave", () => {
+        clearInterval(auto);
+        auto = setInterval(() => goToSlide(current + 1), 6000);
       });
     }
     goToSlide(0);

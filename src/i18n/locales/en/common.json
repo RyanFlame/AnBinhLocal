@@ -22,7 +22,8 @@
       "philosophy": "Philosophy",
       "remedies": "Remedies",
       "services": "Services",
-      "visit": "Visit Us"
+      "visit": "Visit Us",
+      "privacy": "Privacy Policy"
     },
     "contact_title": "Contact Us",
     "address_label": "Old Address:",
@@ -39,5 +40,22 @@
       "sun": "Closed"
     },
     "copyright": "© 2026 An Binh Traditional Clinic. <br class='mobile-only'>All Rights Reserved."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "last_updated": "Last updated: March 2026",
+    "intro": "At An Binh Traditional Medicine Clinic, we value your privacy. This policy summarizes how we collect and use your information.",
+    "col1": {
+      "title": "1. Data Collection",
+      "text": "We only collect information you voluntarily provide via the Booking form (Name, Phone, DOB). This information is solely used to confirm and schedule your appointments."
+    },
+    "col2": {
+      "title": "2. Data Security",
+      "text": "Your information is transmitted securely and never shared with third parties for commercial purposes. We use trusted services (Netlify, Cloudflare) to keep your data safe."
+    },
+    "col3": {
+      "title": "3. Analytics & Cookies",
+      "text": "We use Google Analytics anonymously to track website performance and improve user experience. You can disable cookies in your browser at any time."
+    }
   }
 }

@@ -154,26 +154,13 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
               </label>
             </div>
 
-            <div class="recaptcha-box">
-              <label class="checkbox-label">
-                <input type="checkbox" id="b_robot" />
-                <div class="recaptcha-inner">
-                  <div class="recaptcha-check"></div>
-                  <span class="recaptcha-text">I'm not a robot</span>
-                  <Image
-                    src="https://upload.wikimedia.org/wikipedia/commons/a/ad/RecaptchaLogo.svg"
-                    alt="reCAPTCHA"
-                    class="recaptcha-logo"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-              </label>
+            <div class="turnstile-box">
+              <!-- Cloudflare Turnstile placeholder -->
             </div>
 
             <div class="terms-text text-text-brown/70 mt-5 leading-relaxed text-[0.75rem]">
               <span>{t("booking.terms_prefix")}</span>
-              <a href="#" class="text-primary-green underline font-semibold">
+              <a href={locale === "en" ? "/en/privacy" : "/privacy"} class="text-primary-green underline font-semibold">
                 {t("booking.terms_link")}
               </a>.
             </div>
@@ -470,39 +457,10 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
     border-radius: 50%;
   }
 
-  .recaptcha-box {
-    margin-top: 15px;
-    background: #ffffff;
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    padding: 10px 15px;
-    display: inline-block;
+  .turnstile-box {
+    margin-top: 20px;
     width: 100%;
-    max-width: 280px;
-  }
-  .recaptcha-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .checkbox-label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    width: 100%;
-  }
-  .checkbox-label input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    margin-right: 12px;
-  }
-  .recaptcha-text {
-    font-size: 0.9rem;
-    color: #333;
-    flex: 1;
-  }
-  .recaptcha-logo {
-    width: 30px;
+    min-height: 20px;
   }
 
   /* Modal Mobile Adjustments */
@@ -534,13 +492,13 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
   }
 </style>
 
-<script is:inline>
+<script>
   document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("bookingModal");
-    const closeBtn = document.getElementById("closeBookingModal");
-    const bookingForm = document.getElementById("bookingForm");
-    const submitBtn = document.getElementById("submitBookingBtn");
-    const formResult = document.getElementById("formResult");
+    const modal = document.getElementById("bookingModal") as HTMLElement;
+    const closeBtn = document.getElementById("closeBookingModal") as HTMLElement;
+    const bookingForm = document.getElementById("bookingForm") as HTMLFormElement;
+    const submitBtn = document.getElementById("submitBookingBtn") as HTMLButtonElement;
+    const formResult = document.getElementById("formResult") as HTMLElement;
 
     // All Book Now buttons and links should open this
     const bookButtons = document.querySelectorAll(
@@ -588,7 +546,7 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
         submitBtn.innerText = msgSending;
         submitBtn.disabled = true;
 
-        const formData = new FormData(bookingForm);
+        const formData = new FormData(bookingForm as HTMLFormElement);
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
 
@@ -642,7 +600,7 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
     }
 
     // Get max days for a given month (1-12) and year
-    function getMaxDay(month, year) {
+    function getMaxDay(month: string | null, year: string | null) {
       if (!month) return 31;
       const m = parseInt(month);
       if ([4, 6, 9, 11].includes(m)) return 30;
@@ -654,7 +612,7 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
     }
 
     // Clamp a numeric string to a max value, preserving leading zero
-    function clampField(val, max) {
+    function clampField(val: string, max: number) {
       let n = parseInt(val);
       if (isNaN(n)) return val;
       if (n > max) n = max;
@@ -663,11 +621,11 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
     }
 
     // Format handler for date text inputs
-    function setupDateInput(inputId) {
-      const input = document.getElementById(inputId);
+    function setupDateInput(inputId: string) {
+      const input = document.getElementById(inputId) as HTMLInputElement;
       if (!input) return;
 
-      input.addEventListener("input", function (e) {
+      input.addEventListener("input", function (this: HTMLInputElement, e) {
         const lang = getLang();
         let raw = this.value.replace(/[^\d]/g, "");
         if (raw.length > 8) raw = raw.substring(0, 8);
@@ -736,11 +694,11 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
 
         // Reconstruct value with slashes
         if (raw.length >= 5) {
-          this.value = part1 + "/" + part2 + "/" + part3;
+          (this as HTMLInputElement).value = part1 + "/" + part2 + "/" + part3;
         } else if (raw.length >= 3) {
-          this.value = part1 + "/" + part2;
+          (this as HTMLInputElement).value = part1 + "/" + part2;
         } else {
-          this.value = part1;
+          (this as HTMLInputElement).value = part1;
         }
       });
     }
@@ -758,9 +716,9 @@ const bookingAsset = getImageByPath("Thuốc 1E.webp");
       const mm = String(today.getMonth() + 1).padStart(2, "0");
       const yyyy = today.getFullYear();
       if (lang === "vi") {
-        input.value = dd + "/" + mm + "/" + yyyy;
+        (input as HTMLInputElement).value = dd + "/" + mm + "/" + yyyy;
       } else {
-        input.value = mm + "/" + dd + "/" + yyyy;
+        (input as HTMLInputElement).value = mm + "/" + dd + "/" + yyyy;
       }
     }
 

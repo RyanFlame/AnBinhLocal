@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { useTranslations } from "../i18n/utils";
+import { type Locale } from "../i18n/config";
+
+const locale = (Astro.currentLocale || "vi") as Locale;
+const t = useTranslations(locale);
+---
+
+<Layout title={`${t("privacy.title")} - An Binh`}>
+  <main class="pt-[150px] pb-[100px] px-lg bg-cream-rice min-h-screen">
+    <div class="max-w-[800px] mx-auto">
+      <h1 class="font-serif text-[3rem] text-mahogany-dark mb-4">{t("privacy.title")}</h1>
+      <p class="text-text-brown/60 mb-12 italic">{t("privacy.last_updated")}</p>
+      
+      <div class="prose prose-brown max-w-none">
+        <p class="text-[1.2rem] leading-relaxed text-text-brown mb-12">
+          {t("privacy.intro")}
+        </p>
+
+        <div class="grid gap-12 mt-16">
+          <section>
+            <h2 class="font-serif text-[1.8rem] text-mahogany-dark mb-4">{t("privacy.col1.title")}</h2>
+            <p class="text-text-brown/80 leading-relaxed">{t("privacy.col1.text")}</p>
+          </section>
+
+          <section>
+            <h2 class="font-serif text-[1.8rem] text-mahogany-dark mb-4">{t("privacy.col2.title")}</h2>
+            <p class="text-text-brown/80 leading-relaxed">{t("privacy.col2.text")}</p>
+          </section>
+
+          <section>
+            <h2 class="font-serif text-[1.8rem] text-mahogany-dark mb-4">{t("privacy.col3.title")}</h2>
+            <p class="text-text-brown/80 leading-relaxed">{t("privacy.col3.text")}</p>
+          </section>
+        </div>
+
+        <div class="mt-20 pt-12 border-t border-mahogany-dark/10 text-center">
+          <a href="/" class="text-primary-green font-semibold hover:underline">← {t("nav.home")}</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

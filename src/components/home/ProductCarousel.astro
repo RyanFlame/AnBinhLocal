@@ -352,7 +352,8 @@ const aboutHref = locale === "en" ? "/en/about" : "/about";
 }
 </style>
 
-<script is:inline>
+<script>
+  declare const gsap: any;
   document.addEventListener("DOMContentLoaded", () => {
     const track = document.getElementById('carouselViewport');
     const prevBtn = document.getElementById('prevBtn');
@@ -360,7 +361,7 @@ const aboutHref = locale === "en" ? "/en/about" : "/about";
 
     if (track && prevBtn && nextBtn) {
         function getScrollAmount() {
-            const card = document.querySelector('.product-card');
+            const card = document.querySelector('.product-card') as HTMLElement;
             return card ? (card.offsetWidth + 20) : 220; 
         }
 

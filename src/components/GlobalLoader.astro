@@ -96,15 +96,15 @@
   }
 </style>
 
-<script is:inline>
+<script>
   (function() {
-    let loaderTimeout;
+    let loaderTimeout: number;
     const loader = document.getElementById("globalLoader");
 
     function showLoader() {
       if (!loader) return;
       // "Only show when slow" - Wait 400ms before becoming visible
-      loaderTimeout = setTimeout(() => {
+      loaderTimeout = window.setTimeout(() => {
         loader.classList.add("active");
       }, 400);
     }
@@ -128,8 +128,9 @@
     window.addEventListener('pageshow', hideLoader); // Handle back/forward cache
 
     // 2. Click-based navigation handling
-    document.addEventListener('click', (e) => {
-      const link = e.target.closest('a');
+    document.addEventListener('click', (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a');
       if (
         link && 
         link.href && 

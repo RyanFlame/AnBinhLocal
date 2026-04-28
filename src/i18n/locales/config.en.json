@@ -208,7 +208,8 @@
     "msg_error": "An error occurred.",
     "placeholder": {
       "date": "mm/dd/yyyy"
-    }
+    },
+    "captcha_hint": "Security verification powered by Cloudflare"
   },
   "about": {
     "hero": {

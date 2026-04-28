@@ -22,6 +22,8 @@ const lang = locale;
 <html lang={lang} class="scroll-smooth">
   <head>
     <SEO title={title} description={description} image={image} locale={locale} />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" is:inline></script>
+
 
     <!-- Google Tag Manager -->
     <script type="text/partytown">
@@ -132,16 +134,15 @@ const lang = locale;
       }
     </script>
 
-    <!-- Netlify Identity Widget (Required for CMS Login) -->
     <script
-      is:inline
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script is:inline>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", (user) => {
+    <script>
+      const netlifyIdentity = (window as any).netlifyIdentity;
+      if (netlifyIdentity) {
+        netlifyIdentity.on("init", (user: any) => {
           if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
+            netlifyIdentity.on("login", () => {
+              document.location.href = "/anbinh-portal/";
             });
           }
         });
@@ -177,14 +178,6 @@ const lang = locale;
     <Footer locale={locale} />
     
     <BookingModal locale={locale} />
-
-    <!-- GSAP for Animations -->
-    <script
-      is:inline
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-    ></script>
-
-
 
   </body>
 </html>
